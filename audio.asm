@@ -457,6 +457,11 @@ INCLUDE "gfx/surfing_pikachu.asm"
 INCLUDE "audio/engine_4.asm"
 
 
+SECTION "Fade Audio", ROMX
+
+INCLUDE "audio/fade_audio.asm"
+
+
 SECTION "Music 1", ROMX
 
 Audio1_WavePointers:
