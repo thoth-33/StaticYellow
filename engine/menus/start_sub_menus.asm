@@ -335,6 +335,7 @@ StartMenu_Item::
 	ld a, [wBagSavedMenuItem]
 	ld [wCurrentMenuItem], a
 	call DisplayListMenuID
+	jp nz, .sortItems
 	ld a, [wCurrentMenuItem]
 	ld [wBagSavedMenuItem], a
 	jr nc, .choseItem
@@ -452,6 +453,9 @@ StartMenu_Item::
 	ld hl, wNumBagItems
 	call TossItem
 .tossZeroItems
+	jp ItemMenuLoop
+.sortItems
+	callfar SortItems
 	jp ItemMenuLoop
 
 CannotUseItemsHereText:
