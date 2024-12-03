@@ -238,9 +238,26 @@ OverworldLoopLessDelay::
 .moveAhead2
 	ld hl, wMiscFlags
 	res BIT_TURNING, [hl]
-	xor a
-	ld [wd435], a
+	ld a,[wWalkBikeSurfState]
+	dec a
+	jr nz,.normalPlayerSpriteAdvancement
+	ld a, [wMovementFlags]
+	bit BIT_LEDGE_OR_FISHING, a
+	jr nz,.normalPlayerSpriteAdvancement
 	call DoBikeSpeedup
+	call DoBikeSpeedup
+	call DoBikeSpeedup
+	jr .notRunning
+.normalPlayerSpriteAdvancement
+	ld a,[wWalkBikeSurfState]
+	cp a, $02
+	jr z, .surfFaster
+	ld a, [hJoyHeld]
+	and B_BUTTON
+	jr z, .notRunning
+.surfFaster
+	call DoBikeSpeedup
+.notRunning
 	call AdvancePlayerSprite
 	ld a, [wWalkCounter]
 	and a
@@ -337,23 +354,17 @@ NewBattle::
 
 ; function to make bikes twice as fast as walking
 DoBikeSpeedup::
-	ld a, [wWalkBikeSurfState]
-	dec a ; riding a bike?
-	ret nz
-	ld a, [wMovementFlags]
-	bit BIT_LEDGE_OR_FISHING, a
-	ret nz
 	ld a, [wNPCMovementScriptPointerTableNum]
 	and a
 	ret nz
 	ld a, [wCurMap]
 	cp ROUTE_17 ; Cycling Road
 	jr nz, .goFaster
-	ldh a, [hJoyHeld]
+	ld a, [hJoyHeld]
 	and D_UP | D_LEFT | D_RIGHT
 	ret nz
 .goFaster
-	call AdvancePlayerSprite
+	jp AdvancePlayerSprite
 	ret
 
 ; check if the player has stepped onto a warp after having not collided
