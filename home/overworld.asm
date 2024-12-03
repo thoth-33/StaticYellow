@@ -374,7 +374,7 @@ DoBikeSpeedup::
 	ret nz
 .goFaster
 	jp AdvancePlayerSprite
-	ret
+; ret
 
 ; check if the player has stepped onto a warp after having not collided
 CheckWarpsNoCollision::
