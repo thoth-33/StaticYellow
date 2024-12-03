@@ -509,6 +509,12 @@ _HandleMidJump::
 	ld [wSpritePlayerStateData1YPixels], a
 	ret
 .finishedJump
+	ld a, 3
+	ld [wNumberOfNoRandomBattleStepsLeft], a
+	ld [wStatusFlags2], a
+	set BIT_SCRIPTED_NPC_MOVEMENT, [hl]
+	ld a, 8
+	ld [wNoSprintSteps], a
 	ld a, [wWalkCounter]
 	cp 0
 	ret nz
