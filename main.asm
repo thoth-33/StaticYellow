@@ -700,3 +700,9 @@ MewPicBack::          INCBIN "gfx/pokemon/back/mewb.pic"
 SECTION "bank42", ROMX, BANK[$42]
 
 INCLUDE "data/sgb/sgb_palettes.asm"
+
+
+SECTION "Engine Spillover", ROMX
+
+INCLUDE "engine/overworld/use_another_repel.asm"
+
