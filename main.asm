@@ -705,4 +705,5 @@ INCLUDE "data/sgb/sgb_palettes.asm"
 SECTION "Engine Spillover", ROMX
 
 INCLUDE "engine/overworld/use_another_repel.asm"
+INCLUDE "engine/menus/item_descriptions.asm"
 
