@@ -174,6 +174,8 @@ LoadTradingGFXAndMonNames:
 	call ClearSprites
 	ld a, $ff
 	ld [wUpdateSpritesEnabled], a
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld a, [wOnSGB]
 	and a
 	ld a, $e4 ; non-SGB OBP0
@@ -186,11 +188,14 @@ LoadTradingGFXAndMonNames:
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	ld a, [wTradedPlayerMonSpecies]
+	ld [wPokedexNum], a
 	call GetMonName
+	ld hl, wNameBuffer
 	ld de, wStringBuffer
 	ld bc, NAME_LENGTH
 	call CopyData
 	ld a, [wTradedEnemyMonSpecies]
+	ld [wPokedexNum], a
 	jp GetMonName
 
 Trade_LoadMonPartySpriteGfx:
@@ -216,6 +221,8 @@ Trade_SwapNames:
 Trade_Cleanup:
 	xor a
 	call LoadGBPal
+	ld hl, wStatusFlags5
+	res 6, [hl] ; turn off instant text printing
 	ret
 
 Trade_ShowPlayerMon:
@@ -382,6 +389,7 @@ Trade_AnimLeftToRight:
 	ld a, $1c
 	ld [wBaseCoordY], a
 	ld a, [wLeftGBMonSpecies]
+	ld [wCurPartySpecies], a
 	call Trade_InitGameboyTransferGfx
 	call Trade_WriteCircledMonOAM
 	call Trade_DrawLeftGameboy
@@ -413,6 +421,7 @@ Trade_AnimRightToLeft:
 	ld a, $44
 	ld [wBaseCoordY], a
 	ld a, [wRightGBMonSpecies]
+	ld [wCurPartySpecies], a
 	call Trade_InitGameboyTransferGfx
 	call Trade_WriteCircledMonOAM
 	call Trade_DrawRightGameboy
@@ -736,6 +745,8 @@ Trade_CircleOAM3:
 
 ; a = species
 Trade_LoadMonSprite:
+	ld [wCurPartySpecies], a
+	ld [wCurSpecies], a
 	ld [wWholeScreenPaletteMonSpecies], a
 	ld b, SET_PAL_POKEMON_WHOLE_SCREEN
 	ld c, 0
