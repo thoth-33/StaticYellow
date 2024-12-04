@@ -336,6 +336,11 @@ LearnMoveFromLevelUp:
 	ld a, [hli] ; move ID
 	jr nz, .learnSetLoop
 	ld d, a ; ID of move to learn
+	push hl ; save hl before the call function because it modifies it
+	call .tryToLearn
+	pop hl
+	jr .learnSetLoop
+.tryToLearn
 	ld a, [wMonDataLocation]
 	and a
 	jr nz, .next
