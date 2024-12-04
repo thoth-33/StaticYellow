@@ -125,7 +125,7 @@ StatusScreen:
 	call GetHealthBarColor
 	ld b, SET_PAL_STATUS_SCREEN
 	call RunPaletteCommand
-	hlcoord 16,6
+	hlcoord 16, 6
 	ld de, wLoadedMonStatus
 	call PrintStatusCondition
 	jr nz, .StatusWritten

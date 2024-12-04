@@ -35,6 +35,7 @@ INCLUDE "engine/pokemon/remove_mon.asm"
 INCLUDE "engine/events/display_pokedex.asm"
 
 
+
 SECTION "bank3", ROMX
 
 INCLUDE "engine/joypad.asm"
@@ -706,4 +707,5 @@ SECTION "Engine Spillover", ROMX
 
 INCLUDE "engine/overworld/use_another_repel.asm"
 INCLUDE "engine/menus/item_descriptions.asm"
+INCLUDE "engine/overworld/field_moves.asm"
 
