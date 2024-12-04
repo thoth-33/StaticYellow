@@ -64,7 +64,7 @@ StartMenuPokemonText:
 	db "#MON@"
 
 StartMenuItemText:
-	db "PACK@"
+	db "ITEM@"
 
 StartMenuSaveText:
 	db "SAVE@"
