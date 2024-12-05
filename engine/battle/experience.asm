@@ -443,6 +443,7 @@ KeepEXPBarFull:
 	ld a, [wEXPBarKeepFullFlag]
 	set 0, a
 	ld [wEXPBarKeepFullFlag], a
+	ld a, [wCurEnemyLevel]
 	ret
 
 IsCurrentMonBattleMon:
