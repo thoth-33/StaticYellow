@@ -14,3 +14,6 @@ CinnabarMartSilphWorkerFText:
 CinnabarMartScientistText:
 	text_far _CinnabarMartScientistText
 	text_end
+
+CinnabarMartClerkText::
+	script_mart ULTRA_BALL, ETHER, REVIVE, HYPER_POTION, MAX_REPEL, TM_FIRE_BLAST, ESCAPE_ROPE, FULL_HEAL, ANTIDOTE

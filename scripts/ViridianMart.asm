@@ -109,3 +109,6 @@ ViridianMartYoungsterText:
 ViridianMartCooltrainerMText:
 	text_far _ViridianMartCooltrainerMText
 	text_end
+
+ViridianMartClerkText::
+	script_mart POKE_BALL, POTION, FULL_HEAL, REPEL

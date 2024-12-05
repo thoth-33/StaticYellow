@@ -41,3 +41,6 @@ IndigoPlateauLobbyChanseyText:
 	text_asm
 	callfar PokecenterChanseyText
 	jp TextScriptEnd
+
+IndigoPlateauLobbyClerkText::
+	script_mart  ULTRA_BALL, HYPER_POTION, FULL_RESTORE, REVIVE, FULL_HEAL, MAX_REPEL

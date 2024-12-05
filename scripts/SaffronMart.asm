@@ -14,3 +14,6 @@ SaffronMartSuperNerdText:
 SaffronMartCooltrainerFText:
 	text_far _SaffronMartCooltrainerFText
 	text_end
+
+SaffronMartClerkText::
+	script_mart GREAT_BALL, ULTRA_BALL, LEMONADE, SUPER_POTION, HYPER_POTION, REVIVE, FULL_HEAL, REPEL, SUPER_REPEL, ESCAPE_ROPE
