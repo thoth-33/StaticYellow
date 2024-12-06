@@ -125,14 +125,6 @@ StatusScreen:
 	call GetHealthBarColor
 	ld b, SET_PAL_STATUS_SCREEN
 	call RunPaletteCommand
-	decoord 18, 5
-	ld a, [wBattleMonLevel]
-	push af
-	ld a, [wLoadedMonLevel]
-	ld [wBattleMonLevel], a
-	farcall PrintEXPBar
-	pop af
-	ld [wBattleMonLevel], a
 	hlcoord 16, 6
 	ld de, wLoadedMonStatus
 	call PrintStatusCondition

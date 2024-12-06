@@ -182,17 +182,14 @@ LoadBackSpriteUnzoomed:
 	push de
 	jp LoadUncompressedBackSprite
 
-PrintEXPBarAt1711:
-	coord de, 17, 11
 PrintEXPBar:
-	push de
 	call CalcEXPBarPixelLength
 	ldh a, [hQuotient + 3] ; pixel length
 	ld [wEXPBarPixelLength], a
 	ld b, a
 	ld c, $08
 	ld d, $08
-	pop hl
+	hlcoord 17, 11
 .loop
 	ld a, b
 	sub c
@@ -223,13 +220,6 @@ CalcEXPBarPixelLength:
 	ret
 
 .start
-	ld hl, wStatusFlags2
-	bit BIT_NO_AUDIO_FADE_OUT, [hl]
-	jr z, .isBattleScreen
-	ld hl, wLoadedMonSpecies
-	jr .skip
-
-.isBattleScreen
 	; get the base exp needed for the current level
 	ld a, [wPlayerBattleStatus3]
 	ld hl, wBattleMonSpecies
@@ -237,7 +227,6 @@ CalcEXPBarPixelLength:
 	jr z, .skip
 	ld hl, wPartyMon1
 	call BattleMonPartyAttr
-
 .skip
 	ld a, [hl]
 	ld [wCurSpecies], a
@@ -262,19 +251,14 @@ CalcEXPBarPixelLength:
 	ld a, [wBattleMonLevel]
 	ld d, a
 	inc d
-	callfar CalcExperience
+	ld hl, CalcExperience
+	ld b, BANK(CalcExperience)
+	call Bankswitch
 
 	; get the address of the active Pokemon's current experience
-	ld hl, wStatusFlags2
-	bit BIT_NO_AUDIO_FADE_OUT, [hl]
-	jr z, .isBattleScreen2
-	ld hl, wLoadedMonExp
-	jr .skip2
-.isBattleScreen2
 	ld hl, wPartyMon1Exp
 	call BattleMonPartyAttr
 
-.skip2
 	; current exp - base exp
 	ld b, h
 	ld c, l

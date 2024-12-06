@@ -39,7 +39,7 @@ RedrawPartyMenu_::
 	call CheckPikachuFollowingPlayer
 	jr z, .regularMon
 	ld a, $ff
-;	ldh [hPartyMonIndex], a
+	ldh [hPartyMonIndex], a
 .regularMon
 	farcall WriteMonPartySpriteOAMByPartyIndex ; place the appropriate pokemon icon
 	ld a, [wWhichPokemon]
