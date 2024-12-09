@@ -41,9 +41,9 @@ TrainerAIPointers:
 	dbw 1, MistyAI ; misty
 	dbw 1, LtSurgeAI ; surge
 	dbw 1, ErikaAI ; erika
-	dbw 2, KogaAI ; koga
-	dbw 2, BlaineAI ; blaine
-	dbw 1, SabrinaAI ; sabrina
+	dbw 2, GiovanniAI ; koga
+	dbw 2, GiovanniAI ; blaine
+	dbw 1, GiovanniAI ; sabrina
 	dbw 3, GenericAI
 	dbw 1, Rival2AI ; rival2
 	dbw 1, Rival3AI ; rival3
