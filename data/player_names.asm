@@ -3,6 +3,7 @@ DefaultNamesPlayer:
 	next "YELLOW"
 	next "ASH"
 	next "JACK"
+	next "JIM"
 	db   "@"
 
 DefaultNamesRival:
@@ -10,4 +11,5 @@ DefaultNamesRival:
 	next "BLUE"
 	next "GARY"
 	next "JOHN"
+	next "ZEKE"
 	db   "@"
