@@ -125,6 +125,13 @@ _FightingDojoHitmonchanPokeBallText::
 	done
 
 _FightingDojoBetterNotGetGreedyText::
-	text "Better not get"
-	line "greedy..."
+	text "The piston"
+	line "punching #MON!"
+	prompt
+	done
+
+_FightingDojoBetterNotGetGreedyText2::
+	text "The hard kicking"
+	line "#MON!"
+	prompt
 	done
