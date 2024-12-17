@@ -1850,7 +1850,7 @@ wPrize1:: db
 wPrize2:: db
 wPrize3:: db
 
-wNoSprintSteps:: db
+	ds 1
 
 UNION
 wSerialRandomNumberListBlock:: ds $11
