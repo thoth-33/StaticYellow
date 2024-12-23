@@ -1247,7 +1247,7 @@ wGymCityName:: ds 17
 
 wGymLeaderName:: ds NAME_LENGTH
 
-wItemList:: ds 16
+	ds 16
 
 wListPointer:: dw
 
@@ -1731,6 +1731,7 @@ wMoves:: ds NUM_MOVES
 
 wMoveNum:: db
 
+wItemList::
 wMovesString:: ds 56
 
 wUnusedCurMapTilesetCopy:: db
