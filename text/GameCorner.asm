@@ -19,9 +19,43 @@ _GameCornerClerkDoYouNeedSomeGameCoinsText::
 	cont "like some?"
 	done
 
+_GameCornerClerkDoYouNeedSomeGameCoins2Text::
+	text "Between you and I,"
+	line "I really dislike"
+	cont "working here."
+
+	para "Team Rocket stole"
+	line "all these coins"
+	cont "from trainers."
+
+	para "They are evil!"
+
+	para "I am secretly"
+	line "selling them off"
+	cont "in bulk back to"
+	cont "trainers."
+
+	para "Do you need extra"
+	line "coins at a more"
+	cont "realistic price?"
+
+	para "¥10,000 for 500"
+	line "coins is what I"
+	cont "can offer you"
+	cont "today."
+
+	para "Would you like"
+	line "some?"
+	done
+
 _GameCornerClerkThanksHereAre50CoinsText::
 	text "Thanks! Here are"
 	line "your 50 coins!"
+	done
+
+_GameCornerClerkThanksHereAre500CoinsText::
+	text "Thanks! Here are"
+	line "your 500 coins!"
 	done
 
 _GameCornerClerkPleaseComePlaySometimeText::
