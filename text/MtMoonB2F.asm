@@ -57,9 +57,9 @@ _MtMoonB2FSuperNerdOkIllShareText::
 	prompt
 
 _MtMoonB2fSuperNerdEachTakeOneText::
-	text "We'll each take"
-	line "one!"
-	cont "No being greedy!"
+	text "You can take"
+	line "both!"
+	cont "Take care of them!"
 	done
 
 _MtMoonB2FSuperNerdTheresAPokemonLabText::
