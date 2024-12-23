@@ -723,3 +723,8 @@ INCLUDE "engine/overworld/use_another_repel.asm"
 INCLUDE "engine/menus/item_descriptions.asm"
 INCLUDE "engine/overworld/field_moves.asm"
 
+
+SECTION "Move Descriptions", ROMX
+
+INCLUDE "engine/pokemon/move_descriptions.asm"
+
