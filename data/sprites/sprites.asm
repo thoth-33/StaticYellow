@@ -85,6 +85,7 @@ SpriteSheetPointerTable:
 	overworld_sprite SabrinaSprite, 12          ; SPRITE_SABRINA
 	overworld_sprite BlaineSprite, 12           ; SPRITE_BLAINE
 	overworld_sprite BillSprite,   12	    ; SPRITE_BILL
+	overworld_sprite KrisSprite,   12           ; SPRITE_KRIS
 	overworld_sprite ArticunoSprite, 12         ; SPRITE_ARTICUNO
 	overworld_sprite CuboneSprite, 12
 	overworld_sprite KangaskhanSprite, 12

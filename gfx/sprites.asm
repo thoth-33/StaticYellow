@@ -99,6 +99,7 @@ Koga2Sprite::           INCBIN "gfx/sprites/koga2.2bpp"
 SabrinaSprite::         INCBIN "gfx/sprites/sabrina.2bpp"
 BlaineSprite::          INCBIN "gfx/sprites/blaine.2bpp"
 BillSprite::            INCBIN "gfx/sprites/bill.2bpp"
+KrisSprite::            INCBIN "gfx/sprites/kris.2bpp"
 
 
 SECTION "NPC Sprites 5", ROMX
