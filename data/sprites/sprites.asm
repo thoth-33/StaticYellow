@@ -92,6 +92,7 @@ SpriteSheetPointerTable:
 	overworld_sprite LaprasSprite, 12
 	overworld_sprite MeowthSprite, 12
 	overworld_sprite MewtwoSprite, 12
+	overworld_sprite MewSprite,    12
 	overworld_sprite MoltresSprite, 12
 	overworld_sprite NidorinoSprite, 12
 	overworld_sprite OmanyteSprite, 12

@@ -86,7 +86,8 @@
 	const SPRITE_KANGASKHAN				 
 	const SPRITE_LAPRAS					 
 	const SPRITE_MEOWTH					 
-	const SPRITE_MEWTWO					 
+	const SPRITE_MEWTWO
+	const SPRITE_MEW					 
 	const SPRITE_MOLTRES				 
 	const SPRITE_NIDORINO				 
 	const SPRITE_OMANYTE
