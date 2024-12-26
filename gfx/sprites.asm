@@ -100,6 +100,39 @@ SabrinaSprite::         INCBIN "gfx/sprites/sabrina.2bpp"
 BlaineSprite::          INCBIN "gfx/sprites/blaine.2bpp"
 BillSprite::            INCBIN "gfx/sprites/bill.2bpp"
 
+
+SECTION "NPC Sprites 5", ROMX
+
+ArticunoSprite::        INCBIN "gfx/sprites/mons/articuno.2bpp"
+CuboneSprite::          INCBIN "gfx/sprites/mons/cubone.2bpp"
+KangaskhanSprite::      INCBIN "gfx/sprites/mons/kangaskhan.2bpp"
+LaprasSprite::          INCBIN "gfx/sprites/mons/lapras.2bpp"
+MeowthSprite::          INCBIN "gfx/sprites/mons/meowth.2bpp"
+MewtwoSprite::          INCBIN "gfx/sprites/mons/mewtwo.2bpp"
+MoltresSprite::         INCBIN "gfx/sprites/mons/moltres.2bpp"
+NidorinoSprite::        INCBIN "gfx/sprites/mons/nidorino.2bpp"
+OmanyteSprite::         INCBIN "gfx/sprites/mons/omanyte.2bpp"
+PidgeotSprite::         INCBIN "gfx/sprites/mons/pidgeot.2bpp"
+PolywrathSprite::       INCBIN "gfx/sprites/mons/polywrath.2bpp"
+PsyduckSprite::         INCBIN "gfx/sprites/mons/psyduck.2bpp"
+SlowbroSprite::         INCBIN "gfx/sprites/mons/slowbro.2bpp"
+SlowpokeSprite::        INCBIN "gfx/sprites/mons/slowpoke.2bpp"
+SpearowSprite::         INCBIN "gfx/sprites/mons/spearow.2bpp"
+VoltorbSprite::         INCBIN "gfx/sprites/mons/voltorb.2bpp"
+ElectrodeSprite::       INCBIN "gfx/sprites/mons/electrode.2bpp"
+WigglytuffSprite::      INCBIN "gfx/sprites/mons/wigglytuff.2bpp"
+DoduoSprite::           INCBIN "gfx/sprites/mons/doduo.2bpp"
+FearowSprite::          INCBIN "gfx/sprites/mons/fearow.2bpp"
+KabutoSprite::          INCBIN "gfx/sprites/mons/kabuto.2bpp"
+MachokeSprite::         INCBIN "gfx/sprites/mons/machoke.2bpp"
+MachopSprite::          INCBIN "gfx/sprites/mons/machop.2bpp"
+NidoranFSprite::        INCBIN "gfx/sprites/mons/nidoranF.2bpp"
+NidoranMSprite::        INCBIN "gfx/sprites/mons/nidoranM.2bpp"
+PidgeySprite::          INCBIN "gfx/sprites/mons/pidgey.2bpp"
+Seel2Sprite::           INCBIN "gfx/sprites/mons/seel.2bpp"
+ZapdosSprite::          INCBIN "gfx/sprites/mons/zapdos.2bpp"
+
+
 SECTION "Mon Icons 1", ROMX
 
 MonIcons::
