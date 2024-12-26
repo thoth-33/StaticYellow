@@ -859,7 +859,7 @@ LoadSlotMachineTiles:
 	call DisableLCD
 	ld hl, SlotMachineTiles2
 	ld de, vChars0
-	ld bc, SlotMachineTiles2End - SlotMachineTiles2
+	ld bc, $18 tiles
 	ld a, BANK(SlotMachineTiles2)
 	call FarCopyData
 	ld hl, SlotMachineTiles1
@@ -869,7 +869,7 @@ LoadSlotMachineTiles:
 	call FarCopyData
 	ld hl, SlotMachineTiles2
 	ld de, vChars2 tile $25
-	ld bc, SlotMachineTiles2End - SlotMachineTiles2
+	ld bc, $18 tiles
 	ld a, BANK(SlotMachineTiles2)
 	call FarCopyData
 	ld hl, SlotMachineMap
