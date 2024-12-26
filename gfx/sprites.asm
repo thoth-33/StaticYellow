@@ -88,6 +88,18 @@ SurfingPikachuSprite::   INCBIN "gfx/sprites/surfing_pikachu.2bpp"
 JessieSprite::           INCBIN "gfx/sprites/jessie.2bpp"
 JamesSprite::            INCBIN "gfx/sprites/james.2bpp"
 
+
+SECTION "NPC Sprites 4", ROMX
+
+BrockSprite::           INCBIN "gfx/sprites/brock.2bpp"
+MistySprite::           INCBIN "gfx/sprites/misty.2bpp"
+SurgeSprite::           INCBIN "gfx/sprites/surge.2bpp"
+ErikaSprite::           INCBIN "gfx/sprites/erika.2bpp"
+Koga2Sprite::           INCBIN "gfx/sprites/koga2.2bpp"
+SabrinaSprite::         INCBIN "gfx/sprites/sabrina.2bpp"
+BlaineSprite::          INCBIN "gfx/sprites/blaine.2bpp"
+BillSprite::            INCBIN "gfx/sprites/bill.2bpp"
+
 SECTION "Mon Icons 1", ROMX
 
 MonIcons::
