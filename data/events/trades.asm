@@ -16,4 +16,5 @@ TradeMons:
 	db GOLDUCK,    RHYDON,   TRADE_DIALOGSET_EVOLUTION, "BUFFY@@@@@@"
 	db GROWLITHE,  DEWGONG,  TRADE_DIALOGSET_HAPPY,     "CEZANNE@@@@"
 	db CUBONE,     MACHOKE,  TRADE_DIALOGSET_HAPPY,     "RICKY@@@@@@"
+	db NO_MON,     NO_MON,   TRADE_DIALOGSET_SELF,      "Unseen@@@@@"
 	assert_table_length NUM_NPC_TRADES
