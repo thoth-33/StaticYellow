@@ -12,7 +12,7 @@ TrainerDataPointers:
 	dw BikerData
 	dw BurglarData
 	dw EngineerData
-	dw UnusedJugglerData
+	dw JanineData
 	dw FisherData
 	dw SwimmerData
 	dw CueBallData
@@ -314,8 +314,9 @@ EngineerData:
 	db 21, MAGNEMITE, 0
 	db 18, MAGNEMITE, MAGNEMITE, MAGNETON, 0
 
-UnusedJugglerData:
-; none
+JanineData:
+; Fuchsia Gym
+	db 35, VENONAT, 0
 
 FisherData:
 ; SS Anne 2F Rooms

@@ -58,7 +58,7 @@ MrFujiSprite::           INCBIN "gfx/sprites/mr_fuji.2bpp"
 GiovanniSprite::         INCBIN "gfx/sprites/giovanni.2bpp"
 RocketSprite::           INCBIN "gfx/sprites/rocket.2bpp"
 ChannelerSprite::        INCBIN "gfx/sprites/channeler.2bpp"
-WaiterSprite::           INCBIN "gfx/sprites/waiter.2bpp"
+;WaiterSprite::          INCBIN "gfx/sprites/waiter.2bpp" ; Moved to NPC Sprites 4
 SilphWorkerFSprite::     INCBIN "gfx/sprites/silph_worker_f.2bpp"
 MiddleAgedWomanSprite::  INCBIN "gfx/sprites/middle_aged_woman.2bpp"
 BrunetteGirlSprite::     INCBIN "gfx/sprites/brunette_girl.2bpp"
@@ -70,7 +70,7 @@ GameboyKidSprite::       INCBIN "gfx/sprites/gameboy_kid.2bpp"
 FairySprite::            INCBIN "gfx/sprites/fairy.2bpp"
 AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
 BrunoSprite::            INCBIN "gfx/sprites/bruno.2bpp"
-LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp"
+;LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp" ; Moved to NPC Sprites 4
 SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
 
 
@@ -100,6 +100,9 @@ SabrinaSprite::         INCBIN "gfx/sprites/sabrina.2bpp"
 BlaineSprite::          INCBIN "gfx/sprites/blaine.2bpp"
 BillSprite::            INCBIN "gfx/sprites/bill.2bpp"
 KrisSprite::            INCBIN "gfx/sprites/kris.2bpp"
+JanineSprite::           INCBIN "gfx/sprites/janine.2bpp"
+LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp"
+WaiterSprite::          INCBIN "gfx/sprites/waiter.2bpp"
 
 
 SECTION "NPC Sprites 5", ROMX
