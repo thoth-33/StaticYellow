@@ -2307,7 +2307,12 @@ wGameStage:: db
 
 wMaxDaycareLevel:: db	
 
-	ds 22
+wPlayerGender::
+	; $00 = boy
+	; $01 = girl
+		ds 1
+
+	ds 21
 ENDU
 
 wObtainedHiddenItemsFlags:: flag_array MAX_HIDDEN_ITEMS
