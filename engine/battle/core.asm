@@ -1417,6 +1417,11 @@ EnemySendOutFirstMon:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr z, .next4
+	ld a, [wDifficulty]
+	and a
+	jr z, .DontForceSetMode
+	jr .next4
+.DontForceSetMode
 	ld a, [wOptions]
 	bit BIT_BATTLE_SHIFT, a
 	jr nz, .next4
@@ -2309,6 +2314,19 @@ BagWasSelected:
 	jr z, .simulatedInputBattle
 	cp BATTLE_TYPE_PIKACHU ; is it the prof oak battle with pikachu?
 	jr z, .simulatedInputBattle
+
+	ld a, [wDifficulty]
+	and a
+	jr z, .NormalMode
+
+	ld a, [wIsInBattle]
+	dec a
+	jr z, .NormalMode
+
+	ld hl, ItemsCantBeUsedHereText
+	call PrintText
+	jp DisplayBattleMenu
+.NormalMode
 	jr DisplayPlayerBag
 .simulatedInputBattle
 	ld hl, SimulatedInputBattleItemList
@@ -2320,7 +2338,7 @@ BagWasSelected:
 
 SimulatedInputBattleItemList:
 	db 1 ; # items
-	db POKE_BALL, 1
+	db POKE_BALL, 91
 	db -1 ; end
 
 DisplayPlayerBag:
@@ -4065,11 +4083,48 @@ CheckForDisobedience:
 	ld a, [wPlayerID]
 	cp [hl]
 	jr nz, .monIsTraded
+
+	ld a, [wDifficulty] ; Check if player is on hard mode
+	and a
+	jr z, .NormalMode2
+; what level might disobey?
+	ld a, [wGameStage] ; Check if player has beat the game
+	and a
+	ld a, 101
+	jr nz, .next
+	farcall GetBadgesObtained
+	ld a, [wNumSetBits]
+	cp 8
+	ld a, 65 ; Blastoise/Charizard/Venusaur's level
+	jr nc, .next
+	cp 7
+	ld a, 50 ; Rhydon's level
+	jr nc, .next
+	cp 6
+	ld a, 48 ; Arcanine's level
+	jr nc, .next
+	cp 5
+	ld a, 46 ; Alakazam's level
+	jr nc, .next
+    cp 4
+	ld a, 44 ; Weezing's level
+	jr nc, .next
+	cp 3
+	ld a, 37 ; Vileplume's level
+	jr nc, .next
+	cp 2
+        ld a, 28 ; Raichu's level
+	jr nc, .next
+	cp 1
+	ld a, 22 ; Starmie's level
+	jr nc, .next
+	ld a, 15 ; Onix's level
+	jp .next
+.NormalMode2
 	inc hl
 	ld a, [wPlayerID + 1]
 	cp [hl]
-	jp z, .canUseMove
-; it was traded
+	jp z, .canUseMove ; on normal mode non traded pokemon will always obey
 .monIsTraded
 ; what level might disobey?
 	ld hl, wObtainedBadges

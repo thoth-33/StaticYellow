@@ -1294,3 +1294,16 @@ _HookedMonAttackedText::
 	text_start
 	cont "attacked!"
 	prompt
+
+_DifficultyText::
+    text "Select Difficulty"
+    done
+
+;_AreYouSureText::
+;	text "Are you sure?"
+;	done
+
+_BoyGirlText::
+    text "Play as a boy, or"
+    line "as a girl?"
+    done

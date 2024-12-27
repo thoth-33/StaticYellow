@@ -2296,7 +2296,18 @@ wBagItems:: ds BAG_ITEM_CAPACITY * 2 + 1
 
 wTempFlag:: db
 
-	ds 25
+wDifficulty::
+	; $00 = normal
+	; $01 = hard
+		ds 1
+
+wGameStage:: db
+	; $00 = before champion fight
+	; $01 = post game
+
+wMaxDaycareLevel:: db	
+
+	ds 22
 ENDU
 
 wObtainedHiddenItemsFlags:: flag_array MAX_HIDDEN_ITEMS

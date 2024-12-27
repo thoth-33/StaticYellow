@@ -432,6 +432,17 @@ _NotEnoughMemoryText::
 	line "Version memory."
 	done
 
+_NormalModeText::
+	text "Classic #MON"
+	line "rules."
+	done
+
+_HardModeText::
+	text "Set mode, no"
+	line "items in battle,"
+	cont "gym level caps."
+	done
+
 _OakSpeechText1::
 	text "Hello there!"
 	line "Welcome to the"
