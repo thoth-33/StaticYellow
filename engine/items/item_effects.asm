@@ -2029,7 +2029,7 @@ ItemUseOldRod:
 	cp 2
 	jr nc, .RandomLoop
 	; choose which monster appears
-	ld hl, GoodRodMons
+	ld hl, OldRodMons
 	add a
 	ld c, a
 	ld b, 0
