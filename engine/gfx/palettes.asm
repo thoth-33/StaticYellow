@@ -1165,6 +1165,10 @@ SendRivalPal:
 	ld a, PAL_GARY1
 	jr SendCustomPacket
 
+SendGreenPal:
+	ld a, PAL_GREEN
+	jr SendCustomPacket
+
 SendCustomPacket:
 	ld [wWholeScreenPaletteMonSpecies], a
 	ld c, 2

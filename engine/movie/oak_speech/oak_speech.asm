@@ -134,7 +134,7 @@ OakSpeech:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .NotGreen1
-	farcall SendPlayerPal
+	farcall SendGreenPal
 	ld de, GreenPicFront
 	lb bc, BANK(GreenPicFront), $00
 .NotGreen1:
@@ -162,7 +162,7 @@ OakSpeech:
 	ld a, [wPlayerGender]
 	and a
 	jr z, .NotGreen2
-	farcall SendPlayerPal
+	farcall SendGreenPal
 	ld de, GreenPicFront
 	lb bc, Bank(GreenPicFront), $00
 .NotGreen2:
