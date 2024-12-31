@@ -327,7 +327,13 @@ DeterminePaletteIDBack:
 	cp BATTLE_TYPE_PIKACHU
 	ld a, PAL_OAKB
 	ret z
-	ld a, PAL_HERO
+	ld b, PAL_HERO
+	ld a, [wPlayerGender]
+	and a
+	jr z, .male
+	ld b, PAL_GREEN
+.male
+	ld a, b
 	ret
 
 
