@@ -12,9 +12,9 @@ ShowPokedexMenu:
 	ld [wPokedexNum], a
 	ldh [hJoy7], a
 .setUpGraphics
+	ld b, SET_PAL_GENERIC
+	call RunPaletteCommand
 	callfar LoadPokedexTilePatterns
-.loop
-	farcall SendPokeballPal
 .doPokemonListMenu
 	ld hl, wTopMenuItemY
 	ld a, 3
@@ -50,8 +50,6 @@ ShowPokedexMenu:
 	jr z, .exitPokedex ; if the player chose Quit
 	dec b
 	jr z, .doPokemonListMenu ; if pokemon not seen or player pressed B button
-	dec b
-	jr z, .loop
 	jp .setUpGraphics ; if pokemon data or area was shown
 
 ; handles the menu on the lower right in the pokedex screen
@@ -110,13 +108,7 @@ HandlePokedexSideMenu:
 	dec a
 	jr z, .choseArea
 	dec a
-	vc_patch Forbid_printing_Pokedex
-IF DEF (_YELLOW_VC)
-	jr z, .handleMenuInput
-ELSE
 	jr z, .chosePrint
-ENDC
-	vc_patch_end
 .choseQuit
 	ld b, 1
 .exitSideMenu
@@ -150,6 +142,8 @@ ENDC
 	jr .exitSideMenu
 
 .choseData
+	ld a, 0
+	ld [wMoveListCounter], a
 	call ShowPokedexDataInternal
 	ld b, 0
 	jr .exitSideMenu
@@ -157,8 +151,12 @@ ENDC
 ; play pokemon cry
 .choseCry
 	ld a, [wPokedexNum]
-	call GetCryData
-	call PlaySound
+	push af
+	call PlayCry
+	pop af
+	ld [wPokedexNum], a
+;	call GetCryData
+;	call PlaySound
 	jr .handleMenuInput
 
 .choseArea
@@ -166,21 +164,28 @@ ENDC
 	ld b, 0
 	jr .exitSideMenu
 
-.chosePrint
-	ldh a, [hTileAnimations]
-	push af
-	xor a
-	ldh [hTileAnimations], a
-	ld a, [wPokedexNum]
-	ld [wCurPartySpecies], a
-	callfar PrintPokedexEntry
-	xor a
-	ldh [hAutoBGTransferEnabled], a
-	call ClearScreen
-	pop af
-	ldh [hTileAnimations], a
-	ld b, $3
+.chosePrint ; Changed this to print learnsets
+	ld a, 1
+	ld [wMoveListCounter], a
+	call ShowPokedexDataInternal
+	ld b, 0
 	jr .exitSideMenu
+	; call Pokedex_PrintMovesText
+	; ret
+	; ldh a, [hTileAnimations]
+	; push af
+	; xor a
+	; ldh [hTileAnimations], a
+	; ld a, [wd11e]
+	; ld [wcf91], a
+	; callfar PrintPokedexEntry
+	; xor a
+	; ldh [hAutoBGTransferEnabled], a
+	; call ClearScreen
+	; pop af
+	; ldh [hTileAnimations], a
+	; ld b, $3
+	; jr .exitSideMenu
 
 ; handles the list of pokemon on the left of the pokedex screen
 ; sets carry flag if player presses A, unsets carry flag if player presses B
@@ -347,7 +352,7 @@ PokedexMenuItemsText:
 	db   "DATA"
 	next "CRY"
 	next "AREA"
-	next "PRNT"
+	next "MOVE"
 	next "QUIT@"
 
 Pokedex_PlacePokemonList:
@@ -379,7 +384,7 @@ Pokedex_PlacePokemonList:
 	add hl, de
 	ld de, wPokedexNum
 	lb bc, LEADING_ZEROES | 1, 3
-	call PrintNumber
+	call PrintNumber ; print the pokedex number
 	ld de, SCREEN_WIDTH
 	add hl, de
 	dec hl
@@ -422,7 +427,7 @@ Pokedex_PlacePokemonList:
 
 ; tests if a pokemon's bit is set in the seen or owned pokemon bit fields
 ; INPUT:
-; [wPokedexNum] = pokedex number
+; [wd11e] = pokedex number
 ; hl = address of bit field
 IsPokemonBitSet:
 	ld a, [wPokedexNum]
@@ -444,7 +449,7 @@ ShowPokedexData:
 ; function to display pokedex data from inside the pokedex
 ShowPokedexDataInternal:
 	ld hl, wStatusFlags2
-	set BIT_NO_AUDIO_FADE_OUT, [hl]
+	set 1, [hl]
 	ld a, $33 ; 3/7 volume
 	ldh [rNR50], a
 	ldh a, [hTileAnimations]
@@ -452,15 +457,24 @@ ShowPokedexDataInternal:
 	xor a
 	ldh [hTileAnimations], a
 	call GBPalWhiteOut ; zero all palettes
-	ld a, [wPokedexNum]
+	ld a, [wPokedexNum] ; pokemon ID
 	ld [wCurPartySpecies], a
 	push af
 	ld b, SET_PAL_POKEDEX
 	call RunPaletteCommand
+	ld a, [wMoveListCounter] ; using this as a temp variable
+	cp 1
+	jr z, .PrintMoves
 	pop af
 	ld [wPokedexNum], a
 	call DrawDexEntryOnScreen
 	call c, Pokedex_PrintFlavorTextAtRow11
+	jr .waitForButtonPress
+.PrintMoves
+	pop af
+	ld [wPokedexNum], a
+	call DrawDexEntryOnScreen
+	call c, Pokedex_PrintMovesText
 .waitForButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
@@ -474,7 +488,7 @@ ShowPokedexDataInternal:
 	call LoadTextBoxTilePatterns
 	call GBPalNormal
 	ld hl, wStatusFlags2
-	res BIT_NO_AUDIO_FADE_OUT, [hl]
+	res 1, [hl]
 	ld a, $77 ; max volume
 	ldh [rNR50], a
 	ret
@@ -600,8 +614,13 @@ DrawDexEntryOnScreen:
 	call GetMonHeader ; load pokemon picture location
 	hlcoord 1, 1
 	call LoadFlippedFrontSpriteByMonIndex ; draw pokemon picture
+
+	ld a, [wPokedexNum]
+	push af
 	ld a, [wCurPartySpecies]
-	call PlayCry
+	call PlayCry ; play pokemon cry
+	pop af
+	ld [wPokedexNum], a
 
 	pop hl
 	pop de
@@ -610,7 +629,7 @@ DrawDexEntryOnScreen:
 
 	ld a, c
 	and a
-	ret z ; if the pokemon has not been owned, don't print the height, weight, or description
+	ret z
 
 	inc de ; de = address of feet (height)
 	ld a, [de] ; reads feet, but a is overwritten without being used
@@ -666,6 +685,257 @@ DrawDexEntryOnScreen:
 	inc hl ; hl = address of pokedex description text
 	scf
 	ret
+
+Pokedex_PrintMovesText:
+	ld a, [wPokedexNum]
+	ld [wWhichPokemon], a
+	ld [wCurPartySpecies], a
+
+	farcall PrepareLevelUpMoveList
+	ld de, wRelearnableMoves
+
+	ld b, 0 ; counter
+
+	ld a, [wMoveListCounter]
+	cp 0
+	jp z, .done
+
+.PrintLevelUpMovesLoop
+	push de
+	push bc
+	ld de, LevelUpMovesText
+	hlcoord 1, 11
+	call PlaceString
+	pop bc
+	pop de
+
+	push bc
+	ld a, [de]
+	hlcoord 1, 12
+	lb bc, 1, 3
+	call PrintNumber ; print number of seen pokemon
+	inc de
+	inc de
+	ld a, [de]
+	push de
+	ld [wPokedexNum], a
+	call GetMoveName
+	hlcoord 5, 12
+	call PlaceString
+	pop de
+	pop bc
+
+	inc b
+	ld a, [wMoveListCounter]
+	cp b
+	jp z, .done
+
+	push bc
+	inc de
+	ld a, [de]
+	hlcoord 1, 13
+	lb bc, 1, 3
+	call PrintNumber ; print number of seen pokemon
+	inc de
+	inc de
+	ld a, [de]
+	push de
+	ld [wPokedexNum], a
+	call GetMoveName
+	hlcoord 5, 13
+	call PlaceString
+	pop de
+	pop bc
+
+	inc b
+	ld a, [wMoveListCounter]
+	cp b
+	jp z, .done
+
+	push bc
+	inc de
+	ld a, [de]
+	hlcoord 1, 14
+	lb bc, 1, 3
+	call PrintNumber ; print number of seen pokemon
+	inc de
+	inc de
+	ld a, [de]
+	push de
+	ld [wPokedexNum], a
+	call GetMoveName
+	hlcoord 5, 14
+	call PlaceString
+	pop de
+	pop bc
+
+	inc b
+	ld a, [wMoveListCounter]
+	cp b
+	jr z, .done
+
+	push bc
+	inc de
+	ld a, [de]
+	hlcoord 1, 15
+	lb bc, 1, 3
+	call PrintNumber ; print number of seen pokemon
+	inc de
+	inc de
+	ld a, [de]
+	push de
+	ld [wPokedexNum], a
+	call GetMoveName
+	hlcoord 5, 15
+	call PlaceString
+	pop de
+	pop bc
+
+	inc b
+	ld a, [wMoveListCounter]
+	cp b
+	jr z, .done
+
+	push bc
+	inc de
+	ld a, [de]
+	hlcoord 1, 16
+	lb bc, 1, 3
+	call PrintNumber ; print number of seen pokemon
+	inc de
+	inc de
+	ld a, [de]
+	push de
+	ld [wPokedexNum], a
+	call GetMoveName
+	hlcoord 5, 16
+	call PlaceString
+	pop de
+	pop bc
+
+	inc b
+	ld a, [wMoveListCounter]
+	cp b
+	jr z, .done
+
+	inc de
+
+	push de
+	push bc
+	call NewPageButtonPressCheck
+	hlcoord 1, 10
+	lb bc, 7, 18
+	call ClearScreenArea
+	pop bc
+	pop de
+	jp .PrintLevelUpMovesLoop
+.done
+	call NewPageButtonPressCheck
+	hlcoord 1, 10
+	lb bc, 7, 18
+	call ClearScreenArea
+
+.tmMoveset
+	farcall GetTMMoves
+	ld de, wRelearnableMoves
+	ld a, [de]
+
+.PrintTMMovesLoop
+	push de
+	ld de, TMHMMovesText
+	hlcoord 1, 11
+	call PlaceString
+	pop de
+
+	ld a, [de]
+	cp 0
+	jp z, .done2
+	push de
+	ld [wPokedexNum], a
+	call GetMoveName
+	hlcoord 2, 12
+	call PlaceString
+	pop de
+
+	inc de
+	ld a, [de]
+	cp 0
+	jp z, .done2
+	push de
+	ld [wPokedexNum], a
+	call GetMoveName
+	hlcoord 2, 13
+	call PlaceString
+	pop de
+
+	inc de
+	ld a, [de]
+	cp 0
+	jp z, .done2
+	push de
+	ld [wPokedexNum], a
+	call GetMoveName
+	hlcoord 2, 14
+	call PlaceString
+	pop de
+
+	inc de
+	ld a, [de]
+	cp 0
+	jp z, .done2
+	push de
+	ld [wPokedexNum], a
+	call GetMoveName
+	hlcoord 2, 15
+	call PlaceString
+	pop de
+
+	inc de
+	ld a, [de]
+	cp 0
+	jp z, .done2
+	push de
+	ld [wPokedexNum], a
+	call GetMoveName
+	hlcoord 2, 16
+	call PlaceString
+	pop de
+
+	inc de
+	ld a, [de]
+	cp 0
+	jp z, .done2
+
+	; wait for button press
+	push de
+	call NewPageButtonPressCheck
+
+	hlcoord 1, 10
+	lb bc, 7, 18
+	call ClearScreenArea
+	pop de
+	jp .PrintTMMovesLoop
+.done2
+	ret
+
+NewPageButtonPressCheck::
+.waitForButtonPressLetGo
+	call Joypad
+	ldh a, [hJoyHeld]
+	and A_BUTTON | B_BUTTON
+	jr nz, .waitForButtonPressLetGo
+.waitForButtonPress
+	call Joypad
+	ldh a, [hJoyHeld]
+	and A_BUTTON | B_BUTTON
+	jr z, .waitForButtonPress
+	ret
+
+LevelUpMovesText:
+	db   "LEVEL UP MOVES:@"
+
+TMHMMovesText:
+	db   "TM/HM MOVES:@"
 
 Pokedex_PrintFlavorTextAtRow11:
 	bccoord 1, 11
@@ -808,7 +1078,7 @@ DrawTileLine:
 INCLUDE "data/pokemon/dex_entries.asm"
 
 PokedexToIndex:
-	; converts the Pokédex number at [wPokedexNum] to an index
+	; converts the Pokédex number at wd11e to an index
 	push bc
 	push hl
 	ld a, [wPokedexNum]
@@ -829,7 +1099,7 @@ PokedexToIndex:
 	ret
 
 IndexToPokedex:
-	; converts the index number at [wPokedexNum] to a Pokédex number
+	; converts the index number at wd11e to a Pokédex number
 	push bc
 	push hl
 	ld a, [wPokedexNum]
@@ -867,3 +1137,4 @@ TotalText:
 	db "TOTAL@"
 
 INCLUDE "data/pokemon/dex_order.asm"
+

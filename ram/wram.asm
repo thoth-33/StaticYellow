@@ -520,13 +520,18 @@ wSlotMachineSevenAndBarModeChance:: db
 	ds 2
 ; ROM back to return to when the player is done with the slot machine
 wSlotMachineSavedROMBank:: db
-	ds 166
+; Move Buffer stuff for Mateo's code
+wMoveBuffer::
+wRelearnableMoves::
+	ds 164
+
 wLuckySlotHiddenObjectIndex:: db
 
 NEXTU
 ; values between 0-6. Shake screen horizontally, shake screen vertically, blink Pokemon...
 wAnimationType:: db
-	ds 29
+wMoveListCounter:: db
+	ds 28
 wAnimPalette:: db
 
 NEXTU
