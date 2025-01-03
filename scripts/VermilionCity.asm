@@ -54,6 +54,9 @@ VermilionCity_ScriptPointers:
 	dw_const VermilionCityPlayerAllowedToPassScript, SCRIPT_VERMILIONCITY_PLAYER_ALLOWED_TO_PASS
 
 VermilionCityDefaultScript:
+	ld a, [wObtainedBadges]
+	bit BIT_MARSHBADGE, a
+	ret nz
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	and a ; cp SPRITE_FACING_DOWN
 	jr nz, .return
@@ -176,8 +179,13 @@ VermilionCityGambler1Text:
 
 VermilionCitySailor1Text:
 	text_asm
+	ld a, [wObtainedBadges]
+	bit BIT_MARSHBADGE, a
+
+	jr nz, .default
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .ship_departed
+.default
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_RIGHT
 	jr z, .greet_player
@@ -254,7 +262,22 @@ VermilionCityMachopText:
 	text_end
 
 VermilionCitySailor2Text:
+	text_asm
+	ld a, [wObtainedBadges]
+	bit BIT_MARSHBADGE, a
+	jr z, .default
+	ld hl, .ShipBackText
+	ret
+.default
+	ld hl, .Text
+	ret
+
+.Text:
 	text_far _VermilionCitySailor2Text
+	text_end
+
+.ShipBackText:
+	text_far _VermillionCityText15
 	text_end
 
 VermilionCitySignText:
