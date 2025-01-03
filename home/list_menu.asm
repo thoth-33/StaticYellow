@@ -137,14 +137,19 @@ DisplayListMenuIDLoop::
 	ld a, [wListMenuID]
 	and a ; PCPOKEMONLISTMENU?
 	jr z, .pokemonList
-; if it's an item menu
 	assert wCurListMenuItem == wCurItem
 	push hl
 	call GetItemPrice
 	pop hl
 	ld a, [wListMenuID]
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;needed to make Mateo's move deleter/relearner work
+	cp a, MOVESLISTMENU
+	jr z, .skipStoringItemName
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	cp ITEMLISTMENU
 	jr nz, .skipGettingQuantity
+; if it's an item menu
 	inc hl
 	ld a, [hl] ; a = item quantity
 	ld [wMaxItemQuantity], a
@@ -169,12 +174,13 @@ DisplayListMenuIDLoop::
 .storeChosenEntry ; store the menu entry that the player chose and return
 	ld de, wNameBuffer
 	call CopyToStringBuffer
+.skipStoringItemName
 	ld a, CHOSE_MENU_ITEM
 	ld [wMenuExitMethod], a
 	ld a, [wCurrentMenuItem]
 	ld [wChosenMenuItem], a
 	xor a
-	ldh [hJoy7], a ; joypad state update flag
+	ld [hJoy7], a ; joypad state update flag
 	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]
 	jp BankswitchBack

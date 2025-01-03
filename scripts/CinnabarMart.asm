@@ -6,6 +6,7 @@ CinnabarMart_TextPointers:
 	dw_const CinnabarMartClerkText,        TEXT_CINNABARMART_CLERK
 	dw_const CinnabarMartSilphWorkerFText, TEXT_CINNABARMART_SILPH_WORKER_F
 	dw_const CinnabarMartScientistText,    TEXT_CINNABARMART_SCIENTIST
+	dw_const MoveRelearnerText1,           TEXT_CINNABARMART_MOVE_RELEARNER
 
 CinnabarMartSilphWorkerFText:
 	text_far _CinnabarMartSilphWorkerFText

@@ -722,6 +722,7 @@ INCLUDE "scripts/Route21.asm"
 
 INCLUDE "data/maps/headers/VermilionOldRodHouse.asm"
 INCLUDE "scripts/VermilionOldRodHouse.asm"
+INCLUDE "scripts/move_deleter.asm"
 INCLUDE "data/maps/objects/VermilionOldRodHouse.asm"
 
 INCLUDE "data/maps/headers/CeladonMart2F.asm"
@@ -1196,6 +1197,7 @@ INCLUDE "data/maps/objects/CinnabarPokecenter.asm"
 
 INCLUDE "data/maps/headers/CinnabarMart.asm"
 INCLUDE "scripts/CinnabarMart.asm"
+INCLUDE "scripts/move_relearner.asm"
 INCLUDE "data/maps/objects/CinnabarMart.asm"
 
 INCLUDE "data/maps/headers/CopycatsHouse1F.asm"
