@@ -2468,7 +2468,12 @@ ENDU
 
 wTrainerHeaderPtr:: dw
 
-	ds 6
+; Used on the new status screen
+wDVCalcVar1:: 
+	ds 2
+
+wDVCalcVar2::
+	ds 5
 
 ; the trainer the player must face after getting a wrong answer in the Cinnabar
 ; gym quiz
@@ -2478,7 +2483,7 @@ wOpponentAfterWrongAnswer:: db
 ; mostly copied from map-specific map script pointer and written back later
 wCurMapScript:: db
 
-	ds 7
+	ds 6
 
 wPlayTimeHours:: db
 wPlayTimeMaxed:: db
