@@ -253,6 +253,9 @@ OverworldLoopLessDelay::
 	call DoBikeSpeedup
 	jr .notRunning
 .normalPlayerSpriteAdvancement
+	ld a, [wNoSprintSteps]
+	cp 0
+	jr nz, .notRunning
 	ld a,[wWalkBikeSurfState]
 	cp a, $02
 	jr z, .surfFaster
@@ -262,6 +265,12 @@ OverworldLoopLessDelay::
 .surfFaster
 	call DoBikeSpeedup
 .notRunning
+	ld a,[wNoSprintSteps]
+	cp 0
+	jr z, .skipDecrement
+	dec a
+.skipDecrement:
+	ld [wNoSprintSteps], a
 	call AdvancePlayerSprite
 	ld a, [wWalkCounter]
 	and a

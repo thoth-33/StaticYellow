@@ -1856,7 +1856,7 @@ wPrize1:: db
 wPrize2:: db
 wPrize3:: db
 
-	ds 1
+wNoSprintSteps:: db
 
 UNION
 wSerialRandomNumberListBlock:: ds $11
