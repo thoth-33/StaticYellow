@@ -1,3 +1,6 @@
+ReChoosePlayerName:
+	ld hl, IntroducePlayerText
+	call PrintText
 ChoosePlayerName:
 	call OakSpeechSlidePicRight
 	ld a, [wPlayerGender] ; load gender
@@ -56,12 +59,26 @@ ChoosePlayerName:
 .AreBoy3
 	call IntroDisplayPicCenteredOrUpperRight
 .done
+	ld hl, YourNameIsText2
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jp nz, ReChoosePlayerName
 	ld hl, YourNameIsText
 	jp PrintText
 
 YourNameIsText:
 	text_far _YourNameIsText
 	text_end
+
+YourNameIsText2:
+	text_far _YourNameIsText2
+	text_end
+
+ReChooseRivalName:
+	ld hl, IntroduceRivalText2
+	call PrintText
 
 ChooseRivalName:
 	call OakSpeechSlidePicRight
@@ -90,11 +107,25 @@ ChooseRivalName:
 	ld b, BANK(Rival1Pic)
 	call IntroDisplayPicCenteredOrUpperRight
 .done
+	ld hl, HisNameIsText2
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jp nz, ReChooseRivalName
 	ld hl, HisNameIsText
 	jp PrintText
 
+IntroduceRivalText2:
+	text_far _IntroduceRivalText2
+	text_end
+
 HisNameIsText:
 	text_far _HisNameIsText
+	text_end
+
+HisNameIsText2:
+	text_far _HisNameIsText2
 	text_end
 
 OakSpeechSlidePicLeft:

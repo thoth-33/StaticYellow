@@ -433,14 +433,14 @@ _NotEnoughMemoryText::
 	done
 
 _NormalModeText::
-	text "Classic #MON"
+	text "Normal #MON"
 	line "rules."
 	done
 
 _HardModeText::
-	text "Set mode, no"
-	line "items in battle,"
-	cont "gym level caps."
+	text "Set mode, no items"
+	line "in battle and gym"
+	cont "level caps apply."
 	done
 
 _OakSpeechText1::
@@ -487,6 +487,11 @@ _IntroduceRivalText::
 	line "his name again?"
 	prompt
 
+_IntroduceRivalText2::
+	text "...Erm, what is"
+	line "his name again?"
+	prompt
+
 _OakSpeechText3::
 	text "<PLAYER>!"
 
@@ -511,6 +516,14 @@ _DoYouWantToNicknameText::
 _YourNameIsText::
 	text "Right! So your"
 	line "name is <PLAYER>!"
+	prompt
+
+_YourNameIsText2::
+	text "Is it <PLAYER>?"
+	prompt
+
+_HisNameIsText2::
+	text "Was it <RIVAL>?"
 	prompt
 
 _HisNameIsText::
