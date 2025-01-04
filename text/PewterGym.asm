@@ -61,7 +61,7 @@ _TM34ExplanationText::
 	cont "you want!"
 	cont "Pick the #MON"
 	cont "and make it learn"
-  cont "a new technique!"
+        cont "a new technique!"
 
 	para "TM34 contains"
 	line "BIDE!"
