@@ -18,7 +18,7 @@ ChoosePlayerName:
 	call DisplayIntroNameTextBox
 	ld a, [wCurrentMenuItem]
 	and a
-	jr z, .customName
+	jr z, .customName1
 	ld hl, DefaultNamesGirlList
 	call GetDefaultName
 	ld de, wPlayerName
@@ -40,6 +40,17 @@ ChoosePlayerName:
 	ld a, [wPlayerGender] ; Added gender check
 	and a      ; Added gender check
 	jr z, .AreBoy3
+.customName1
+	ld hl, wPlayerName
+	xor a ; NAME_PLAYER_SCREEN
+	ld [wNamingScreenType], a
+	call DisplayNamingScreen
+	ld a, [wStringBuffer]
+	cp "@"
+	jr z, .customName1
+	call ClearScreen
+	farcall SendGreenPal
+	call Delay3
 	ld de, GreenPicFront
 	ld b, BANK(GreenPicFront)
 .AreBoy3
