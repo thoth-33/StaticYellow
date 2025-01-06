@@ -449,7 +449,7 @@ ShowPokedexData:
 ; function to display pokedex data from inside the pokedex
 ShowPokedexDataInternal:
 	ld hl, wStatusFlags2
-	set 1, [hl]
+	set BIT_NO_AUDIO_FADE_OUT, [hl]
 	ld a, $33 ; 3/7 volume
 	ldh [rNR50], a
 	ldh a, [hTileAnimations]
