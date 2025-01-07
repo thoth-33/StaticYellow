@@ -170,7 +170,7 @@ INCLUDE "data/pokemon/cries.asm"
 INCLUDE "engine/battle/trainer_ai.asm"
 INCLUDE "engine/battle/draw_hud_pokeball_gfx.asm"
 INCLUDE "gfx/trade.asm"
-INCLUDE "engine/pokemon/evos_moves.asm"
+INCLUDE "data/pokemon/copy_base_stats.asm"
 
 
 SECTION "Battle Core", ROMX
@@ -729,4 +729,5 @@ INCLUDE "engine/overworld/field_moves.asm"
 SECTION "Move Descriptions", ROMX
 
 INCLUDE "engine/pokemon/move_descriptions.asm"
+INCLUDE "engine/pokemon/evos_moves.asm" ; Moved from Battle Engine 6
 

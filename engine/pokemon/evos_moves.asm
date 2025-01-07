@@ -162,13 +162,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld a, [wCurSpecies]
 	ld [wPokedexNum], a
 	predef IndexToPokedex
-	ld a, [wPokedexNum]
-	dec a
-	ld hl, BaseStats
-	ld bc, BASE_DATA_SIZE
-	call AddNTimes
-	ld de, wMonHeader
-	call CopyData
+	callfar CopyBaseStats
 	ld a, [wCurSpecies]
 	ld [wMonHIndex], a
 	pop af
