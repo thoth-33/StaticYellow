@@ -721,6 +721,11 @@ CheckIfInOutsideMap::
 	and a ; most towns/routes have tileset 0 (OVERWORLD)
 	ret z
 	cp PLATEAU ; Route 23 / Indigo Plateau
+	ret z
+	ld a, [wCurMap]
+	cp CELADON_MANSION_ROOF
+	ret z
+	cp CELADON_MART_ROOF
 	ret
 
 ; this function is an extra check that sometimes has to pass in order to warp, beyond just standing on a warp
