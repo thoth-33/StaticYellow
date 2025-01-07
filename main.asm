@@ -439,9 +439,9 @@ SECTION "Saffron Guards", ROMX
 INCLUDE "engine/events/saffron_guards.asm"
 
 
-SECTION "Starter Dex", ROMX
+;SECTION "Starter Dex", ROMX ; Removed
 
-INCLUDE "engine/events/starter_dex.asm"
+;INCLUDE "engine/events/starter_dex.asm" ; Removed
 
 
 SECTION "Hidden Objects 3", ROMX
