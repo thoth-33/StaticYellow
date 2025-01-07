@@ -7,7 +7,8 @@ _Bankswitch::
 	ds $08 - @, 0 ; unused
 
 SECTION "rst8", ROM0[$0008]
-	rst $38
+_Predef::
+	jp Predef
 
 	ds $10 - @, 0 ; unused
 
