@@ -26,6 +26,8 @@ Route15Gate2FOaksAideText:
 	jr nz, .no_item
 	SetEvent EVENT_GOT_EXP_ALL
 .got_item
+	ld hl, wStatusFlags2
+	set BIT_EXP_ALL_ACTIVE, [hl]
 	ld hl, .ExpAllText
 	call PrintText
 .no_item

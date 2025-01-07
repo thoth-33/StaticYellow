@@ -11,9 +11,11 @@ _Route15Gate2FOaksAideExpAllText::
 	cont "#MON."
 
 	para "If you don't need"
-	line "it, you should "
-	cont "store it via PC."
+	line "it, you can switch"
+	cont "it off, or store"
+	cont "it via PC."
 	done
+
 
 _Route15Gate2FBinocularsText::
 	text "Looked into the"
