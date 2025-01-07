@@ -163,7 +163,7 @@ SaveSAV:
 	ld a, SFX_SAVE
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
-	ld c, 30
+	ld c, 10 ; Shorter time to save
 	call DelayFrames
 	ret
 
