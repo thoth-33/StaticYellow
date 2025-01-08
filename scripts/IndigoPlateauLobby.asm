@@ -43,4 +43,4 @@ IndigoPlateauLobbyChanseyText:
 	jp TextScriptEnd
 
 IndigoPlateauLobbyClerkText::
-	script_mart  ULTRA_BALL, HYPER_POTION, FULL_RESTORE, REVIVE, FULL_HEAL, MAX_REPEL
+	script_mart ULTRA_BALL, GREAT_BALL, FULL_RESTORE, MAX_POTION, FULL_HEAL, REVIVE, MAX_REPEL
