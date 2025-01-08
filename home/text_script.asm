@@ -146,10 +146,6 @@ DisplayPokemartDialogue::
 	homecall DisplayPokemartDialogue_
 	jp AfterDisplayingTextID
 
-PokemartGreetingText::
-	text_far _PokemartGreetingText
-	text_end
-
 LoadItemList::
 	ld a, 1
 	ld [wUpdateSpritesEnabled], a

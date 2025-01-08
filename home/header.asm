@@ -1,16 +1,24 @@
-; rst vectors (unused)
+; rst vectors
+; PureRGBnote: CHANGED: use these rst vectors. 
+; By using "rst (rst vector)" instead of "call (16-bit address)" we can reduce the size of calls to frequently used functions.
 
 SECTION "rst0", ROM0[$0000]
 _Bankswitch::
 	jp Bankswitch
 
-	ds $08 - @, 0 ; unused
+; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use
+MartSignText::
+	text_far _MartSignText
+	text_end
 
 SECTION "rst8", ROM0[$0008]
 _Predef::
 	jp Predef
 
-	ds $10 - @, 0 ; unused
+; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use
+PokemartGreetingText::
+	text_far _PokemartGreetingText
+	text_end
 
 SECTION "rst10", ROM0[$0010]
 	rst $38
