@@ -33,9 +33,13 @@ SECTION "rst28", ROM0[$0028]
 	ds $30 - @, 0 ; unused
 
 SECTION "rst30", ROM0[$0030]
-	rst $38
 
-	ds $38 - @, 0 ; unused
+	
+; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use	
+RepelWoreOffText::
+	text_far _RepelWoreOffText
+	text_end
+
 
 SECTION "rst38", ROM0[$0038]
 	rst $38

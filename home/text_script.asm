@@ -218,10 +218,6 @@ DisplayRepelWoreOffText::
 	callfar UseAnotherRepel
 	jp CloseTextDisplay
 
-RepelWoreOffText::
-	text_far _RepelWoreOffText
-	text_end
-
 DisplayPikachuEmotion::
 	callfar TalkToPikachu
 	jp CloseTextDisplay
