@@ -8,9 +8,9 @@ TryFieldMove:: ; predef
 TrySurf:
 	ld a, [wWalkBikeSurfState]
 	cp 2 ; is the player already surfing?
-	ret z
-	callfar IsNextTileShoreOrWater
-	ret c
+	jr z, .no
+	farcall IsNextTileShoreOrWater
+	jr nc, .no
 	ld hl, TilePairCollisionsWater
 	call CheckForTilePairCollisions2
 	jr c, .no
@@ -22,8 +22,8 @@ TrySurf:
 	jr z, .no
 	farcall IsSurfingAllowed
 	ld hl, wStatusFlags1
-	bit 1, [hl]
-	res 1, [hl]
+	bit BIT_SURF_ALLOWED, [hl]
+	res BIT_SURF_ALLOWED, [hl]
 	jr z, .no2
 	call InitializeFieldMoveTextBox
 	ld hl, PromptToSurfText
