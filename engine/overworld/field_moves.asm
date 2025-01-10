@@ -24,7 +24,7 @@ TrySurf:
 	ld hl, wStatusFlags1
 	bit BIT_SURF_ALLOWED, [hl]
 	res BIT_SURF_ALLOWED, [hl]
-	jr z, .no2
+	jr z, .no2 ; Changed from .no
 	call InitializeFieldMoveTextBox
 	ld hl, PromptToSurfText
 	call PrintText
