@@ -69,15 +69,10 @@ OverworldLoopLessDelay::
 	bit BIT_SCRIPTED_MOVEMENT_STATE, a
 	jr z, .notSimulating
 	ldh a, [hJoyHeld]
-	jr .checkIfSelectIsPressed
+	jr .checkIfStartIsPressed
 .notSimulating
 	ldh a, [hJoyPressed]
-.checkIfSelectIsPressed
-	bit BIT_SELECT, a
-	jr z, .selectButtonNotPressed
-; if SELECT is pressed
-	farcall TryRideBike
-.selectButtonNotPressed
+.checkIfStartIsPressed
 	bit BIT_START, a
 	jr z, .startButtonNotPressed
 ; if START is pressed

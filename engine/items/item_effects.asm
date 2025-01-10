@@ -684,15 +684,6 @@ ItemUseBicycle:
 	jp z, ItemUseNotTime
 	dec a ; is player already bicycling?
 	jr nz, .tryToGetOnBike
-.tryToGetOffBike
-	ld a, [wPseudoItemID]
-	and a ; if not using select shortcut
-	jr z, .getOffBike
-	; check cycling road
-	ld a, [wStatusFlags6]
-	bit BIT_ALWAYS_ON_BIKE, a
-	jr z, .getOffBike ; if not on cycling road, get off bike
-	jr .printCannotGetOffText
 .getOffBike
 	call ItemUseReloadOverworldData
 	xor a
@@ -700,33 +691,24 @@ ItemUseBicycle:
 	ld a, $00
 	ld [wPikachuSpawnState], a
 	call PlayDefaultMusic ; play walking music
-	ld a, [wPseudoItemID]
-	and a
-	ret nz
 	ld hl, GotOffBicycleText
-	jr .printText
+	jp PrintText
 .tryToGetOnBike
 	call IsBikeRidingAllowed
 	jp nc, NoCyclingAllowedHere
 	call ItemUseReloadOverworldData
 	xor a ; no keys pressed
-	ld [hJoyHeld], a ; current joypad state
+	ldh [hJoyHeld], a ; current joypad state
 	ld a, $1
 	ld [wWalkBikeSurfState], a ; change player state to bicycling
 	call PlayDefaultMusic ; play bike riding music
-	ld a, [wPseudoItemID]
-	and a ; if using select shortcut
-	ret nz
+	xor a
+	ld [wWalkBikeSurfState], a
 	ld hl, GotOnBicycleText
-.printText
-	jp PrintText
-.printCannotGetOffText
-	ld hl, CannotGetOffBicycleText
-	jp PrintText
-
-CannotGetOffBicycleText:
-	text_far _CannotGetOffHereText
-	text_end
+	call PrintText
+	ld a, $1
+	ld [wWalkBikeSurfState], a
+	ret
 
 ; indirectly used by SURF in StartMenu_Pokemon.surf
 ItemUseSurfboard:
