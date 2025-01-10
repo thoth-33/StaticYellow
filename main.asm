@@ -724,6 +724,7 @@ SECTION "Engine Spillover", ROMX
 INCLUDE "engine/overworld/use_another_repel.asm"
 INCLUDE "engine/menus/item_descriptions.asm"
 INCLUDE "engine/overworld/field_moves.asm"
+INCLUDE "engine/overworld/bike_shortcut.asm"
 
 
 SECTION "Move Descriptions", ROMX
