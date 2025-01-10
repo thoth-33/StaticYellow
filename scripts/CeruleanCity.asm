@@ -222,7 +222,7 @@ CeruleanCity_TextPointers:
 	dw_const CeruleanCitySuperNerd2Text,    TEXT_CERULEANCITY_SUPER_NERD2
 	dw_const CeruleanCityGuardText,         TEXT_CERULEANCITY_GUARD1
 	dw_const CeruleanCityCooltrainerF1Text, TEXT_CERULEANCITY_COOLTRAINER_F1
-	dw_const CeruleanCityElectrodeText,     TEXT_CERULEANCITY_ELECTRODE
+	dw_const CeruleanCityPikachuText,       TEXT_CERULEANCITY_PIKACHU
 	dw_const CeruleanCityCooltrainerF2Text, TEXT_CERULEANCITY_COOLTRAINER_F2
 	dw_const CeruleanCitySuperNerd3Text,    TEXT_CERULEANCITY_SUPER_NERD3
 	dw_const CeruleanCityGuardText,         TEXT_CERULEANCITY_GUARD2
@@ -345,35 +345,35 @@ CeruleanCityCooltrainerF1Text:
 	ldh a, [hRandomAdd]
 	cp 180 ; 76/256 chance of 1st dialogue
 	jr c, .notFirstText
-	ld hl, .ElectrodeUseSonicboomText
+	ld hl, .PikachuUseAgilityText
 	call PrintText
 	jr .end
 .notFirstText
 	cp 100 ; 80/256 chance of 2nd dialogue
 	jr c, .notSecondText
-	ld hl, .ElectrodePunchText
+	ld hl, .PikachuFlashText
 	call PrintText
 	jr .end
 .notSecondText
 	; 100/256 chance of 3rd dialogue
-	ld hl, .ElectrodeWithdrawText
+	ld hl, .PikachuSwiftText
 	call PrintText
 .end
 	jp TextScriptEnd
 
-.ElectrodeUseSonicboomText:
-	text_far _CeruleanCityCooltrainerF1ElectrodeUseSonicboomText
+.PikachuUseAgilityText:
+	text_far _CeruleanCityCooltrainerF1PikachuUseAgilityText
 	text_end
 
-.ElectrodePunchText:
-	text_far _CeruleanCityCooltrainerF1ElectrodePunchText
+.PikachuFlashText:
+	text_far _CeruleanCityCooltrainerF1PikachuFlashText
 	text_end
 
-.ElectrodeWithdrawText:
-	text_far _CeruleanCityCooltrainerF1ElectrodeWithdrawText
+.PikachuSwiftText:
+	text_far _CeruleanCityCooltrainerF1PikachuSwiftText
 	text_end
 
-CeruleanCityElectrodeText:
+CeruleanCityPikachuText:
 	text_asm
 	ldh a, [hRandomAdd]
 	cp 180 ; 76/256 chance of 1st dialogue
@@ -401,19 +401,19 @@ CeruleanCityElectrodeText:
 	jp TextScriptEnd
 
 .TookASnoozeText:
-	text_far _CeruleanCityElectrodeTookASnoozeText
+	text_far _CeruleanCityPikachuTookASnoozeText
 	text_end
 
 .IsLoafingAroundText:
-	text_far _CeruleanCityElectrodeIsLoafingAroundText
+	text_far _CeruleanCityPikachuIsLoafingAroundText
 	text_end
 
 .TurnedAwayText:
-	text_far _CeruleanCityElectrodeTurnedAwayText
+	text_far _CeruleanCityPikachuTurnedAwayText
 	text_end
 
 .IgnoredOrdersText:
-	text_far _CeruleanCityElectrodeIgnoredOrdersText
+	text_far _CeruleanCityPikachuIgnoredOrdersText
 	text_end
 
 CeruleanCityCooltrainerF2Text:

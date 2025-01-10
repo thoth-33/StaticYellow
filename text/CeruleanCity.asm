@@ -136,21 +136,21 @@ _CeruleanCityGuardText::
 	cont "with the ROCKETs!"
 	done
 
-_CeruleanCityCooltrainerF1ElectrodeUseSonicboomText::
-	text "OK! ELECTRODE!"
-	line "Use SONICBOOM!"
-	cont "Please ELECTRODE,"
+_CeruleanCityCooltrainerF1PikachuUseAgilityText::
+	text "OK! PIKACHU!"
+	line "Use AGILITY!"
+	cont "Please PIKACHU,"
 	cont "pay attention!"
 	done
 
-_CeruleanCityCooltrainerF1ElectrodePunchText::
-	text "ELECTRODE, TACKLE!"
+_CeruleanCityCooltrainerF1PikachuFlashText::
+	text "PIKACHU, FLASH!"
 	line "No! You blew it"
 	cont "again!"
 	done
 
-_CeruleanCityCooltrainerF1ElectrodeWithdrawText::
-	text "ELECTRODE, SWIFT!"
+_CeruleanCityCooltrainerF1PikachuSwiftText::
+	text "PIKACHU, SWIFT!"
 	line "No! That's wrong!"
 
 	para "Training #MON"
@@ -162,23 +162,23 @@ _CeruleanCityCooltrainerF1ElectrodeWithdrawText::
 	cont "as a trainer!"
 	done
 
-_CeruleanCityElectrodeTookASnoozeText::
-	text "ELECTRODE took a"
+_CeruleanCityPikachuTookASnoozeText::
+	text "PIKACHU took a"
 	line "snooze..."
 	done
 
-_CeruleanCityElectrodeIsLoafingAroundText::
-	text "ELECTRODE is"
+_CeruleanCityPikachuIsLoafingAroundText::
+	text "PIKACHU is"
 	line "loafing around..."
 	done
 
-_CeruleanCityElectrodeTurnedAwayText::
-	text "ELECTRODE turned"
+_CeruleanCityPikachuTurnedAwayText::
+	text "PIKACHU turned"
 	line "away..."
 	done
 
-_CeruleanCityElectrodeIgnoredOrdersText::
-	text "ELECTRODE"
+_CeruleanCityPikachuIgnoredOrdersText::
+	text "PIKACHU"
 	line "ignored orders..."
 	done
 
