@@ -45,10 +45,6 @@ BoulderText::
 .done 
     	jp TextScriptEnd 
 
-PokeCenterSignText::
-	text_far _PokeCenterSignText
-	text_end
-
 PickUpItemText::
 	text_asm
 	predef PickUpItem

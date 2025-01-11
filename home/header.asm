@@ -23,7 +23,10 @@ PokemartGreetingText::
 SECTION "rst10", ROM0[$0010]
 	rst $38
 
-	ds $18 - @, 0 ; unused
+; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use
+PokeCenterSignText::
+	text_far _PokeCenterSignText
+	text_end
 
 SECTION "rst18", ROM0[$0018]
 	rst $38
@@ -33,7 +36,11 @@ SECTION "rst18", ROM0[$0018]
 SECTION "rst20", ROM0[$0020]
 	rst $38
 
-	ds $28 - @, 0 ; unused
+; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use
+
+PokemonFaintedText::
+	text_far _PokemonFaintedText
+	text_end
 
 SECTION "rst28", ROM0[$0028]
 	rst $38
