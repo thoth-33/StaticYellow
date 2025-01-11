@@ -138,6 +138,7 @@ NidoranMSprite::        INCBIN "gfx/sprites/mons/nidoranM.2bpp"
 PidgeySprite::          INCBIN "gfx/sprites/mons/pidgey.2bpp"
 Seel2Sprite::           INCBIN "gfx/sprites/mons/seel.2bpp"
 ZapdosSprite::          INCBIN "gfx/sprites/mons/zapdos.2bpp"
+MrMimeSprite::          INCBIN "gfx/sprites/mons/mr_mime.2bpp"
 
 
 SECTION "Mon Icons 1", ROMX

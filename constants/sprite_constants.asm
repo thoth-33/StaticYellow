@@ -110,7 +110,8 @@
 	const SPRITE_NIDORANM				 
 	const SPRITE_PIDGEY					 				 
 	const SPRITE_SEEL2					
-	const SPRITE_ZAPDOS	
+	const SPRITE_ZAPDOS
+	const SPRITE_MRMIME	
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
 	const SPRITE_FOSSIL                  ; $48
