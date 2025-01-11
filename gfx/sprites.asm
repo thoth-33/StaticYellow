@@ -105,6 +105,7 @@ KrisSprite::            INCBIN "gfx/sprites/kris.2bpp"
 JanineSprite::           INCBIN "gfx/sprites/janine.2bpp"
 LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp"
 WaiterSprite::          INCBIN "gfx/sprites/waiter.2bpp"
+Pokedex1Sprite::         INCBIN "gfx/sprites/pokedex1.2bpp"
 
 
 SECTION "NPC Sprites 5", ROMX
