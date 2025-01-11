@@ -1,15 +1,15 @@
 CeruleanCave2FWildMons:
 	def_grass_wildmons 15 ; encounter rate
-	db 52, GOLBAT
-	db 57, GOLBAT
-	db 50, GRAVELER
-	db 56, SANDSLASH
-	db 50, RHYHORN
-	db 60, DITTO
-	db 58, GLOOM
-	db 58, WEEPINBELL
-	db 60, RHYDON
-	db 58, RHYDON
+	db 65, ARBOK
+	db 65, WIGGLYTUFF
+	db 65, DODRIO
+	db 65, EXEGGUTOR
+	db 65, GYARADOS
+	db 65, KABUTO
+	db 65, OMANYTE
+	db 65, POLIWRATH
+	db 65, DRAGONAIR
+	db 65, DRAGONITE
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

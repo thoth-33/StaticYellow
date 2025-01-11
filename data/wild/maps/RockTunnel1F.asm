@@ -5,10 +5,10 @@ RockTunnel1FWildMons:
 	db 17, ZUBAT
 	db 19, ZUBAT
 	db 18, GEODUDE
-	db 20, GEODUDE
+	db 20, MACHOP
 	db 21, ZUBAT
-	db 17, MACHOP
-	db 19, MACHOP
+	db 17, ONIX
+	db 19, CUBONE
 	db 21, MACHOP
 	end_grass_wildmons
 

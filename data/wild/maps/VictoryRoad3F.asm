@@ -1,15 +1,15 @@
 VictoryRoad3FWildMons:
 	def_grass_wildmons 15 ; encounter rate
-	db 36, GEODUDE
-	db 44, GOLBAT
-	db 41, GEODUDE
-	db 49, ONIX
-	db 46, GEODUDE
-	db 41, GRAVELER
-	db 42, MACHOKE
-	db 45, MACHOKE
-	db 47, GRAVELER
-	db 47, GRAVELER
+	db 44, MACHOKE
+	db 44, MACHOKE
+	db 44, RHYHORN
+	db 44, ONIX
+	db 46, PRIMEAPE
+	db 45, RHYDON
+	db 45, MACHAMP
+	db 47, FLAREON
+	db 47, VAPOREON
+	db 47, JOLTEON
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

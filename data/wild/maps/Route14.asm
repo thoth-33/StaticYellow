@@ -5,11 +5,11 @@ Route14WildMons:
 	db 24, VENONAT
 	db 30, PIDGEOTTO
 	db 28, ODDISH
-	db 28, BELLSPROUT
+	db 28, WEEPINBELL
 	db 30, GLOOM
-	db 30, WEEPINBELL
-	db 27, VENONAT
-	db 30, VENOMOTH
+	db 30, SCYTHER
+	db 28, VENONAT
+	db 33, VENOMOTH
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

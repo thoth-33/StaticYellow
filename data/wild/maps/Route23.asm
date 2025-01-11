@@ -1,15 +1,15 @@
 Route23WildMons:
 	def_grass_wildmons 10 ; encounter rate
-	db 41, NIDORINO
-	db 41, NIDORINA
-	db 36, MANKEY
-	db 44, NIDORINO
-	db 44, NIDORINA
-	db 40, FEAROW
-	db 41, MANKEY
-	db 45, FEAROW
 	db 41, PRIMEAPE
-	db 46, PRIMEAPE
+	db 41, ELECTABUZZ
+	db 36, MAGMAR
+	db 44, CHANSEY
+	db 44, KANGASKHAN
+	db 44, TAUROS
+	db 10, CHARMANDER
+	db 10, SQUIRTLE
+	db 10, BULBASAUR
+	db 10, EEVEE
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

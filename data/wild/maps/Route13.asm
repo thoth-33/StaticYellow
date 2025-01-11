@@ -3,9 +3,9 @@ Route13WildMons:
 	db 25, ODDISH
 	db 25, BELLSPROUT
 	db 28, PIDGEOTTO
-	db 28, PIDGEY
+	db 28, PARAS
 	db 27, ODDISH
-	db 27, BELLSPROUT
+	db 27, GLOOM
 	db 29, GLOOM
 	db 29, WEEPINBELL
 	db 26, FARFETCHD

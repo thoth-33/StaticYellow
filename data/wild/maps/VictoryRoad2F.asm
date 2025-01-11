@@ -1,15 +1,15 @@
 VictoryRoad2FWildMons:
 	def_grass_wildmons 10 ; encounter rate
-	db 31, GEODUDE
-	db 36, GEODUDE
-	db 41, GEODUDE
-	db 44, ZUBAT
-	db 39, GOLBAT
-	db 44, GRAVELER
+	db 42, GRAVELER
+	db 43, RHYHORN
+	db 43, GRAVELER
+	db 44, GOLBAT
+	db 40, GOLEM
+	db 44, GOLEM
 	db 45, ONIX
-	db 47, ONIX
-	db 39, MACHOKE
-	db 42, MACHOKE
+	db 47, MACHAMP
+	db 46, HITMONCHAN
+	db 46, HITMONLEE
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate
