@@ -20,7 +20,8 @@
 	     RAGE,         EARTHQUAKE,   FISSURE,      DIG,          PSYCHIC_M,    \
 	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     FIRE_BLAST,   SWIFT,        SKULL_BASH,   REST,         THUNDER_WAVE, \
-	     PSYWAVE,      TRI_ATTACK,    SURF,         STRENGTH,     FLASH        \
+	     PSYWAVE,      TRI_ATTACK,    SURF,         STRENGTH,     FLASH,        \
+	     FLAMETHROWER
 	; end
 
 	db BANK(SlowbroPicFront)

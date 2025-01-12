@@ -20,7 +20,8 @@
 	     SOLARBEAM,    THUNDERBOLT,  THUNDER,      PSYCHIC_M,    TELEPORT,     \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         METRONOME,    \
 	     EGG_BOMB,     FIRE_BLAST,   SKULL_BASH,   SOFTBOILED,   PSYWAVE,         \
-	     THUNDER_WAVE, TRI_ATTACK,   SUBSTITUTE,   STRENGTH,     FLASH       \
+	     THUNDER_WAVE, TRI_ATTACK,   SUBSTITUTE,   STRENGTH,     FLASH,       \
+	     FLAMETHROWER
 	; end
 
 	db BANK(ChanseyPicFront)

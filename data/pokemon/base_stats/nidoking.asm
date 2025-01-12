@@ -20,7 +20,7 @@
 	     SEISMIC_TOSS, RAGE,         THUNDERBOLT,  THUNDER,      EARTHQUAKE,   \
 	     FISSURE,      MIMIC,        DOUBLE_TEAM,  REFLECT,      REST,         \
 	     FIRE_BLAST,   SKULL_BASH,   ROCK_SLIDE,   SUBSTITUTE,   SURF,   \
-	     STRENGTH
+	     STRENGTH,     FLAMETHROWER
 	; end
 
 	db BANK(NidokingPicFront)

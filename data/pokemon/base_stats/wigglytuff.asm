@@ -20,7 +20,7 @@
 	     SOLARBEAM,    THUNDERBOLT,  THUNDER,      PSYCHIC_M,    TELEPORT,     \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   \
 	     SKULL_BASH,    THUNDER_WAVE, PSYWAVE,      TRI_ATTACK,  SUBSTITUTE,  \
-	     STRENGTH,     FLASH
+	     STRENGTH,     FLASH,         FLAMETHROWER
 	; end
 
 	db BANK(WigglytuffPicFront)

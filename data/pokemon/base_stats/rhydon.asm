@@ -19,8 +19,8 @@
 	     BLIZZARD,     HYPER_BEAM,   PAY_DAY,      SUBMISSION,   COUNTER,      \
 	     SEISMIC_TOSS, RAGE,         THUNDERBOLT,  THUNDER,      EARTHQUAKE,   \
 	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     FIRE_BLAST,   SKULL_BASH,   ROCK_SLIDE,   SUBSTITUTE,   SURF,      \
-	     STRENGTH
+	     FIRE_BLAST,   SKULL_BASH,   ROCK_SLIDE,   SUBSTITUTE,   CUT,      \
+	     SURF, 	   STRENGTH,     FLAMETHROWER
 	; end
 
 	db BANK(RhydonPicFront)
