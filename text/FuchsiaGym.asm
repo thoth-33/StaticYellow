@@ -36,6 +36,25 @@ _FuchsiaGymKogaPostBattleAdviceText::
 	line "terrorize foes!"
 	done
 
+_FuchsiaGymRematchPreBattle1Text::
+        text "Ready to face"
+	line "me again with all"
+	cont "my poison power?"
+	done
+
+_FuchsiaGymPreRematchBattle2Text::
+	text "Let us see who"
+	line "is the most"
+	cont "powerful ninja"
+	cont "master!"
+	done
+
+_FuchsiaGymRematchPostBattleText::
+	text "Continue to train"
+	line "and bond with you"
+	cont "#MON."
+	done
+
 _FuchsiaGymKogaSoulBadgeInfoText::
 	text "Now that you have"
 	line "the SOULBADGE,"
