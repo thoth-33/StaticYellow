@@ -82,7 +82,7 @@ RocketHideoutB1FRocket4Text:
 	text_asm
 	ld hl, RocketHideout1TrainerHeader3
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 RocketHideoutB1FRocket5Text:
 	text_asm

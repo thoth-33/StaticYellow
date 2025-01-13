@@ -601,7 +601,7 @@ CinnabarGymSuperNerd7:
 .defeated
 	ld hl, .AfterBattleText
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .BattleText:
 	text_far _CinnabarGymSuperNerd7BattleText

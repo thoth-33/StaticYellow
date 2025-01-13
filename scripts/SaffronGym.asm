@@ -177,7 +177,7 @@ SaffronGymSabrinaText:
 	ld a, SCRIPT_SAFFRONGYM_SABRINA_POST_BATTLE
 	ld [wSaffronGymCurScript], a
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _SaffronGymSabrinaText

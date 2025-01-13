@@ -49,7 +49,7 @@ Museum2FHikerText:
 	ld hl, Museum2FText_5c213
 	call PrintText
 .asm_5c20b
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Museum2FText_5c20e:
 	text_far _Museum2FHikerText

@@ -114,7 +114,7 @@ Route17Biker4Text:
 	text_asm
 	ld hl, Route17TrainerHeader3
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route17Biker4BattleText:
 	text_far _Route17Biker4BattleText

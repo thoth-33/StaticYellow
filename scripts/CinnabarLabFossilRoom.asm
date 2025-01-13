@@ -62,7 +62,7 @@ CinnabarLabFossilRoomScientist1Text:
 	ld hl, .NoFossilsText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 .check_done_reviving
 	CheckEventAfterBranchReuseA EVENT_LAB_STILL_REVIVING_FOSSIL, EVENT_GAVE_FOSSIL_TO_LAB
 	jr z, .done_reviving

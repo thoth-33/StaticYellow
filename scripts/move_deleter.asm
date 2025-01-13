@@ -84,7 +84,7 @@ MoveDeleterText1:
 .exit
 	ld hl, MoveDeleterByeText
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 DeleteMove:
 ; d = move id

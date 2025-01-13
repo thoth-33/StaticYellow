@@ -27,4 +27,4 @@ CinnabarPokecenterLinkReceptionistText:
 CinnabarPokecenterChanseyText:
 	text_asm
 	callfar PokecenterChanseyText
-	jp TextScriptEnd
+	rst TextScriptEnd

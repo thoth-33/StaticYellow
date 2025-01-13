@@ -408,7 +408,7 @@ RocketHideoutB4FRocketAfterBattleText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _RocketHideoutB4FRocket2AfterBattleText

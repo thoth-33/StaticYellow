@@ -115,7 +115,7 @@ SilphCo8FRocket1Text:
 	text_asm
 	ld hl, SilphCo8TrainerHeader0
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SilphCo8FScientistText:
 	text_asm

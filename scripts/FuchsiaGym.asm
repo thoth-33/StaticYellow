@@ -336,7 +336,7 @@ FuchsiaGymGymGuideText:
 	ld hl, .ChampInMakingText
 .afterBeat
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .ChampInMakingText:
 	text_far _FuchsiaGymGymGuideChampInMakingText

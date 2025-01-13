@@ -36,9 +36,9 @@ BoulderText::
 	ld [wCurPartySpecies], a
 	predef PrintStrengthText
 .done 
-    	jp TextScriptEnd 
+    	rst TextScriptEnd 
 
 PickUpItemText::
 	text_asm
 	predef PickUpItem
-	jp TextScriptEnd
+	rst TextScriptEnd

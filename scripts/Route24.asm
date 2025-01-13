@@ -135,7 +135,7 @@ Route24CooltrainerM1Text:
 	ld a, SCRIPT_ROUTE24_AFTER_ROCKET_BATTLE
 	ld [wRoute24CurScript], a
 	ld [wCurMapScript], a
-	jp TextScriptEnd
+	rst TextScriptEnd
 .got_item
 	ld hl, .YouCouldBecomeATopLeaderText
 	call PrintText

@@ -1,6 +1,6 @@
 CinnabarGymScript_753de:
 	callfar Func_f2150
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CinnabarGymScript_753e9:
 	push hl

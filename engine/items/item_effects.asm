@@ -2010,7 +2010,7 @@ PlayedFluteHadEffectText:
 	jr z, .musicWaitLoop
 	call PlayDefaultMusic ; start playing normal music again
 .done
-	jp TextScriptEnd ; end text
+	rst TextScriptEnd ; end text
 
 ItemUseCoinCase:
 	ld a, [wIsInBattle]

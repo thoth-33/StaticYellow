@@ -295,7 +295,7 @@ IF DEF(_DEBUG)
 	ld [wWhichPewterGuy], a
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_decimal wWhichPewterGuy, 1, 3
