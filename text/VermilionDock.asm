@@ -1,6 +1,6 @@
-_VermilionDockUnusedText::
-	text_start
-	done
+;_VermilionDockUnusedText::
+;	text_start
+;	done
 
 _VermilionDockTruckText::
 	text "Something is"
