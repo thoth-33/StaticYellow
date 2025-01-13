@@ -618,4 +618,4 @@ CinnabarGymSuperNerd7:
 CinnabarGymGymGuideText:
 	text_asm
 	callfar CinnabarGymPrintGymGuideText
-	jp TextScriptEnd
+	rst TextScriptEnd

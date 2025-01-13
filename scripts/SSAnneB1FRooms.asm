@@ -65,7 +65,7 @@ SSAnneB1FRoomsSailor4Text:
 	text_asm
 	ld hl, SSAnne10TrainerHeader3
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnneB1FRoomsSailor5Text:
 	text_asm

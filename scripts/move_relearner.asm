@@ -48,7 +48,7 @@ MoveRelearnerText1:
 	pop bc
 	ld hl, MoveRelearnerNoMovesText
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 .chooseMove
 	ld hl, MoveRelearnerWhichMoveText
 	call PrintText
