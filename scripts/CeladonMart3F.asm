@@ -24,7 +24,7 @@ CeladonMart3F_TextPointers:
 CeladonMart3FClerkText:
 	text_asm
 	callfar CeladonMart3FPrintClerkText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonMart3FGameBoyKid1Text:
 	text_far _CeladonMart3FGameBoyKid1Text

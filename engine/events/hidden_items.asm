@@ -39,23 +39,23 @@ FoundHiddenItemText::
 	ld c, a
 	ld b, FLAG_SET
 	predef FlagActionPredef
-  ld a, [wAudioFadeOutControl]
-  push af
-  xor a
-  ld [wAudioFadeOutControl], a
+  	ld a, [wAudioFadeOutControl]
+ 	 push af
+  	xor a
+  	ld [wAudioFadeOutControl], a
 	ld a, SFX_GET_ITEM_2
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
-  pop af
-  ld [wAudioFadeOutControl], a
-	jp TextScriptEnd
+  	pop af
+  	ld [wAudioFadeOutControl], a
+	rst TextScriptEnd
 .bagFull
 	call WaitForTextScrollButtonPress ; wait for button press
 	xor a
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, HiddenItemBagFullText
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 HiddenItemBagFullText::
 	text_far _HiddenItemBagFullText

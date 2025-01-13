@@ -11,7 +11,7 @@ RedsHouse1F_TextPointers:
 RedsHouse1FMomText:
 	text_asm
 	callfar RedsHouse1FPrintMomText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 RedsHouse1FMrMimeText:
 	text_far _RedsHouse1FMrMimeText
@@ -20,4 +20,4 @@ RedsHouse1FMrMimeText:
 RedsHouse1FTVText:
 	text_asm
 	callfar RedsHouse1FPrintTVText
-	jp TextScriptEnd
+	rst TextScriptEnd

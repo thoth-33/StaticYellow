@@ -280,7 +280,7 @@ PokemonTower7FText4:
 	predef EmotionBubble
 	ld c, 20
 	call DelayFrames
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 PokemonTower7FText5:
 	text_far _PokemonTowerJessieJamesText2
@@ -295,7 +295,7 @@ PokemonTower7FText6:
 	text_asm
 	ld c, 64
 	call DelayFrames
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 PokemonTower7FMrFujiText:
 	text_asm
@@ -314,7 +314,7 @@ PokemonTower7FMrFujiText:
 	predef ShowObject
 	ld a, SCRIPT_POKEMONTOWER7F_WARP_TO_MR_FUJI_HOUSE
 	ld [wPokemonTower7FCurScript], a
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .RescueText:
 	text_far _PokemonTower7FMrFujiRescueText

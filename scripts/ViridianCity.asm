@@ -277,37 +277,37 @@ ViridianCity_TextPointers:
 ViridianCityYoungster1Text:
 	text_asm
 	farcall ViridianCityPrintYoungster1Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityGambler1Text:
 	text_asm
 	farcall ViridianCityPrintGambler1Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityYoungster2Text:
 	text_asm
 	farcall ViridianCityPrintYoungster2Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityGirlText:
 	text_asm
 	farcall ViridianCityPrintGirlText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityOldManSleepyText:
 	text_asm
 	farcall ViridianCityPrintOldManSleepyText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityFisherText:
 	text_asm
 	farcall ViridianCityPrintFisherText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityOldManText:
 	text_asm
 	farcall ViridianCityPrintOldManText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityOldManYouNeedToWeakenTheTargetText:
 	text_far _ViridianCityOldManYouNeedToWeakenTheTargetText
@@ -329,7 +329,7 @@ ViridianCityOldMan2Text:
 	ld hl, .LosingMyTouchText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .HadMyCoffeeNowText:
 	text_far _ViridianCityOldManHadMyCoffeeNowText
@@ -342,24 +342,24 @@ ViridianCityOldMan2Text:
 ViridianCitySignText:
 	text_asm
 	farcall ViridianCityPrintSignText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityTrainerTips1Text:
 	text_asm
 	farcall ViridianCityPrintTrainerTips1Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityTrainerTips2Text:
 	text_asm
 	farcall ViridianCityPrintTrainerTips2Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityGymSignText:
 	text_asm
 	farcall ViridianCityPrintGymSignText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianCityGymLockedText:
 	text_asm
 	farcall ViridianCityPrintGymLockedText
-	jp TextScriptEnd
+	rst TextScriptEnd

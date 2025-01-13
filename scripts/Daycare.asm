@@ -281,7 +281,7 @@ DaycareGentlemanText:
 
 .done
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .IntroText:
 	text_far _DaycareGentlemanIntroText

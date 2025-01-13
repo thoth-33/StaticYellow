@@ -27,4 +27,4 @@ CeruleanPokecenterGentlemanText:
 CeruleanPokecenterChanseyText:
 	text_asm
 	callfar PokecenterChanseyText
-	jp TextScriptEnd
+	rst TextScriptEnd

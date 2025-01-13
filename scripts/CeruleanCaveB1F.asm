@@ -34,7 +34,7 @@ CeruleanCaveB1FMewtwoText:
 	text_asm
 	ld hl, MewtwoTrainerHeader
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 MewtwoBattleText:
 	text_far _MewtwoBattleText
@@ -42,13 +42,13 @@ MewtwoBattleText:
 	ld a, MEWTWO
 	call PlayCry
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeruleanCaveB1FMewText:
 	text_asm
 	ld hl, MewTrainerHeader
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 MewBattleText:
 	text_far _MewBattleText
@@ -56,4 +56,4 @@ MewBattleText:
 	ld a, MEW
 	call PlayCry
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd

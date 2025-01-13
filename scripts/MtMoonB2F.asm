@@ -457,7 +457,7 @@ MtMoonB2FText12:
 	predef EmotionBubble
 	ld c, 20
 	call DelayFrames
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 MtMoonB2FText13:
 	text_far _MtMoonJessieJamesText2
@@ -472,7 +472,7 @@ MtMoonB2FText14:
 	text_asm
 	ld c, 64
 	call DelayFrames
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 MtMoonB2FSuperNerdText:
 	text_asm
@@ -504,7 +504,7 @@ MtMoonB2FSuperNerdText:
 	ld hl, MtMoonB2FSuperNerdTheresAPokemonLabText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 MtMoonB2FRocket1Text:
 	text_asm
@@ -521,7 +521,7 @@ MtMoonB2FRocket3Text:
 	ld hl, MtMoon3TrainerHeader2
 MtMoonB2FTalkToTrainer:
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 MtMoonB2FDomeFossilText:
 	text_asm
@@ -544,7 +544,7 @@ MtMoonB2FDomeFossilText:
 ;	ld a, SCRIPT_MTMOONB2F_MOVE_SUPER_NERD
 ;	call MtMoonB2FSetScript
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .YouWantText:
 	text_far _MtMoonB2FDomeFossilYouWantText
@@ -571,7 +571,7 @@ MtMoonB2FHelixFossilText:
 ;	ld a, SCRIPT_MTMOONB2F_MOVE_SUPER_NERD
 ;	call MtMoonB2FSetScript
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .YouWantText:
 	text_far _MtMoonB2FHelixFossilYouWantText
@@ -590,7 +590,7 @@ MtMoonB2FReceivedFossilText:
 MtMoonB2FYouHaveNoRoomText:
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _MtMoonB2FYouHaveNoRoomText

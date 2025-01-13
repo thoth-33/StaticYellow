@@ -43,7 +43,7 @@ Route6CooltrainerM1Text:
 	text_asm
 	ld hl, Route6TrainerHeader0
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route6CooltrainerM1BattleText:
 	text_far _Route6CooltrainerM1BattleText
@@ -61,7 +61,7 @@ Route6CooltrainerF1Text:
 	text_asm
 	ld hl, Route6TrainerHeader1
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route6CooltrainerF1BattleText:
 	text_far _Route6CooltrainerF1BattleText
@@ -79,7 +79,7 @@ Route6Youngster1Text:
 	text_asm
 	ld hl, Route6TrainerHeader2
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route6Youngster1BattleText:
 	text_far _Route6Youngster1BattleText
@@ -97,7 +97,7 @@ Route6CooltrainerM2Text:
 	text_asm
 	ld hl, Route6TrainerHeader3
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route6CooltrainerM2BattleText:
 	text_far _Route6CooltrainerM2BattleText
@@ -115,7 +115,7 @@ Route6CooltrainerF2Text:
 	text_asm
 	ld hl, Route6TrainerHeader4
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route6CooltrainerF2BattleText:
 	text_far _Route6CooltrainerF2BattleText
@@ -133,7 +133,7 @@ Route6Youngster2Text:
 	text_asm
 	ld hl, Route6TrainerHeader5
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route6Youngster2BattleText:
 	text_far _Route6Youngster2BattleText

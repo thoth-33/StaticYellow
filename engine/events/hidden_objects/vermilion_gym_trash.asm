@@ -99,7 +99,7 @@ VermilionGymTrashSuccessText1::
 	ld a, SFX_SWITCH
 	call PlaySound
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ; unused
 VermilionGymTrashSuccessText2::
@@ -113,7 +113,7 @@ VermilionGymTrashSuccesPlaySfx:
 	ld a, SFX_SWITCH
 	call PlaySound
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 VermilionGymTrashSuccessText3::
 	text_far _VermilionGymTrashSuccessText3
@@ -122,7 +122,7 @@ VermilionGymTrashSuccessText3::
 	ld a, SFX_GO_INSIDE
 	call PlaySound
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 VermilionGymTrashFailText::
 	text_far _VermilionGymTrashFailText
@@ -131,4 +131,4 @@ VermilionGymTrashFailText::
 	ld a, SFX_DENIED
 	call PlaySound
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd

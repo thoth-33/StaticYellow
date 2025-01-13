@@ -103,7 +103,7 @@ CinnabarLabFossilRoomScientist2Text:
 	ld a, TRADE_FOR_STICKY
 	ld [wWhichTrade], a
 	predef DoInGameTradeDialogue
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 LoadFossilItemAndMonNameBank1D:
 	farjp LoadFossilItemAndMonName

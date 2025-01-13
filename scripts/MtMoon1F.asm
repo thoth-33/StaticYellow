@@ -83,7 +83,7 @@ MtMoon1FYoungster3Text:
 	ld hl, MtMoon1TrainerHeader6
 MtMoon1TalkToTrainer:
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 MtMoon1FHikerBattleText:
 	text_far _MtMoon1FHikerBattleText

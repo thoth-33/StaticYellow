@@ -27,4 +27,4 @@ CeladonPokecenterBeautyText:
 CeladonPokecenterChanseyText:
 	text_asm
 	callfar PokecenterChanseyText
-	jp TextScriptEnd
+	rst TextScriptEnd

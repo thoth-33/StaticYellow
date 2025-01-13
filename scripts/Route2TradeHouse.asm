@@ -15,4 +15,4 @@ Route2TradeHouseGameboyKidText:
 	ld a, TRADE_FOR_MILES
 	ld [wWhichTrade], a
 	predef DoInGameTradeDialogue
-	jp TextScriptEnd
+	rst TextScriptEnd

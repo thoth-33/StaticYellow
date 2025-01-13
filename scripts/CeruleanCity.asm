@@ -246,7 +246,7 @@ CeruleanCityRivalText:
 	ld hl, .PreBattleText
 	call PrintText
 .end
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .PreBattleText:
 	text_far _CeruleanCityRivalPreBattleText
@@ -282,7 +282,7 @@ CeruleanCityRocketText:
 	call InitBattleEnemyParameters
 	ld a, SCRIPT_CERULEANCITY_ROCKET_DEFEATED
 	ld [wCeruleanCityCurScript], a
-	jp TextScriptEnd
+	rst TextScriptEnd
 .beatRocketThief
 	ld hl, .IllReturnTheTMText
 	call PrintText
@@ -299,7 +299,7 @@ CeruleanCityRocketText:
 	call PrintText
 	farcall CeruleanHideRocket
 .Done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _CeruleanCityRocketText
@@ -359,7 +359,7 @@ CeruleanCityCooltrainerF1Text:
 	ld hl, .PikachuSwiftText
 	call PrintText
 .end
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .PikachuUseAgilityText:
 	text_far _CeruleanCityCooltrainerF1PikachuUseAgilityText
@@ -398,7 +398,7 @@ CeruleanCityPikachuText:
 	ld hl, .IgnoredOrdersText
 	call PrintText
 .end
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .TookASnoozeText:
 	text_far _CeruleanCityPikachuTookASnoozeText

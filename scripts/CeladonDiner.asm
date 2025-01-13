@@ -29,4 +29,4 @@ CeladonDinerFisherText:
 CeladonDinerGymGuideText:
 	text_asm
 	callfar CeladonDinerPrintGymGuideText
-	jp TextScriptEnd
+	rst TextScriptEnd

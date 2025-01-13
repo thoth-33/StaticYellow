@@ -40,7 +40,7 @@ SSAnneCaptainsRoomCaptainText:
 	ld hl, SSAnneCaptainsRoomCaptainNotSickAnymoreText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnneCaptainsRoomRubCaptainsBackText:
 	text_far _SSAnneCaptainsRoomRubCaptainsBackText
@@ -64,7 +64,7 @@ SSAnneCaptainsRoomRubCaptainsBackText:
 	SetEvent EVENT_RUBBED_CAPTAINS_BACK
 	ld hl, wStatusFlags3
 	res BIT_NO_NPC_FACE_PLAYER, [hl]
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnneCaptainsRoomCaptainIFeelMuchBetterText:
 	text_far _SSAnneCaptainsRoomCaptainIFeelMuchBetterText

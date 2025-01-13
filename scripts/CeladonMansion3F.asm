@@ -29,7 +29,7 @@ CeladonMansion3FProgrammerText:
 	ld hl, CeladonMansion3Text_486f0
 .print
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonMansion3Text_486f0:
 	text_far _CeladonMansion3FProgrammerText
@@ -79,7 +79,7 @@ CeladonMansion3FGraphicArtistText:
 	ld hl, .Text3
 .print
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text1:
 	text_far _CeladonMansion3FGraphicArtistText
@@ -110,7 +110,7 @@ CeladonMansion3FWriterText:
 	ld hl, .Text1
 .print
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text1:
 	text_far _CeladonMansion3FWriterText
@@ -136,7 +136,7 @@ CeladonMansion3FGameDesignerText:
 	ld hl, .UnlockedDiplomaPrinting
 .done
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _CeladonMansion3FGameDesignerText
@@ -149,7 +149,7 @@ CeladonMansion3FGameDesignerText:
 	callfar DisplayDiploma
 	ld a, TRUE
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .UnlockedDiplomaPrinting
 	text_far _CeladonMansion3FGameDesignerCompletedDexText2
@@ -158,19 +158,19 @@ CeladonMansion3FGameDesignerText:
 CeladonMansion3FGameProgramPCText:
 	text_asm
 	farcall CeladonMansion3FPrintGameProgramPCText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonMansion3FPlayingGamePCText:
 	text_asm
 	farcall CeladonMansion3FPrintPlayingGamePCText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonMansion3FGameScriptPCText:
 	text_asm
 	farcall CeladonMansion3FPrintGameScriptPCText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonMansion3FDevRoomSignText:
 	text_asm
 	farcall CeladonMansion3FPrintDevRoomSignText
-	jp TextScriptEnd
+	rst TextScriptEnd

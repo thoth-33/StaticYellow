@@ -392,7 +392,7 @@ TrainerEndBattleText::
 	text_asm
 	call GetSavedEndBattleTextPointer
 	call TextCommandProcessor
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 PlayTrainerMusic::
 	ld a, [wEngagedTrainerClass]

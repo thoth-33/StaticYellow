@@ -13,13 +13,12 @@ Route22_ScriptPointers:
 	dw_const Route22Rival2StartBattleScript, SCRIPT_ROUTE22_RIVAL2_START_BATTLE
 	dw_const Route22Rival2AfterBattleScript, SCRIPT_ROUTE22_RIVAL2_AFTER_BATTLE
 	dw_const Route22Rival2ExitScript,        SCRIPT_ROUTE22_RIVAL2_EXIT
-	dw_const Route22NoopScript,              SCRIPT_ROUTE22_NOOP
+	dw_const DoRet,                          SCRIPT_ROUTE22_NOOP
 
 Route22SetDefaultScript:
 	xor a ; SCRIPT_ROUTE22_DEFAULT
 	ld [wJoyIgnore], a
 	ld [wRoute22CurScript], a
-Route22NoopScript:
 	ret
 
 Route22Script_50ed6:
@@ -382,14 +381,14 @@ Route22_TextPointers:
 Route22Rival1Text:
 	text_asm
 	farcall Route22PrintRival1Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route22Rival2Text:
 	text_asm
 	farcall Route22PrintRival2Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route22PokemonLeagueSignText:
 	text_asm
 	farcall Route22PrintPokemonLeagueSignText
-	jp TextScriptEnd
+	rst TextScriptEnd

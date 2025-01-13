@@ -1,10 +1,3 @@
-TextScriptEndingText::
-	text_end
-
-TextScriptEnd::
-	ld hl, TextScriptEndingText
-	ret
-
 ExclamationText::
 	text_far _ExclamationText
 	text_end

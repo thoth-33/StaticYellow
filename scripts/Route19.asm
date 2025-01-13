@@ -101,7 +101,7 @@ Route19Swimmer8Text:
 	ld hl, Route19TrainerHeader9
 Route19_TalkToTrainer:
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route19CooltrainerM1BattleText:
 	text_far _Route19CooltrainerM1BattleText

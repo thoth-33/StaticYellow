@@ -15,7 +15,7 @@ CeladonMansion1FMeowthText:
 	text_asm
 	ld a, MEOWTH
 	call PlayCry
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonMansion1FGrannyText:
 	text_asm
@@ -28,21 +28,21 @@ CeladonMansion1FGrannyText:
 	ldpikacry e, PikachuCry23
 	callfar PlayPikachuSoundClip
 .asm_485d9
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonMansion1FClefairyText:
 	text_far _CeladonMansion1FClefairyText
 	text_asm
 	ld a, CLEFAIRY
 	call PlayCry
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonMansion1FNidoranFText:
 	text_far _CeladonMansion1FNidoranFText
 	text_asm
 	ld a, NIDORAN_F
 	call PlayCry
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonMansion1FManagersSuiteSignText:
 	text_far _CeladonMansion1FManagersSuiteSignText

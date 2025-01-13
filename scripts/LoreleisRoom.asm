@@ -38,10 +38,8 @@ LoreleisRoom_ScriptPointers:
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_LORELEISROOM_LORELEI_START_BATTLE
 	dw_const LoreleisRoomLoreleiEndBattleScript,    SCRIPT_LORELEISROOM_LORELEI_END_BATTLE
 	dw_const LoreleisRoomPlayerIsMovingScript,      SCRIPT_LORELEISROOM_PLAYER_IS_MOVING
-	dw_const LoreleisRoomNoopScript,                SCRIPT_LORELEISROOM_NOOP
+	dw_const DoRet,                                 SCRIPT_LORELEISROOM_NOOP
 
-LoreleisRoomNoopScript:
-	ret
 
 LoreleiScriptWalkIntoRoom:
 ; Walk six steps upward.
@@ -131,7 +129,7 @@ LoreleisRoomLoreleiText:
 	text_asm
 	ld hl, LoreleisRoomTrainerHeader0
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 LoreleisRoomLoreleiBeforeBattleText:
 	text_far _LoreleisRoomLoreleiBeforeBattleText

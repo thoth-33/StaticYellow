@@ -180,7 +180,7 @@ CeladonGymErikaText:
 	ld [wCeladonGymCurScript], a
 	ld [wCurMapScript], a
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .PreBattleText:
 	text_far _CeladonGymErikaPreBattleText
@@ -228,7 +228,7 @@ CeladonGymCooltrainerF1Text:
 	text_asm
 	ld hl, CeladonGymTrainerHeader0
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonGymBattleText2:
 	text_far _CeladonGymBattleText2
@@ -246,7 +246,7 @@ CeladonGymBeauty1Text:
 	text_asm
 	ld hl, CeladonGymTrainerHeader1
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonGymBattleText3:
 	text_far _CeladonGymBattleText3
@@ -264,7 +264,7 @@ CeladonGymCooltrainerF2Text:
 	text_asm
 	ld hl, CeladonGymTrainerHeader2
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonGymBattleText4:
 	text_far _CeladonGymBattleText4
@@ -282,7 +282,7 @@ CeladonGymBeauty2Text:
 	text_asm
 	ld hl, CeladonGymTrainerHeader3
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonGymBattleText5:
 	text_far _CeladonGymBattleText5
@@ -300,7 +300,7 @@ CeladonGymCooltrainerF3Text:
 	text_asm
 	ld hl, CeladonGymTrainerHeader4
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonGymBattleText6:
 	text_far _CeladonGymBattleText6
@@ -318,7 +318,7 @@ CeladonGymBeauty3Text:
 	text_asm
 	ld hl, CeladonGymTrainerHeader5
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonGymBattleText7:
 	text_far _CeladonGymBattleText7
@@ -336,7 +336,7 @@ CeladonGymCooltrainerF4Text:
 	text_asm
 	ld hl, CeladonGymTrainerHeader6
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonGymBattleText8:
 	text_far _CeladonGymBattleText8

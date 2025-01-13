@@ -9,7 +9,7 @@ BillsHouse_Script:
 BillsHouse_ScriptPointers:
 	def_script_pointers
 	dw_const BillsHouseScript0, SCRIPT_BILLSHOUSE_SCRIPT0
-	dw_const BillsHouseScript1, SCRIPT_BILLSHOUSE_SCRIPT1
+	dw_const DoRet,             SCRIPT_BILLSHOUSE_SCRIPT1
 	dw_const BillsHouseScript2, SCRIPT_BILLSHOUSE_SCRIPT2
 	dw_const BillsHouseScript3, SCRIPT_BILLSHOUSE_SCRIPT3
 	dw_const BillsHouseScript4, SCRIPT_BILLSHOUSE_SCRIPT4
@@ -17,7 +17,7 @@ BillsHouse_ScriptPointers:
 	dw_const BillsHouseScript6, SCRIPT_BILLSHOUSE_SCRIPT6
 	dw_const BillsHouseScript7, SCRIPT_BILLSHOUSE_SCRIPT7
 	dw_const BillsHouseScript8, SCRIPT_BILLSHOUSE_SCRIPT8
-	dw_const BillsHouseScript9, SCRIPT_BILLSHOUSE_SCRIPT9
+	dw_const DoRet,             SCRIPT_BILLSHOUSE_SCRIPT9
 
 BillsHouseScript_1e09e:
 	ld hl, wd492
@@ -50,9 +50,6 @@ BillsHouseScript0:
 	ld [wJoyIgnore], a
 	ld a, SCRIPT_BILLSHOUSE_SCRIPT1
 	ld [wBillsHouseCurScript], a
-	ret
-
-BillsHouseScript1:
 	ret
 
 BillsHouseScript2:
@@ -251,9 +248,6 @@ BillsHouseScript8:
 	ld [wBillsHouseCurScript], a
 	ret
 
-BillsHouseScript9:
-	ret
-
 BillsHouse_TextPointers:
 	def_text_pointers
 	dw_const BillsHouseBillPokemonText,               TEXT_BILLSHOUSE_BILL_POKEMON
@@ -268,14 +262,14 @@ BillsHouseBillDontLeaveText:
 BillsHouseBillPokemonText:
 	text_asm
 	farcall BillsHousePrintBillPokemonText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 BillsHouseBillSSTicketText:
 	text_asm
 	farcall BillsHousePrintBillSSTicketText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 BillsHouseBillCheckOutMyRarePokemonText:
 	text_asm
 	farcall BillsHousePrintBillCheckOutMyRarePokemonText
-	jp TextScriptEnd
+	rst TextScriptEnd

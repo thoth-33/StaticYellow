@@ -26,7 +26,7 @@ MrPsychicsHouseMrPsychicText:
 	ld hl, .TM29ExplanationText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .YouWantedThisText:
 	text_far _MrPsychicsHouseMrPsychicYouWantedThisText

@@ -75,7 +75,7 @@ ViridianForestYoungster5Text:
 	ld hl, ViridianForestTrainerHeader4
 ViridianForestTalkToTrainer:
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianForestYoungster2BattleText:
 	text_far _ViridianForestYoungster2BattleText
@@ -172,4 +172,4 @@ ViridianForestLeavingSignText:
 ViridianForestSign_Common:
 	ld b, BANK(ViridianForestPrintTrainerTips1Text)
 	call Bankswitch
-	jp TextScriptEnd
+	rst TextScriptEnd

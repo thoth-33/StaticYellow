@@ -81,19 +81,19 @@ SaffronGateGuardText:
 	call Route5GateMovePlayerUpScript
 	ld a, SCRIPT_ROUTE5GATE_PLAYER_MOVING
 	ld [wRoute5GateCurScript], a
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .have_drink
 	ld hl, SaffronGateGuardGiveDrinkText
 	call PrintText
 	ld hl, wStatusFlags1
 	set BIT_GAVE_SAFFRON_GUARDS_DRINK, [hl]
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .thanks_for_drink
 	ld hl, SaffronGateGuardThanksForTheDrinkText
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SaffronGateGuardGeeImThirstyText:
 	text_far _SaffronGateGuardGeeImThirstyText

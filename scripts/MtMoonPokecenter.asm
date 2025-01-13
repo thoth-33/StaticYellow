@@ -26,7 +26,7 @@ MtMoonPokecenterGentlemanText:
 MtMoonPokecenterMagikarpSalesmanText:
 	text_asm
 	callfar MagikarpSalesman
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 MtMoonPokecenterClipboardText:
 	text_far _MtMoonPokecenterClipboardText
@@ -38,4 +38,4 @@ MtMoonPokecenterLinkReceptionistText:
 MtMoonPokecenterChanseyText:
 	text_asm
 	callfar PokecenterChanseyText
-	jp TextScriptEnd
+	rst TextScriptEnd

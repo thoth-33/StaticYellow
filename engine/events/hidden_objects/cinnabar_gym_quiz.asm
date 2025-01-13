@@ -40,7 +40,7 @@ CinnabarGymQuiz::
 	ld a, 1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	call CinnabarGymQuiz_AskQuestion
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CinnabarGymQuizDummyIntroText:
 	text_far _CinnabarGymQuizDummyIntroText
@@ -147,7 +147,7 @@ CinnabarGymQuizCorrectText:
 	ld a, SFX_GO_INSIDE
 	call PlaySound
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CinnabarGymQuizIncorrectText:
 	text_far _CinnabarGymQuizIncorrectText

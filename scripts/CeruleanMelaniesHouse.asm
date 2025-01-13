@@ -49,17 +49,17 @@ CeruleanMelanieHouseMelanieText:
 	predef HideObject
 	SetEvent EVENT_GOT_BULBASAUR_IN_CERULEAN
 .asm_1cfb3
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .asm_1cfb6
 	ld hl, CeruleanHouse1Text_1cfdf
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .asm_1cfbf
 	ld hl, CeruleanHouse1Text_1cfd9
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeruleanHouse1Text_1cfc8:
 	text_far MelanieText1
@@ -90,18 +90,18 @@ CeruleanMelanieHouseBulbasaurText:
 	text_asm
 	ld a, BULBASAUR
 	call PlayCry
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeruleanMelanieHouseOddishText:
 	text_far MelanieOddishText
 	text_asm
 	ld a, ODDISH
 	call PlayCry
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeruleanMelanieHouseSandshrewText:
 	text_far MelanieSandshrewText
 	text_asm
 	ld a, SANDSHREW
 	call PlayCry
-	jp TextScriptEnd
+	rst TextScriptEnd

@@ -12,7 +12,7 @@ UsedStrengthText:
 	ld a, [wCurPartySpecies]
 	call PlayCry
 	call Delay3
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CanMoveBouldersText:
 	text_far _CanMoveBouldersText

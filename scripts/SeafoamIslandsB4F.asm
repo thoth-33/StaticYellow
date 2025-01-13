@@ -155,7 +155,7 @@ SeafoamIslandsB4FArticunoText:
 	call TalkToTrainer
 	ld a, SCRIPT_SEAFOAMISLANDSB4F_OBJECT_MOVING3
 	ld [wSeafoamIslandsB4FCurScript], a
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SeafoamIslandsB4FArticunoBattleText:
 	text_far _SeafoamIslandsB4FArticunoBattleText
@@ -163,7 +163,7 @@ SeafoamIslandsB4FArticunoBattleText:
 	ld a, ARTICUNO
 	call PlayCry
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SeafoamIslandsB4FBouldersSignText:
 	text_far _SeafoamIslandsB4FBouldersSignText

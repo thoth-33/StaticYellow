@@ -167,7 +167,7 @@ PewterGymBrockText:
 	ld [wPewterGymCurScript], a
 	ld [wCurMapScript], a
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .PreBattleText:
 	text_far _PewterGymBrockPreBattleText
@@ -217,7 +217,7 @@ PewterGymCooltrainerMText:
 	text_asm
 	ld hl, PewterGymTrainerHeader0
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 PewterGymCooltrainerMBattleText:
 	text_far _PewterGymCooltrainerMBattleText
@@ -259,11 +259,11 @@ PewterGymGuideText:
 	ld hl, PewterGymGuidePostBattleText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 .asm_5c3fa
 	ld hl, PewterGymText_5c41c
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 PewterGymGuidePreAdviceText:
 	text_far _PewterGymGuidePreAdviceText

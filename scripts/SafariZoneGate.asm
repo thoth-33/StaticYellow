@@ -151,7 +151,7 @@ SafariZoneGateSafariZoneWorker1Text:
 SafariZoneGateSafariZoneWorker1WouldYouLikeToJoinText:
 	text_asm
 	callfar SafariZoneGatePrintSafariZoneWorker1WouldYouLikeToJoinText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SafariZoneGateSafariZoneWorker1LeavingEarlyText:
 	text_far _SafariZoneGateSafariZoneWorker1LeavingEarlyText
@@ -184,7 +184,7 @@ SafariZoneGateSafariZoneWorker1LeavingEarlyText:
 .set_current_script
 	ld a, SCRIPT_SAFARIZONEGATE_SET_SCRIPT_AFTER_MOVE
 	ld [wSafariZoneGateCurScript], a
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .ReturnSafariBallsText
 	text_far _SafariZoneGateSafariZoneWorker1ReturnSafariBallsText
@@ -201,4 +201,4 @@ SafariZoneGateSafariZoneWorker1GoodHaulComeAgainText:
 SafariZoneGateSafariZoneWorker2Text:
 	text_asm
 	callfar SafariZoneGatePrintSafariZoneWorker2Text
-	jp TextScriptEnd
+	rst TextScriptEnd

@@ -11,14 +11,14 @@ Route1_TextPointers:
 Route1Youngster1Text:
 	text_asm
 	farcall Route1PrintYoungster1Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route1Youngster2Text:
 	text_asm
 	farcall Route1PrintYoungster2Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route1SignText:
 	text_asm
 	farcall Route1PrintSignText
-	jp TextScriptEnd
+	rst TextScriptEnd

@@ -159,7 +159,7 @@ CeruleanGymMistyText:
 	ld a, SCRIPT_CERULEANGYM_MISTY_POST_BATTLE
 	ld [wCeruleanGymCurScript], a
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .PreBattleText:
 	text_far _CeruleanGymMistyPreBattleText
@@ -206,7 +206,7 @@ CeruleanGymCooltrainerFText:
 	text_asm
 	ld hl, CeruleanGymTrainerHeader0
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeruleanGymBattleText1:
 	text_far _CeruleanGymBattleText1
@@ -224,7 +224,7 @@ CeruleanGymSwimmerText:
 	text_asm
 	ld hl, CeruleanGymTrainerHeader1
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeruleanGymBattleText2:
 	text_far _CeruleanGymBattleText2
@@ -249,7 +249,7 @@ CeruleanGymGymGuideText:
 	ld hl, .BeatMistyText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .ChampInMakingText:
 	text_far _CeruleanGymGymGuideChampInMakingText

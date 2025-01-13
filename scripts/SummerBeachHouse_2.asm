@@ -20,7 +20,7 @@ Func_f23d0:
 	ld hl, Text_f240c
 .asm_f2406
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Text_f240c:
 	text_far _SummerBeachHousePrinterText5

@@ -15,7 +15,7 @@ TownMapText::
 	farcall DisplayTownMap
 	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]
-	ld de, TextScriptEnd
+	ld de, TextScriptEndNoPop
 	push de
 	ldh a, [hLoadedROMBank]
 	push af

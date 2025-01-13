@@ -502,7 +502,7 @@ SilphCo11FJessieJamesText:
 	predef EmotionBubble
 	ld c, 20
 	call DelayFrames
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SilphCo11FText9:
 	text_far _SilphCoJessieJamesText2
@@ -517,7 +517,7 @@ SilphCo11FText10:
 	text_asm
 	ld c, 64
 	call DelayFrames
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SilphCo11FSilphPresidentText:
 	text_asm
@@ -540,7 +540,7 @@ SilphCo11FSilphPresidentText:
 	ld hl, .MasterBallDescriptionText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _SilphCo11FSilphPresidentText
@@ -579,7 +579,7 @@ SilphCo11FRocketText:
 	text_asm
 	ld hl, SilphCo11TrainerHeader0
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SilphCo11FRocketBattleText:
 	text_far _SilphCo11FRocket2BattleText

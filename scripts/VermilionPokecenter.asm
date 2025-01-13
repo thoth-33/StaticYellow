@@ -27,4 +27,4 @@ VermilionPokecenterLinkReceptionistText:
 VermilionPokecenterChanseyText:
 	text_asm
 	callfar PokecenterChanseyText
-	jp TextScriptEnd
+	rst TextScriptEnd

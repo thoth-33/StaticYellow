@@ -24,7 +24,7 @@ PewterPokecenterGentlemanText:
 PewterPokecenterJigglypuffText:
 	text_asm
 	farcall PewterJigglypuff
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 PewterPokecenterLinkReceptionistText:
 	script_cable_club_receptionist
@@ -32,9 +32,9 @@ PewterPokecenterLinkReceptionistText:
 PewterPokecenterCooltrainerFText:
 	text_asm
 	farcall PewterPokecenterPrintCooltrainerFText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 PewterPokecenterChanseyText:
 	text_asm
 	callfar PokecenterChanseyText
-	jp TextScriptEnd
+	rst TextScriptEnd

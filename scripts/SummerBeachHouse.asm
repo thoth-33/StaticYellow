@@ -50,7 +50,7 @@ ENDC
 	ld hl, .SurfinDudeText2
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .SurfinDudeText1
 	text_far _SummerBeachHouseSurfinDudeText1
@@ -72,7 +72,7 @@ SummerBeachHousePikachuText:
 	ld a, PIKACHU
 	call PlayCry
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .SummerBeachHousePikachuText
 	text_far _SummerBeachHousePikachuText
@@ -87,7 +87,7 @@ SummerBeachHousePoster1Text:
 	ld hl, .SummerBeachHousePoster1Text1
 .next
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .SummerBeachHousePoster1Text1
 	text_far _SummerBeachHousePoster1Text1
@@ -105,7 +105,7 @@ SummerBeachHousePoster2Text:
 	ld hl, .SummerBeachHousePoster2Text1
 .next
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .SummerBeachHousePoster2Text1
 	text_far _SummerBeachHousePoster2Text1
@@ -123,7 +123,7 @@ SummerBeachHousePoster3Text:
 	ld hl, .SummerBeachHousePoster3Text1
 .next
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .SummerBeachHousePoster3Text1
 	text_far _SummerBeachHousePoster3Text1
@@ -188,7 +188,7 @@ ENDC
 	ld hl, .SummerBeachHousePrinterText1
 	call PrintText
 .asm_f236f
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .SummerBeachHousePrinterText1
 	text_far _SummerBeachHousePrinterText1

@@ -57,9 +57,15 @@ RepelWoreOffText::
 
 
 SECTION "rst38", ROM0[$0038]
-	rst $38
+TextScriptEnd::
+        pop hl ; turn the rst call into a jp by popping off the return address
+TextScriptEndNoPop::
+        ld hl, TextScriptEndingText
+DoRet::
+        ret
 
-	ds $40 - @, 0 ; unused
+TextScriptEndingText:: ; moved from home/overworld_text.asm
+    	text_end
 
 
 ; Game Boy hardware interrupts

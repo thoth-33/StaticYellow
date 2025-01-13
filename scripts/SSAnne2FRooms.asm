@@ -45,25 +45,25 @@ SSAnne2FRoomsGentleman1Text:
 	text_asm
 	ld hl, SSAnne9TrainerHeader0
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnne2FRoomsFisherText:
 	text_asm
 	ld hl, SSAnne9TrainerHeader1
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnne2FRoomsGentleman2Text:
 	text_asm
 	ld hl, SSAnne9TrainerHeader2
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnne2FRoomsCooltrainerFText:
 	text_asm
 	ld hl, SSAnne9TrainerHeader3
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnne2FRoomsGentleman3Text:
 	text_asm
@@ -73,7 +73,7 @@ SSAnne2FRoomsGentleman3Text:
 	call LoadScreenTilesFromBuffer1
 	ld a, SNORLAX
 	call DisplayPokedex
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _SSAnne2FRoomsGentleman3Text
@@ -83,7 +83,7 @@ SSAnne2FRoomsGentleman4Text:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _SSAnne2FRoomsGentleman4Text
@@ -93,7 +93,7 @@ SSAnne2FRoomsGrampsText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _SSAnne2FRoomsGrampsText
@@ -102,22 +102,22 @@ SSAnne2FRoomsGrampsText:
 SSAnne2FRoomsGentleman5Text:
 	text_asm
 	farcall SSAnne2FRoomsPrintGentleman5Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnne2FRoomsLittleBoyText:
 	text_asm
 	farcall SSAnne2FRoomsPrintLittleBoyText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnne2FRoomsBrunetteGirlText:
 	text_asm
 	farcall SSAnne2FRoomsPrintBrunetteGirlText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnne2FRoomsBeautyText:
 	text_asm
 	farcall SSAnne2FRoomsPrintBeautyText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 SSAnne2FRoomsGentleman1BattleText:
 	text_far _SSAnne2FRoomsGentleman1BattleText

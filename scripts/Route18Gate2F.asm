@@ -12,7 +12,7 @@ Route18Gate2FCookText:
 	ld a, TRADE_FOR_SPIKE
 	ld [wWhichTrade], a
 	predef DoInGameTradeDialogue
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 Route18Gate2FLeftBinocularsText:
 	text_asm

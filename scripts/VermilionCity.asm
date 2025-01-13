@@ -167,7 +167,7 @@ VermilionCityGambler1Text:
 	ld hl, .SSAnneDepartedText
 	call PrintText
 .text_script_end
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .DidYouSeeText:
 	text_far _VermilionCityGambler1DidYouSeeText
@@ -217,7 +217,7 @@ VermilionCitySailor1Text:
 	ld hl, .ShipSetSailText
 	call PrintText
 .end
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .inFrontOfOrBehindGuardCoords
 	dbmapcoord 19, 29 ; in front of guard
@@ -283,29 +283,29 @@ VermilionCitySailor2Text:
 VermilionCitySignText:
 	text_asm
 	farcall VermilionCityPrintSignText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 VermilionCityNoticeSignText:
 	text_asm
 	farcall VermilionCityPrintNoticeSignText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 VermilionCityPokemonFanClubSignText:
 	text_asm
 	farcall VermilionCityPrintPokemonFanClubSignText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 VermilionCityGymSignText:
 	text_asm
 	farcall VermilionCityPrintGymSignText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 VermilionCityHarborSignText:
 	text_asm
 	farcall VermilionCityPrintHarborSignText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 VermilionCityOfficerJennyText:
 	text_asm
 	farcall VermilionCityPrintOfficerJennyText
-	jp TextScriptEnd
+	rst TextScriptEnd

@@ -34,7 +34,7 @@ OaksLab_ScriptPointers:
 	dw_const OaksLabRivalArrivesAtOaksRequestScript, SCRIPT_OAKSLAB_RIVAL_ARRIVES_AT_OAKS_REQUEST
 	dw_const OaksLabOakGivesPokedexScript,           SCRIPT_OAKSLAB_OAK_GIVES_POKEDEX
 	dw_const OaksLabRivalLeavesWithPokedexScript,    SCRIPT_OAKSLAB_RIVAL_LEAVES_WITH_POKEDEX
-	dw_const OaksLabNoopScript,                      SCRIPT_OAKSLAB_NOOP
+	dw_const DoRet,                                  SCRIPT_OAKSLAB_NOOP
 
 OaksLabDefaultScript:
 	CheckEvent EVENT_OAK_APPEARED_IN_PALLET
@@ -634,9 +634,6 @@ OaksLabRivalLeavesWithPokedexScript:
 	ld [wOaksLabCurScript], a
 	ret
 
-OaksLabNoopScript:
-	ret
-
 OaksLabScript_RemoveParcel:
 	ld hl, wBagItems
 	ld bc, 0
@@ -765,7 +762,7 @@ OaksLabRivalText:
 	ld hl, .MyPokemonLooksStrongerText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .GrampsIsntAroundText:
 	text_far _OaksLabRivalGrampsIsntAroundText
@@ -789,7 +786,7 @@ OaksLabEeveePokeBallText:
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabThatsAPokeball
@@ -803,7 +800,7 @@ OaksLabRivalExclamationScript:
 	predef EmotionBubble
 	ld a, SCRIPT_OAKSLAB_CHOSE_STARTER_SCRIPT
 	ld [wOaksLabCurScript], a
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 OaksLabOak1Text:
 	text_asm
@@ -878,7 +875,7 @@ OaksLabOak1Text:
 	ld hl, .ComeSeeMeSometimesText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .GoAheadItsYours:
 	text_far _OaksLabOak1GoAheadItsYours
@@ -920,7 +917,7 @@ OaksLabPokedexText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabPokedexText
@@ -934,7 +931,7 @@ OaksLabGirlText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabGirlText
@@ -944,7 +941,7 @@ OaksLabRivalFedUpWithWaitingText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabRivalFedUpWithWaitingText
@@ -954,7 +951,7 @@ OaksLabOakChooseMonText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabOakChooseMonText
@@ -964,7 +961,7 @@ OaksLabRivalWhatAboutMeText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabRivalWhatAboutMeText
@@ -974,7 +971,7 @@ OaksLabOakBePatientText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabOakBePatientText
@@ -992,7 +989,7 @@ OaksLabRivalReceivedMonText:
 	call PrintText
 	ld hl, OaksLabRivalTakesText5
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 OaksLabRivalTakesText1:
 	text_far _OaksLabRivalTakesText1
@@ -1041,7 +1038,7 @@ OaksLabPlayerReceivedMonText:
 	SetEvent EVENT_GOT_STARTER
 	ld hl, wStatusFlags4
 	set BIT_GOT_STARTER, [hl]
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 OaksLabOakGivesText:
 	text_far _OaksLabOakGivesText
@@ -1056,7 +1053,7 @@ OaksLabOakDontGoAwayYetText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabOakDontGoAwayYetText
@@ -1066,7 +1063,7 @@ OaksLabRivalIllTakeYouOnText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabRivalIllTakeYouOnText
@@ -1084,7 +1081,7 @@ OaksLabRivalSmellYouLaterText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabRivalSmellYouLaterText
@@ -1096,7 +1093,7 @@ OaksLabPikachuDislikesPokeballsText1:
 	callfar PlayPikachuSoundClip
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabPikachuDislikesPokeballsText1
@@ -1106,7 +1103,7 @@ OaksLabPikachuDislikesPokeballsText2:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabPikachuDislikesPokeballsText2
@@ -1145,7 +1142,7 @@ OaksLabScientistText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _OaksLabScientistText

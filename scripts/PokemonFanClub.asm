@@ -98,7 +98,7 @@ PokemonFanClubClefairyFanText:
 	ld hl, .bettertext
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .normaltext
 	text_far _PokemonFanClubClefairyFanNormalText
@@ -132,7 +132,7 @@ PokemonFanClubSeelFanText:
 	ld hl, .bettertext
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .normaltext
 	text_far _PokemonFanClubSeelFanNormalText
@@ -153,7 +153,7 @@ PokemonFanClubClefairyText:
 	ld a, CLEFAIRY
 	call PlayCry
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text
 	text_far _PokemonFanClubClefairyText
@@ -166,7 +166,7 @@ PokemonFanClubSeelText:
 	ld a, SEEL
 	call PlayCry
 	call WaitForSoundToFinish
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text
 	text_far _PokemonFanClubSeelText
@@ -204,7 +204,7 @@ PokemonFanClubChairmanText:
 	ld hl, .BikeVoucherText
 	call PrintText
 	SetEvent EVENT_GOT_BIKE_VOUCHER
-	jp TextScriptEnd
+	rst TextScriptEnd
 .bag_full
 	ld hl, .BagFullText
 	jr .gbpals_print_text
@@ -218,7 +218,7 @@ PokemonFanClubChairmanText:
 	call LoadGBPal
 	pop hl
 	call PrintText
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .select_mon_to_print
 	call GBPalWhiteOutWithDelay3

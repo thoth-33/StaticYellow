@@ -71,7 +71,7 @@ CeladonCityGramps3Text:
 	ld hl, .TM41ExplanationText
 	call PrintText
 .Done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .Text:
 	text_far _CeladonCityGramps3Text
@@ -99,7 +99,7 @@ CeladonCityPoliwrathText:
 	text_asm
 	ld a, POLIWRATH
 	call PlayCry
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonCityRocket1Text:
 	text_far _CeladonCityRocket1Text
@@ -112,7 +112,7 @@ CeladonCityRocket2Text:
 CeladonCityTrainerTips1Text:
 	text_asm
 	farcall CeladonCityPrintTrainerTips1Text
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 CeladonCitySignText:
 	text_far _CeladonCitySignText

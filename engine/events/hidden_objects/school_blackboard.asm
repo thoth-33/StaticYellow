@@ -56,7 +56,7 @@ LinkCableHelp::
 	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]
 	call LoadScreenTilesFromBuffer1
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 LinkCableHelpText1:
 	text_far _LinkCableHelpText1
@@ -173,7 +173,7 @@ ViridianSchoolBlackboard::
 	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]
 	call LoadScreenTilesFromBuffer1
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 ViridianSchoolBlackboardText1:
 	text_far _ViridianSchoolBlackboardText1

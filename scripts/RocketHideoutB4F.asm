@@ -327,7 +327,7 @@ RocketHideoutB4FText11:
 	predef EmotionBubble
 	ld c, 20
 	call DelayFrames
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 RocketHideoutB4FText12:
 	text_far _RocketHideoutJessieJamesText2
@@ -342,7 +342,7 @@ RocketHideoutB4FText13:
 	text_asm
 	ld c, 64
 	call DelayFrames
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 RocketHideoutB4FGiovanniText:
 	text_asm
@@ -370,7 +370,7 @@ RocketHideoutB4FGiovanniText:
 	ld hl, RocketHideoutB4FGiovanniHopeWeMeetAgainText
 	call PrintText
 .done
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 .ImpressedYouGotHereText:
 	text_far _RocketHideoutB4FGiovanniImpressedYouGotHereText
@@ -388,7 +388,7 @@ RocketHideoutB4FRocketText:
 	text_asm
 	ld hl, RocketHideout4TrainerHeader0
 	call TalkToTrainer
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 RocketHideoutB4FRocketBattleText:
 	text_far _RocketHideoutB4FRocket2BattleText
@@ -402,7 +402,7 @@ RocketHideoutB4FRocketEndBattleText:
 	ld a, HS_ROCKET_HIDEOUT_B4F_ITEM_5
 	ld [wMissableObjectIndex], a
 	predef ShowObject
-	jp TextScriptEnd
+	rst TextScriptEnd
 
 RocketHideoutB4FRocketAfterBattleText:
 	text_asm
