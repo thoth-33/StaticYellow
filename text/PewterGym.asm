@@ -86,9 +86,10 @@ _TM34ExplanationText::
 	para "A TM can be used"
 	line "as many times as"
 	cont "you want!"
-	cont "Pick the #MON"
-	cont "and make it learn"
-        cont "a new technique!"
+
+	para "Pick the #MON"
+	line "and make it learn"
+  cont "a new technique!"
 
 	para "TM34 contains"
 	line "BIDE!"
