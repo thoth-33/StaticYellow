@@ -218,14 +218,14 @@ StartMenu_Pokemon::
 	call GBPalWhiteOutWithDelay3
 	jp .goBackToMap
 .teleport
-	call CheckIfInFlyMap
+;	call CheckIfInFlyMap
 	jr z, .canTeleport
-	ld a, [wWhichPokemon]
-	ld hl, wPartyMonNicks
-	call GetPartyMonName
-	ld hl, .cannotUseTeleportNowText
-	call PrintText
-	jp .loop
+;	ld a, [wWhichPokemon]
+;	ld hl, wPartyMonNicks
+;	call GetPartyMonName
+;	ld hl, .cannotUseTeleportNowText
+;	call PrintText
+;	jp .loop
 .canTeleport
 	ld hl, .warpToLastPokemonCenterText
 	call PrintText
