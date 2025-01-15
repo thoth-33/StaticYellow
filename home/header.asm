@@ -2,7 +2,7 @@
 ; PureRGBnote: CHANGED: use these rst vectors. 
 ; By using "rst (rst vector)" instead of "call (16-bit address)" we can reduce the size of calls to frequently used functions.
 
-SECTION "rst0", ROM0[$0000]
+SECTION "rst0", ROM0[$0000] ; Bankswitch as Rst, replaces call Banswitch
 _Bankswitch::
 	jp Bankswitch
 
