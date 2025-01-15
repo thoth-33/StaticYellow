@@ -131,7 +131,7 @@ StartMenu_Pokemon::
 .fly
 	bit BIT_THUNDERBADGE, a
 	jp z, .newBadgeRequired
-	call CheckIfInOutsideMap
+	call CheckIfInFlyMap
 	jr z, .canFly
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
@@ -218,7 +218,7 @@ StartMenu_Pokemon::
 	call GBPalWhiteOutWithDelay3
 	jp .goBackToMap
 .teleport
-	call CheckIfInOutsideMap
+	call CheckIfInFlyMap
 	jr z, .canTeleport
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
