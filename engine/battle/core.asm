@@ -63,6 +63,7 @@ SlidePlayerAndEnemySilhouettesOnScreen:
 	ld a, c
 	ldh [hSCX], a
 	call DelayFrame
+	call DelayFrame ; shinpokerednote: gbcnote: do one extra frame to make sure the screen can update
 	ld a, %11100100 ; inverted palette for silhouette effect
 	ldh [rBGP], a
 	ldh [rOBP0], a
