@@ -2148,7 +2148,7 @@ FishingInit:
 	ld [wd49c], a
 	ld a, $81
 	ld [wPikachuMood], a
-	ld c, 80
+	ld c, 40
 	call DelayFrames
 	and a
 	ret
