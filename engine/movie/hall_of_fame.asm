@@ -244,13 +244,28 @@ HoFLoadMonPlayerPicTileIDs:
 HoFDisplayPlayerStats:
 	SetEvent EVENT_HALL_OF_FAME_DEX_RATING
 	predef DisplayDexRating
+
+	hlcoord 11, 0 ; Yellow Text Box
+	ld b, 2
+	ld c, 7
+	call TextBoxBorder
+	hlcoord 12, 1
+	ld de, StaticText
+	call PlaceString
+	hlcoord 12, 2
+	ld de, YellowText
+	call PlaceString
+	jp .Next1
+
+.Next1
+
 	hlcoord 0, 4
 	lb bc, 6, 10
 	call TextBoxBorder
-	hlcoord 5, 0
+	hlcoord 0, 0
 	lb bc, 2, 9
 	call TextBoxBorder
-	hlcoord 7, 2
+	hlcoord 1, 2
 	ld de, wPlayerName
 	call PlaceString
 	hlcoord 1, 6
@@ -282,6 +297,12 @@ HoFPrintTextAndDelay:
 	call PrintText
 	ld c, 120
 	jp DelayFrames
+
+StaticText:
+	db "STATIC@"
+
+YellowText:
+	db "YELLOW@"
 
 HoFPlayTimeText:
 	db "PLAY TIME@"
