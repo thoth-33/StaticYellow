@@ -142,11 +142,12 @@ CinnabarGymQuizCorrectText:
 	call CinnabarGymGateFlagAction
 	ld a, c
 	and a
-	jp nz, TextScriptEnd
+	jr nz, .done
 	call WaitForSoundToFinish
 	ld a, SFX_GO_INSIDE
 	call PlaySound
 	call WaitForSoundToFinish
+.done
 	rst TextScriptEnd
 
 CinnabarGymQuizIncorrectText:
