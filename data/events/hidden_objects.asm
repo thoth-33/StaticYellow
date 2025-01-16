@@ -561,5 +561,5 @@ CinnabarPokecenterHiddenObjects:
 	db -1 ; end
 
 DaycareHiddenObjects:
-	hidden_object 4,   1, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 4,   0, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end
