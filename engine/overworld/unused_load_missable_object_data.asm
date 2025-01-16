@@ -1,5 +1,5 @@
-Func_f0a54: ; unreferenced
-	ret
+;Func_f0a54: ; unreferenced
+;	ret
 
 LoadMissableObjectData::
 ; farcalled by an unreferenced function
