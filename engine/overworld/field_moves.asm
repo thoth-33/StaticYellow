@@ -34,7 +34,7 @@ TrySurf:
 	jr nz, .no2
 	call GetPartyMonName2
 	ld a, SURFBOARD
-	ld [wCurPartySpecies], a
+	ld [wCurItem], a
 	ld [wPseudoItemID], a
 	call UseItem
 .yes2
