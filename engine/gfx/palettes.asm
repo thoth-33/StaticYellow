@@ -329,6 +329,15 @@ GetPalID:
 	ld e, a
 	ld d, 0
 	add hl, de
+	ld a, PAL_HERO
+ 	cp [hl]
+	jr nz, .cont
+ 	ld a, [wPlayerGender]
+  	and a
+  	jr z, .cont
+  	ld a, PAL_GREEN
+  	ret
+.cont
 	ld a, [hl]
 	ret
 
