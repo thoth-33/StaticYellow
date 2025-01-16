@@ -21,7 +21,8 @@ PokemartGreetingText::
 	text_end
 
 SECTION "rst10", ROM0[$0010]
-	rst $38
+_DelayFrame::
+	jp DelayFrame
 
 ; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use
 PokeCenterSignText::
@@ -29,12 +30,14 @@ PokeCenterSignText::
 	text_end
 
 SECTION "rst18", ROM0[$0018]
-	rst $38
+_DelayFrames::
+	jp DelayFrames
 
-	ds $20 - @, 0 ; unused
+;	ds $20 - @, 0 ; unused
 
 SECTION "rst20", ROM0[$0020]
-	rst $38
+_CopyData::
+	jp CopyData
 
 ; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use
 
@@ -43,18 +46,19 @@ PokemonFaintedText::
 	text_end
 
 SECTION "rst28", ROM0[$0028]
-	rst $38
+_PrintText::
+	jp PrintText
 
-	ds $30 - @, 0 ; unused
+;	ds $30 - @, 0 ; unused
 
 SECTION "rst30", ROM0[$0030]
-
+_PlaySound::
+	jp PlaySound
 	
 ; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use	
 RepelWoreOffText::
 	text_far _RepelWoreOffText
 	text_end
-
 
 SECTION "rst38", ROM0[$0038]
 TextScriptEnd::

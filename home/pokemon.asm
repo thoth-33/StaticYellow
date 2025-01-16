@@ -143,7 +143,7 @@ PlayCry::
 	ld [wLowHealthAlarm], a
 	ld a, b
 	call GetCryData
-	call PlaySound
+	rst _PlaySound
 	call WaitForSoundToFinish
 	pop af
 	ld [wLowHealthAlarm], a
@@ -327,7 +327,8 @@ RedrawPartyMenu::
 
 DrawPartyMenuCommon::
 	ld b, BANK(RedrawPartyMenu_)
-	jp Bankswitch
+	rst _Bankswitch
+	ret
 
 ; prints a pokemon's status condition
 ; INPUT:
@@ -431,7 +432,7 @@ GetMonHeader::
 	call AddNTimes
 	ld de, wMonHeader
 	ld bc, BASE_DATA_SIZE
-	call CopyData
+	rst _CopyData
 	jr .done
 .specialID
 	ld hl, wMonHSpriteDim
@@ -465,7 +466,7 @@ GetPartyMonName::
 	ld de, wNameBuffer
 	push de
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	pop de
 	pop bc
 	pop hl

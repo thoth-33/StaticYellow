@@ -71,7 +71,7 @@ CopyVideoData::
 
 .done
 	ldh [hVBlankCopySize], a
-	call DelayFrame
+	rst _DelayFrame
 	pop af
 	call BankswitchCommon
 	pop af
@@ -81,7 +81,7 @@ CopyVideoData::
 .keepgoing
 	ld a, 8
 	ldh [hVBlankCopySize], a
-	call DelayFrame
+	rst _DelayFrame
 	ld a, c
 	sub 8
 	ld c, a
@@ -118,7 +118,7 @@ CopyVideoDataDouble::
 
 .done
 	ldh [hVBlankCopyDoubleSize], a
-	call DelayFrame
+	rst _DelayFrame
 	pop af
 	call BankswitchCommon
 	pop af
@@ -128,7 +128,7 @@ CopyVideoDataDouble::
 .keepgoing
 	ld a, 8
 	ldh [hVBlankCopyDoubleSize], a
-	call DelayFrame
+	rst _DelayFrame
 	ld a, c
 	sub 8
 	ld c, a
@@ -197,17 +197,18 @@ CopyScreenTileBufferToVRAM::
 	ld hl, $600 * 0
 	decoord 0, 6 * 0
 	call .setup
-	call DelayFrame
+	rst _DelayFrame
 
 	ld hl, $600 * 1
 	decoord 0, 6 * 1
 	call .setup
-	call DelayFrame
+	rst _DelayFrame
 
 	ld hl, $600 * 2
 	decoord 0, 6 * 2
 	call .setup
-	jp DelayFrame
+	rst _DelayFrame
+	ret
 
 .setup
 	ld a, d

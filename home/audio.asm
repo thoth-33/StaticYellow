@@ -66,7 +66,8 @@ PlayDefaultMusicCommon::
 	ld a, b
 	ld [wLastMusicSoundID], a
 	ld [wNewSoundID], a
-	jp PlaySound
+	rst _PlaySound
+	ret
 
 CheckForNoBikingMusicMap::
 ; probably used to not change music upon getting on bike
@@ -293,5 +294,4 @@ DetermineAudioFunction::
 
 .done
 	pop af
-	call BankswitchCommon
-	ret
+	jp BankswitchCommon

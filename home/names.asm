@@ -14,7 +14,7 @@ GetMonName::
 	ld de, wNameBuffer
 	push de
 	ld bc, NAME_LENGTH - 1
-	call CopyData
+	rst _CopyData
 	ld hl, wNameBuffer + NAME_LENGTH - 1
 	ld [hl], "@"
 	pop de
@@ -67,7 +67,7 @@ GetMachineName::
 	ld bc, 2
 .WriteMachinePrefix
 	ld de, wNameBuffer
-	call CopyData
+	rst _CopyData
 
 ; now get the machine number and convert it to text
 	ld a, [wNamedObjectIndex]

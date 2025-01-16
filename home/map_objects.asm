@@ -131,7 +131,8 @@ DisplayPokedex::
 SetSpriteFacingDirectionAndDelay::
 	call SetSpriteFacingDirection
 	ld c, 6
-	jp DelayFrames
+	rst _DelayFrames
+	ret
 
 SetSpriteFacingDirection::
 	ld a, SPRITESTATEDATA1_FACINGDIRECTION

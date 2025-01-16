@@ -174,7 +174,7 @@ Serial_ExchangeByte::
 	ret z
 	ld a, [hl]
 	ldh [hSerialSendData], a
-	call DelayFrame
+	rst _DelayFrame
 	jp Serial_ExchangeByte
 
 WaitLoop_15Iterations::
@@ -208,7 +208,7 @@ Serial_ExchangeLinkMenuSelection::
 	ld a, 1
 	ldh [hSerialIgnoringInitialData], a
 .loop
-	call DelayFrame
+	rst _DelayFrame
 	ld a, [hl]
 	ldh [hSerialSendData], a
 	call Serial_ExchangeByte
@@ -238,7 +238,7 @@ Serial_SyncAndExchangeNybble::
 	ld [wSerialExchangeNybbleReceiveData], a
 .loop1
 	call Serial_ExchangeNybble
-	call DelayFrame
+	rst _DelayFrame
 	call IsUnknownCounterZero
 	jr z, .next1
 	push hl
@@ -265,7 +265,7 @@ ELSE
 ENDC
 	vc_patch_end
 .loop2
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_ExchangeNybble
 	dec b
 	jr nz, .loop2
@@ -277,7 +277,7 @@ ELSE
 ENDC
 	vc_patch_end
 .loop3
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_SendZeroByte
 	dec b
 	jr nz, .loop3

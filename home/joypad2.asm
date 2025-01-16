@@ -94,7 +94,9 @@ ManualTextScroll::
 	call WaitForTextScrollButtonPress
 	call WaitForSoundToFinish
 	ld a, SFX_PRESS_AB
-	jp PlaySound
+	rst _PlaySound
+	ret
 .inLinkBattle
 	ld c, 65
-	jp DelayFrames
+	rst _DelayFrames
+	ret

@@ -5,7 +5,7 @@ FarCopyData::
 	push af
 	ld a, [wFarCopyDataSavedROMBank]
 	call BankswitchCommon
-	call CopyData
+	rst _CopyData
 	pop af
 	call BankswitchCommon
 	ret

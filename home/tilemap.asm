@@ -25,13 +25,15 @@ LoadScreenTilesFromBuffer2DisableBGTransfer::
 	ld hl, wTileMapBackup2
 	decoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	jp CopyData
+	rst _CopyData
+	ret
 
 SaveScreenTilesToBuffer1::
 	hlcoord 0, 0
 	ld de, wTileMapBackup
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	jp CopyData
+	rst _CopyData
+	ret
 
 LoadScreenTilesFromBuffer1::
 	xor a

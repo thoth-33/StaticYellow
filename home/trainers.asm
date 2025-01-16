@@ -32,11 +32,12 @@ LoadGymLeaderAndCityName::
 	push de
 	ld de, wGymCityName
 	ld bc, $11
-	call CopyData   ; load city name
+	rst _CopyData   ; load city name
 	pop hl
 	ld de, wGymLeaderName
 	ld bc, NAME_LENGTH
-	jp CopyData     ; load gym leader name
+	rst _CopyData     ; load gym leader name
+	ret
 
 ; reads specific information from trainer header (pointed to at wTrainerHeaderPtr)
 ; a: offset in header data
@@ -98,11 +99,12 @@ TalkToTrainer::
 	jr z, .trainerNotYetFought     ; test trainer's flag
 	ld a, $6
 	call ReadTrainerHeaderInfo     ; print after battle text
-	jp PrintText
+	rst _PrintText
+	ret
 .trainerNotYetFought
 	ld a, $4
 	call ReadTrainerHeaderInfo     ; print before battle text
-	call PrintText
+	rst _PrintText
 	ld a, $a
 	call ReadTrainerHeaderInfo     ; (?) does nothing apparently (maybe bug in ReadTrainerHeaderInfo)
 	push de
@@ -257,7 +259,8 @@ SetSpritePosition2::
 	ld hl, _SetSpritePosition2
 SpritePositionBankswitch::
 	ld b, BANK("Trainer Sight")
-	jp Bankswitch ; indirect jump to one of the four functions
+	rst _Bankswitch ; indirect jump to one of the four functions
+	ret
 
 CheckForEngagingTrainers::
 	xor a
@@ -351,7 +354,7 @@ PrintEndBattleText::
 	push hl
 	call SaveTrainerName
 	ld hl, TrainerEndBattleText
-	call PrintText
+	rst _PrintText
 	pop hl
 	pop af
 	ldh [hLoadedROMBank], a

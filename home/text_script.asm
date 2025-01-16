@@ -107,7 +107,7 @@ CloseTextDisplay::
 	call SwitchToMapRomBank
 	ld a, $90
 	ldh [hWY], a ; move the window off the screen
-	call DelayFrame
+	rst _DelayFrame
 	call LoadGBPal
 	xor a
 	ldh [hAutoBGTransferEnabled], a ; disable continuous WRAM to VRAM transfer each V-blank
@@ -137,7 +137,7 @@ CloseTextDisplay::
 DisplayPokemartDialogue::
 	push hl
 	ld hl, PokemartGreetingText
-	call PrintText
+	rst _PrintText
 	pop hl
 	inc hl
 	call LoadItemList
@@ -179,12 +179,12 @@ DisplaySafariGameOverText::
 
 DisplayPokemonFaintedText::
 	ld hl, PokemonFaintedText
-	call PrintText
+	rst _PrintText
 	jp AfterDisplayingTextID
 
 DisplayPlayerBlackedOutText::
 	ld hl, PlayerBlackedOutText
-	call PrintText
+	rst _PrintText
 	ld a, [wStatusFlags6]
 	res BIT_ALWAYS_ON_BIKE, a
 	ld [wStatusFlags6], a
@@ -206,7 +206,7 @@ PlayerBlackedOutText::
 
 DisplayRepelWoreOffText::
 	ld hl, RepelWoreOffText
-	call PrintText
+	rst _PrintText
 	callfar UseAnotherRepel
 	jp CloseTextDisplay
 
