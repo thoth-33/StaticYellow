@@ -151,4 +151,19 @@ LancesRoomLanceAfterBattleText:
 	text_far _LancesRoomLanceAfterBattleText
 	text_asm
 	SetEvent EVENT_BEAT_LANCE
+	ld a, [wRivalStarter]
+	cp RIVAL_STARTER_FLAREON
+	jr z, .UnhideFlareon
+	cp RIVAL_STARTER_VAPOREON
+	jr z, .UnhideVaporeon
+	ld a, HS_CHAMPIONS_ROOM_JOLTEON
+	jr .done
+.UnhideFlareon
+	ld a, HS_CHAMPIONS_ROOM_FLAREON
+	jr .done
+.UnhideVaporeon
+	ld a, HS_CHAMPIONS_ROOM_VAPOREON
+.done
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 	rst TextScriptEnd

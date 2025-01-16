@@ -140,6 +140,9 @@ PidgeySprite::          INCBIN "gfx/sprites/mons/pidgey.2bpp"
 Seel2Sprite::           INCBIN "gfx/sprites/mons/seel.2bpp"
 ZapdosSprite::          INCBIN "gfx/sprites/mons/zapdos.2bpp"
 MrMimeSprite::          INCBIN "gfx/sprites/mons/mr_mime.2bpp"
+VaporeonSprite::        INCBIN "gfx/sprites/mons/vaporeon.2bpp"
+JolteonSprite::         INCBIN "gfx/sprites/mons/jolteon.2bpp"
+FlareonSprite::         INCBIN "gfx/sprites/mons/flareon.2bpp"
 
 
 SECTION "Mon Icons 1", ROMX

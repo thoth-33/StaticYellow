@@ -144,3 +144,18 @@ _ChampionsRoomOakComeWithMeText::
 	para "<PLAYER>!"
 	line "Come with me!"
 	done
+
+_ChampionsRoomJolteonText::
+	text "JOLTEON:"
+	line "JOLTEON!"
+	done
+
+_ChampionsRoomFlareonText::
+	text "FLAREON:"
+	line "FLAREON!"
+	done
+
+_ChampionsRoomVaporeonText::
+	text "VAPOREON:"
+	line "VAPOREON!"
+	done

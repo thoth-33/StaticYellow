@@ -117,6 +117,7 @@ SpriteSheetPointerTable:
 	overworld_sprite Seel2Sprite, 12
 	overworld_sprite ZapdosSprite, 12           ; SPRITE_ZAPDOS
 	overworld_sprite MrMimeSprite, 12           ; SPRITE_MRMIME
+	overworld_sprite VaporeonSprite, 4          ; SPRITE_VAPOREON
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL
 	overworld_sprite BoulderSprite, 4           ; SPRITE_BOULDER
@@ -130,4 +131,6 @@ SpriteSheetPointerTable:
 	overworld_sprite GamblerAsleepSprite, 4     ; SPRITE_UNUSED_GAMBLER_ASLEEP_2
 	overworld_sprite GamblerAsleepSprite, 4     ; SPRITE_GAMBLER_ASLEEP
 	overworld_sprite Pokedex1Sprite, 4          ; SPRITE_POKEDEX1
+	overworld_sprite JolteonSprite, 4     	    ; SPRITE_JOLTEON
+	overworld_sprite FlareonSprite, 4     	    ; SPRITE_FLAREON
 	assert_table_length NUM_SPRITES

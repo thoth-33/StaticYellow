@@ -111,7 +111,8 @@
 	const SPRITE_PIDGEY					 				 
 	const SPRITE_SEEL2					
 	const SPRITE_ZAPDOS
-	const SPRITE_MRMIME	
+	const SPRITE_MRMIME
+	const SPRITE_VAPOREON                	
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
 	const SPRITE_FOSSIL                  ; $48
@@ -126,4 +127,6 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_UNUSED_GAMBLER_ASLEEP_2 ; $51
 	const SPRITE_GAMBLER_ASLEEP          ; $52
 	const SPRITE_POKEDEX1                ; $53
+	const SPRITE_JOLTEON		     ; $54
+	const SPRITE_FLAREON	             ; $55
 DEF NUM_SPRITES EQU const_value - 1
