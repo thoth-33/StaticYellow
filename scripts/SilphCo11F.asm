@@ -69,7 +69,20 @@ SilphCo11FSetUnlockedDoorEventScript:
 	and a
 	ret z
 	SetEvent EVENT_SILPH_CO_11_UNLOCKED_DOOR
-	ret
+	callfar CheckAllCardKeyEvents
+	; fall through
+Load11FCheckCardKeyText:
+	CheckEvent EVENT_ALL_CARD_KEY_DOORS_OPENED
+	ret z
+	ld a, TEXT_SILPHCO11F_CARD_KEY_DONE
+	ldh [hTextID], a
+	jp DisplayTextID
+
+SilphCo11Text7:
+	text_asm
+	callfar PrintCardKeyDoneText
+	rst TextScriptEnd
+
 
 SilphCo11FResetCurScript:
 	xor a
@@ -481,6 +494,7 @@ SilphCo11F_TextPointers:
 	dw_const SilphCo11FJessieJamesText,               TEXT_SILPHCO11F_TEXT8
 	dw_const SilphCo11FText9,                         TEXT_SILPHCO11F_TEXT9
 	dw_const SilphCo11FText10,                        TEXT_SILPHCO11F_TEXT10
+	dw_const SilphCo11Text7,                          TEXT_SILPHCO11F_CARD_KEY_DONE
 
 SilphCo11TrainerHeaders:
 	def_trainers 5
