@@ -342,6 +342,9 @@ OaksLabRivalStartBattleScript:
 	ld a, [wStatusFlags5]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
+	; reset rival's sprite movement facing byte otherwise he can look around weirdly after battle for a moment
+	ld hl, wMapSpriteData + ((OAKSLAB_RIVAL - 1) * 2)
+	ld [hl], DOWN
 
 	ld a, OAKSLAB_RIVAL
 	ld [wSpriteIndex], a

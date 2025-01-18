@@ -185,6 +185,9 @@ SilphCo7FRivalStartBattleScript:
 	ld a, [wStatusFlags5]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
+	; reset rival's sprite behaviour bytes otherwise he can look around weirdly after battle for a moment
+	ld hl, wMapSpriteData + ((SILPHCO7F_RIVAL - 1) * 2)
+	ld [hl], UP
 	xor a
 	ld [wJoyIgnore], a
 	ld a, TEXT_SILPHCO7F_RIVAL_WAITED_HERE
