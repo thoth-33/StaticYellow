@@ -123,7 +123,7 @@ OaksLabFollowedOakScript:
 	call SetSpriteFacingDirectionAndDelay
 	ld hl, wStatusFlags7
 	res BIT_NO_MAP_MUSIC, [hl]
-  call DelayFrame
+        call DelayFrame
 	call PlayDefaultMusic
 
 	ld a, SCRIPT_OAKSLAB_OAK_CHOOSE_MON_SPEECH
@@ -180,7 +180,7 @@ OaksLabPlayerDontGoAwayScript:
 	call DisplayTextID
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
-	ld a, D_UP | B_BUTTON
+	ld a, D_UP
 	ld [wSimulatedJoypadStatesEnd], a
 	call StartSimulatingJoypadStates
 	ld a, PLAYER_DIR_UP
@@ -254,7 +254,7 @@ OaksLabRivalTakesPokeballScript:
 	ld [wPlayerMovingDirection], a
 	ld a, $2
 	ld [wSimulatedJoypadStatesIndex], a
-	ld a, D_RIGHT | B_BUTTON
+	ld a, D_RIGHT
 	ld [wSimulatedJoypadStatesEnd], a
 	ld [wSimulatedJoypadStatesEnd + 1], a
 	call StartSimulatingJoypadStates
@@ -266,7 +266,7 @@ OaksLabPlayerWalksToOakScript:
 	jr z, .asm_1c599
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
-	ld a, D_LEFT | B_BUTTON
+	ld a, D_LEFT
 	ld [wSimulatedJoypadStatesEnd], a
 	jr .asm_1c5a6
 

@@ -120,6 +120,7 @@ DEF NUM_BADGES EQU const_value
 	const BIT_DUNGEON_WARP        ; 4
 	const BIT_ALWAYS_ON_BIKE      ; 5
 	const BIT_ESCAPE_WARP         ; 6
+	const BIT_RUNNING             ; 7
 
 ; wStatusFlags7
 	const_def
