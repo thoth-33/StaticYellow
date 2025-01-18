@@ -244,7 +244,7 @@ OverworldLoopLessDelay::
 .moveAhead2
 	ld hl, wMiscFlags
 	res BIT_TURNING, [hl]
-	ld a,[wWalkBikeSurfState]
+	ld a, [wWalkBikeSurfState]
 	dec a
 	jr nz,.normalPlayerSpriteAdvancement
 	ld a, [wMovementFlags]
@@ -258,15 +258,16 @@ OverworldLoopLessDelay::
 	ld a, [wNoSprintSteps]
 	cp 0
 	jr nz, .notRunning
+; Make you surf at bike speed
 	ld a,[wWalkBikeSurfState]
 	cp a, $02
 	jr z, .surfFaster
-	; Add running shoes
+; Add running shoes
 	ld a, [hJoyHeld] ; Check what buttons are being pressed
 	and B_BUTTON ; Are you holding B?
 	jr nz, .checkIfWalking
-	; marcelnote - running sprites
-	; if reached here then player is not running, so check if we need to update sprites
+; marcelnote - running sprites
+; if reached here then player is not running, so check if we need to update sprites
 	ld a, [wWalkBikeSurfState]
 	and a ; WALKING?
 	jr nz, .normalPlayerSpriteAdvancement ; if not walking, no need to update sprites
