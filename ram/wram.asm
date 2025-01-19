@@ -2318,7 +2318,9 @@ wPlayerGender::
 	; $01 = girl
 		ds 1
 
-	ds 21
+wWhichItem:: db
+
+	ds 20
 ENDU
 
 wObtainedHiddenItemsFlags:: flag_array MAX_HIDDEN_ITEMS

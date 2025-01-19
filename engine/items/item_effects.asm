@@ -561,8 +561,12 @@ ItemUseBall:
 	ld a, [wEnemyMonSpecies]
 	ld [wPokedexNum], a
 	ld a, 0
-	ld [wMoveListCounter], a
-	predef ShowPokedexData
+    	ld [wMoveListCounter], a
+    	ld a, [wWhichPokemon]
+        ld [wWhichItem], a
+        predef ShowPokedexData
+        ld a, [wWhichItem]
+        ld [wWhichPokemon], a
 
 .skipShowingPokedexData
 	ld a, $1
