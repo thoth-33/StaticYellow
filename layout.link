@@ -116,6 +116,7 @@ ROMX $16
 ROMX $17
 	"Maps 15"
 ;	"Starter Dex" ; Removed
+	"NPC Sprites 6"
 	"Maps 16"
 	"Hidden Objects 3"
 ROMX $18
