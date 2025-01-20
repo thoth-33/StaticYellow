@@ -48,6 +48,7 @@ EnterMapAnim::
 	ld [wPikachuSpawnState], a
 	jr .done
 .flyAnimation
+	call SetCurBlackoutMap
 	pop hl
 	call LoadBirdSpriteGraphics
 	ld a, SFX_FLY

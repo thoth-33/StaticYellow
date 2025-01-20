@@ -1,4 +1,5 @@
 RedsHouse1F_Script:
+	call SetLastBlackoutMap
 	call EnableAutoTextBoxDrawing
 	ret
 
