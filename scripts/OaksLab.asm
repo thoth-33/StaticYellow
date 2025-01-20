@@ -1135,7 +1135,11 @@ OaksLabOakGotPokedexText:
 
 OaksLabOakThatWasMyDreamText:
 	text_far _OaksLabOakThatWasMyDreamText
-	text_end
+	db $11 ; play received item sound
+	text_asm
+	lb bc, POKE_BALL,5
+	call GiveItem
+	rst TextScriptEnd
 
 OaksLabRivalLeaveItAllToMeText:
 	text_far _OaksLabRivalLeaveItAllToMeText
