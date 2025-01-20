@@ -560,13 +560,9 @@ ItemUseBall:
 	call ClearSprites
 	ld a, [wEnemyMonSpecies]
 	ld [wPokedexNum], a
-	ld a, 0
-    	ld [wMoveListCounter], a
-    	ld a, [wWhichPokemon]
-        ld [wWhichItem], a
-        predef ShowPokedexData
-        ld a, [wWhichItem]
-        ld [wWhichPokemon], a
+	xor a
+	ld [wPokedexModeSelect], a
+	predef ShowPokedexData
 
 .skipShowingPokedexData
 	ld a, $1
