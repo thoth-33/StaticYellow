@@ -760,6 +760,12 @@ CheckIfInFlyMap::
 	cp CELADON_MANSION_ROOF
 	ret z
 	cp CELADON_MART_ROOF
+	ret z
+	; fallthrough
+CheckIfInDigMap::
+	call CheckIfInOutsideMap
+	ret z
+	cp FOREST
 	ret
 
 CheckIfInOutsideMap::
