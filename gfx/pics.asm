@@ -311,3 +311,9 @@ RedPicBack::       INCBIN "gfx/player/redb.pic"
 GreenPicBack::     INCBIN "gfx/player/greenb.pic"
 OldManPicBack::    INCBIN "gfx/battle/oldmanb.pic"
 ProfOakPicBack::   INCBIN "gfx/battle/prof.oakb.pic"
+
+
+SECTION "Menu Prompt Graphics", ROMX
+
+ExtraMenuBorderConnectors:: INCBIN "gfx/font/extra_menu_border_connectors.1bpp"
+FromToChangeBoxPrompt:: INCBIN "gfx/font/from_to_change_box_prompt.1bpp"

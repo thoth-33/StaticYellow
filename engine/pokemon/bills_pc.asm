@@ -111,10 +111,7 @@ BillsPC_::
 BillsPCMenu:
 	ld a, [wParentMenuItem]
 	ld [wCurrentMenuItem], a
-	ld hl, vChars2 tile $78
-	ld de, PokeballTileGraphics
-	lb bc, BANK(PokeballTileGraphics), 1
-	call CopyVideoData
+	callfar LoadBillsPCExtraTiles
 	call LoadScreenTilesFromBuffer2DisableBGTransfer
 	hlcoord 0, 12
 	lb bc, 4, 18
@@ -144,26 +141,8 @@ BillsPCMenu:
 	ld [hli], a ; wListScrollOffset
 	ld [hl], a ; wMenuWatchMovingOutOfBounds
 	ld [wPlayerMonNumber], a
-	hlcoord 9, 14
-	lb bc, 2, 9
-	call TextBoxBorder
-	ld a, [wCurrentBoxNum]
-	and $7f
-	cp 9
-	jr c, .singleDigitBoxNum
-; two digit box num
-	sub 9
-	hlcoord 17, 16
-	ld [hl], "1"
-	add "0"
-	jr .next
-.singleDigitBoxNum
-	add "1"
-.next
-	ldcoord_a 18, 16
-	hlcoord 10, 16
-	ld de, BoxNoPCText
-	call PlaceString
+	decoord 13, 13
+	callfar DrawCurrentBoxPrompt
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
 	call Delay3
