@@ -224,6 +224,11 @@ PrintSafariZoneSteps::
 	ret c
 	cp CERULEAN_CAVE_2F
 	ret nc
+;;;;;;;;;; PureRGBnote: ADDED: don't need to print any text in free roam safari
+	ld a, [wSafariType]
+	cp SAFARI_TYPE_FREE_ROAM
+	ret z ; no step or ball tracking in Free Roam safari
+;;;;;;;;;;
 	hlcoord 0, 0
 	lb bc, 3, 7
 	call TextBoxBorder

@@ -4,6 +4,7 @@ SafariZoneGate_Script:
 	ld a, [wSafariZoneGateCurScript]
 	call CallFunctionInTable
 	ret
+	
 
 SafariZoneGate_ScriptPointers:
 	def_script_pointers
@@ -14,6 +15,7 @@ SafariZoneGate_ScriptPointers:
 	dw_const SafariZoneGatePlayerMovingDownScript,       SCRIPT_SAFARIZONEGATE_PLAYER_MOVING_DOWN
 	dw_const SafariZoneGateLeavingSafariScript,          SCRIPT_SAFARIZONEGATE_LEAVING_SAFARI
 	dw_const SafariZoneGateSetScriptAfterMoveScript,     SCRIPT_SAFARIZONEGATE_SET_SCRIPT_AFTER_MOVE
+	dw_const SafariZoneGateScript7,                      SCRIPT_SAFARIZONEGATE_7
 	EXPORT SCRIPT_SAFARIZONEGATE_LEAVING_SAFARI ; used by engine/events/hidden_objects/safari_game.asm
 
 SafariZoneGateDefaultScript:
@@ -120,6 +122,21 @@ SafariZoneGateSetScriptAfterMoveScript:
 	ld [wSafariZoneGateCurScript], a
 	ret
 
+SafariZoneGateScript7:
+	call SafariZoneGateReturnSimulatedJoypadStateScript
+	ret nz
+	ld a, PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
+	ld a, $9
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, D_DOWN
+	ld c, $1
+	call SafariZoneEntranceAutoWalk
+	ld a, SCRIPT_SAFARIZONEGATE_PLAYER_MOVING_DOWN
+	ld [wSafariZoneGateCurScript], a
+	ret
+
 SafariZoneEntranceAutoWalk:
 	push af
 	ld b, 0
@@ -194,11 +211,15 @@ SafariZoneGateSafariZoneWorker1LeavingEarlyText:
 	text_far _SafariZoneGateSafariZoneWorker1GoodLuckText
 	text_end
 
+PleaseComeAgainText:
+	text_far _SafariZoneGateSafariZoneWorker1PleaseComeAgainText
+	text_end
+
 SafariZoneGateSafariZoneWorker1GoodHaulComeAgainText:
 	text_far _SafariZoneGateSafariZoneWorker1GoodHaulComeAgainText
 	text_end
 
-SafariZoneGateSafariZoneWorker2Text:
+SafariZoneGateSafariZoneWorker2Text: 
 	text_asm
 	callfar SafariZoneGatePrintSafariZoneWorker2Text
 	rst TextScriptEnd

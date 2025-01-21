@@ -1710,11 +1710,8 @@ ItemUseEscapeRope:
 	call Func_1510
 	ld hl, wStatusFlags4
 	res BIT_NO_BATTLES, [hl]
-	ResetEvent EVENT_IN_SAFARI_ZONE
-	xor a
-	ld [wNumSafariBalls], a
-	ld [wSafariZoneGateCurScript], a ; SCRIPT_SAFARIZONEGATE_DEFAULT
-	inc a
+	callfar ClearSafariFlags ; PureRGBnote: CHANGED: new function to clear safari flags on warping or flying out of it
+	ld a, 1
 	ld [wEscapedFromBattle], a
 	ld [wActionResultOrTookBattleTurn], a ; item used
 	ld a, [wPseudoItemID]

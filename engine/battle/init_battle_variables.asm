@@ -34,6 +34,11 @@ InitBattleVariables:
 	jr c, .notSafariBattle
 	cp SAFARI_ZONE_CENTER_REST_HOUSE
 	jr nc, .notSafariBattle
+;;;;;;;;;; PureRGBnote: ADDED: we can be in the safari zone maps but without safari zone battles depending on the type of safari.
+	ld a, [wSafariType]
+	and a
+	jr nz, .notSafariBattle ; only Classic safari type uses original safari battles
+;;;;;;;;;;
 	ld a, BATTLE_TYPE_SAFARI
 	ld [wBattleType], a
 .notSafariBattle

@@ -143,13 +143,13 @@ StartMenu_Pokemon::
 	call ChooseFlyDestination
 	ld a, [wStatusFlags6]
 	bit BIT_FLY_WARP, a
-	jr nz, .asm_5d4c
+	jr nz, .doFly
 	call LoadFontTilePatterns
 	ld hl, wStatusFlags4
 	set BIT_UNKNOWN_4_1, [hl]
 	jp StartMenu_Pokemon
-.asm_5d4c
-	call Func_1510
+.doFly
+	callfar ClearSafariFlags
 	jp .goBackToMap
 .cut
 	bit BIT_CASCADEBADGE, a
@@ -239,6 +239,7 @@ StartMenu_Pokemon::
 	ld c, 60
 	call DelayFrames
 	call GBPalWhiteOutWithDelay3
+	callfar ClearSafariFlags
 	jp .goBackToMap
 .warpToLastPokemonCenterText
 	text_far _WarpToLastPokemonCenterText

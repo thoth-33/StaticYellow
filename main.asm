@@ -730,4 +730,5 @@ SECTION "Move Descriptions", ROMX
 
 INCLUDE "engine/pokemon/move_descriptions.asm"
 INCLUDE "engine/pokemon/evos_moves.asm" ; Moved from Battle Engine 6
+INCLUDE "engine/menus/multi_choice_menu.asm"
 

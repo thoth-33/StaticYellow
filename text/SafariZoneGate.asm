@@ -13,6 +13,7 @@ _SafariZoneGateSafariZoneWorker1ReturnSafariBallsText::
 	cont "have left."
 	done
 
+_GenericGoodLuckText::
 _SafariZoneGateSafariZoneWorker1GoodLuckText::
 	text "Good Luck!"
 	done
@@ -33,18 +34,47 @@ _SafariZoneGateSafariZoneWorker1WouldYouLikeToJoinText::
 	line "join the hunt?@"
 	text_end
 
+_SafariZoneEntranceText_75360::
+	text "We'll call you on"
+	line "the PA when you"
+	cont "run out of time"
+	cont "or SAFARI BALLs!"
+	done
+
 _SafariZoneGateSafariZoneWorker1ThatllBe500PleaseText::
-	text "That'll be ¥@"
-	text_bcd wPriceTemp, $c3
-	text ","
+	text "That'll be ¥500"
 	line "please!"
+	prompt
 
-	para "We only use a"
-	line "special # BALL"
-	cont "here."
+_SafariZoneEntranceWhatGame::
+	text "Which Safari Game"
+	line "would you like?@"
+	text_end
 
-	para "<PLAYER> received"
-	line "30 SAFARI BALLs!@"
+_SafariZoneClassic::
+	text "Hunt for #MON"
+	line "to catch using"
+	cont "bait and rocks!"
+
+	para "Try to find the"
+	line "SECRET HOUSE"
+	cont "before time runs"
+	cont "out! Good luck!"
+	prompt
+
+_SafariZoneFreeRoam::
+	text "Roam the SAFARI"
+	line "ZONE as much as"
+	cont "you like!"
+
+	para "Use your #MON"
+	line "at your leisure!"
+
+	para "No time limits"
+	line "and plenty of"
+	cont "#MON around!"
+
+	para "Have fun!@"
 	text_end
 
 _SafariZoneGateSafariZoneWorker1CallYouOnThePAText::
@@ -98,50 +128,19 @@ _SafariZoneGateSafariZoneWorker2YoureARegularHereText::
 	line "regular here!"
 	done
 
-_SafariZoneLowCostText1::
-	text_start
+_SafariZoneHelp::
+	text "There are 2 types"
+	line "of Safari game."
 
-	para "Oh, all right, pay"
-	line "me what you have."
-	prompt
-
-_SafariZoneLowCostText2::
-	text "But, I can't give"
-	line "you all 30 BALLs."
-	done
-
-_SafariZoneLowCostText3::
-	text_start
-
-	para "You're persistent,"
-	line "aren't you?"
-
-	para "OK, you can go in"
-	line "for free, but"
-	cont "just this once!@"
+	para "Need any info?@"
 	text_end
 
-_SafariZoneLowCostText4::
-	text_start
-	done
+_SafariZoneEntranceSafariBallsReceived::
+	text "We only use a"
+	line "special # BALL"
+	cont "in the CLASSIC"
+	cont "Safari game."
 
-_SafariZoneLowCostText5::
-	text "I'm sorry, but you"
-	line "have to pay to"
-	cont "enter."
-	done
-
-_SafariZoneLowCostText6::
-	text "You can't enter"
-	line "without paying!"
-	done
-
-_SafariZoneLowCostText7::
-	text "I said, no money,"
-	line "no entry!"
-	done
-
-_SafariZoneLowCostText8::
-	text "Read my lips, NO!"
-	line "Get it?"
-	done
+	para "<PLAYER> received"
+	line "30 SAFARI BALLs!@"
+	text_end
