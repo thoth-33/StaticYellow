@@ -24,7 +24,7 @@ EndOfBattle:
 	hlcoord 6, 8
 	call PlaceString
 	ld c, 200
-	call DelayFrames
+	rst _DelayFrames
 	jr .evolution
 .notLinkBattle
 	ld a, [wBattleResult]

@@ -58,10 +58,10 @@ EmotionBubble:
 	xor a
 	call WriteOAMBlock
 	ld c, 60
-	call DelayFrames
+	rst _DelayFrames
 	pop af
 	ld [wUpdateSpritesEnabled], a
-	call DelayFrame
+	rst _DelayFrame
 	call UpdateSprites
 	ret
 

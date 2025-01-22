@@ -18,7 +18,7 @@ LoadSAV:
 	ld hl, FileDataDestroyedText
 	call PrintText
 	ld c, 100
-	call DelayFrames
+	rst _DelayFrames
 	pop hl
 	res BIT_NO_TEXT_DELAY, [hl]
 	ld a, $1 ; bad checksum
@@ -134,13 +134,13 @@ LoadSAVIgnoreBadCheckSum:
 SaveSAV:
 	farcall PrintSaveScreenText
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld hl, WouldYouLikeToSaveText
 	call SaveSAVConfirm
 	and a   ;|0 = Yes|1 = No|
 	ret nz
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wSaveFileStatus]
 	cp $1
 	jr z, .save
@@ -155,16 +155,16 @@ SaveSAV:
 	ld hl, SavingText
 	call PrintText
 	ld c, 128
-	call DelayFrames
+	rst _DelayFrames
 	ld hl, GameSavedText
 	call PrintText
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld a, SFX_SAVE
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
 	ld c, 10 ; Shorter time to save
-	call DelayFrames
+	rst _DelayFrames
 	ret
 
 SaveSAVConfirm:

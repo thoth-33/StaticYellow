@@ -6,7 +6,7 @@ ChangeBGPalColor0_4Frames:
 	ldh [rBGP], a
 	call UpdateGBCPal_BGP
 	ld c, 4
-	call DelayFrames
+	rst _DelayFrames
 	ldh a, [rBGP]
 	xor $ff
 	ldh [rBGP], a
@@ -48,7 +48,7 @@ PredefShakeScreenHorizontally:
 	ldh [hMutateWX], a
 	call .MutateWX
 	ld c, 1
-	call DelayFrames
+	rst _DelayFrames
 	call .MutateWX
 	dec b
 	ld a, b

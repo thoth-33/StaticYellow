@@ -247,7 +247,7 @@ Trade_ShowPlayerMon:
 	ld a, $7e
 .slideScreenLoop
 	push af
-	call DelayFrame
+	rst _DelayFrame
 	pop af
 	ldh [rWX], a
 	ldh [hSCX], a
@@ -280,7 +280,7 @@ Trade_DrawOpenEndOfLinkCable:
 
 	ld a, $a0
 	ldh [hSCX], a
-	call DelayFrame
+	rst _DelayFrame
 	ld a, %10001011
 	ldh [rLCDC], a
 	hlcoord 6, 2
@@ -302,7 +302,7 @@ Trade_AnimateBallEnteringLinkCable:
 	ld a, TRADE_BALL_SHAKE_ANIM
 	call Trade_ShowAnimation
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld a, %11100100
 	ldh [rOBP0], a
 	call UpdateGBCPal_OBP0
@@ -454,7 +454,7 @@ Trade_InitGameboyTransferGfx:
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	call Trade_LoadMonPartySpriteGfx
-	call DelayFrame
+	rst _DelayFrame
 	ld a, %10101011
 	ldh [rLCDC], a
 	xor a
@@ -585,7 +585,7 @@ Trade_AnimMonMoveHorizontal:
 	add $2
 .next
 	ldh [hSCX], a
-	call DelayFrame
+	rst _DelayFrame
 	dec d
 	jr nz, .scrollLoop
 	call Trade_AnimCircledMon
@@ -683,7 +683,7 @@ Trade_AnimMonMoveVertical:
 	call Trade_AddOffsetsToOAMCoords
 	call Trade_AnimCircledMon
 	ld c, 8
-	call DelayFrames
+	rst _DelayFrames
 	dec d
 	jr nz, .loop
 	ret
@@ -781,9 +781,9 @@ Trade_SlideTextBoxOffScreen:
 ; after Trade_ShowEnemyMon in the external clock sequence, there is a mon pic
 ; above the text box and it is also scrolled off the screen.
 	ld c, 50
-	call DelayFrames
+	rst _DelayFrames
 .loop
-	call DelayFrame
+	rst _DelayFrame
 	ldh a, [rWX]
 	inc a
 	inc a
@@ -792,7 +792,7 @@ Trade_SlideTextBoxOffScreen:
 	jr nz, .loop
 	call Trade_ClearTileMap
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld a, $7
 	ldh [rWX], a
 	ret
@@ -801,7 +801,7 @@ PrintTradeWentToText:
 	ld hl, TradeWentToText
 	call PrintText
 	ld c, 200
-	call DelayFrames
+	rst _DelayFrames
 	jp Trade_SlideTextBoxOffScreen
 
 TradeWentToText:

@@ -16,7 +16,7 @@ PlayIntro:
 	ldh [hSCX], a
 	ldh [hAutoBGTransferEnabled], a
 	call ClearSprites
-	call DelayFrame
+	rst _DelayFrame
 	ret
 
 InitIntroNidorinoOAM:
@@ -87,7 +87,7 @@ PlayShootingStar:
 	ldh [rBGP], a
 	call UpdateGBCPal_BGP
 	ld c, 180
-	call DelayFrames
+	rst _DelayFrames
 	call ClearScreen
 	call DisableLCD
 	xor a
@@ -119,7 +119,7 @@ PlayShootingStar:
 	res rLCDC_WINDOW_ENABLE, [hl]
 	set rLCDC_BG_TILEMAP, [hl]
 	ld c, 64
-	call DelayFrames
+	rst _DelayFrames
 	farcall AnimateShootingStar
 	push af
 	pop af
@@ -134,7 +134,7 @@ PlayShootingStar:
 	jr nz, .loop
 
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 .next
 	call IntroClearMiddleOfScreen
 	call ClearSprites

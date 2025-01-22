@@ -181,7 +181,7 @@ OakSpeech:
 	pop af
 	call BankswitchCommon
 	ld c, 4
-	call DelayFrames
+	rst _DelayFrames
 	ld hl, vSprites
 	ld de, RedSprite
 	ld b, BANK(RedSprite)
@@ -198,7 +198,7 @@ OakSpeech:
 	lb bc, BANK(ShrinkPic1), $00
 	call IntroDisplayPicCenteredOrUpperRight
 	ld c, 4
-	call DelayFrames
+	rst _DelayFrames
 	ld de, ShrinkPic2
 	lb bc, BANK(ShrinkPic2), $00
 	call IntroDisplayPicCenteredOrUpperRight
@@ -214,7 +214,7 @@ OakSpeech:
 	pop af
 	call BankswitchCommon
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	hlcoord 6, 5
 	lb bc, 7, 7
 	call ClearScreenArea
@@ -222,7 +222,7 @@ OakSpeech:
 	ld a, 1
 	ld [wUpdateSpritesEnabled], a
 	ld c, 50
-	call DelayFrames
+	rst _DelayFrames
 	call GBFadeOutToWhite
 	call ClearScreen ; rip more tail-end optimizations
 	ret
@@ -265,7 +265,7 @@ FadeInIntroPic:
 	ldh [rBGP], a
 	call UpdateGBCPal_BGP
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	dec b
 	jr nz, .next
 	ret
@@ -281,13 +281,13 @@ IntroFadePalettes:
 MovePicLeft:
 	ld a, 119
 	ldh [rWX], a
-	call DelayFrame
+	rst _DelayFrame
 
 	ld a, %11100100
 	ldh [rBGP], a
 	call UpdateGBCPal_BGP
 .next
-	call DelayFrame
+	rst _DelayFrame
 	ldh a, [rWX]
 	sub 8
 	cp $FF

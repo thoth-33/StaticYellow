@@ -2,7 +2,7 @@ HallOfFamePC:
 	callfar AnimateHallOfFame
 	call ClearScreen
 	ld c, 100
-	call DelayFrames
+	rst _DelayFrames
 
 	call DisableLCD
 	ld a, $a7
@@ -32,7 +32,7 @@ HallOfFamePC:
 	ld a, MUSIC_CREDITS
 	call PlayMusic
 	ld c, 128
-	call DelayFrames
+	rst _DelayFrames
 	xor a
 	ld [wHoFMonSpecies], a
 	ld [wNumCreditsMonsDisplayed], a
@@ -48,7 +48,7 @@ FadeInCreditsText:
 	ldh [rBGP], a
 	call UpdateGBCPal_BGP
 	ld c, 5
-	call DelayFrames
+	rst _DelayFrames
 	dec b
 	jr nz, .loop
 	ret
@@ -104,7 +104,7 @@ ScrollCreditsMonLeft:
 	ldh [hSCX], a
 	add 8
 	ld b, a
-	call DelayFrame
+	rst _DelayFrame
 	dec c
 	jr nz, ScrollCreditsMonLeft
 	ret
@@ -250,7 +250,7 @@ Credits: ; Roll credits
 .showTextAndShowMon
 	ld c, 122
 .next1
-	call DelayFrames
+	rst _DelayFrames
 	call DisplayCreditsMon
 	jr .nextCreditsScreen
 
@@ -262,7 +262,7 @@ Credits: ; Roll credits
 .showText
 	ld c, 152
 .next2
-	call DelayFrames
+	rst _DelayFrames
 	jr .nextCreditsScreen
 .showTheEnd
 	call ShowTheEndGFX
@@ -271,7 +271,7 @@ Credits: ; Roll credits
 
 ShowTheEndGFX:
 	ld c, 24
-	call DelayFrames
+	rst _DelayFrames
 	call FillMiddleOfScreenWithWhite
 	ld de, TheEndGfx
 	ld hl, vChars2 tile $60

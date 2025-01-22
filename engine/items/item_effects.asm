@@ -435,7 +435,7 @@ ItemUseBall:
 
 .skipShakeCalculations
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 
 ; Do the animation.
 	ld a, TOSS_ANIM
@@ -1373,7 +1373,7 @@ ItemUseMedicine:
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
 	ld c, 50
-	call DelayFrames
+	rst _DelayFrames
 	call WaitForTextScrollButtonPress
 	jr .done
 
@@ -1719,7 +1719,7 @@ ItemUseEscapeRope:
 	ret nz ; if so, return
 	call ItemUseReloadOverworldData
 	ld c, 30
-	call DelayFrames
+	rst _DelayFrames
 	jp RemoveUsedItem
 
 .notUsable
@@ -2146,7 +2146,7 @@ FishingInit:
 	ld a, $81
 	ld [wPikachuMood], a
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 	and a
 	ret
 

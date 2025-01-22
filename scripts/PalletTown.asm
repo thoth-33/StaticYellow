@@ -253,7 +253,7 @@ PalletTownOakText:
 	text_far _PalletTownOakHeyWaitDontGoOutText
 	text_asm
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld a, PLAYER_DIR_DOWN
 	ld [wPlayerMovingDirection], a
 	ld a, 0

@@ -8,7 +8,7 @@ PlayIntroScene:
 	ld a, $8
 	ldh [rSTAT], a
 	call InitYellowIntroGFXAndMusic
-	call DelayFrame
+	rst _DelayFrame
 .loop
 	ld a, [wYellowIntroCurrentScene]
 	bit 7, a
@@ -26,7 +26,7 @@ PlayIntroScene:
 	call z, Func_f98a2
 	cp $b
 	call z, Func_f98cb
-	call DelayFrame
+	rst _DelayFrame
 	jr .loop
 
 .go_to_title_screen
@@ -34,7 +34,7 @@ PlayIntroScene:
 	call YellowIntro_BlankPalettes
 	xor a
 	ldh [hLCDCPointer], a
-	call DelayFrame
+	rst _DelayFrame
 	xor a
 	ldh [rIF], a
 	pop af
@@ -49,9 +49,9 @@ PlayIntroScene:
 	call YellowIntro_BlankOAMBuffer
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	ret
@@ -588,9 +588,9 @@ YellowIntroScene14:
 	call Bank3E_FillMemory
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	ld a, $e4
@@ -667,7 +667,7 @@ YellowIntroPalSequence_f9e0a:
 
 YellowIntroScene17:
 	ld c, 64
-	call DelayFrames
+	rst _DelayFrames
 	ld hl, wYellowIntroCurrentScene
 	set 7, [hl]
 	ret
@@ -753,8 +753,8 @@ YellowIntro_BlankPalsDelay2AndDisableLCD:
 	call UpdateGBCPal_BGP
 	call UpdateGBCPal_OBP0
 	call UpdateGBCPal_OBP1
-	call DelayFrame
-	call DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
 	call DisableLCD
 	ret
 
@@ -832,9 +832,9 @@ InitYellowIntroGFXAndMusic:
 	call Bank3E_FillMemory
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	ld de, YellowIntroGraphics2

@@ -37,7 +37,7 @@ DisplayPokemonCenterDialogue_::
 	ld hl, NeedYourPokemonText
 	call PrintText
 	ld c, 64
-	call DelayFrames
+	rst _DelayFrames
 	call CheckPikachuFollowingPlayer
 	jr nz, .playerPikachuNotOnScreen
 	call DisablePikachuOverworldSpriteDrawing
@@ -47,7 +47,7 @@ DisplayPokemonCenterDialogue_::
 	lb bc, 1, 8
 	call Func_6ebb
 	ld c, 30
-	call DelayFrames
+	rst _DelayFrames
 	farcall AnimateHealingMachine ; do the healing machine animation
 	predef HealParty
 	xor a
@@ -85,7 +85,7 @@ DisplayPokemonCenterDialogue_::
 	ldh [hSpriteImageIndex], a
 	call SpriteFunc_34a1
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 	call UpdateSprites
 	call LoadFontTilePatterns
 	jr .done
@@ -104,7 +104,7 @@ Func_6eaa:
 	ldh [hSpriteImageIndex], a
 	call SpriteFunc_34a1
 	ld c, 64
-	call DelayFrames
+	rst _DelayFrames
 	ret
 
 Func_6ebb:

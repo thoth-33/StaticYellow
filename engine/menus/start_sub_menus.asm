@@ -237,7 +237,7 @@ StartMenu_Pokemon::
 	set BIT_UNKNOWN_4_1, [hl]
 	res BIT_NO_BATTLES, [hl]
 	ld c, 60
-	call DelayFrames
+	rst _DelayFrames
 	call GBPalWhiteOutWithDelay3
 	callfar ClearSafariFlags
 	jp .goBackToMap

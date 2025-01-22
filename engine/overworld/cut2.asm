@@ -19,7 +19,7 @@ AnimCut:
 	xor $64
 	ldh [rOBP1], a
 	call UpdateGBCPal_OBP1
-	call DelayFrame
+	rst _DelayFrame
 	pop bc
 	dec c
 	jr nz, .cutTreeLoop
@@ -70,7 +70,7 @@ AnimCutGrass_UpdateOAMEntries:
 	xor $64
 	ldh [rOBP1], a
 	call UpdateGBCPal_OBP1
-	call DelayFrame
+	rst _DelayFrame
 	pop bc
 	dec c
 	jr nz, AnimCutGrass_UpdateOAMEntries

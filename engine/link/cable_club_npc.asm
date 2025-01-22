@@ -8,7 +8,7 @@ CableClubNPC::
 ; if the player hasn't received the pokedex
 .asm_7048
 	ld c, 60
-	call DelayFrames
+	rst _DelayFrames
 	ld hl, CableClubNPCMakingPreparationsText
 	call PrintText
 	jp .didNotConnect
@@ -48,14 +48,14 @@ CableClubNPC::
 	ldh [rSB], a
 	ld a, START_TRANSFER_INTERNAL_CLOCK
 	ldh [rSC], a
-	call DelayFrame
+	rst _DelayFrame
 	jr .establishConnectionLoop
 .establishedConnection
 	call Serial_SendZeroByte
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_SendZeroByte
 	ld c, 50
-	call DelayFrames
+	rst _DelayFrames
 	ld hl, CableClubNPCPleaseApplyHereHaveToSaveText
 	call PrintText
 	xor a
@@ -92,7 +92,7 @@ CableClubNPC::
 	jr nz, .connected
 	ld b, 10
 .syncLoop
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_SendZeroByte
 	dec b
 	jr nz, .syncLoop
@@ -135,7 +135,7 @@ Serial_SyncAndExchangeNybbleDouble:
 	ld [wSerialExchangeNybbleReceiveData], a
 .loop
 	call Serial_ExchangeNybble
-	call DelayFrame
+	rst _DelayFrame
 	push hl
 	ld hl, wUnknownSerialCounter + 1
 	dec [hl]
@@ -150,7 +150,7 @@ Serial_SyncAndExchangeNybbleDouble:
 	ld a, [wSerialExchangeNybbleReceiveData]
 	inc a
 	jr z, .loop
-	call DelayFrame
+	rst _DelayFrame
 	ld a, $ff
 	ld [wSerialExchangeNybbleReceiveData], a
 	call Serial_ExchangeNybble
@@ -159,13 +159,13 @@ Serial_SyncAndExchangeNybbleDouble:
 	jr z, .loop
 	ld b, 10
 .syncLoop1
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_ExchangeNybble
 	dec b
 	jr nz, .syncLoop1
 	ld b, 10
 .syncLoop2
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_SendZeroByte
 	dec b
 	jr nz, .syncLoop2

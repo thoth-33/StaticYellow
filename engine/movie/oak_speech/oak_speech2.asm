@@ -134,7 +134,7 @@ OakSpeechSlidePicLeft:
 	lb bc, 12, 11
 	call ClearScreenArea ; clear the name list text box
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	pop de
 	ld hl, wNameBuffer
 	ld bc, NAME_LENGTH

@@ -211,7 +211,7 @@ SlotMachine_SpinWheels:
 	call SlotMachine_AnimWheel2
 	call SlotMachine_AnimWheel3
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	pop bc
 	dec c
 	jr nz, .loop1
@@ -227,7 +227,7 @@ SlotMachine_SpinWheels:
 	xor $1
 	inc a
 	ld c, a
-	call DelayFrames
+	rst _DelayFrames
 	jr .loop2
 
 ; Note that the wheels can only stop when a symbol is centred in the wheel
@@ -421,9 +421,9 @@ SlotMachine_CheckForMatches:
 	ret
 .rollWheel3DownByOneSymbol
 	call SlotMachine_AnimWheel3
-	call DelayFrame
+	rst _DelayFrame
 	call SlotMachine_AnimWheel3
-	call DelayFrame
+	rst _DelayFrame
 	jp SlotMachine_CheckForMatches
 .foundMatch
 	ld a, [wSlotMachineFlags]
@@ -465,7 +465,7 @@ SlotMachine_CheckForMatches:
 	ldh [rBGP], a
 	call UpdateGBCPal_BGP
 	ld c, 5
-	call DelayFrames
+	rst _DelayFrames
 	dec b
 	jr nz, .flashScreenLoop
 	ld hl, wPayoutCoins
@@ -716,7 +716,7 @@ SlotMachine_PayCoinsToPlayer:
 	jr nc, .skip2
 	srl c ; c = 4 (make the the coins transfer faster if the symbol was 7 or bar)
 .skip2
-	call DelayFrames
+	rst _DelayFrames
 	jr .loop
 
 SlotMachine_PutOutLitBalls:
@@ -832,7 +832,7 @@ SlotMachine_AnimWheel:
 	ret
 
 SlotMachine_HandleInputWhileWheelsSpin:
-	call DelayFrame
+	rst _DelayFrame
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	and A_BUTTON

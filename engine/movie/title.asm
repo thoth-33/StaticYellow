@@ -110,7 +110,7 @@ DisplayTitleScreen:
 .ScrollTitleScreenPokemonLogo:
 ; Scrolls the Pokemon logo on the title screen to create the bouncing effect
 ; Scrolls d pixels e times
-	call DelayFrame
+	rst _DelayFrame
 	ld a, [bc] ; background scroll Y
 	add d
 	ld [bc], a
@@ -136,7 +136,7 @@ DisplayTitleScreen:
 .finishedBouncingPokemonLogo
 	call LoadScreenTilesFromBuffer1
 	ld c, 36
-	call DelayFrames
+	rst _DelayFrames
 	ld a, SFX_INTRO_WHOOSH
 	call PlaySound
 
@@ -164,7 +164,7 @@ DisplayTitleScreen:
 .titleScreenLoop
 	call IncrementResetCounter
 	jp c, .doTitlescreenReset
-	call DelayFrame
+	rst _DelayFrame
 	call JoypadLowSensitivity
 	ldh a, [hJoyHeld]
 	cp D_UP | SELECT | B_BUTTON

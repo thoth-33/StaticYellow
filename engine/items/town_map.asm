@@ -191,7 +191,7 @@ LoadTownMap_Fly::
 	ld de, wNameBuffer
 	call PlaceString
 	ld c, 5
-	call DelayFrames
+	rst _DelayFrames
 	hlcoord 18, 0
 	ld [hl], "▶"
 	hlcoord 19, 0
@@ -199,7 +199,7 @@ LoadTownMap_Fly::
 	pop hl
 .inputLoop
 	push hl
-	call DelayFrame
+	rst _DelayFrame
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	ld b, a

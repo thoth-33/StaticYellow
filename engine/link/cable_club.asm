@@ -3,7 +3,7 @@
 ; Before doing either action, it swaps random numbers, trainer names and party data with the other gameboy.
 CableClub_DoBattleOrTrade:
 	ld c, 80
-	call DelayFrames
+	rst _DelayFrames
 	call ClearScreen
 	call UpdateSprites
 	call LoadFontTilePatterns
@@ -111,7 +111,7 @@ CableClub_DoBattleOrTradeAgain:
 	ldh [hSerialSendData], a
 	ld a, START_TRANSFER_INTERNAL_CLOCK
 	ldh [rSC], a
-	call DelayFrame
+	rst _DelayFrame
 	xor a
 	ldh [hSerialSendData], a
 	ld a, START_TRANSFER_INTERNAL_CLOCK
@@ -686,7 +686,7 @@ TradeCenter_PrintPartyListNames:
 
 TradeCenter_Trade:
 	ld c, 100
-	call DelayFrames
+	rst _DelayFrames
 	xor a
 	ld [wSerialExchangeNybbleSendData + 1], a ; unnecessary
 	ld [wSerialExchangeNybbleReceiveData], a
@@ -838,7 +838,7 @@ TradeCenter_Trade:
 	ld [wNewSoundID], a
 	call PlaySound
 	ld c, 100
-	call DelayFrames
+	rst _DelayFrames
 	call ClearScreen
 	call LoadHpBarAndStatusTilePatterns
 	xor a
@@ -856,7 +856,7 @@ TradeCenter_Trade:
 	call LoadTrainerInfoTextBoxTiles
 	call Serial_PrintWaitingTextAndSyncAndExchangeNybble
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 	call Delay3
 	ld b, SET_PAL_OVERWORLD
 	call RunPaletteCommand
@@ -869,13 +869,13 @@ TradeCenter_Trade:
 	predef SaveSAVtoSRAM2
 	vc_hook Trade_save_game_end
 	ld c, 50
-	call DelayFrames
+	rst _DelayFrames
 	xor a
 	ld [wTradeCenterPointerTableIndex], a
 	jp CableClub_DoBattleOrTradeAgain
 .tradeCancelled
 	ld c, 100
-	call DelayFrames
+	rst _DelayFrames
 	xor a ; TradeCenter_SelectMon
 	ld [wTradeCenterPointerTableIndex], a
 	jp CallCurrentTradeCenterFunction

@@ -320,7 +320,7 @@ ViridianCityOldMan2Text:
 	ld hl, .HadMyCoffeeNowText
 	call PrintText
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	ld a, SCRIPT_VIRIDIANCITY_OLD_MAN_INITIAL_CATCH_TRAINING
 	ld [wViridianCityCurScript], a
 	jr .done

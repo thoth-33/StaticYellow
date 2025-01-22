@@ -122,7 +122,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld hl, IsEvolvingText
 	call PrintText
 	ld c, 50
-	call DelayFrames
+	rst _DelayFrames
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	hlcoord 0, 0
@@ -154,7 +154,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 	call ClearScreen
 	call RenameEvolvedMon
 	ld a, [wPokedexNum]

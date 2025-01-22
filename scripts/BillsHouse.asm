@@ -154,7 +154,7 @@ BillsHouseScript5:
 	ld [wMissableObjectIndex], a
 	predef ShowObject
 	ld c, 8
-	call DelayFrames
+	rst _DelayFrames
 	ld hl, wd472
 	bit 7, [hl]
 	jr z, .asm_1e1c6

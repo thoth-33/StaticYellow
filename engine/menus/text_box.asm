@@ -293,7 +293,7 @@ DisplayTwoOptionMenu:
 	ld a, CHOSE_FIRST_ITEM
 	ld [wMenuExitMethod], a
 	ld c, 15
-	call DelayFrames
+	rst _DelayFrames
 	call TwoOptionMenu_RestoreScreenTiles
 	and a
 	ret
@@ -304,7 +304,7 @@ DisplayTwoOptionMenu:
 	ld a, CHOSE_SECOND_ITEM
 	ld [wMenuExitMethod], a
 	ld c, 15
-	call DelayFrames
+	rst _DelayFrames
 	call TwoOptionMenu_RestoreScreenTiles
 	scf
 	ret
