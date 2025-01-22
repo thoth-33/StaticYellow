@@ -147,7 +147,7 @@ CinnabarGymOpenGateScript:
 	cp 2
 	jr z, .no_sound
 	ld c, 30
-	call DelayFrames
+	rst _DelayFrames
 	call CinnabarGymScript_75023
 	call CinnabarGymScript_75041
 	call WaitForSoundToFinish

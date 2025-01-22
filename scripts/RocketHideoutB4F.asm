@@ -317,7 +317,7 @@ RocketHideoutB4FText11:
 	text_far _RocketHideoutJessieJamesText1
 	text_asm
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld a, $8
 	ld [wPlayerMovingDirection], a
 	ld a, $0
@@ -326,7 +326,7 @@ RocketHideoutB4FText11:
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	rst TextScriptEnd
 
 RocketHideoutB4FText12:
@@ -341,7 +341,7 @@ RocketHideoutB4FText13:
 	text_far _RocketHideoutJessieJamesText4
 	text_asm
 	ld c, 64
-	call DelayFrames
+	rst _DelayFrames
 	rst TextScriptEnd
 
 RocketHideoutB4FGiovanniText:

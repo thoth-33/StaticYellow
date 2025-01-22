@@ -1,6 +1,6 @@
 Func_f531b::
 	ld c, $14
-	call DelayFrames
+	rst _DelayFrames
 	ld a, $1
 	ld [wBuffer], a
 	xor a
@@ -96,8 +96,8 @@ Func_f531b::
 	and $3
 	ld [wCurrentMenuItem], a
 .asm_f53df
-	call DelayFrame
-	call DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
 	ld hl, wLinkMenuSelectionSendBuffer
 	ld a, [hl]
 	ldh [hSerialSendData], a
@@ -105,7 +105,7 @@ Func_f531b::
 	call Serial_ExchangeByte
 	ld b, $14
 .loop
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_SendZeroByte
 	dec b
 	jr nz, .loop
@@ -137,7 +137,7 @@ Func_f531b::
 	ld a, e
 	ldcoord_a 9, 8
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wLinkMenuSelectionSendBuffer]
 	bit 3, a
 	jr nz, asm_f547f
@@ -731,8 +731,8 @@ LinkMenu:
 	ldh a, [hSerialConnectionStatus]
 	cp USING_INTERNAL_CLOCK
 	jr nz, .skipStartingTransfer
-	call DelayFrame
-	call DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
 	ld a, START_TRANSFER_INTERNAL_CLOCK
 	ldh [rSC], a
 .skipStartingTransfer
@@ -779,14 +779,14 @@ LinkMenu:
 	ld hl, ColosseumPleaseWaitText
 	call PrintText
 	ld c, 50
-	call DelayFrames
+	rst _DelayFrames
 	ld hl, wStatusFlags6
 	res BIT_DEBUG_MODE, [hl]
 	ld a, [wDefaultMap]
 	ld [wDestinationMap], a
 	callfar PrepareForSpecialWarp
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	xor a
 	ld [wMenuJoypadPollCount], a
 	ld [wSerialExchangeNybbleSendData], a
@@ -831,19 +831,19 @@ LinkMenu:
 	dec b
 	jr z, .asm_f59b2
 	call Serial_ExchangeNybble
-	call DelayFrame
+	rst _DelayFrame
 	ld a, [wSerialExchangeNybbleReceiveData]
 	inc a
 	jr z, .loop
 	ld b, $f
 .loop2
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_ExchangeNybble
 	dec b
 	jr nz, .loop2
 	ld b, $f
 .loop3
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_SendZeroByte
 	dec b
 	jr nz, .loop3
@@ -889,7 +889,7 @@ Func_f59ec::
 	ld a, e
 	ldcoord_a 6, 11
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 	ret
 
 ColosseumWhereToText:

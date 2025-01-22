@@ -1,8 +1,8 @@
 SurfingPikachuMinigame::
 	call SurfingPikachuMinigame_BlankPals
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
 	ldh a, [hTileAnimations]
 	push af
 	xor a
@@ -40,7 +40,7 @@ SurfingPikachuMinigame::
 	ldh [hSCY], a
 	ld a, $90
 	ldh [hWY], a
-	call DelayFrame
+	rst _DelayFrame
 	pop af
 	ldh [hAutoBGTransferDest + 1], a
 	xor a
@@ -61,7 +61,7 @@ SurfingPikachuMinigame::
 
 SurfingPikachuLoop:
 	call SurfingPikachuMinigame_LoadGFXAndLayout
-	call DelayFrame
+	rst _DelayFrame
 	ld b, SET_PAL_SURFING_PIKACHU_TITLE
 	call RunPaletteCommand
 .loop
@@ -81,7 +81,7 @@ SurfingPikachuLoop:
 	jr .loop
 
 .DelayFrame:
-	call DelayFrame
+	rst _DelayFrame
 	ret
 
 SurfingPikachu_CheckPressedSelect:
@@ -2368,9 +2368,9 @@ SurfingPikachuMinigameIntro:
 	ldh [rLCDC], a
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
 	call SurfingPikachuMinigame_SetBGPals
 	ld a, $e4
 	ldh [rOBP0], a
@@ -2378,7 +2378,7 @@ SurfingPikachuMinigameIntro:
 	ldh [rOBP1], a
 	call UpdateGBCPal_OBP0
 	call UpdateGBCPal_OBP1
-	call DelayFrame
+	rst _DelayFrame
 	ld a, MUSIC_SURFING_PIKACHU
 	ld c, BANK(Music_SurfingPikachu)
 	call PlayMusic
@@ -2391,7 +2391,7 @@ SurfingPikachuMinigameIntro:
 	ld a, $0
 	ld [wCurrentAnimatedObjectOAMBufferOffset], a
 	call RunObjectAnimations
-	call DelayFrame
+	rst _DelayFrame
 	jr .loop
 
 DrawSurfingPikachuMinigameIntroBackground:

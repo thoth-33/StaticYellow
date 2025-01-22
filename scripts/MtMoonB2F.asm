@@ -447,7 +447,7 @@ MtMoonB2FText12:
 	text_far _MtMoonJessieJamesText1
 	text_asm
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
 	ld a, $0
@@ -456,7 +456,7 @@ MtMoonB2FText12:
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	rst TextScriptEnd
 
 MtMoonB2FText13:
@@ -471,7 +471,7 @@ MtMoonB2FText14:
 	text_far _MtMoonJessieJamesText4
 	text_asm
 	ld c, 64
-	call DelayFrames
+	rst _DelayFrames
 	rst TextScriptEnd
 
 MtMoonB2FSuperNerdText:

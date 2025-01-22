@@ -15,8 +15,8 @@ SetDebugNewGameParty: ; unreferenced except in _DEBUG
 DebugNewGameParty: ; unreferenced except in _DEBUG
 	db SNORLAX, 80
 	db PERSIAN, 80
-	db JIGGLYPUFF, 15
-	db STARTER_PIKACHU, 5
+	db JIGGLYPUFF, 80
+	db STARTER_PIKACHU, 80
 	db -1 ; end
 
 PrepareNewGameDebug: ; dummy except in _DEBUG

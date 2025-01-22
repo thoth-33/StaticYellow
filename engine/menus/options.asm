@@ -11,9 +11,9 @@ DisplayOptionMenu_:
 	jr c, .exitOptionMenu
 .dpadDelay
 	call OptionsMenu_UpdateCursorPosition
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
+        rst _DelayFrame
 	jr .optionMenuLoop
 .exitOptionMenu
 	ret

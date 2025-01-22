@@ -62,7 +62,7 @@ DisplayListMenuID::
 .continue
 	ld [wMenuWatchedKeys], a
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 
 DisplayListMenuIDLoop::
 	xor a

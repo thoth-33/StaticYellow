@@ -127,7 +127,7 @@ ViridianCityPrintOldManText::
 	ld hl, .WantMeToShowYouAgainText
 	call PrintText
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a

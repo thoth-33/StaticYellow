@@ -332,7 +332,7 @@ OneTwoAndText:
 	push hl
 	ld a, $1
 	ld [wMuteAudioAndPauseMusic], a
-	call DelayFrame
+	rst _DelayFrame
 	ld a, [wAudioROMBank]
 	push af
 	ld a, BANK(SFX_Swap_1)

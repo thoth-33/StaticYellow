@@ -3,7 +3,7 @@ PlayBattleMusic::
 	ld [wAudioFadeOutControl], a
 	ld [wLowHealthAlarm], a
 	call StopAllMusic
-	call DelayFrame
+	rst _DelayFrame
 	ld c, BANK(Music_GymLeaderBattle)
 	ld a, [wGymLeaderNo]
 	and a

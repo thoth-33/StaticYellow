@@ -16,7 +16,7 @@ PlayPikachuSoundClip::
 .loop
 	dec c
 	jr z, .done_delay
-	call DelayFrame
+	rst _DelayFrame
 	jr .loop
 
 .done_delay

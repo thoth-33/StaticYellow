@@ -134,7 +134,7 @@ StarterPikachuEmotionCommand_delay:
 	inc de
 	push de
 	ld c, a
-	call DelayFrames
+	rst _DelayFrames
 	pop de
 	ret
 

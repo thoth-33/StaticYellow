@@ -12,7 +12,7 @@ MainMenu:
 
 .mainMenuLoop
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	xor a ; LINK_STATE_NONE
 	ld [wLinkState], a
 	ld hl, wPartyAndBillsPCSavedMenuItem
@@ -67,7 +67,7 @@ MainMenu:
 	bit BIT_B_BUTTON, a
 	jp nz, DisplayTitleScreen ; if so, go back to the title screen
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wCurrentMenuItem]
 	ld b, a
 	ld a, [wSaveFileStatus]
@@ -108,7 +108,7 @@ MainMenu:
 	ld a, PLAYER_DIR_DOWN
 	ld [wPlayerDirection], a
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wNumHoFTeams]
 	and a
 	jp z, SpecialEnterMap
@@ -156,7 +156,7 @@ StartNewGameDebug:
 	ld a, $8
 	ld [wPlayerMovingDirection], a
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 
 ; enter map after using a special warp or loading the game from the main menu
 SpecialEnterMap::
@@ -169,7 +169,7 @@ SpecialEnterMap::
 	set BIT_GAME_TIMER_COUNTING, [hl]
 	call ResetPlayerSpriteData
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	call Func_5cc1
 	ld a, [wEnteringCableClub]
 	and a

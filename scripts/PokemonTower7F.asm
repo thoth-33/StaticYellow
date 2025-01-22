@@ -270,7 +270,7 @@ PokemonTower7FText4:
 	text_far _PokemonTowerJessieJamesText1
 	text_asm
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
 	ld a, $0
@@ -279,7 +279,7 @@ PokemonTower7FText4:
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	rst TextScriptEnd
 
 PokemonTower7FText5:
@@ -294,7 +294,7 @@ PokemonTower7FText6:
 	text_far _PokemonTowerJessieJamesText4
 	text_asm
 	ld c, 64
-	call DelayFrames
+	rst _DelayFrames
 	rst TextScriptEnd
 
 PokemonTower7FMrFujiText:

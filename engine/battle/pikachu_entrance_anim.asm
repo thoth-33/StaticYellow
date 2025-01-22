@@ -18,7 +18,7 @@ StarterPikachuBattleEntranceAnimation:
 	dec c
 	jr nz, .loop2
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	pop hl
 	pop bc
 	inc hl

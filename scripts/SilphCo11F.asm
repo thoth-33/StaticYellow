@@ -506,7 +506,7 @@ SilphCo11FJessieJamesText:
 	text_far _SilphCoJessieJamesText1
 	text_asm
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld a, $4
 	ld [wPlayerMovingDirection], a
 	ld a, $0
@@ -515,7 +515,7 @@ SilphCo11FJessieJamesText:
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	rst TextScriptEnd
 
 SilphCo11FText9:
@@ -530,7 +530,7 @@ SilphCo11FText10:
 	text_far _SilphCoJessieJamesText4
 	text_asm
 	ld c, 64
-	call DelayFrames
+	rst _DelayFrames
 	rst TextScriptEnd
 
 SilphCo11FSilphPresidentText:

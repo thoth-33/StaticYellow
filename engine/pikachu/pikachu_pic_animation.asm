@@ -790,7 +790,7 @@ PikaPicAnimCommand_cry:
 PikaPicAnimCommand_thunderbolt:
 	ld a, $1
 	ld [wMuteAudioAndPauseMusic], a
-	call DelayFrame
+	rst _DelayFrame
 	ld a, [wAudioROMBank]
 	push af
 	ld a, BANK(SFX_Battle_2F)
@@ -846,7 +846,7 @@ PikaPicAnimCommand_thunderbolt:
 	ld a, b
 	ldh [rBGP], a
 	call UpdateGBCPal_BGP
-	call DelayFrames
+	rst _DelayFrames
 	ret
 
 INCLUDE "data/pikachu/pikachu_pic_animation.asm"

@@ -465,7 +465,7 @@ Func_fe97f:
 	lb bc, 15, 20
 	call ClearScreenArea
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	ld a, 1
 	ld [wIsInBattle], a
 	ld de, Text_feda8
@@ -945,7 +945,7 @@ Func_fee23:
 	ld [hl], "▶"
 	call Func_fee60
 .asm_fee30
-	call DelayFrame
+	rst _DelayFrame
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	bit BIT_A_BUTTON, a
@@ -1003,7 +1003,7 @@ Func_fee96:
 	call Func_feee2
 	call Func_feeef
 .asm_feeab
-	call DelayFrame
+	rst _DelayFrame
 	call JoypadLowSensitivity
 	ld hl, wCurEnemyLevel
 	ldh a, [hJoy5]
@@ -1100,7 +1100,7 @@ Func_fef60:
 Func_fef68:
 	call Func_fefc5
 .asm_fef6b
-	call DelayFrame
+	rst _DelayFrame
 	push de
 	push bc
 	call JoypadLowSensitivity
@@ -1232,7 +1232,7 @@ Func_ff03b:
 Func_ff043:
 	call Func_ff09e
 .asm_ff046
-	call DelayFrame
+	rst _DelayFrame
 	push de
 	push bc
 	call JoypadLowSensitivity
@@ -1466,7 +1466,7 @@ Func_ff1e7:
 	ld de, wCurEnemyLevel
 	lb bc, LEADING_ZEROES | 1, 3
 	call PrintNumber
-	call DelayFrame
+	rst _DelayFrame
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	bit BIT_A_BUTTON, a
