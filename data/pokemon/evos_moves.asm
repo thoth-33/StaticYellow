@@ -605,6 +605,7 @@ BlastoiseEvosMoves:
 	db 27, BODY_SLAM
 	db 31, WITHDRAW
 	db 33, WATERFALL
+	db 39, ICE_PUNCH
 	db 42, SKULL_BASH
 	db 45, ICE_BEAM
 	db 52, HYDRO_PUMP
@@ -2406,6 +2407,7 @@ SquirtleEvosMoves:
 	db 27, BODY_SLAM
 	db 31, WITHDRAW
 	db 33, WATERFALL
+	db 35, ICE_PUNCH
 	db 42, SKULL_BASH
 	db 45, ICE_BEAM
 	db 52, HYDRO_PUMP
@@ -2439,6 +2441,7 @@ WartortleEvosMoves:
 	db 27, BODY_SLAM
 	db 31, WITHDRAW
 	db 33, WATERFALL
+	db 37, ICE_PUNCH
 	db 42, SKULL_BASH
 	db 45, ICE_BEAM
 	db 52, HYDRO_PUMP
