@@ -43,7 +43,7 @@ InitOutsideMapSprites:
 	call AddNTimes ; get sprite set offset
 	ld de, wSpriteSet
 	ld bc, wSpriteSetID - wSpriteSet
-	call CopyData ; copy it to wSpriteSet
+	rst _CopyData ; copy it to wSpriteSet
 	call LoadMapSpriteTilePatterns
 .skipLoadingSpriteSet
 	call Func_14150

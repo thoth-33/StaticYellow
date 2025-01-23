@@ -55,7 +55,7 @@ TitleScreen_PlacePikachu:
 	ld hl, TitleScreenPikachuEyesOAMData
 	ld de, wShadowOAM
 	ld bc, $20
-	call CopyData
+	rst _CopyData
 	ret
 
 TitleScreenPikachuEyesOAMData:
