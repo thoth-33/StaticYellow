@@ -58,23 +58,23 @@ LoadSAV0:
 	ld hl, sPlayerName
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld hl, sMainData
 	ld de, wMainDataStart
 	ld bc, wMainDataEnd - wMainDataStart
-	call CopyData
+	rst _CopyData
 	ld hl, wCurMapTileset
 	set BIT_NO_PREVIOUS_MAP, [hl]
 	ld hl, sSpriteData
 	ld de, wSpriteDataStart
 	ld bc, wSpriteDataEnd - wSpriteDataStart
-	call CopyData
+	rst _CopyData
 	ld a, [sTileAnimations]
 	ldh [hTileAnimations], a
 	ld hl, sCurBoxData
 	ld de, wBoxDataStart
 	ld bc, wBoxDataEnd - wBoxDataStart
-	call CopyData
+	rst _CopyData
 	and a
 	jp SAVGoodChecksum
 
@@ -92,7 +92,7 @@ LoadSAV1:
 	ld hl, sCurBoxData
 	ld de, wBoxDataStart
 	ld bc, wBoxDataEnd - wBoxDataStart
-	call CopyData
+	rst _CopyData
 	and a
 	jp SAVGoodChecksum
 
@@ -110,11 +110,11 @@ LoadSAV2:
 	ld hl, sPartyData
 	ld de, wPartyDataStart
 	ld bc, wPartyDataEnd - wPartyDataStart
-	call CopyData
+	rst _CopyData
 	ld hl, sMainData
 	ld de, wPokedexOwned
 	ld bc, wPokedexSeenEnd - wPokedexOwned
-	call CopyData
+	rst _CopyData
 	and a
 	jp SAVGoodChecksum
 
@@ -200,19 +200,19 @@ SaveSAVtoSRAM0:
 	ld hl, wPlayerName
 	ld de, sPlayerName
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld hl, wMainDataStart
 	ld de, sMainData
 	ld bc, wMainDataEnd - wMainDataStart
-	call CopyData
+	rst _CopyData
 	ld hl, wSpriteDataStart
 	ld de, sSpriteData
 	ld bc, wSpriteDataEnd - wSpriteDataStart
-	call CopyData
+	rst _CopyData
 	ld hl, wBoxDataStart
 	ld de, sCurBoxData
 	ld bc, wBoxDataEnd - wBoxDataStart
-	call CopyData
+	rst _CopyData
 	ldh a, [hTileAnimations]
 	ld [sTileAnimations], a
 	ld hl, sGameData
@@ -230,7 +230,7 @@ SaveSAVtoSRAM1:
 	ld hl, wBoxDataStart
 	ld de, sCurBoxData
 	ld bc, wBoxDataEnd - wBoxDataStart
-	call CopyData
+	rst _CopyData
 	ld hl, sGameData
 	ld bc, sGameDataEnd - sGameData
 	call SAVCheckSum
@@ -245,11 +245,11 @@ SaveSAVtoSRAM2:
 	ld hl, wPartyDataStart
 	ld de, sPartyData
 	ld bc, wPartyDataEnd - wPartyDataStart
-	call CopyData
+	rst _CopyData
 	ld hl, wPokedexOwned ; pokédex only
 	ld de, sMainData
 	ld bc, wPokedexSeenEnd - wPokedexOwned
-	call CopyData
+	rst _CopyData
 	ld hl, wPikachuHappiness
 	ld de, sMainData + $179
 	ld a, [hli]
@@ -389,7 +389,7 @@ CopyBoxToOrFromSRAM:
 	ld a, b
 	ld [MBC1SRamBank], a
 	ld bc, wBoxDataEnd - wBoxDataStart
-	call CopyData
+	rst _CopyData
 	pop hl
 
 ; mark the memory that the box was copied from as am empty box
@@ -738,7 +738,7 @@ HallOfFame_Copy:
 	call EnableSRAM
 	xor a
 	ld [MBC1SRamBank], a
-	call CopyData
+	rst _CopyData
 	call DisableSRAM
 	ret
 

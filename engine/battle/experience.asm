@@ -260,7 +260,7 @@ GainExperience:
 	push hl
 	ld de, wBattleMonLevel
 	ld bc, 1 + NUM_STATS * 2 ; size of stats
-	call CopyData
+	rst _CopyData
 	pop hl
 	ld a, [wPlayerBattleStatus3]
 	bit TRANSFORMED, a
@@ -268,7 +268,7 @@ GainExperience:
 ; the mon is not transformed, so update the unmodified stats
 	ld de, wPlayerMonUnmodifiedLevel
 	ld bc, 1 + NUM_STATS * 2
-	call CopyData
+	rst _CopyData
 .recalcStatChanges
 	xor a ; battle mon
 	ld [wCalculateWhoseStats], a
@@ -470,7 +470,7 @@ AnimateEXPBar:
 	ld bc, $08
 	hlcoord 10, 11
 	ld de, wTileMapBackup + 10 + 11 * 20
-	call CopyData
+	rst _CopyData
 	ld c, $20
 	jp DelayFrames
 

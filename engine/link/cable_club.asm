@@ -706,7 +706,7 @@ TradeCenter_Trade:
 	ld hl, wNameBuffer
 	ld de, wNameOfPlayerMonToBeTraded
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld a, [wTradingWhichEnemyMon]
 	ld hl, wEnemyPartySpecies
 	ld c, a
@@ -762,7 +762,7 @@ TradeCenter_Trade:
 	call SkipFixedLengthTextEntries
 	ld de, wTradedPlayerMonOT
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld hl, wPartyMon1Species
 	ld a, [wTradingWhichPlayerMon]
 	ld bc, wPartyMon2 - wPartyMon1
@@ -778,7 +778,7 @@ TradeCenter_Trade:
 	call SkipFixedLengthTextEntries
 	ld de, wTradedEnemyMonOT
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld hl, wEnemyMons
 	ld a, [wTradingWhichEnemyMon]
 	ld bc, wEnemyMon2 - wEnemyMon1
@@ -816,7 +816,7 @@ TradeCenter_Trade:
 	call AddNTimes
 	ld de, wLoadedMon
 	ld bc, wEnemyMon2 - wEnemyMon1
-	call CopyData
+	rst _CopyData
 	call AddEnemyMonToPlayerParty
 	ld a, [wPartyCount]
 	dec a

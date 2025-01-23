@@ -21,7 +21,7 @@ DisplayTownMap:
 	ld hl, wShadowOAM
 	ld de, wTileMapBackup
 	ld bc, $10
-	call CopyData
+	rst _CopyData
 	ld hl, vSprites tile BIRD_BASE_TILE
 	ld de, TownMapCursor
 	lb bc, BANK(TownMapCursor), (TownMapCursorEnd - TownMapCursor) / $8
@@ -65,7 +65,7 @@ DisplayTownMap:
 	ld hl, wShadowOAMSprite04
 	ld de, wTileMapBackup + 16
 	ld bc, $10
-	call CopyData
+	rst _CopyData
 .inputLoop
 	call TownMapSpriteBlinkingAnimation
 	call JoypadLowSensitivity
@@ -614,7 +614,7 @@ TownMapSpriteBlinkingAnimation::
 	ld hl, wTileMapBackup
 	ld de, wShadowOAM
 	ld bc, $90
-	call CopyData
+	rst _CopyData
 	xor a
 	jr .done
 .hideSprites

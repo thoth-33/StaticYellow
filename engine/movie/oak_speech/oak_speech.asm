@@ -41,11 +41,11 @@ PrepareOakSpeech:
 	ld hl, DebugNewGamePlayerName
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld hl, DebugNewGameRivalName
 	ld de, wRivalName
 	ld bc, NAME_LENGTH
-	call CopyData ; rip optimizations
+	rst _CopyData ; rip optimizations
 	ret
 
 OakSpeech:
@@ -309,7 +309,7 @@ IntroDisplayPicCenteredOrUpperRight:
 	ld hl, sSpriteBuffer1
 	ld de, sSpriteBuffer0
 	ld bc, $310
-	call CopyData
+	rst _CopyData
 	call CloseSRAM
 	ld de, vFrontPic
 	call InterlaceMergeSpriteBuffers

@@ -7,12 +7,12 @@ IF DEF(_DEBUG)
 	ld hl, DebugBattlePlayerName
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 
 	ld hl, DebugBattleRivalName
 	ld de, wRivalName
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 
 	call LoadFontTilePatterns
 	call LoadHpBarAndStatusTilePatterns
@@ -1605,7 +1605,7 @@ Func_ff2f3:
 	ld a, b
 	ld [MBC1SRamBank], a
 	ld bc, sBox2 - sBox1
-	call CopyData
+	rst _CopyData
 	pop hl
 	xor a
 	ld [hli], a

@@ -29,7 +29,7 @@ SetPal_Battle:
 	ld hl, PalPacket_Empty
 	ld de, wPalPacket
 	ld bc, $10
-	call CopyData
+	rst _CopyData
 	ld hl, wBattleMonSpecies
 	ld a, [hl]
 	and a
@@ -74,7 +74,7 @@ SetPal_StatusScreen:
 	ld hl, PalPacket_Empty
 	ld de, wPalPacket
 	ld bc, $10
-	call CopyData
+	rst _CopyData
 	ld a, [wCurPartySpecies]
 	cp NUM_POKEMON_INDEXES + 1
 	jr c, .pokemon
@@ -144,7 +144,7 @@ SetPal_Overworld:
 	ld hl, PalPacket_Empty
 	ld de, wPalPacket
 	ld bc, $10
-	call CopyData
+	rst _CopyData
 	ld a, [wCurMapTileset]
 	cp CEMETERY
 	jr z, .PokemonTowerOrAgatha
@@ -213,7 +213,7 @@ SetPal_PokemonWholeScreen:
 	ld hl, PalPacket_Empty
 	ld de, wPalPacket
 	ld bc, $10
-	call CopyData
+	rst _CopyData
 	pop bc
 	ld a, c
 	cp 1
@@ -234,7 +234,7 @@ SetPal_TrainerCard:
 	ld hl, BlkPacket_TrainerCard
 	ld de, wTrainerCardBlkPacket
 	ld bc, $40
-	call CopyData
+	rst _CopyData
 	ld de, BadgeBlkDataLengths
 	ld hl, wTrainerCardBlkPacket + 2
 	ld a, [wObtainedBadges]
@@ -394,7 +394,7 @@ LoadOverworldPikachuFrontpicPalettes::
 	ld hl, PalPacket_Empty
 	ld de, wPalPacket
 	ld bc, $10
-	call CopyData
+	rst _CopyData
 	call GetPal_Pikachu
 	ld hl, wPartyMenuBlkPacket
 	ld [hl], a
@@ -414,7 +414,7 @@ LoadOverworldPikachuFrontpicPalettes::
 	ld hl, BlkPacket_WholeScreen
 	ld de, wPalPacket
 	ld bc, $10
-	call CopyData
+	rst _CopyData
 	ld hl, wPartyMenuBlkPacket + 2
 	ld a, $5
 	ld [hli], a
@@ -744,7 +744,7 @@ CopyGfxToSuperNintendoVRAM:
 	jr .next
 .notCopyingTileData
 	ld bc, $1000
-	call CopyData
+	rst _CopyData
 .next
 	ld hl, vBGMap0
 	ld de, $c

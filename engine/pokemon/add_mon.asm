@@ -39,7 +39,7 @@ _AddPartyMon::
 	ld e, l
 	ld hl, wPlayerName
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld a, [wMonDataLocation]
 	and a
 	jr nz, .skipNaming
@@ -238,7 +238,7 @@ _AddPartyMon::
 	jr nz, .calcFreshStats
 	ld hl, wEnemyMonMaxHP
 	ld bc, $a
-	call CopyData          ; copy stats of cur enemy mon
+	rst _CopyData          ; copy stats of cur enemy mon
 	pop hl
 	jr .done
 .calcFreshStats
@@ -305,7 +305,7 @@ _AddEnemyMonToPlayerParty::
 	ld e, l
 	ld d, h
 	ld hl, wLoadedMon
-	call CopyData    ; write new mon's data (from wLoadedMon)
+	rst _CopyData    ; write new mon's data (from wLoadedMon)
 	ld hl, wPartyMonOT
 	ld a, [wPartyCount]
 	dec a
@@ -316,7 +316,7 @@ _AddEnemyMonToPlayerParty::
 	ld a, [wWhichPokemon]
 	call SkipFixedLengthTextEntries
 	ld bc, NAME_LENGTH
-	call CopyData    ; write new mon's OT name (from an enemy mon)
+	rst _CopyData    ; write new mon's OT name (from an enemy mon)
 	ld hl, wPartyMonNicks
 	ld a, [wPartyCount]
 	dec a
@@ -327,7 +327,7 @@ _AddEnemyMonToPlayerParty::
 	ld a, [wWhichPokemon]
 	call SkipFixedLengthTextEntries
 	ld bc, NAME_LENGTH
-	call CopyData    ; write new mon's nickname (from an enemy mon)
+	rst _CopyData    ; write new mon's nickname (from an enemy mon)
 	ld a, [wCurPartySpecies]
 	ld [wPokedexNum], a
 	predef IndexToPokedex
@@ -416,7 +416,7 @@ _MoveMon::
 	push hl
 	push de
 	ld bc, wBoxMon2 - wBoxMon1
-	call CopyData
+	rst _CopyData
 	pop de
 	pop hl
 	ld a, [wMoveMonType]
@@ -461,7 +461,7 @@ _MoveMon::
 	call SkipFixedLengthTextEntries
 .copyOT
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld a, [wMoveMonType]
 .findNickDest
 	cp PARTY_TO_DAYCARE
@@ -492,7 +492,7 @@ _MoveMon::
 	call SkipFixedLengthTextEntries
 .copyNick
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	pop hl
 	ld a, [wMoveMonType]
 	cp PARTY_TO_BOX

@@ -45,7 +45,7 @@ GetAnimationSpeed:
 	ld hl, wMonPartySpritesSavedOAM
 	ld de, wShadowOAM
 	ld bc, $60
-	call CopyData
+	rst _CopyData
 	pop bc
 	xor a
 	jr .incTimer
@@ -157,11 +157,11 @@ LoadMonPartySpriteGfx: ; nickname screen, etc
 	ld de, vSprites + $38 * $10
 	ld hl, TradeBubbleIconGFX
 	ld bc, $40
-	call CopyData
+	rst _CopyData
 	ld de, vSprites + $78 * $10
 	ld hl, TradeBubbleIconGFX + $40
 	ld bc, $40
-	call CopyData
+	rst _CopyData
 	jp EnableLCD
 
 LoadMonPartySpriteGfxWithLCDDisabled: ; party menu
@@ -263,7 +263,7 @@ WriteMonPartySpriteOAMByPartyIndex:
 	ld hl, wShadowOAM
 	ld de, wMonPartySpritesSavedOAM
 	ld bc, $60
-	call CopyData
+	rst _CopyData
 	pop bc
 	pop de
 	pop hl

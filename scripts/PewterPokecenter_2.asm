@@ -20,7 +20,7 @@ PewterJigglypuff::
 	ld hl, .FacingDirections
 	ld de, wJigglypuffFacingDirections
 	ld bc, .FacingDirectionsEnd - .FacingDirections
-	call CopyData
+	rst _CopyData
 
 	ld a, [wSprite03StateData1ImageIndex]
 	ld hl, wJigglypuffFacingDirections
@@ -44,7 +44,7 @@ PewterJigglypuff::
 	ld hl, wJigglypuffFacingDirections
 	ld de, wJigglypuffFacingDirections - 1
 	ld bc, .FacingDirectionsEnd - .FacingDirections
-	call CopyData
+	rst _CopyData
 	ld a, [wJigglypuffFacingDirections - 1]
 	ld [wJigglypuffFacingDirections + 3], a
 	pop hl

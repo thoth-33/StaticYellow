@@ -126,7 +126,7 @@ PlacePlayerHUDTiles:
 PlaceHUDTilesBeforeStart:
 	ld de, wHUDGraphicsTiles
 	ld bc, $3
-	call CopyData
+	rst _CopyData
 	hlcoord 18, 10
 	ld de, -1
 	ld a, $73
@@ -147,7 +147,7 @@ PlaceEnemyHUDTiles:
 	ld hl, EnemyBattleHUDGraphicsTiles
 	ld de, wHUDGraphicsTiles
 	ld bc, $3
-	call CopyData
+	rst _CopyData
 
 	; place the 'already owned' pokeball tile
 	; if the player owns the wild pokemon

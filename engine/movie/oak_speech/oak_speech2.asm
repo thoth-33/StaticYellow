@@ -138,7 +138,7 @@ OakSpeechSlidePicLeft:
 	pop de
 	ld hl, wNameBuffer
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	call Delay3
 	hlcoord 12, 4
 	lb de, 6, 6 * SCREEN_WIDTH + 5

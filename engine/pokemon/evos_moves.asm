@@ -200,7 +200,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld [hl], a
 	dec hl
 	pop bc
-	call CopyData
+	rst _CopyData
 	ld a, [wCurSpecies]
 	ld [wPokedexNum], a
 	xor a

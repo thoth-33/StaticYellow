@@ -6,7 +6,7 @@ DrawBadges:
 	ld de, wBadgeOrFaceTiles
 	ld hl, .FaceBadgeTiles
 	ld bc, NUM_BADGES
-	call CopyData
+	rst _CopyData
 
 ; Booleans for each badge.
 	ld hl, wTempObtainedBadgesBooleans
@@ -87,7 +87,7 @@ DrawBadges:
 	ld hl, wBadgeOrFaceTiles + 1
 	ld de, wBadgeOrFaceTiles
 	ld bc, NUM_BADGES
-	call CopyData
+	rst _CopyData
 	pop bc
 
 	pop hl
