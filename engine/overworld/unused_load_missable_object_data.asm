@@ -25,7 +25,7 @@ LoadMissableObjectData::
 	ld h, [hl]
 	ld l, a
 	ld de, wMissableObjectList
-	call CopyData
+	rst _CopyData
 	ret
 
 MACRO missable_object_map

@@ -670,7 +670,7 @@ DecompressRequestPikaPicAnimGFX:
 	ld hl, sSpriteBuffer1
 	ld de, sSpriteBuffer0
 	ld bc, SPRITEBUFFERSIZE * 2
-	call CopyData
+	rst _CopyData
 	call CloseSRAM
 	ld a, [wPikaPicAnimCurGraphicID]
 	call LookUpTileOffsetForCurrentPikaPicAnimGFX

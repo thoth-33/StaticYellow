@@ -12,7 +12,7 @@ LoadTilesetHeader:
 	add hl, de
 	ld de, wTilesetBank
 	ld bc, $b
-	call CopyData
+	rst _CopyData
 	ld a, [hl]
 	ldh [hTileAnimations], a
 	xor a

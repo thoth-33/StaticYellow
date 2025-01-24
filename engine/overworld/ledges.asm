@@ -73,7 +73,7 @@ LoadHoppingShadowOAM:
 	ld hl, LedgeHoppingShadowOAM
 	ld de, wShadowOAMSprite36
 	ld bc, LedgeHoppingShadowOAMEnd - LedgeHoppingShadowOAM
-	call CopyData
+	rst _CopyData
 	ld a, $a0
 	ld [wShadowOAMSprite38YCoord], a
 	ld [wShadowOAMSprite39YCoord], a

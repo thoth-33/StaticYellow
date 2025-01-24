@@ -102,7 +102,7 @@ SetPal_Pokedex:
 	ld hl, PalPacket_Pokedex
 	ld de, wPalPacket
 	ld bc, $10
-	call CopyData
+	rst _CopyData
 	ld a, [wCurPartySpecies]
 	call DeterminePaletteIDOutOfBattle
 	ld hl, wPalPacket + 3

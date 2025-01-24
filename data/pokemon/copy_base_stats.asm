@@ -5,4 +5,4 @@ ld a, [wPokedexNum]
 	ld bc, BASE_DATA_SIZE
 	call AddNTimes
 	ld de, wMonHeader
-	call CopyData
+	rst _CopyData
