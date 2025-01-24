@@ -329,12 +329,10 @@ LearnMoveFromLevelUp:
 	cp b ; is the move learnt at the mon's current level?
 	ld a, [hli] ; move ID
 	jr nz, .learnSetLoop
+
+.confirmlearnmove
+	push hl
 	ld d, a ; ID of move to learn
-	push hl ; save hl before the call function because it modifies it
-	call .tryToLearn
-	pop hl
-	jr .learnSetLoop
-.tryToLearn
 	ld a, [wMonDataLocation]
 	and a
 	jr nz, .next
@@ -351,7 +349,7 @@ LearnMoveFromLevelUp:
 .checkCurrentMovesLoop ; check if the move to learn is already known
 	ld a, [hli]
 	cp d
-	jr z, .done ; if already known, jump
+	jr z, .movesloop_done ; if already known, jump
 	dec b
 	jr nz, .checkCurrentMovesLoop
 	ld a, d
@@ -362,19 +360,22 @@ LearnMoveFromLevelUp:
 	predef LearnMove
 	ld a, b
 	and a
-	jr z, .done
+	jr z, .movesloop_done
 	callfar IsThisPartymonStarterPikachu_Party
-	jr nc, .done
+	jr nc, .movesloop_done
 	ld a, [wMoveNum]
 	cp THUNDERBOLT
 	jr z, .foundThunderOrThunderbolt
 	cp THUNDER
-	jr nz, .done
+	jr nz, .movesloop_done
 .foundThunderOrThunderbolt
 	ld a, $5
 	ld [wd49c], a
 	ld a, $85
 	ld [wPikachuMood], a
+.movesloop_done
+	pop hl
+	jr .learnSetLoop
 .done
 	ld a, [wCurPartySpecies]
 	ld [wPokedexNum], a
@@ -962,6 +963,33 @@ PrepareLevelUpMoveList:: ; I don't know how the fuck you're a single colon in sh
 	ld a, c
 	ld [wMoveListCounter], a ; number of moves in the list
 .debug
+	ret
+
+; shinpokerednote: ADDED: Stores the player's pokemon levels into wStartBattleLevels. 
+; Used to track the levels at the beginning of battle so when evolving pokemon their learnsets can factor in multiple level-ups.
+StorePKMNLevels:
+	push hl
+	push de
+	ld a, [wPartyCount]	;1 to 6
+	and a
+	jr z, .doneStorePKMNLevels
+	ld b, a	;use b for countdown
+	ld hl, wPartyMon1Level
+	ld de, wStartBattleLevels
+.loopStorePKMNLevels
+	ld a, [hl]
+	ld [de], a	
+	dec b
+	jr z, .doneStorePKMNLevels
+	push bc
+	ld bc, wPartyMon2 - wPartyMon1
+	add hl, bc
+	inc de
+	pop bc
+	jr .loopStorePKMNLevels
+.doneStorePKMNLevels
+	pop de
+	pop hl
 	ret
 
 INCLUDE "data/pokemon/evos_moves.asm"

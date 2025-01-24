@@ -285,7 +285,8 @@ wPrinterStatusReceived:: db
 
 wc6f2:: db
 wc6f3:: db
-	ds 12
+	ds 11
+wTempLevelStore:: db
 wLYOverrides:: ds $100
 wLYOverridesEnd::
 wLYOverridesBuffer:: ds $100
@@ -2320,9 +2321,9 @@ wPlayerGender::
 	; $01 = girl
 		ds 1
 
-wWhichItem:: db
+wStartBattleLevels:: ds PARTY_LENGTH ; (6) PureRGB
 
-	ds 20
+	ds 15
 ENDU
 
 wObtainedHiddenItemsFlags:: flag_array MAX_HIDDEN_ITEMS
