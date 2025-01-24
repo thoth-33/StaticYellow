@@ -2,7 +2,7 @@ MagikarpSalesman::
 	CheckEvent EVENT_BOUGHT_MAGIKARP, 1
 	jp c, .alreadyBoughtMagikarp
 	ld hl, .IGotADealText
-	call PrintText
+	rst _PrintText
 	ld a, MONEY_BOX
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
@@ -43,7 +43,7 @@ MagikarpSalesman::
 .alreadyBoughtMagikarp
 	ld hl, .NoRefundsText
 .printText
-	call PrintText
+	rst _PrintText
 .done
 	ret
 

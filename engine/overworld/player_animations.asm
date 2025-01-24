@@ -472,7 +472,7 @@ FishingAnim:
 	ld hl, ItsABiteText
 
 .done
-	call PrintText
+	rst _PrintText
 	ld hl, wMovementFlags
 	res BIT_LEDGE_OR_FISHING, [hl]
 	call LoadFontTilePatterns

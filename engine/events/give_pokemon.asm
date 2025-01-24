@@ -34,18 +34,18 @@ _GivePokemon::
 	ld [hli], a
 	ld [hl], "@"
 	ld hl, SentToBoxText
-	call PrintText
+	rst _PrintText
 	scf
 	ret
 .boxFull
 	ld hl, BoxIsFullText
-	call PrintText
+	rst _PrintText
 	and a
 	ret
 .addToParty
 	call SetPokedexOwnedFlag
 	ld hl, UnknownTerminator_f6794
-	call PrintText
+	rst _PrintText
 	call AddPartyMon
 	ld a, 1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a

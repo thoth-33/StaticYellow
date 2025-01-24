@@ -78,10 +78,10 @@ SafariGameOverText:
 	and a
 	jr z, .noMoreSafariBalls
 	ld hl, TimesUpText
-	call PrintText
+	rst _PrintText
 .noMoreSafariBalls
 	ld hl, GameOverText
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 ; PureRGBnote: ADDED: used when leaving the safari zone by flying, teleporting, blacking out, etc.

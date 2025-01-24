@@ -92,7 +92,7 @@ SilphCo3FSilphWorkerMText:
 	jr nz, .beat_giovanni
 	ld hl, .WhatShouldIDoText
 .beat_giovanni
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .WhatShouldIDoText:

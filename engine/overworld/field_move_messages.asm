@@ -2,7 +2,7 @@ PrintStrengthText:
 	ld hl, wStatusFlags1
 	set BIT_STRENGTH_ACTIVE, [hl]
 	ld hl, UsedStrengthText
-	call PrintText
+	rst _PrintText
 	ld hl, CanMoveBouldersText
 	jp PrintText
 

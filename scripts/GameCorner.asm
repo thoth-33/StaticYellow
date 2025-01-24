@@ -149,7 +149,7 @@ GameCornerClerkText:
 	jr nz, .secretbargain
 .normal
 	ld hl, .DoYouNeedSomeGameCoins
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -206,11 +206,11 @@ GameCornerClerkText:
 .no_coin_case
 	ld hl, .DontHaveCoinCase
 .print_ret
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 .secretbargain
 	ld hl, .DoYouNeedSomeGameCoins2
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -303,7 +303,7 @@ GameCornerFishingGuru1Text:
 	CheckEvent EVENT_GOT_10_COINS
 	jr nz, .alreadyGotNpcCoins
 	ld hl, .WantToPlayText
-	call PrintText
+	rst _PrintText
 	ld b, COIN_CASE
 	call IsItemInBag
 	jr z, .dontHaveCoinCase
@@ -332,7 +332,7 @@ GameCornerFishingGuru1Text:
 .dontHaveCoinCase
 	ld hl, GameCornerOopsForgotCoinCaseText
 .print_ret
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .WantToPlayText:
@@ -363,7 +363,7 @@ GameCornerGymGuideText:
 	jr z, .not_defeated
 	ld hl, GameCornerGymGuideTheyOfferRarePokemonText
 .not_defeated
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 GameCornerGymGuideChampInMakingText:
@@ -383,7 +383,7 @@ GameCornerMiddleAgedMan2Text:
 	CheckEvent EVENT_GOT_20_COINS_2
 	jr nz, .alreadyGotNpcCoins
 	ld hl, .WantSomeCoinsText
-	call PrintText
+	rst _PrintText
 	ld b, COIN_CASE
 	call IsItemInBag
 	jr z, .dontHaveCoinCase
@@ -410,7 +410,7 @@ GameCornerMiddleAgedMan2Text:
 .dontHaveCoinCase
 	ld hl, GameCornerOopsForgotCoinCaseText
 .print_ret
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .WantSomeCoinsText:
@@ -435,7 +435,7 @@ GameCornerFishingGuru2Text:
 	CheckEvent EVENT_GOT_20_COINS
 	jr nz, .alreadyGotNpcCoins
 	ld hl, .ThrowingMeOffText
-	call PrintText
+	rst _PrintText
 	ld b, COIN_CASE
 	call IsItemInBag
 	jr z, .dontHaveCoinCase
@@ -462,7 +462,7 @@ GameCornerFishingGuru2Text:
 .dontHaveCoinCase
 	ld hl, GameCornerOopsForgotCoinCaseText
 .print_ret
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .ThrowingMeOffText:
@@ -485,7 +485,7 @@ GameCornerFishingGuru2Text:
 GameCornerRocketText:
 	text_asm
 	ld hl, .ImGuardingThisPosterText
-	call PrintText
+	rst _PrintText
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
@@ -521,7 +521,7 @@ GameCornerPosterText:
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, .SwitchBehindPosterText
-	call PrintText
+	rst _PrintText
 	call WaitForSoundToFinish
 	ld a, SFX_GO_INSIDE
 	call PlaySound

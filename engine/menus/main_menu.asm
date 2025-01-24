@@ -137,7 +137,7 @@ Func_5cc1:
 	cp $80
 	ret c ; will always be executed
 	ld hl, NotEnoughMemoryText
-	call PrintText
+	rst _PrintText
 	ret
 
 NotEnoughMemoryText:

@@ -4,7 +4,7 @@ DisplayElevatorFloorMenu:
 	push af
 	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, WhichFloorText
-	call PrintText
+	rst _PrintText
 	pop af
 	ld [wStatusFlags5], a
 	ld hl, wItemList

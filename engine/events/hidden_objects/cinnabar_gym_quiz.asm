@@ -25,7 +25,7 @@ CinnabarGymQuiz::
 	jr z, .onFirstQuestion
 	ld hl, CinnabarGymQuizShortIntroText
 .onFirstQuestion
-	call PrintText
+	rst _PrintText
 	ldh a, [hGymGateIndex]
 	dec a
 	add a
@@ -36,7 +36,7 @@ CinnabarGymQuiz::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
+	rst _PrintText
 	ld a, 1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	call CinnabarGymQuiz_AskQuestion
@@ -98,7 +98,7 @@ CinnabarGymQuiz_AskQuestion:
 	ldh a, [hGymGateIndex]
 	ldh [hBackupGymGateIndex], a
 	ld hl, CinnabarGymQuizCorrectText
-	call PrintText
+	rst _PrintText
 	ldh a, [hBackupGymGateIndex]
 	AdjustEventBit EVENT_CINNABAR_GYM_GATE0_UNLOCKED, 0
 	ld c, a
@@ -111,7 +111,7 @@ CinnabarGymQuiz_AskQuestion:
 	call PlaySound
 	call WaitForSoundToFinish
 	ld hl, CinnabarGymQuizIncorrectText
-	call PrintText
+	rst _PrintText
 	ldh a, [hGymGateIndex]
 	add $2
 	AdjustEventBit EVENT_BEAT_CINNABAR_GYM_TRAINER_0, 2

@@ -28,7 +28,7 @@ CeladonMansion3FProgrammerText:
 	jr nc, .print
 	ld hl, CeladonMansion3Text_486f0
 .print
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 CeladonMansion3Text_486f0:
@@ -49,7 +49,7 @@ CeladonMansion3FGraphicArtistText:
 
 .completed
 	ld hl, .Text2
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -78,7 +78,7 @@ CeladonMansion3FGraphicArtistText:
 .declined_print
 	ld hl, .Text3
 .print
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .Text1:
@@ -109,7 +109,7 @@ CeladonMansion3FWriterText:
 	jr nc, .print
 	ld hl, .Text1
 .print
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .Text1:
@@ -129,13 +129,13 @@ CeladonMansion3FGameDesignerText:
 	jr .done
 .completed_dex
 	ld hl, .CompletedDexText
-	call PrintText
+	rst _PrintText
 	call Delay3
 	xor a
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, .UnlockedDiplomaPrinting
 .done
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .Text:

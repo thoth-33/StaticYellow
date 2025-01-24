@@ -16,7 +16,7 @@ LoadSAV:
 	push hl
 	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, FileDataDestroyedText
-	call PrintText
+	rst _PrintText
 	ld c, 100
 	rst _DelayFrames
 	pop hl
@@ -153,11 +153,11 @@ SaveSAV:
 .save
 	call SaveSAVtoSRAM
 	ld hl, SavingText
-	call PrintText
+	rst _PrintText
 	ld c, 128
 	rst _DelayFrames
 	ld hl, GameSavedText
-	call PrintText
+	rst _PrintText
 	ld c, 10
 	rst _DelayFrames
 	ld a, SFX_SAVE
@@ -168,7 +168,7 @@ SaveSAV:
 	ret
 
 SaveSAVConfirm:
-	call PrintText
+	rst _PrintText
 	hlcoord 0, 7
 	lb bc, 8, 1
 	ld a, TWO_OPTION_MENU
@@ -334,7 +334,7 @@ BoxSRAMPointerTable:
 
 ChangeBox::
 	ld hl, WhenYouChangeBoxText
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a

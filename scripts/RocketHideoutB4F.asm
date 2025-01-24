@@ -349,7 +349,7 @@ RocketHideoutB4FGiovanniText:
 	CheckEvent EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI
 	jp nz, .beat_giovanni
 	ld hl, .ImpressedYouGotHereText
-	call PrintText
+	rst _PrintText
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
@@ -368,7 +368,7 @@ RocketHideoutB4FGiovanniText:
 	jr .done
 .beat_giovanni
 	ld hl, RocketHideoutB4FGiovanniHopeWeMeetAgainText
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 
@@ -407,7 +407,7 @@ RocketHideoutB4FRocketEndBattleText:
 RocketHideoutB4FRocketAfterBattleText:
 	text_asm
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .Text:

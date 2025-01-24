@@ -97,7 +97,7 @@ Route18Gate1FGuardText:
 	jr .text_script_end
 .no_bike
 	ld hl, .YouNeedABicycleText
-	call PrintText
+	rst _PrintText
 .text_script_end
 	rst TextScriptEnd
 

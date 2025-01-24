@@ -246,7 +246,7 @@ PalletTownOakText:
 .whew
 	ld hl, .WhewText
 .done
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .HeyWaitDontGoOutText:
@@ -294,7 +294,7 @@ IF DEF(_DEBUG)
 	inc a
 	ld [wWhichPewterGuy], a
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .Text:

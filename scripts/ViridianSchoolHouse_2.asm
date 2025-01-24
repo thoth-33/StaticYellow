@@ -1,6 +1,6 @@
 ViridianSchoolHousePrintLittleGirlText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -9,7 +9,7 @@ ViridianSchoolHousePrintLittleGirlText::
 
 ViridianSchoolHousePrintCooltrainerFText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text

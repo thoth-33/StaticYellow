@@ -1,6 +1,6 @@
 ViridianCityPrintYoungster1Text::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -16,7 +16,7 @@ ViridianCityPrintGambler1Text::
 	jr nz, .print_text
 	ld hl, .GymAlwaysClosedText
 .print_text
-	call PrintText
+	rst _PrintText
 	ret
 
 .GymAlwaysClosedText:
@@ -29,7 +29,7 @@ ViridianCityPrintGambler1Text::
 
 ViridianCityPrintYoungster2Text::
 	ld hl, .YouWantToKnowAboutText
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -37,7 +37,7 @@ ViridianCityPrintYoungster2Text::
 	jr nz, .no
 	ld hl, .CaterpieAndWeedleDescriptionText
 .no
-	call PrintText
+	rst _PrintText
 	ret
 
 .YouWantToKnowAboutText:
@@ -58,7 +58,7 @@ ViridianCityPrintGirlText::
 	jr nz, .got_pokedex
 	ld hl, .HasntHadHisCoffeeYetText
 .got_pokedex
-	call PrintText
+	rst _PrintText
 	ret
 
 .HasntHadHisCoffeeYetText:
@@ -71,7 +71,7 @@ ViridianCityPrintGirlText::
 
 ViridianCityPrintOldManSleepyText::
 	ld hl, .PrivatePropertyText
-	call PrintText
+	rst _PrintText
 	call StartSimulatingJoypadStates
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
@@ -89,21 +89,21 @@ ViridianCityPrintFisherText::
 	CheckEvent EVENT_GOT_TM42
 	jr nz, .got_item
 	ld hl, .YouCanHaveThisText
-	call PrintText
+	rst _PrintText
 	lb bc, TM_DREAM_EATER, 1
 	call GiveItem
 	jr nc, .bag_full
 	ld hl, .ReceivedTM42Text
-	call PrintText
+	rst _PrintText
 	SetEvent EVENT_GOT_TM42
 	ret
 .bag_full
 	ld hl, .TM42NoRoomText
-	call PrintText
+	rst _PrintText
 	ret
 .got_item
 	ld hl, .TM42ExplanationText
-	call PrintText
+	rst _PrintText
 	ret
 
 .YouCanHaveThisText:
@@ -125,7 +125,7 @@ ViridianCityPrintFisherText::
 
 ViridianCityPrintOldManText::
 	ld hl, .WantMeToShowYouAgainText
-	call PrintText
+	rst _PrintText
 	ld c, 2
 	rst _DelayFrames
 	call YesNoChoice
@@ -133,13 +133,13 @@ ViridianCityPrintOldManText::
 	and a
 	jr nz, .refused
 	ld hl, .WatchCloselyText
-	call PrintText
+	rst _PrintText
 	ld a, SCRIPT_VIRIDIANCITY_OLD_MAN_START_CATCH_TRAINING
 	ld [wViridianCityCurScript], a
 	jr .done
 .refused
 	ld hl, .NotGoodEnoughForYouText
-	call PrintText
+	rst _PrintText
 .done
 	ret
 
@@ -157,7 +157,7 @@ ViridianCityPrintOldManText::
 
 ViridianCityPrintSignText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -166,7 +166,7 @@ ViridianCityPrintSignText::
 
 ViridianCityPrintTrainerTips1Text::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -175,7 +175,7 @@ ViridianCityPrintTrainerTips1Text::
 
 ViridianCityPrintTrainerTips2Text::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -184,7 +184,7 @@ ViridianCityPrintTrainerTips2Text::
 
 ViridianCityPrintGymSignText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -193,7 +193,7 @@ ViridianCityPrintGymSignText::
 
 ViridianCityPrintGymLockedText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text

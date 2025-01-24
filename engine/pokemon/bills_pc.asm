@@ -106,7 +106,7 @@ BillsPC_::
 	ld a, SFX_TURN_ON_PC
 	call PlaySound
 	ld hl, SwitchOnText
-	call PrintText
+	rst _PrintText
 
 BillsPCMenu:
 	ld a, [wParentMenuItem]
@@ -193,14 +193,14 @@ BillsPCDeposit:
 	dec a
 	jr nz, .partyLargeEnough
 	ld hl, CantDepositLastMonText
-	call PrintText
+	rst _PrintText
 	jp BillsPCMenu
 .partyLargeEnough
 	ld a, [wBoxCount]
 	cp MONS_PER_BOX
 	jr nz, .boxNotFull
 	ld hl, BoxFullText
-	call PrintText
+	rst _PrintText
 	jp BillsPCMenu
 .boxNotFull
 	ld hl, wPartyCount
@@ -211,7 +211,7 @@ BillsPCDeposit:
 	call CheckPikachuFollowingPlayer
 	jr z, .asm_215ad
 	ld hl, SleepingPikachuText2
-	call PrintText
+	rst _PrintText
 	jp BillsPCMenu
 .asm_215ad
 	call DisplayDepositWithdrawMenu
@@ -249,7 +249,7 @@ BillsPCDeposit:
 	ld [hli], a
 	ld [hl], "@"
 	ld hl, MonWasStoredText
-	call PrintText
+	rst _PrintText
 	jp BillsPCMenu
 
 SleepingPikachuText2:
@@ -261,14 +261,14 @@ BillsPCWithdraw:
 	and a
 	jr nz, .boxNotEmpty
 	ld hl, NoMonText
-	call PrintText
+	rst _PrintText
 	jp BillsPCMenu
 .boxNotEmpty
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH
 	jr nz, .partyNotFull
 	ld hl, CantTakeMonText
-	call PrintText
+	rst _PrintText
 	jp BillsPCMenu
 .partyNotFull
 	ld hl, wBoxCount
@@ -296,7 +296,7 @@ BillsPCWithdraw:
 	call RemovePokemon
 	call WaitForSoundToFinish
 	ld hl, MonIsTakenOutText
-	call PrintText
+	rst _PrintText
 	jp BillsPCMenu
 
 BillsPCRelease:
@@ -304,7 +304,7 @@ BillsPCRelease:
 	and a
 	jr nz, .loop
 	ld hl, NoMonText
-	call PrintText
+	rst _PrintText
 	jp BillsPCMenu
 .loop
 	ld hl, wBoxCount
@@ -313,7 +313,7 @@ BillsPCRelease:
 	callfar IsThisPartymonStarterPikachu_Box
 	jr c, .asm_216cb
 	ld hl, OnceReleasedText
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -325,7 +325,7 @@ BillsPCRelease:
 	ld a, [wCurPartySpecies]
 	call PlayCry
 	ld hl, MonWasReleasedText
-	call PrintText
+	rst _PrintText
 	jp BillsPCMenu
 
 .asm_216cb
@@ -335,7 +335,7 @@ BillsPCRelease:
 	ld e, $27
 	callfar PlayPikachuSoundClip
 	ld hl, PikachuUnhappyText
-	call PrintText
+	rst _PrintText
 	jp BillsPCMenu
 
 BillsPCChangeBox:

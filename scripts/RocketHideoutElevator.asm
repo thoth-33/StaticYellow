@@ -85,7 +85,7 @@ RocketHideoutElevatorText:
     	call PlaySound
     	call WaitForSoundToFinish
 	ld hl, .UnlockedElevatorText
-	call PrintText
+	rst _PrintText
 .startLift
 ;;;;;;;;;;
 	call RocketHideoutElevatorScript
@@ -94,7 +94,7 @@ RocketHideoutElevatorText:
 	jr .text_script_end
 .no_key
 	ld hl, .AppearsToNeedKeyText
-	call PrintText
+	rst _PrintText
 .text_script_end
 	rst TextScriptEnd
 

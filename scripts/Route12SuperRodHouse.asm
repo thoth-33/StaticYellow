@@ -11,7 +11,7 @@ Route12SuperRodHouseFishingGuruText:
 	bit BIT_GOT_SUPER_ROD, a
 	jr nz, .got_item
 	ld hl, .DoYouLikeToFishText
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -32,7 +32,7 @@ Route12SuperRodHouseFishingGuruText:
 .got_item
 	ld hl, .TryFishingText
 .done
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .DoYouLikeToFishText:

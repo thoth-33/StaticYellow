@@ -5,19 +5,19 @@ DisplayPokemonCenterDialogue_::
 	call CheckPikachuFollowingPlayer
 	jr z, .regularCenter
 	ld hl, LooksContentText ; if pikachu is sleeping, don't heal
-	call PrintText
+	rst _PrintText
 	ret
 .regularCenter
 	call SaveScreenTilesToBuffer1 ; save screen
 	ld hl, PokemonCenterWelcomeText
-	call PrintText
+	rst _PrintText
 	ld hl, wStatusFlags4
 	bit BIT_USED_POKECENTER, [hl]
 	set BIT_UNKNOWN_4_1, [hl]
 	set BIT_USED_POKECENTER, [hl]
 	jr nz, .skipShallWeHealYourPokemon
 	ld hl, ShallWeHealYourPokemonText
-	call PrintText
+	rst _PrintText
 .skipShallWeHealYourPokemon
 	call YesNoChoicePokeCenter ; yes/no menu
 	call UpdateSprites
@@ -35,7 +35,7 @@ DisplayPokemonCenterDialogue_::
 	callfar PikachuWalksToNurseJoy ; todo
 .notHealingPlayerPikachu
 	ld hl, NeedYourPokemonText
-	call PrintText
+	rst _PrintText
 	ld c, 64
 	rst _DelayFrames
 	call CheckPikachuFollowingPlayer
@@ -69,7 +69,7 @@ DisplayPokemonCenterDialogue_::
 	lb bc, 1, 0
 	call Func_6ebb
 	ld hl, PokemonFightingFitText
-	call PrintText
+	rst _PrintText
 	callfar IsStarterPikachuInOurParty
 	jr nc, .notInParty
 	lb bc, 15, 0
@@ -93,7 +93,7 @@ DisplayPokemonCenterDialogue_::
 	call LoadScreenTilesFromBuffer1 ; restore screen
 .done
 	ld hl, PokemonCenterFarewellText
-	call PrintText
+	rst _PrintText
 	call UpdateSprites
 	ret
 

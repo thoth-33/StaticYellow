@@ -1,6 +1,6 @@
 PewterPokecenterPrintCooltrainerFText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -11,11 +11,11 @@ PewterJigglypuff::
 	ld a, TRUE
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 
 	call StopAllMusic
 	ld c, 32
-	call DelayFrames
+	rst _DelayFrames
 
 	ld hl, .FacingDirections
 	ld de, wJigglypuffFacingDirections
@@ -49,7 +49,7 @@ PewterJigglypuff::
 	ld [wJigglypuffFacingDirections + 3], a
 	pop hl
 	ld c, 24
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wChannelSoundIDs]
 	ld b, a
 	ld a, [wChannelSoundIDs + CHAN2]

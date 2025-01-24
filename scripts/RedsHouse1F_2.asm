@@ -3,7 +3,7 @@ RedsHouse1FPrintMomText::
 	bit BIT_GOT_STARTER, a
 	jp nz, RedsHouse1FMomHealScript
 	ld hl, .WakeUpText
-	call PrintText
+	rst _PrintText
 	ret
 
 .WakeUpText:
@@ -12,7 +12,7 @@ RedsHouse1FPrintMomText::
 
 RedsHouse1FMomHealScript:
 	ld hl, RedsHouse1FMomYouShouldRestText
-	call PrintText
+	rst _PrintText
 	call GBFadeOutToWhite
 	call ReloadMapData
 	predef HealParty
@@ -28,7 +28,7 @@ RedsHouse1FMomHealScript:
 	call PlaySound
 	call GBFadeInFromWhite
 	ld hl, RedsHouse1FMomLookingGreatText
-	call PrintText
+	rst _PrintText
 	ret
 
 RedsHouse1FMomYouShouldRestText:
@@ -45,7 +45,7 @@ RedsHouse1FPrintTVText::
 	jp nz, .got_text
 	ld hl, .StandByMeMovieText
 .got_text
-	call PrintText
+	rst _PrintText
 	ret
 
 .StandByMeMovieText:

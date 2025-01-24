@@ -168,7 +168,7 @@ SSAnne2FWaiterText:
 SSAnne2FRivalText:
 	text_asm
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]

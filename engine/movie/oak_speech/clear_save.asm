@@ -4,7 +4,7 @@ DoClearSaveDialogue:
 	call LoadFontTilePatterns
 	call LoadTextBoxTilePatterns
 	ld hl, ClearSaveDataText
-	call PrintText
+	rst _PrintText
 	ld a, B_BUTTON
 	ld [wJoyIgnore], a
 	hlcoord 14, 7

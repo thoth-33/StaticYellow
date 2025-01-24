@@ -42,7 +42,7 @@ PrintBeginningBattleText:
 	callfar DrawAllPokeballs
 	pop hl
 .doNotDrawPokeballs
-	call PrintText
+	rst _PrintText
 	jr .done
 .pokemonTower
 	ld b, SILPH_SCOPE
@@ -58,22 +58,22 @@ PrintBeginningBattleText:
 	jr .notPokemonTower
 .noSilphScope
 	ld hl, EnemyAppearedText
-	call PrintText
+	rst _PrintText
 	ld hl, GhostCantBeIDdText
-	call PrintText
+	rst _PrintText
 	jr .done
 .isMarowak
 	ld a, b
 	and a
 	jr z, .noSilphScope
 	ld hl, EnemyAppearedText
-	call PrintText
+	rst _PrintText
 	ld hl, UnveiledGhostText
-	call PrintText
+	rst _PrintText
 	callfar LoadEnemyMonData
 	callfar MarowakAnim
 	ld hl, WildMonAppearedText
-	call PrintText
+	rst _PrintText
 
 .playSFX
 	xor a

@@ -307,11 +307,11 @@ SilphCo7FSilphWorkerM1Text:
 	CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
 	jr nz, .saved_silph
 	ld hl, .IsOurPresidentOkText
-	call PrintText
+	rst _PrintText
 	jr .done
 .give_lapras
 	ld hl, .HaveThisPokemonText
-	call PrintText
+	rst _PrintText
 	lb bc, LAPRAS, 15
 	call GivePokemon
 	jr nc, .done
@@ -320,13 +320,13 @@ SilphCo7FSilphWorkerM1Text:
 	call z, WaitForTextScrollButtonPress
 	call EnableAutoTextBoxDrawing
 	ld hl, .LaprasDescriptionText
-	call PrintText
+	rst _PrintText
 	ld hl, wStatusFlags4
 	set BIT_GOT_LAPRAS, [hl]
 	jr .done
 .saved_silph
 	ld hl, .SavedText
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 
@@ -351,11 +351,11 @@ SilphCo7FSilphWorkerM2Text:
 	CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
 	jr nz, .saved_silph
 	ld hl, .AfterTheMasterBallText
-	call PrintText
+	rst _PrintText
 	jr .done
 .saved_silph
 	ld hl, .CancelledTheMasterBallText
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 
@@ -372,11 +372,11 @@ SilphCo7FSilphWorkerM3Text:
 	CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
 	jr nz, .saved_silph
 	ld hl, .ItWouldBeBadText
-	call PrintText
+	rst _PrintText
 	jr .done
 .saved_silph
 	ld hl, .YouChasedOffTeamRocketText
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 
@@ -393,11 +393,11 @@ SilphCo7FSilphWorkerM4Text:
 	CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
 	jr nz, .saved_silph
 	ld hl, .ItsReallyDangerousHereText
-	call PrintText
+	rst _PrintText
 	jr .done
 .saved_silph
 	ld hl, .SafeAtLastText
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 
@@ -484,7 +484,7 @@ SilphCo7FRocket3AfterBattleText:
 SilphCo7FRivalText:
 	text_asm
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .Text:

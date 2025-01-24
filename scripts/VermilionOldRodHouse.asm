@@ -12,7 +12,7 @@ VermilionOldRodHouseFishingGuruText:
 	bit BIT_GOT_OLD_ROD, a
 	jr nz, .got_old_rod
 	ld hl, .DoYouLikeToFishText
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -33,7 +33,7 @@ VermilionOldRodHouseFishingGuruText:
 .got_old_rod
 	ld hl, .HowAreTheFishBitingText
 .print_text
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .DoYouLikeToFishText:

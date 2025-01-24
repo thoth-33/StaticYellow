@@ -13,14 +13,14 @@ BikeShopClerkText:
 	CheckEvent EVENT_GOT_BICYCLE
 	jr z, .dontHaveBike
 	ld hl, BikeShopClerkHowDoYouLikeYourBicycleText
-	call PrintText
+	rst _PrintText
 	jp .Done
 .dontHaveBike
 	ld b, BIKE_VOUCHER
 	call IsItemInBag
 	jr z, .dontHaveVoucher
 	ld hl, BikeShopClerkOhThatsAVoucherText
-	call PrintText
+	rst _PrintText
 	lb bc, BICYCLE, 1
 	call GiveItem
 	jr nc, .BagFull
@@ -29,15 +29,15 @@ BikeShopClerkText:
 	farcall RemoveItemByID
 	SetEvent EVENT_GOT_BICYCLE
 	ld hl, BikeShopExchangedVoucherText
-	call PrintText
+	rst _PrintText
 	jr .Done
 .BagFull
 	ld hl, BikeShopBagFullText
-	call PrintText
+	rst _PrintText
 	jr .Done
 .dontHaveVoucher
 	ld hl, BikeShopClerkWelcomeText
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wCurrentMenuItem], a
 	ld [wLastMenuItem], a
@@ -62,7 +62,7 @@ BikeShopClerkText:
 	ld de, BikeShopMenuPrice
 	call PlaceString
 	ld hl, BikeShopClerkDoYouLikeItText
-	call PrintText
+	rst _PrintText
 	; This fixes the bike shop instatext glitch
 	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]
@@ -73,10 +73,10 @@ BikeShopClerkText:
 	and a
 	jr nz, .cancel
 	ld hl, BikeShopCantAffordText
-	call PrintText
+	rst _PrintText
 .cancel
 	ld hl, BikeShopComeAgainText
-	call PrintText
+	rst _PrintText
 .Done
 	rst TextScriptEnd
 
@@ -123,7 +123,7 @@ BikeShopBagFullText:
 BikeShopMiddleAgedWomanText:
 	text_asm
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .Text:
@@ -137,7 +137,7 @@ BikeShopYoungsterText:
 	jr nz, .gotBike
 	ld hl, .TheseBikesAreExpensiveText
 .gotBike
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .TheseBikesAreExpensiveText:

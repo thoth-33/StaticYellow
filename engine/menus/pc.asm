@@ -3,7 +3,7 @@ ActivatePC::
 	ld a, SFX_TURN_ON_PC
 	call PlaySound
 	ld hl, TurnedOnPC1Text
-	call PrintText
+	rst _PrintText
 	call WaitForSoundToFinish
 	ld hl, wMiscFlags
 	set BIT_USING_GENERIC_PC, [hl]
@@ -55,7 +55,7 @@ PCMainMenu:
 	call PlaySound
 	call WaitForSoundToFinish
 	ld hl, AccessedMyPCText
-	call PrintText
+	rst _PrintText
 	farcall PlayerPC
 	jr ReloadMainMenu
 OaksPC:
@@ -81,7 +81,7 @@ BillsPC:
 .billsPC
 	ld hl, AccessedBillsPCText
 .printText
-	call PrintText
+	rst _PrintText
 	farcall BillsPC_
 ReloadMainMenu:
 	xor a

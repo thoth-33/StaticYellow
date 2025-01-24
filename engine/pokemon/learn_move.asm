@@ -32,7 +32,7 @@ DontAbandonLearning:
 	ld [wNamedObjectIndex], a
 	call GetMoveName
 	ld hl, OneTwoAndText
-	call PrintText
+	rst _PrintText
 	pop de
 	pop hl
 .next
@@ -75,7 +75,7 @@ DontAbandonLearning:
 
 AbandonLearning:
 	ld hl, AbandonLearningText
-	call PrintText
+	rst _PrintText
 	hlcoord 14, 7
 	lb bc, 8, 15
 	ld a, TWO_OPTION_MENU
@@ -85,7 +85,7 @@ AbandonLearning:
 	and a
 	jp nz, DontAbandonLearning
 	ld hl, DidNotLearnText
-	call PrintText
+	rst _PrintText
 	call LoadScreenTilesFromBuffer1
 	ld b, 0
 	ret
@@ -93,14 +93,14 @@ AbandonLearning:
 PrintLearnedMove:
 	call LoadScreenTilesFromBuffer1
 	ld hl, LearnedMove1Text
-	call PrintText
+	rst _PrintText
 	ld b, 1
 	ret
 
 TryingToLearn:
 	push hl
 	ld hl, TryingToLearnText
-	call PrintText
+	rst _PrintText
 	call ShowMoveInfo
 	hlcoord 14, 7
 	lb bc, 8, 15
@@ -122,7 +122,7 @@ TryingToLearn:
 .loop
 	push hl
 	ld hl, WhichMoveToForgetText
-	call PrintText
+	rst _PrintText
 	hlcoord 4, 7
 	lb bc, 4, 14
 	call TextBoxBorder
@@ -178,7 +178,7 @@ TryingToLearn:
 	ret
 ;.hm
 ; ld hl, HMCantDeleteText
-; call PrintText
+; rst _PrintText
 ; pop hl
 ; jr .loop
 .cancel

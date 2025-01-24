@@ -69,7 +69,7 @@ SSAnne2FRoomsGentleman3Text:
 	text_asm
 	call SaveScreenTilesToBuffer1
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 	call LoadScreenTilesFromBuffer1
 	ld a, SNORLAX
 	call DisplayPokedex
@@ -82,7 +82,7 @@ SSAnne2FRoomsGentleman3Text:
 SSAnne2FRoomsGentleman4Text:
 	text_asm
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .Text:
@@ -92,7 +92,7 @@ SSAnne2FRoomsGentleman4Text:
 SSAnne2FRoomsGrampsText:
 	text_asm
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .Text:

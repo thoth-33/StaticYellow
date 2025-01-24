@@ -178,7 +178,7 @@ SafariZoneGateSafariZoneWorker1LeavingEarlyText:
 	and a
 	jr nz, .not_ready_to_leave
 	ld hl, .ReturnSafariBallsText
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, D_DOWN
@@ -190,7 +190,7 @@ SafariZoneGateSafariZoneWorker1LeavingEarlyText:
 	jr .set_current_script
 .not_ready_to_leave
 	ld hl, .GoodLuckText
-	call PrintText
+	rst _PrintText
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, D_UP

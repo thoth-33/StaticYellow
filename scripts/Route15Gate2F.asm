@@ -29,7 +29,7 @@ Route15Gate2FOaksAideText:
 	ld hl, wStatusFlags2
 	set BIT_EXP_ALL_ACTIVE, [hl]
 	ld hl, .ExpAllText
-	call PrintText
+	rst _PrintText
 .no_item
 	rst TextScriptEnd
 

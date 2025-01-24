@@ -318,7 +318,7 @@ ViridianCityOldMan2Text:
 	CheckEvent EVENT_COMPLETED_CATCH_TRAINING
 	jr nz, .completed_training
 	ld hl, .HadMyCoffeeNowText
-	call PrintText
+	rst _PrintText
 	ld c, 2
 	rst _DelayFrames
 	ld a, SCRIPT_VIRIDIANCITY_OLD_MAN_INITIAL_CATCH_TRAINING
@@ -327,7 +327,7 @@ ViridianCityOldMan2Text:
 
 .completed_training
 	ld hl, .LosingMyTouchText
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 

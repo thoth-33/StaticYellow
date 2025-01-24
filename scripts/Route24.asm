@@ -111,15 +111,15 @@ Route24CooltrainerM1Text:
 	CheckEvent EVENT_GOT_NUGGET
 	jr nz, .got_item
 	ld hl, .YouBeatOurContestText
-	call PrintText
+	rst _PrintText
 	lb bc, NUGGET, 1
 	call GiveItem
 	jr nc, .bag_full
 	SetEvent EVENT_GOT_NUGGET
 	ld hl, .ReceivedNuggetText
-	call PrintText
+	rst _PrintText
 	ld hl, .JoinTeamRocketText
-	call PrintText
+	rst _PrintText
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
@@ -138,11 +138,11 @@ Route24CooltrainerM1Text:
 	rst TextScriptEnd
 .got_item
 	ld hl, .YouCouldBecomeATopLeaderText
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 .bag_full
 	ld hl, .NoRoomText
-	call PrintText
+	rst _PrintText
 	SetEvent EVENT_NUGGET_REWARD_AVAILABLE
 	rst TextScriptEnd
 
@@ -287,7 +287,7 @@ Route24CooltrainerM4Text:
 	CheckEvent EVENT_54F
 	jr nz, .asm_515d5
 	ld hl, Route24Text_515de
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -307,7 +307,7 @@ Route24CooltrainerM4Text:
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, Route24Text_515e3
-	call PrintText
+	rst _PrintText
 	SetEvent EVENT_54F
 	rst TextScriptEnd
 
@@ -318,7 +318,7 @@ Route24CooltrainerM4Text:
 .asm_515d5
 	ld hl, Route24Text_515ee
 .asm_515d8
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 Route24Text_515de:

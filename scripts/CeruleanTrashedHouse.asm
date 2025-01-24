@@ -19,7 +19,7 @@ CeruleanTrashedHouseFishingGuruText:
 	jr .done
 .no_dig_tm
 	ld hl, .TheyStoleATMText
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 

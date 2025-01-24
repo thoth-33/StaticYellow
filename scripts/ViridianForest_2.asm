@@ -1,6 +1,6 @@
 ViridianForestPrintTrainerTips1Text::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -9,7 +9,7 @@ ViridianForestPrintTrainerTips1Text::
 
 ViridianForestPrintUseAntidoteSignText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -18,7 +18,7 @@ ViridianForestPrintUseAntidoteSignText::
 
 ViridianForestPrintTrainerTips2Text::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -27,7 +27,7 @@ ViridianForestPrintTrainerTips2Text::
 
 ViridianForestPrintTrainerTips3Text::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text

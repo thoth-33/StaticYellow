@@ -53,7 +53,7 @@ DoInGameTradeDialogue:
 	cp NO_MON
 	jr z, .printText
 	ld hl, TradedForText
-	call PrintText
+	rst _PrintText
 .printText
 	ld hl, wInGameTradeTextPointerTableIndex
 	ld a, [hld] ; wInGameTradeTextPointerTableIndex
@@ -114,7 +114,7 @@ InGameTrade_DoTrade:
 	call InGameTrade_FlagActionPredef
 .skip_flag_set
 	ld hl, ConnectCableText
-	call PrintText
+	rst _PrintText
 	ld a, [wWhichPokemon]
 	push af
 	ld a, [wCurEnemyLevel]

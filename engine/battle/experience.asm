@@ -184,7 +184,7 @@ GainExperience:
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
 	ld hl, GainedText
-	call PrintText
+	rst _PrintText
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	call LoadMonData
@@ -286,7 +286,7 @@ GainExperience:
 .printGrewLevelText
 	callabd_ModifyPikachuHappiness PIKAHAPPY_LEVELUP
 	ld hl, GrewLevelText
-	call PrintText
+	rst _PrintText
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	call LoadMonData

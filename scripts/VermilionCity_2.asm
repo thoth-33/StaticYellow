@@ -5,12 +5,12 @@ VermilionCityPrintOfficerJennyText::
 	bit 2, a ; THUNDERBADGE
 	jr nz, .asm_f1a24
 	ld hl, OfficerJennyText1
-	call PrintText
+	rst _PrintText
 	ret
 
 .asm_f1a24
 	ld hl, OfficerJennyText2
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -30,18 +30,18 @@ VermilionCityPrintOfficerJennyText::
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, OfficerJennyText3
-	call PrintText
+	rst _PrintText
 	SetEvent EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY
 	ret
 
 .asm_f1a62
 	ld hl, OfficerJennyText4
-	call PrintText
+	rst _PrintText
 	ret
 
 .asm_f1a69
 	ld hl, OfficerJennyText5
-	call PrintText
+	rst _PrintText
 	ret
 
 OfficerJennyText1:
@@ -67,7 +67,7 @@ OfficerJennyText5:
 
 VermilionCityPrintSignText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -76,7 +76,7 @@ VermilionCityPrintSignText::
 
 VermilionCityPrintNoticeSignText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -85,7 +85,7 @@ VermilionCityPrintNoticeSignText::
 
 VermilionCityPrintPokemonFanClubSignText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -94,7 +94,7 @@ VermilionCityPrintPokemonFanClubSignText::
 
 VermilionCityPrintGymSignText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -103,7 +103,7 @@ VermilionCityPrintGymSignText::
 
 VermilionCityPrintHarborSignText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text

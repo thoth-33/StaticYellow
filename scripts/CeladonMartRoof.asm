@@ -46,7 +46,7 @@ CeladonMartRoofScript_GiveDrinkToGirl:
 	ld hl, wStatusFlags5
 	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, CeladonMartRoofLittleGirlGiveHerWhichDrinkText
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wCurrentMenuItem], a
 	ld a, A_BUTTON | B_BUTTON
@@ -90,48 +90,48 @@ CeladonMartRoofScript_GiveDrinkToGirl:
 	CheckEvent EVENT_GOT_TM49
 	jr nz, .alreadyGaveDrink
 	ld hl, CeladonMartRoofLittleGirlYayLemonadeText
-	call PrintText
+	rst _PrintText
 	call RemoveItemByIDBank12
 	lb bc, TM_TRI_ATTACK, 1
 	call GiveItem
 	jr nc, .bagFull
 	ld hl, CeladonMartRoofLittleGirlReceivedTM49Text
-	call PrintText
+	rst _PrintText
 	SetEvent EVENT_GOT_TM49
 	ret
 .gaveSodaPop
 	CheckEvent EVENT_GOT_TM48
 	jr nz, .alreadyGaveDrink
 	ld hl, CeladonMartRoofLittleGirlYaySodaPopText
-	call PrintText
+	rst _PrintText
 	call RemoveItemByIDBank12
 	lb bc, TM_ROCK_SLIDE, 1
 	call GiveItem
 	jr nc, .bagFull
 	ld hl, CeladonMartRoofLittleGirlReceivedTM48Text
-	call PrintText
+	rst _PrintText
 	SetEvent EVENT_GOT_TM48
 	ret
 .gaveFreshWater
 	CheckEvent EVENT_GOT_TM13
 	jr nz, .alreadyGaveDrink
 	ld hl, CeladonMartRoofLittleGirlYayFreshWaterText
-	call PrintText
+	rst _PrintText
 	call RemoveItemByIDBank12
 	lb bc, TM_ICE_BEAM, 1
 	call GiveItem
 	jr nc, .bagFull
 	ld hl, CeladonMartRoofLittleGirlReceivedTM13Text
-	call PrintText
+	rst _PrintText
 	SetEvent EVENT_GOT_TM13
 	ret
 .bagFull
 	ld hl, CeladonMartRoofLittleGirlNoRoomText
-	call PrintText
+	rst _PrintText
 	ret
 .alreadyGaveDrink
 	ld hl, CeladonMartRoofLittleGirlImNotThirstyText
-	call PrintText
+	rst _PrintText
 	ret
 
 RemoveItemByIDBank12:
@@ -232,7 +232,7 @@ CeladonMartRoofLittleGirlText:
 	ld a, 1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, .GiveHerADrinkText
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -241,7 +241,7 @@ CeladonMartRoofLittleGirlText:
 	jr .done
 .noDrinksInBag
 	ld hl, .ImThirstyText
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 

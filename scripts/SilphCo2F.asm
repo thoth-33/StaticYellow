@@ -133,7 +133,7 @@ SilphCo2FSilphWorkerFText:
 	CheckEvent EVENT_GOT_TM36
 	jr nz, .already_have_tm
 	ld hl, .PleaseTakeThisText
-	call PrintText
+	rst _PrintText
 	lb bc, TM_SELFDESTRUCT, 1
 	call GiveItem
 	ld hl, .TM36NoRoomText
@@ -144,7 +144,7 @@ SilphCo2FSilphWorkerFText:
 .already_have_tm
 	ld hl, .TM36ExplanationText
 .print_text
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .PleaseTakeThisText:

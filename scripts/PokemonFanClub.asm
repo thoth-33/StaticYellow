@@ -83,7 +83,7 @@ PokemonFanClubClefairyFanText:
 	CheckEventHL EVENT_LEFT_FANCLUB_AFTER_BIKE_VOUCHER
 	jr z, .asm_59aaf
 	ld hl, .yellowtext
-	call PrintText
+	rst _PrintText
 	jr .done
 
 .asm_59aaf
@@ -91,12 +91,12 @@ PokemonFanClubClefairyFanText:
 	jr nz, .mineisbetter
 	SetEventReuseHL EVENT_SEEL_FAN_BOAST
 	ld hl, .normaltext
-	call PrintText
+	rst _PrintText
 	jr .done
 .mineisbetter
 	ResetEventReuseHL EVENT_PIKACHU_FAN_BOAST
 	ld hl, .bettertext
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 
@@ -117,7 +117,7 @@ PokemonFanClubSeelFanText:
 	CheckEventHL EVENT_LEFT_FANCLUB_AFTER_BIKE_VOUCHER
 	jr z, .asm_59ae7
 	ld hl, .yellowtext
-	call PrintText
+	rst _PrintText
 	jr .done
 
 .asm_59ae7
@@ -125,12 +125,12 @@ PokemonFanClubSeelFanText:
 	jr nz, .mineisbetter
 	SetEventReuseHL EVENT_PIKACHU_FAN_BOAST
 	ld hl, .normaltext
-	call PrintText
+	rst _PrintText
 	jr .done
 .mineisbetter
 	ResetEventReuseHL EVENT_SEEL_FAN_BOAST
 	ld hl, .bettertext
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 
@@ -149,7 +149,7 @@ PokemonFanClubSeelFanText:
 PokemonFanClubClefairyText:
 	text_asm
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 	ld a, CLEFAIRY
 	call PlayCry
 	call WaitForSoundToFinish
@@ -162,7 +162,7 @@ PokemonFanClubClefairyText:
 PokemonFanClubSeelText:
 	text_asm
 	ld hl, .Text
-	call PrintText
+	rst _PrintText
 	ld a, SEEL
 	call PlayCry
 	call WaitForSoundToFinish
@@ -177,7 +177,7 @@ PokemonFanClubChairmanText:
 	CheckEventHL EVENT_LEFT_FANCLUB_AFTER_BIKE_VOUCHER
 	jr z, .check_bike_voucher
 	ld hl, Text_59c1f
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -189,7 +189,7 @@ PokemonFanClubChairmanText:
 	CheckEvent EVENT_GOT_BIKE_VOUCHER
 	jr nz, .nothingleft
 	ld hl, .IntroText
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -197,12 +197,12 @@ PokemonFanClubChairmanText:
 
 	; tell the story
 	ld hl, .StoryText
-	call PrintText
+	rst _PrintText
 	lb bc, BIKE_VOUCHER, 1
 	call GiveItem
 	jr nc, .bag_full
 	ld hl, .BikeVoucherText
-	call PrintText
+	rst _PrintText
 	SetEvent EVENT_GOT_BIKE_VOUCHER
 	rst TextScriptEnd
 .bag_full
@@ -217,7 +217,7 @@ PokemonFanClubChairmanText:
 	push hl
 	call LoadGBPal
 	pop hl
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .select_mon_to_print
