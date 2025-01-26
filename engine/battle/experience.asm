@@ -201,7 +201,7 @@ GainExperience:
 	cp d
 	jp z, .nextMon ; if level didn't change, go to next mon
 ;;;;;;;;;;
-;	call KeepEXPBarFull
+	call KeepEXPBarFull
 	ld a, [wCurEnemyLevel]
 	push af
 	push hl
