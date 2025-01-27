@@ -1867,7 +1867,7 @@ AnimationSlideMonDownAndHide:
 	call GetTileIDList
 	call GetMonSpriteTileMapPointerFromRowCount
 	call CopyPicTiles
-	ld c, 8
+	ld c, 15
 	rst _DelayFrames
 	pop af
 	inc a
@@ -1875,11 +1875,9 @@ AnimationSlideMonDownAndHide:
 	dec c
 	jr nz, .loop
 	call AnimationHideMonPic
-	ld hl, wTempPic
-	ld bc, 7 * 7 tiles
-	xor a
-	call FillMemory
-	jp CopyTempPicToMonPic
+	ld c, 30
+	rst _DelayFrames
+	jp AnimationShowMonPic
 
 _AnimationSlideMonOff:
 ; Slides the mon's sprite off the screen horizontally by e tiles and waits
