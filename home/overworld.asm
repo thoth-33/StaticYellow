@@ -250,14 +250,14 @@ OverworldLoopLessDelay::
 	ld a, [wMovementFlags]
 	bit BIT_LEDGE_OR_FISHING, a
 	jr nz,.normalPlayerSpriteAdvancement
-	call DoBikeSpeedup
-	call DoBikeSpeedup
-	call DoBikeSpeedup
+	call DoBikeSpeedup  ; if riding a bike and not jumping a ledge
+	call DoBikeSpeedup  ; added
+	call DoBikeSpeedup  ; added
 	jr .notRunning
 .normalPlayerSpriteAdvancement
 	ld a, [wNoSprintSteps]
 	cp 0
-	jr nz, .notRunning
+	jr nz, .notRunning ; Don't sprite right after jumping a ledge
 ; Make you surf at bike speed
 	ld a,[wWalkBikeSurfState]
 	cp a, $02
@@ -265,7 +265,7 @@ OverworldLoopLessDelay::
 ; Add running shoes
 	ld a, [hJoyHeld] ; Check what buttons are being pressed
 	and B_BUTTON ; Are you holding B?
-	jr nz, .checkIfWalking
+	jr nz, .checkIfWalking ; If you aren't holding B, skip ahead to step normally.
 ; marcelnote - running sprites
 ; if reached here then player is not running, so check if we need to update sprites
 	ld a, [wWalkBikeSurfState]
@@ -289,10 +289,10 @@ OverworldLoopLessDelay::
 .surfFaster
 	call DoBikeSpeedup ; Make you go faster if you were holding B
 .notRunning
-	ld a,[wNoSprintSteps]
-	cp 0
-	jr z, .skipDecrement
-	dec a
+	ld a,[wNoSprintSteps]  ; Load the value from wNoSpriteSteps into register a
+	cp 0    ; Compare the value in a with 0
+	jr z, .skipDecrement ; Jump to skipDecrement if zero flag is set (i.e., a == 0)
+	dec a  ; Decrement a
 .skipDecrement:
 	ld [wNoSprintSteps], a
 	call AdvancePlayerSprite

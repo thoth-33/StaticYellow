@@ -2310,10 +2310,6 @@ wDifficulty::
 	; $01 = hard
 		ds 1
 
-wGameStage:: db
-	; $00 = before champion fight
-	; $01 = post game
-
 wMaxDaycareLevel:: db	
 
 wPlayerGender::
@@ -2323,7 +2319,7 @@ wPlayerGender::
 
 wStartBattleLevels:: ds PARTY_LENGTH ; (6) PureRGB
 
-	ds 15
+	ds 16
 ENDU
 
 wObtainedHiddenItemsFlags:: flag_array MAX_HIDDEN_ITEMS
@@ -2424,7 +2420,11 @@ wCardKeyDoorX:: db
 wFirstLockTrashCanIndex:: db
 wSecondLockTrashCanIndex:: db
 
-	ds 2
+	ds 1
+
+wGameStage:: db 
+	; $00 = before champion fight
+	; $01 = post game	        
 
 wEventFlags:: flag_array NUM_EVENTS
 
