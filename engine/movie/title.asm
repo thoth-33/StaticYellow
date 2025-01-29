@@ -209,18 +209,18 @@ ELSE
 	jp MainMenu
 ENDC
 
-.asm_42f0
+;.asm_42f0
 ; unreferenced
-	callfar PrinterDebug
-	jp .loop
+;	callfar PrinterDebug
+;	jp .loop
 
-.asm_42fb
+;.asm_42fb
 ; unreferenced
-	ld a, [wTitleScreenScene + 4]
-	inc a
-	cp $2a
-	jr c, .asm_4305
-	ld a, $f
+;	ld a, [wTitleScreenScene + 4]
+;	inc a
+;	cp $2a
+;	jr c, .asm_4305
+;	ld a, $f
 .asm_4305
 	ld [wTitleScreenScene + 4], a
 	ld e, a
