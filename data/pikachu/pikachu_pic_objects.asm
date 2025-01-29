@@ -59,13 +59,13 @@ PikaPicAnimBGFrames_1:
 	pikaframe PikaAnimTilemap_7,    8
 	pikaframeend
 
-PikaPicAnimBGFrames_fdc1e: ; unreferenced
-	pikaframe PikaAnimTilemap_2,    2
-	pikaframe PikaAnimTilemap_1,    1
-	pikaframe PikaAnimTilemap_2,    2
-	pikaframe PikaAnimTilemap_1,    1
-	pikaframe PikaAnimTilemap_2,    8
-	pikaframeend
+;PikaPicAnimBGFrames_fdc1e: ; unreferenced
+;	pikaframe PikaAnimTilemap_2,    2
+;	pikaframe PikaAnimTilemap_1,    1
+;	pikaframe PikaAnimTilemap_2,    2
+;	pikaframe PikaAnimTilemap_1,    1
+;	pikaframe PikaAnimTilemap_2,    8
+;	pikaframeend
 
 PikaPicAnimBGFrames_2:
 	pikaframedelay                  8
