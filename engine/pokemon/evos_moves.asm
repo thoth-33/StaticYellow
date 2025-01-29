@@ -451,7 +451,7 @@ Func_3b0a2:
 	scf
 	ret
 
-INCLUDE "data/pokemon/unknown_list.asm"
+; INCLUDE "data/pokemon/unknown_list.asm" ; Removed
 
 Func_3b10f:
 	ld c, $0
