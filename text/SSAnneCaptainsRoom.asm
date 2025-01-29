@@ -20,7 +20,7 @@ _SSAnneCaptainsRoomCaptainIFeelMuchBetterText::
 	line "my CUT technique?"
 
 	para "I know! Can I have"
-	line "ticket?"
+	line "your ticket?"
 
 	para "You can have this!"
 
