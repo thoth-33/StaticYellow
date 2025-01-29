@@ -198,4 +198,4 @@ NPCMovementDirectionsToJoypadMasksTable:
 	db $ff
 
 ; unreferenced
-	ret
+; ret
