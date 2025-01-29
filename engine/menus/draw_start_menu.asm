@@ -1,5 +1,10 @@
 ; function that displays the start menu
 DrawStartMenu::
+	CheckEvent EVENT_GOT_TOWN_MAP
+	hlcoord 10, 0
+	ld b, $10
+	ld c, $08
+	jr nz, .drawTextBoxBorder
 	CheckEvent EVENT_GOT_POKEDEX
 ; menu with pokedex
 	hlcoord 10, 0
@@ -24,14 +29,18 @@ DrawStartMenu::
 	ld hl, wStatusFlags5
 	set BIT_NO_TEXT_DELAY, [hl]
 	hlcoord 12, 2
+	CheckEvent EVENT_GOT_TOWN_MAP
+	ld a, $08
+	jr nz, .printPokedexText ; must have pokedex to get town map
 	CheckEvent EVENT_GOT_POKEDEX
-; case for not having pokedex
-	ld a, $06
-	jr z, .storeMenuItemCount
+	ld a, $07
+	jr nz, .printPokedexText
+	ld a, $06 ; no pokedex or town map
+	jr .storeMenuItemCount
+.printPokedexText
 ; case for having pokedex
 	ld de, StartMenuPokedexText
 	call PrintStartMenuItem
-	ld a, $07
 .storeMenuItemCount
 	ld [wMaxMenuItem], a ; number of menu items
 	ld de, StartMenuPokemonText
@@ -51,6 +60,12 @@ DrawStartMenu::
 	call PrintStartMenuItem
 	ld de, StartMenuOptionText
 	call PrintStartMenuItem
+; Check to print town map
+	CheckEvent EVENT_GOT_TOWN_MAP
+	jr z, .startMenuExit
+	ld de, StartMenuTownMapText
+	call PrintStartMenuItem
+.startMenuExit
 	ld de, StartMenuExitText
 	call PlaceString
 	ld hl, wStatusFlags5
@@ -65,6 +80,9 @@ StartMenuPokemonText:
 
 StartMenuItemText:
 	db "ITEM@"
+
+StartMenuTownMapText:
+	db "MAP@"
 
 StartMenuSaveText:
 	db "SAVE@"
