@@ -1252,9 +1252,9 @@ Func_f87fb:
 	ld [hl], a
 	ret
 
-Func_f8807: ; unreferenced
-	call MaskCurrentAnimatedObjectStruct
-	ret
+;Func_f8807: ; unreferenced
+;	call MaskCurrentAnimatedObjectStruct
+;	ret
 
 SurfingMinigameAnimatedObjectFn_FlippingPika:
 	ld hl, ANIM_OBJ_FIELD_B
