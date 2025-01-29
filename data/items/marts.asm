@@ -10,8 +10,8 @@ PewterMartClerkText::
 CeruleanMartClerkText::
 	script_mart POKE_BALL, POTION, ESCAPE_ROPE, REPEL, ANTIDOTE, BURN_HEAL, AWAKENING, PARLYZ_HEAL
 
-UnusedBikeShopClerkText:: ; unreferenced
-	script_mart BICYCLE
+;UnusedBikeShopClerkText:: ; unreferenced
+; script_mart BICYCLE
 
 VermilionMartClerkText::
 	script_mart POKE_BALL, SUPER_POTION, ICE_HEAL, AWAKENING, PARLYZ_HEAL, REPEL
@@ -37,8 +37,8 @@ CeladonMart5FClerk2Text::
 FuchsiaMartClerkText::
 	script_mart ULTRA_BALL, GREAT_BALL, HYPER_POTION, REVIVE, FULL_HEAL, SUPER_REPEL
 
-UnusedMartClerkText:: ; unreferenced
-	script_mart GREAT_BALL, HYPER_POTION, SUPER_POTION, FULL_HEAL, REVIVE
+;UnusedMartClerkText:: ; unreferenced
+; script_mart GREAT_BALL, HYPER_POTION, SUPER_POTION, FULL_HEAL, REVIVE
 
 CinnabarMartClerkText::
 	script_mart ULTRA_BALL, GREAT_BALL, HYPER_POTION, MAX_REPEL, ESCAPE_ROPE, FULL_HEAL, REVIVE
