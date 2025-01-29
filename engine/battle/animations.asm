@@ -2269,7 +2269,7 @@ InitMultipleObjectsOAM:
 	jr nz, .loop
 	ret
 
-	ret ; unreferenced
+; ret ; unreferenced
 
 AnimationHideMonPic:
 ; Hides the mon's sprite.
