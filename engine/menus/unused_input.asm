@@ -1,6 +1,6 @@
-HandleMenuInputDuplicate: ; unreferenced
-	xor a
-	ld [wPartyMenuAnimMonEnabled], a
+;HandleMenuInputDuplicate: ; unreferenced
+; xor a
+; ld [wPartyMenuAnimMonEnabled], a
 
 HandleMenuInputPokemonSelectionDuplicate: ; unreferenced
 	ldh a, [hDownArrowBlinkCount1]
