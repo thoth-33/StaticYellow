@@ -48,3 +48,46 @@ _Route1SignText::
 	line "PALLET TOWN -"
 	cont "VIRIDIAN CITY"
 	done
+
+_OakBeforeBattleText::
+	text "Now it is time to"
+	line "show me why you"
+	cont "are the CHAMPION!"
+
+	para "Are You Ready?"
+	done
+
+_OakRealChallengeBattleText::
+	text "I have a final"
+	line "lesson for you!"
+	done
+
+_OakRefusedBattleText::
+	text "Return when you"
+	line "are ready!"
+	done
+
+_OakDefeatedText::
+	text "Hmm..."
+
+	para "Now you are the"
+	line "true KANTO region"
+	cont "Champion!!"
+	prompt
+
+_OakWonText::
+	text "Keep training"
+	prompt
+
+_OakPostBattleText::
+	text "Well done,"
+	line "<PLAYER>!"
+
+	para "You are the best"
+	line "their ever was."
+
+	para "Now I will return"
+	line "to the lab. Come"
+	cont "see me from time"
+	cont "to time!" 
+	done
