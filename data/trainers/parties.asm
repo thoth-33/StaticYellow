@@ -316,7 +316,7 @@ EngineerData:
 
 JanineData:
 ; Fuchsia Gym
-	db 35, VENONAT, 0
+	db $FF, 38, VENONAT, 39, GOLBAT, 40, NIDOKING, 40, VENOMOTH, 0
 
 FisherData:
 ; SS Anne 2F Rooms

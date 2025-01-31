@@ -240,7 +240,7 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_BIKER         ; $C8
 	const PAL_BURGLAR       ; $C9
 	const PAL_ENGINEER      ; $CA
-	const PAL_JUGGLER       ; $CB
+	const PAL_JANINE        ; $CB ; was PAL_JUGGLER 
 	const PAL_FISHERMAN     ; $CC
 	const PAL_SWIMMER       ; $CD
 	const PAL_CUEBALL       ; $CE
