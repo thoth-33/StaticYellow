@@ -778,29 +778,29 @@ ErikaAI:
 	ret nc
 	jp AIUseHyperPotion
 
-;KogaAI:
-;	cp 25 percent + 1
-;	ret nc
-;	ld a, 5
-;	call AICheckIfHPBelowFraction
-;	ret nc
-;	jp AIUseHyperPotion
+KogaAI:
+	cp 25 percent + 1
+	ret nc
+	ld a, 5
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseHyperPotion
 
-;BlaineAI:
-;	cp 25 percent + 1
-;	ret nc
-;	ld a, 5
-;	call AICheckIfHPBelowFraction
-;	ret nc
-;	jp AIUseHyperPotion
+BlaineAI:
+	cp 25 percent + 1
+	ret nc
+	ld a, 5
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseHyperPotion
 
-;SabrinaAI:
-;	cp 25 percent + 1
-;	ret nc
-;	ld a, 5
-;	call AICheckIfHPBelowFraction
-;	ret nc
-;	jp AIUseHyperPotion
+SabrinaAI:
+	cp 25 percent + 1
+	ret nc
+	ld a, 5
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseHyperPotion
 
 Rival2AI:
 	cp 13 percent - 1
