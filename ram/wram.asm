@@ -2318,9 +2318,9 @@ wPlayerGender::
 	; $01 = girl
 		ds 1
 
-wStartBattleLevels:: ds PARTY_LENGTH ; (6) PureRGB
+wSafariType:: db
 
-	ds 16
+	ds 20
 ENDU
 
 wObtainedHiddenItemsFlags:: flag_array MAX_HIDDEN_ITEMS
@@ -2490,9 +2490,8 @@ wOpponentAfterWrongAnswer:: db
 ; mostly copied from map-specific map script pointer and written back later
 wCurMapScript:: db
 
-wSafariType:: db
+wStartBattleLevels:: ds PARTY_LENGTH ; (6) PureRGB
 
-	ds 5
 
 wPlayTimeHours:: db
 wPlayTimeMaxed:: db
