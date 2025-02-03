@@ -36,7 +36,7 @@ Deletable HM's
 Sort Items in BAG
 OAK Battle post game (ONCE POKEDEX IS COMPLETED)
 Message when PC is full
-Check IV/DV - hold start/select and press STATS
+Check IV/DV - hold start for DVs and select for IVs when click A on Pokemon STATS
 Blue EXP BAR
 Caught Icon in battle
 Moon Stone can be bought in Celadon Mart-
