@@ -405,6 +405,7 @@ CopyBoxToOrFromSRAM:
 	call CalcIndividualBoxCheckSums
 	call DisableSRAM
 	ret
+
 DisplayChangeBoxMenu:
 	xor a
 	ldh [hAutoBGTransferEnabled], a
@@ -449,7 +450,7 @@ DisplayChangeBoxMenu:
 	hlcoord 7, 0
 	call DrawTileLineIncrement
 
-	callfar GetMonCountsForAllBoxes
+	call GetMonCountsForAllBoxes
 
 	hlcoord 8, 1
 	ld de, wBoxMonCounts
