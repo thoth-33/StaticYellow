@@ -1498,16 +1498,16 @@ ld a, [wDifficulty] ; Check if player is on hard mode
 	farcall GetBadgesObtained
 	ld a, [wNumSetBits]
 	cp 8
-	ld b, 65 ; Blastoise/Charizard/Venusaur's level
+	ld b, 65 ; Flareon/Jolteon/Vaporeon's level
 	jr nc, .next1
 	cp 7
-	ld b, 50 ; Rhydon's level
+	ld b, 53 ; Rhydon's level
 	jr nc, .next1
 	cp 6
-	ld b, 48 ; Arcanine's level
+	ld b, 50 ; Arcanine's level
 	jr nc, .next1
 	cp 5
-	ld b, 46 ; Alakazam's level
+	ld b, 48 ; Alakazam's level
 	jr nc, .next1
     cp 4
 	ld b, 44 ; Weezing's level
