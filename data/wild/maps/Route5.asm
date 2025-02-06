@@ -4,11 +4,11 @@ Route5WildMons:
 	db 14, RATTATA
 	db 13, MEOWTH
 	db 16, PIDGEY
-	db 16, ABRA
+	db 15, ABRA
 	db 15, ABRA
 	db 17, PIDGEOTTO
 	db 12, JIGGLYPUFF
-	db 13, JIGGLYPUFF
+	db 12, JIGGLYPUFF
 	db 13, JIGGLYPUFF
 	end_grass_wildmons
 
