@@ -821,8 +821,8 @@ OaksLabOak1Text:
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	predef DisplayDexRating
-	CheckEvent EVENT_BEAT_ROUTE_1_OAK
-	jp nz, .done
+;	CheckEvent EVENT_BEAT_ROUTE_1_OAK
+;	jp nz, .done
 	call OaksLab_PokedexCount
 	cp NUM_POKEMON  ; INCLUDE Mew
 	jr nc, .completed
