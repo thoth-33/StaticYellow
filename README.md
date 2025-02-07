@@ -70,6 +70,7 @@ SS Anne returns after 6th Badge
 Janine is in Kogas gym training
 Overworld sprites for gym leaders
 GYM LEADER REMATCHES
+ELITE 4 REMATCHES
 Coin Clerk in Celadon will sell coins in bulk after 4th Badge
 2nd Plateau Mart after E4 beaten says ALL TMs
 SLOT FIXES
