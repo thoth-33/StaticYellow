@@ -149,7 +149,7 @@ _FuchsiaGymJanineBattleText::
 _FuchsiaGymJanineEndBattleText::
 	text "You're a"
 	line "tough one. You"
-	cont "definitely won…"
+	cont "definitely won!"
 	prompt
 
 _FuchsiaGymJanineAfterBattleText::
