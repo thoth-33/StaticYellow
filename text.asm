@@ -51,7 +51,7 @@ INCLUDE "text/CeruleanCaveB1F.asm"
 INCLUDE "text/VictoryRoad1F.asm"
 INCLUDE "text/LancesRoom.asm"
 INCLUDE "text/HallOfFame.asm"
-INCLUDE "text/ChampionsRoom.asm"
+;INCLUDE "text/ChampionsRoom.asm" ;; Moved to Text 9
 INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/AgathasRoom.asm"
@@ -261,6 +261,7 @@ SECTION "Text 9", ROMX
 
 INCLUDE "text/move_deleter.asm"
 INCLUDE "text/move_relearner.asm"
+INCLUDE "text/ChampionsRoom.asm"
 
 
 SECTION "Pokédex Text", ROMX

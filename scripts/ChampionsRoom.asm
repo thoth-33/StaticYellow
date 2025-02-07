@@ -53,6 +53,9 @@ ChampionsRoomRivalReadyToBattleScript:
 	ld [wJoyIgnore], a
 	ld hl, wOptions
 	res BIT_BATTLE_ANIMATION, [hl]
+	ld a, [wGameStage] ; Check if player has beat the game
+	and a
+	jr nz, .ChampionRematchBattle
 	ld a, TEXT_CHAMPIONSROOM_RIVAL
 	ldh [hTextID], a
 	call DisplayTextID
@@ -70,24 +73,44 @@ ChampionsRoomRivalReadyToBattleScript:
 	ld a, [wRivalStarter]
 	add $0 ; Wow GameFreak
 	ld [wTrainerNo], a
-
+.done
 	xor a
 	ldh [hJoyHeld], a
 	ld a, SCRIPT_CHAMPIONSROOM_RIVAL_DEFEATED
 	ld [wChampionsRoomCurScript], a
 	ret
+.ChampionRematchBattle
+	ld a, TEXT_CHAMPIONSROOM_RIVAL_REMATCH_INTRO
+	ldh [hTextID], a
+	call DisplayTextID
+	call Delay3
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, RivalRematchDefeatedText
+	ld de, RivalRematchVictoryText
+	call SaveEndBattleTextPointers
+	ld a, OPP_RIVAL3
+	ld [wCurOpponent], a
+
+	; select which team to use during the encounter
+	ld a, $4
+	ld [wTrainerNo], a
+	jr .done
 
 ChampionsRoomRivalDefeatedScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetRivalScript
 	call UpdateSprites
+	ld a, [wGameStage] ; Check if player has beat the game
+	and a
+	jr nz, .ChampionRematchDefeated
 	SetEvent EVENT_BEAT_CHAMPION_RIVAL
-	ld a, 1
-	ld [wGameStage], a
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
 	ld a, TEXT_CHAMPIONSROOM_RIVAL
+.continue
 	ldh [hTextID], a
 	call ChampionsRoom_DisplayTextID_AllowABSelectStart
 	ld a, CHAMPIONSROOM_RIVAL
@@ -96,6 +119,11 @@ ChampionsRoomRivalDefeatedScript:
 	ld a, SCRIPT_CHAMPIONSROOM_OAK_ARRIVES
 	ld [wChampionsRoomCurScript], a
 	ret
+.ChampionRematchDefeated
+	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld [wJoyIgnore], a
+	ld a, TEXT_CHAMPIONSROOM_RIVAL_REMATCH_AFTER_BATTLE
+	jr .continue
 
 ChampionsRoomOakArrivesScript:
 	farcall Music_Cities1AlternateTempo
@@ -140,12 +168,19 @@ ChampionsRoomOakCongratulatesPlayerScript:
 	xor a ; SPRITE_FACING_DOWN
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+	ld a, [wGameStage] ; Check if player has beat the game
+	and a
+	jr nz, .ChampionRematchDefeated
 	ld a, TEXT_CHAMPIONSROOM_OAK_CONGRATULATES_PLAYER
+.continue
 	ldh [hTextID], a
 	call ChampionsRoom_DisplayTextID_AllowABSelectStart
 	ld a, SCRIPT_CHAMPIONSROOM_OAK_DISAPPOINTED_WITH_RIVAL
 	ld [wChampionsRoomCurScript], a
 	ret
+.ChampionRematchDefeated
+	ld a, TEXT_CHAMPIONSROOM_REMATCH_OAK_CONGRATULATES_PLAYER
+	jr .continue
 
 ChampionsRoomOakDisappointedWithRivalScript:
 	ld a, CHAMPIONSROOM_OAK
@@ -153,12 +188,19 @@ ChampionsRoomOakDisappointedWithRivalScript:
 	ld a, SPRITE_FACING_RIGHT
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+	ld a, [wGameStage] ; Check if player has beat the game
+	and a
+	jr nz, .ChampionRematchDefeated
 	ld a, TEXT_CHAMPIONSROOM_OAK_DISAPPOINTED_WITH_RIVAL
+.continue
 	ldh [hTextID], a
 	call ChampionsRoom_DisplayTextID_AllowABSelectStart
 	ld a, SCRIPT_CHAMPIONSROOM_OAK_COME_WITH_ME
 	ld [wChampionsRoomCurScript], a
 	ret
+.ChampionRematchDefeated
+	ld a, TEXT_CHAMPIONSROOM_REMATCH_OAK_DISAPPOINTED_WITH_RIVAL
+	jr .continue
 
 ChampionsRoomOakComeWithMeScript:
 	ld a, CHAMPIONSROOM_OAK
@@ -166,7 +208,11 @@ ChampionsRoomOakComeWithMeScript:
 	xor a ; SPRITE_FACING_DOWN
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+	ld a, [wGameStage] ; Check if player has beat the game
+	and a
+	jr nz, .ChampionRematchDefeated
 	ld a, TEXT_CHAMPIONSROOM_OAK_COME_WITH_ME
+.continue
 	ldh [hTextID], a
 	call ChampionsRoom_DisplayTextID_AllowABSelectStart
 	ld de, OakExitChampionsRoomMovement
@@ -176,6 +222,9 @@ ChampionsRoomOakComeWithMeScript:
 	ld a, SCRIPT_CHAMPIONSROOM_OAK_EXITS
 	ld [wChampionsRoomCurScript], a
 	ret
+.ChampionRematchDefeated
+	ld a, TEXT_CHAMPIONSROOM_REMATCH_OAK_COME_WITH_ME
+	jr .continue
 
 OakExitChampionsRoomMovement:
 	db NPC_MOVEMENT_UP
@@ -239,6 +288,11 @@ ChampionsRoom_TextPointers:
 	dw_const ChampionsRoomOakCongratulatesPlayerText,   TEXT_CHAMPIONSROOM_OAK_CONGRATULATES_PLAYER
 	dw_const ChampionsRoomOakDisappointedWithRivalText, TEXT_CHAMPIONSROOM_OAK_DISAPPOINTED_WITH_RIVAL
 	dw_const ChampionsRoomOakComeWithMeText,            TEXT_CHAMPIONSROOM_OAK_COME_WITH_ME
+	dw_const ChampionsRoomRivalRematchIntroText,		TEXT_CHAMPIONSROOM_RIVAL_REMATCH_INTRO
+	dw_const ChampionsRoomRivalRematchAfterBattleText,	TEXT_CHAMPIONSROOM_RIVAL_REMATCH_AFTER_BATTLE
+	dw_const ChampionsRoomRematchOakCongratulatesPlayerText,   TEXT_CHAMPIONSROOM_REMATCH_OAK_CONGRATULATES_PLAYER
+	dw_const ChampionsRoomRematchOakDisappointedWithRivalText, TEXT_CHAMPIONSROOM_REMATCH_OAK_DISAPPOINTED_WITH_RIVAL
+	dw_const ChampionsRoomRematchOakComeWithMeText,            TEXT_CHAMPIONSROOM_REMATCH_OAK_COME_WITH_ME
 
 ChampionsRoomRivalText:
 	text_asm
@@ -270,6 +324,22 @@ ChampionsRoomOakText:
 	text_far _ChampionsRoomOakText
 	text_end
 
+ChampionsRoomRivalRematchIntroText:
+	text_far _ChampionsRoomRivalRematchIntroText
+	text_end
+
+RivalRematchDefeatedText:
+	text_far _RivalRematchDefeatedText
+	text_end
+
+RivalRematchVictoryText:
+	text_far _RivalRematchVictoryText
+	text_end
+
+ChampionsRoomRivalRematchAfterBattleText:
+	text_far _ChampionsRoomRivalRematchAfterBattleText
+	text_end
+
 ChampionsRoomOakCongratulatesPlayerText:
 	text_asm
 	ld a, [wPlayerStarter]
@@ -289,6 +359,18 @@ ChampionsRoomOakDisappointedWithRivalText:
 
 ChampionsRoomOakComeWithMeText:
 	text_far _ChampionsRoomOakComeWithMeText
+	text_end
+
+ChampionsRoomRematchOakCongratulatesPlayerText:
+	text_far _ChampionsRoomRematchOakCongratulatesPlayerText
+	text_end
+
+ChampionsRoomRematchOakDisappointedWithRivalText:
+	text_far _ChampionsRoomRematchOakDisappointedWithRivalText
+	text_end
+
+ChampionsRoomRematchOakComeWithMeText:
+	text_far _ChampionsRoomRematchOakComeWithMeText
 	text_end
 
 ChampionsRoomJolteonText:
