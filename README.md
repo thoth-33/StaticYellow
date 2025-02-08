@@ -6,6 +6,7 @@ Features:
 Now you can Play Gen1 as a girl!
 All 151 Pokémons can be caught or evolved without trading. MEW IS OBTAINABLE
 GEN 2 Sprites and Battle Graphics
+Can Surrender in Battle by clicking RUN
 NPC Tradeback Guy in FUCHSIA CITY- BILLS GRANDPAS HOUSE (evolve trade evolutions)
 Trade evolution pokemon also evolve level up
 Now you can take both fossils in MT. MOON!
@@ -71,6 +72,7 @@ Janine is in Kogas gym training
 Overworld sprites for gym leaders
 GYM LEADER REMATCHES
 ELITE 4 REMATCHES
+Jenny and Joy Post Game Battle
 Coin Clerk in Celadon will sell coins in bulk after 4th Badge
 2nd Plateau Mart after E4 beaten says ALL TMs
 SLOT FIXES
