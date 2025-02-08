@@ -7076,13 +7076,13 @@ WantToSurrenderFromTrainerBattle:
 	ret
 .notOaksLab
 	ld hl, WannaSurrenderText
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
 	ret nz
 	ld hl, AreYouSureText
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
