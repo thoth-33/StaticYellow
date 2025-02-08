@@ -275,6 +275,8 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_CHANNELER     ; $EB
 	const PAL_AGATHA        ; $EC
 	const PAL_LANCE         ; $ED
+	const PAL_JOY
+	const PAL_JENNY
 	const PAL_HERO          ; $EE
 	const PAL_GREEN         ; $EF
 DEF NUM_SGB_PALS EQU const_value

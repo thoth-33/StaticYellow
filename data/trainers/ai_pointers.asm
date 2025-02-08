@@ -29,7 +29,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI
 	dbw 2, BlackbeltAI ; blackbelt
 	dbw 3, GenericAI ; rival1
-	dbw 3, Rival3AI ; Oak
+	dbw 1, Rival3AI ; Oak
 	dbw 1, GenericAI ; chief
 	dbw 3, GenericAI
 	dbw 1, GiovanniAI ; giovanni
@@ -51,4 +51,6 @@ TrainerAIPointers:
 	dbw 3, GenericAI
 	dbw 2, AgathaAI ; agatha
 	dbw 1, LanceAI ; lance
+	dbw 1, Rival3AI   ; joy
+	dbw 1, Rival3AI ; Jenny
 	assert_table_length NUM_TRAINERS

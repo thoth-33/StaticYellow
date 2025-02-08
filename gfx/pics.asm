@@ -303,6 +303,8 @@ AgathaPic::        INCBIN "gfx/trainers/agatha.pic"
 LancePic::         INCBIN "gfx/trainers/lance.pic"
 JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
 JaninePic::        INCBIN "gfx/trainers/janine.pic"
+JoyPic::           INCBIN "gfx/trainers/joy.pic"
+JennyPic::         INCBIN "gfx/trainers/jenny.pic"
 
 
 SECTION "Pics 7", ROMX

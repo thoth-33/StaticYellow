@@ -40,9 +40,52 @@ VermilionCityPrintOfficerJennyText::
 	ret
 
 .asm_f1a69
+; jenny post game fight
+	ld a, [wGameStage] ; Check if player has beat the game
+	and a
+	jr z, .squirtleText
+;	CheckEvent EVENT_BEAT_JENNY ; uncomment if you don't want the ability to rematch
+;       jr nz, .squirtleText
+
+	ld hl, JennyPreBattleText
+	rst _PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .refused
+
+	ld hl, JennyAcceptedText
+	rst _PrintText
+	call Delay3
+	ld a, OPP_JENNY
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wTrainerNo], a
+	ld a, SCRIPT_VERMILIONCITY_JENNY_POST_BATTLE
+	ld [wVermilionCityCurScript], a
+	ld [wCurMapScript], a
+	jr .done
+.refused
+	ld hl, JennyRefusedText
+	call PrintText
+	jr .done
+.squirtleText
 	ld hl, OfficerJennyText5
 	rst _PrintText
+.done
 	ret
+
+JennyPreBattleText:
+	text_far _JennyBattleText
+	text_end
+
+JennyRefusedText:
+	text_far _JennyRefusedText
+	text_end
+
+JennyAcceptedText:
+	text_far _JennyAcceptedText
+	text_end
 
 OfficerJennyText1:
 	text_far _OfficerJennyText1

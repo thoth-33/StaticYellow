@@ -47,6 +47,8 @@ TrainerDataPointers:
 	dw ChannelerData
 	dw AgathaData
 	dw LanceData
+	dw JoyData
+	dw JennyData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -772,3 +774,11 @@ LanceData:
 	db $FF, 60, GYARADOS, 60, CHARIZARD, 60, SEADRA, 60, ELECTABUZZ, 61, AERODACTYL, 62, DRAGONITE, 0
 ; Rematch
 	db $FF, 100, ARCANINE, 100, ELECTABUZZ, 100, SNORLAX, 100, CHARIZARD, 100, KANGASKHAN, 100, DRAGONITE, 0
+
+JoyData:
+; Fuchsia Pokecenter
+	db 100, KANGASKHAN, SNORLAX, STARMIE, PORYGON, EXEGGUTOR, CHANSEY, 0
+
+JennyData:
+; Vermilion City
+	db 100, PIDGEOT, BLASTOISE, TANGELA, GENGAR, PARASECT, ARCANINE, 0
