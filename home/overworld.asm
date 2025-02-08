@@ -344,6 +344,9 @@ OverworldLoopLessDelay::
 	ld a, d
 	and a
 	jr z, AllPokemonFainted
+	ld a, [wSurrenderedFromTrainerBattle]
+	and a
+	jr nz, AllPokemonFainted
 .noFaintCheck
 	ld c, 10
 	rst _DelayFrames
@@ -833,6 +836,8 @@ HandleBlackOut::
 	callfar ResetStatusAndHalveMoneyOnBlackout
 	call PrepareForSpecialWarp
 	call PlayDefaultMusicFadeOutCurrent
+	xor a
+	ld [wSurrenderedFromTrainerBattle], a
 	jp SpecialEnterMap
 
 StopMusic::
@@ -1927,7 +1932,7 @@ Func_0db5:: ; XXX
 	farcall LoadMissableObjectData
 asm_0dbd:
 	ld a, [wCurMapTileset]
-	ld [wUnusedCurMapTilesetCopy], a
+;	ld [wUnusedCurMapTilesetCopy], a
 	ld a, [wCurMap]
 	call SwitchToMapRomBank
 	ld a, [wCurMapTileset]
@@ -2154,7 +2159,7 @@ ResetMapVariables::
 	ldh [hSCY], a
 	ldh [hSCX], a
 	ld [wWalkCounter], a
-	ld [wUnusedCurMapTilesetCopy], a
+;	ld [wUnusedCurMapTilesetCopy], a
 	ld [wSpriteSetID], a
 	ld [wWalkBikeSurfStateCopy], a
 	ret

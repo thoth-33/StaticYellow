@@ -759,7 +759,7 @@ wEngagedTrainerClass:: db
 wEngagedTrainerSet:: db
 ENDU
 
-	ds 1
+wSurrenderedFromTrainerBattle:: db
 
 wNPCMovementDirections2Index::
 wUnusedLinkMenuByte::
