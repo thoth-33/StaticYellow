@@ -35,9 +35,15 @@ IF DEF(_DEBUG)
 
 	call SetDebugNewGameParty
 
-	; Pikachu gets Surf.
-	ld a, SURF
+	; Pikachu gets 3 HM moves.
+	ld a, FLY
+	ld hl, wPartyMon4Moves
+	ld [hl], a
+	ld a, FLASH
 	ld hl, wPartyMon4Moves + 2
+	ld [hl], a
+	ld a, SURF
+	ld hl, wPartyMon4Moves + 3
 	ld [hl], a
 
 	; Snorlax gets four HM moves.

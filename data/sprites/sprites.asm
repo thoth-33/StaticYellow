@@ -117,6 +117,7 @@ SpriteSheetPointerTable:
 	overworld_sprite Seel2Sprite, 12
 	overworld_sprite ZapdosSprite, 12           ; SPRITE_ZAPDOS
 	overworld_sprite MrMimeSprite, 12           ; SPRITE_MRMIME
+	overworld_sprite FlyingPikachuSprite, 12    ; SPRITE_FLYING_PIKACHU
 	overworld_sprite VaporeonSprite, 4          ; SPRITE_VAPOREON
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL

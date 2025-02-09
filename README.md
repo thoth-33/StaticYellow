@@ -30,6 +30,7 @@ Features:
 - Caught Pokémon icon added in HUD Battle
 - Several POKÉMON had learnsets buffs (eg: Charizard Fly)
 - Pikachu and Raichu can learn SURF through HM: Can do Surfing MiniGame now
+- Pikachu can learn FLY (New Pikachu Flying Sprite) and now CUT
 - PROF. OAK gives you 5 POKÉBALLS when you receive the POKÉDEX.
 - TM names in BAG and MART (TM24 it says TM24 THNDRBLT)
 - 50 item bag space

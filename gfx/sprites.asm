@@ -153,8 +153,9 @@ FlareonSprite::         INCBIN "gfx/sprites/mons/flareon.2bpp"
 
 SECTION "NPC Sprites 6", ROMX
 
-LanceSprite::           INCBIN "gfx/sprites/lance.2bpp"
-FairySprite::            INCBIN "gfx/sprites/fairy.2bpp"
+LanceSprite::           INCBIN "gfx/sprites/lance.2bpp" ; Moved
+FairySprite::            INCBIN "gfx/sprites/fairy.2bpp" ; Moved
+FlyingPikachuSprite::   INCBIN "gfx/sprites/flyingpikachu.2bpp" ; Flying Pikachu Sprite
 
 
 SECTION "Mon Icons 1", ROMX

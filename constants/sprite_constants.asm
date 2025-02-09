@@ -112,7 +112,8 @@
 	const SPRITE_SEEL2					
 	const SPRITE_ZAPDOS
 	const SPRITE_MRMIME
-	const SPRITE_VAPOREON                	
+	const SPRITE_FLYING_PIKACHU  
+	const SPRITE_VAPOREON              	
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
 	const SPRITE_FOSSIL                  ; $48
