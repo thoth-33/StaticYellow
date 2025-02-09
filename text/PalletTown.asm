@@ -36,7 +36,14 @@ _PalletTownGirlText::
 	para "When they get"
 	line "strong, they can"
 	cont "protect me!"
-	done
+
+	para "Here take this!"
+	line "It will make your"
+	cont "#MON stronger!"
+
+	para "<PLAYER> got a"
+	line "CHEAT CANDY!@"
+	text_end
 
 _PalletTownFisherText::
 	text "Technology is"

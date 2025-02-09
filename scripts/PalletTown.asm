@@ -277,7 +277,11 @@ PalletTownOakComeWithMe:
 
 PalletTownGirlText:
 	text_far _PalletTownGirlText
-	text_end
+	sound_get_key_item
+	text_asm
+	lb bc, CHEAT_CANDY, 1
+	call GiveItem
+	rst TextScriptEnd
 
 PalletTownFisherText:
 	text_far _PalletTownFisherText

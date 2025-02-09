@@ -113,7 +113,7 @@ DebugItemsList:
 	db CARD_KEY, 1
 	db FULL_HEAL, 99
 	db REVIVE, 99
-	db FRESH_WATER, 99
+	db CHEAT_CANDY, 1
 	db S_S_TICKET, 1
 	db LIFT_KEY, 1
 	db PP_UP, 99

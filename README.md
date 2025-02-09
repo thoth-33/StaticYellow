@@ -60,6 +60,7 @@ Can fly in Safari Zone, Viridan Forest, Celadon Roofs now
 Elite 4 door sound effect
 POKEDEX OVERHAUL: CHECK IT OUT FOR YOURSELF
 PC in Daycare
+- CHEAT CANDY GIVEN AT START OF GAME TO HELP LEVEL UP/GRIND
 Eveevolution Pokemon sit next to Rival now
 ADDED TM51: FLAMETHROWER: IN CINNABAR MART
 Mr Mime in Red’s house after Erika
