@@ -426,7 +426,7 @@ _CompletedDexText::
 	cont "become a #MON"
 	cont "researcher, and"
 	cont "complete the"
-	cont "the #DEX!"
+	cont "#DEX!"
 
 	para "Now that you have"
 	line "finished my dream"
