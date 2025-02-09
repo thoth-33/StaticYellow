@@ -1,84 +1,85 @@
 # Pokémon Static Yellow- A Gen 1 Hack with QOL improvements, but also trying to keep the same vibe as Gen 1!
 
-My love of hacks and hacking came from Playing Red++ and Blue Kaizo. Small binary edits to disassembly have come a long way and I am greatful I found those 2 hacks many moons ago!
+My love of hacks and hacking came from Playing Red++ and Blue Kaizo. 
+Small binary edits to disassembly have come a long way and I am greatful I found those 2 hacks many moons ago!
 
-Features:
-Now you can Play Gen1 as a girl!
-All 151 Pokémons can be caught or evolved without trading. MEW IS OBTAINABLE
-GEN 2 Sprites and Battle Graphics
-Can Surrender in Battle by clicking RUN
-NPC Tradeback Guy in FUCHSIA CITY- BILLS GRANDPAS HOUSE (evolve trade evolutions)
-Trade evolution pokemon also evolve level up
-Now you can take both fossils in MT. MOON!
-Teams have mixed Pokémon (no more 5 pidgey teams)
-IN-GAME MOVES/ EVOLUTIONS/ LEARNSET in POKEDEX
-Infinite TM's (they are reusable like newer gens)
-Gym Leaders, Rival, Rockets and other trainers had a buff in level, moves and parties (some parties to match Anime/Lets go Pikachu/References)
-Move Relearner added in Cinnabar- Kris
-Move Deleter added in Vermillion (undeletable HMs) – Kris
-Updated Pokeball/Pokedex sprites
-EXP Bar on Status Screen- Blue
-Can’t deposit HMs- prevent softlock
-Traded Pokemon in Game can now be renamed with Name Rater in Lavendar
-UP/DOWN ON POKEMON PAGE/ IN BATTLE TO SEE POKEMON STATS
-Gym Leader Names on Trainer Card
-Restored “Presents” on Intro
-Trainers have perfect DVs and Better AI
-All overworld Pokémon icons have been updated (no more generic ones)
-Party Mini sprites have been updated
-Caught Pokémon icon added in HUD Battle
-Several POKÉMON had learnsets buffs (eg: Charizard Fly)
-Pikachu and Raichu can learn SURF through HM: Can do Surfing MiniGame now
-PROF. OAK gives you 5 POKÉBALLS when you receive the POKÉDEX.
-TM names in BAG and MART (TM24 it says TM24 THNDRBLT)
-50 item bag space
-Auto HM use (eg: surf, just touch the water and say YES)
-Deletable HM's
-Sort Items in BAG
-OAK Battle post game (ONCE POKEDEX IS COMPLETED)
-Message when PC is full
-Check IV/DV - hold start for DVs and select for IVs when click A on Pokemon STATS
-Blue EXP BAR
-Caught Icon in battle
-Moon Stone can be bought in Celadon Mart-
-Team Rocket Received a buff in levels and parties
-Reusable Repel B/W
-Engine Bugfixes
-Attack after waking up from Sleep
-Sleep engine fixed (it works now like gen 2 - max 6 turns)
-Removed 25% chance for enemy stat down moves to miss
-Swift will not hit throught Fly or Dig
-SS Anne Captain Takes SS Ticket
-Secret Key, Lift Key, Card Key Consumed when used
-Town Map in Start Menu
-Running and Surfing Sprites
-Lapras Swims in Fuchsia City
-Elevator time shorter and tells you what floor you are on
-Bill PC now says how many pokemon are in a box
-Safari Zone has 2 modes: Classic (Vanilla Safari Game), and Free Roam (Roam with all Pokemon and catch Safari pokemon like all other routes)
-Can fly in Safari Zone, Viridan Forest, Celadon Roofs now
-Elite 4 door sound effect
-POKEDEX OVERHAUL: CHECK IT OUT FOR YOURSELF
-PC in Daycare
+Features:  
+- Now you can Play Gen1 as a girl!  
+- All 151 Pokémons can be caught or evolved without trading. MEW IS OBTAINABLE  
+- GEN 2 Sprites and Battle Graphics  
+- Can Surrender in Battle by clicking RUN  
+- NPC Tradeback Guy in FUCHSIA CITY- BILLS GRANDPAS HOUSE (evolve trade evolutions)  
+- Trade evolution pokemon also evolve level up  
+- Now you can take both fossils in MT. MOON!  
+- Teams have mixed Pokémon (no more 5 pidgey teams)  
+- IN-GAME MOVES/ EVOLUTIONS/ LEARNSET in POKEDEX  
+- Infinite TM's (they are reusable like newer gens)  
+- Gym Leaders, Rival, Rockets and other trainers had a buff in level, moves and parties (some parties to match Anime/Lets go Pikachu/References)  
+- Move Relearner added in Cinnabar- Kris  
+- Move Deleter added in Vermillion (undeletable HMs) – Kris
+- Updated Pokeball/Pokedex sprites
+- EXP Bar on Status Screen- Blue
+- Can’t deposit HMs- prevent softlock
+- Traded Pokemon in Game can now be renamed with Name Rater in Lavendar
+- UP/DOWN ON POKEMON PAGE/ IN BATTLE TO SEE POKEMON STATS
+- Gym Leader Names on Trainer Card
+- Restored “Presents” on Intro
+- Trainers have perfect DVs and Better AI
+- All overworld Pokémon icons have been updated (no more generic ones)
+- Party Mini sprites have been updated
+- Caught Pokémon icon added in HUD Battle
+- Several POKÉMON had learnsets buffs (eg: Charizard Fly)
+- Pikachu and Raichu can learn SURF through HM: Can do Surfing MiniGame now
+- PROF. OAK gives you 5 POKÉBALLS when you receive the POKÉDEX.
+- TM names in BAG and MART (TM24 it says TM24 THNDRBLT)
+- 50 item bag space
+- Auto HM use (eg: surf, just touch the water and say YES)
+- Deletable HM's
+- Sort Items in BAG
+- OAK Battle post game (ONCE POKEDEX IS COMPLETED)
+- Message when PC is full
+- Check IV/DV - hold start for DVs and select for IVs when click A on Pokemon STATS
+- Blue EXP BAR
+- Caught Icon in battle
+- Moon Stone can be bought in Celadon Mart-
+- Team Rocket Received a buff in levels and parties
+- Reusable Repel B/W
+- Engine Bugfixes
+- Attack after waking up from Sleep
+- Sleep engine fixed (it works now like gen 2 - max 6 turns)
+- Removed 25% chance for enemy stat down moves to miss
+- Swift will not hit throught Fly or Dig
+- SS Anne Captain Takes SS Ticket
+- Secret Key, Lift Key, Card Key Consumed when used
+- Town Map in Start Menu
+- Running and Surfing Sprites
+- Lapras Swims in Fuchsia City
+- Elevator time shorter and tells you what floor you are on
+- Bill PC now says how many pokemon are in a box
+- Safari Zone has 2 modes: Classic (Vanilla Safari Game), and Free Roam (Roam with all Pokemon and catch Safari pokemon like all other routes)
+- Can fly in Safari Zone, Viridan Forest, Celadon Roofs now
+- Elite 4 door sound effect
+- POKEDEX OVERHAUL: CHECK IT OUT FOR YOURSELF
+- PC in Daycare
 - CHEAT CANDY GIVEN AT START OF GAME TO HELP LEVEL UP/GRIND
-Eveevolution Pokemon sit next to Rival now
-ADDED TM51: FLAMETHROWER: IN CINNABAR MART
-Mr Mime in Red’s house after Erika
-Victory Road now needs FLASH to get through it
-Seafoam Islands now Blue
-Elite 4 members play Gym Leader Music
-EXP ALL IS NOW A KEY ITEM: TURN IT ON OR OFF FOR USAGE
-SS Anne returns after 6th Badge
-Janine is in Kogas gym training
-Overworld sprites for gym leaders
-GYM LEADER REMATCHES
-ELITE 4 REMATCHES
-Jenny and Joy Post Game Battle
-Coin Clerk in Celadon will sell coins in bulk after 4th Badge
-2nd Plateau Mart after E4 beaten says ALL TMs
-SLOT FIXES
-BUG FIXES
-Ghost now deals SUPER EFFECTIVE on Psychic Pokémon
+- Eveevolution Pokemon sit next to Rival now
+- ADDED TM51: FLAMETHROWER: IN CINNABAR MART
+- Mr Mime in Red’s house after Erika
+- Victory Road now needs FLASH to get through it
+- Seafoam Islands now Blue
+- Elite 4 members play Gym Leader Music
+- EXP ALL IS NOW A KEY ITEM: TURN IT ON OR OFF FOR USAGE
+- SS Anne returns after 6th Badge
+- Janine is in Kogas gym training
+- Overworld sprites for gym leaders
+- GYM LEADER REMATCHES
+- ELITE 4 REMATCHES
+- Jenny and Joy Post Game Battle
+- Coin Clerk in Celadon will sell coins in bulk after 4th Badge
+- 2nd Plateau Mart after E4 beaten says ALL TMs
+- SLOT FIXES
+- BUG FIXES
+- Ghost now deals SUPER EFFECTIVE on Psychic Pokémon
 
 CREDITS: THE MOST IMPORTANT PART OF THIS
 - PRET for disassembly of Pokeyellow
