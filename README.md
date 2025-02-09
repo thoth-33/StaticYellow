@@ -94,7 +94,7 @@ CREDITS: THE MOST IMPORTANT PART OF THIS
 -Devianart- For all the female sprites for the game
 -FrenchOrange- for all the running and surfing sprites added to the game
 -PokeFanMarcel- For the code for the running sprites to work and the code to make the EXP ALL a key item that can turn on or off
--RainbowMetalPigeon/ExtremeYellow- Space code for Bank 1E. AND FOR CREATING THE HARDEST GEN 1 YELLOW HACK EVER. BUT I LOVE PLAYING IT
+-RainbowMetalPigeon/ExtremeYellow- Space code for Bank 1E, Surrender in battle option, and Pikachu Flying Animation. AND FOR CREATING THE HARDEST GEN 1 YELLOW HACK EVER. BUT I LOVE PLAYING IT
 -RainbowDevs/Pokemon Brown- Another awesome Gen 1 hack. Some Pokemon Sprites were taken from Brown and added into this game.
 - BYRAX- FOR ALL BOXART FOR ALL THE GAMES
 - JA2398- Tester
