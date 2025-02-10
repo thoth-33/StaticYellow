@@ -74,7 +74,7 @@ LancesRoomDefaultScript:
 	ld hl, wCurrentMapScriptFlags
 	set BIT_CUR_MAP_LOADED_1, [hl]
 	ld a, SFX_GO_INSIDE
-	call PlaySound
+	rst _PlaySound
 	jp LanceShowOrHideEntranceBlocks
 .Rematch
 	ld a, TEXT_LANCESROOM_LANCE_REMATCH

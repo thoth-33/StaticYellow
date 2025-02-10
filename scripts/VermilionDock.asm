@@ -203,7 +203,7 @@ VermilionDock_EraseSSAnne:
 	ld [hl], a
 
 	ld a, SFX_SS_ANNE_HORN
-	call PlaySound
+	rst _PlaySound
 	ld c, 120
 	rst _DelayFrames
 	ret

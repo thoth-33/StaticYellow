@@ -75,7 +75,7 @@ SSAnneCaptainsRoomRubCaptainsBackText:
 .not_audio_engine_3
 	ld a, MUSIC_PKMN_HEALED
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 .loop
 	ld a, [wChannelSoundIDs]
 	cp MUSIC_PKMN_HEALED

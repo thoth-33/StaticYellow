@@ -89,7 +89,7 @@ DisplayTitleScreen:
 	cp -3
 	jr nz, .skipPlayingSound
 	ld a, SFX_INTRO_CRASH
-	call PlaySound
+	rst _PlaySound
 .skipPlayingSound
 	ld a, [hli]
 	ld e, a
@@ -138,7 +138,7 @@ DisplayTitleScreen:
 	ld c, 36
 	rst _DelayFrames
 	ld a, SFX_INTRO_WHOOSH
-	call PlaySound
+	rst _PlaySound
 
 ; scroll game version in from the right
 	callfar TitleScreen_PlacePikaSpeechBubble
@@ -151,7 +151,7 @@ DisplayTitleScreen:
 	call StopAllMusic
 	ld a, MUSIC_TITLE_SCREEN
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 .loop
 	xor a
 	ld [wUnusedFlag], a

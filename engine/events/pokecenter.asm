@@ -57,7 +57,7 @@ DisplayPokemonCenterDialogue_::
 	ld a, [wMapMusicSoundID]
 	ld [wLastMusicSoundID], a
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	call CheckPikachuFollowingPlayer
 	jr nz, .doNotReturnPikachu
 	callfar IsStarterPikachuInOurParty

@@ -1467,7 +1467,7 @@ ItemUseMedicine:
 	ld bc, 10
 	rst _CopyData ; copy the stat's name to wStringBuffer
 	ld a, SFX_HEAL_AILMENT
-	call PlaySound
+	rst _PlaySound
 	ld hl, VitaminStatRoseText
 	rst _PrintText
 	jp RemoveUsedItem
@@ -2158,7 +2158,7 @@ FishingInit:
 	ld hl, ItemUseText00
 	rst _PrintText
 	ld a, SFX_HEAL_AILMENT
-	call PlaySound
+	rst _PlaySound
 	ld a, $2
 	ld [wd49c], a
 	ld a, $81
@@ -2306,7 +2306,7 @@ ItemUsePPRestore:
 	ld [wUsingPPUp], a
 	call RestoreBonusPP ; add the bonus PP to current PP
 	ld a, SFX_HEAL_AILMENT
-	call PlaySound
+	rst _PlaySound
 	ld hl, PPIncreasedText
 	rst _PrintText
 .done
@@ -2330,7 +2330,7 @@ ItemUsePPRestore:
 	rst _CopyData ; copy party data to in-battle data
 .skipUpdatingInBattleData
 	ld a, SFX_HEAL_AILMENT
-	call PlaySound
+	rst _PlaySound
 	ld hl, PPRestoredText
 	rst _PrintText
 	jr .done
@@ -2592,7 +2592,7 @@ PrintItemUseTextAndRemoveItem:
 	ld hl, ItemUseText00
 	rst _PrintText
 	ld a, SFX_HEAL_AILMENT
-	call PlaySound
+	rst _PlaySound
 	call WaitForTextScrollButtonPress ; wait for button press
 
 RemoveUsedItem:

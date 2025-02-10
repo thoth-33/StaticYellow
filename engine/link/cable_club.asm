@@ -836,7 +836,7 @@ TradeCenter_Trade:
 	ld [wAudioSavedROMBank], a
 	ld a, MUSIC_SAFARI_ZONE
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	ld c, 100
 	rst _DelayFrames
 	call ClearScreen

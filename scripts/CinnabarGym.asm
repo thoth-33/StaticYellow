@@ -152,7 +152,7 @@ CinnabarGymOpenGateScript:
 	call CinnabarGymScript_75041
 	call WaitForSoundToFinish
 	ld a, SFX_GO_INSIDE
-	call PlaySound
+	rst _PlaySound
 	call WaitForSoundToFinish
 	jr .asm_75013
 .no_sound

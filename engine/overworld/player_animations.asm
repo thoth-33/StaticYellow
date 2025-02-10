@@ -10,14 +10,14 @@ EnterMapAnim::
 	res BIT_USED_FLY, [hl]
 	jr nz, .flyAnimation
 	ld a, SFX_TELEPORT_ENTER_1
-	call PlaySound
+	rst _PlaySound
 	ld hl, wStatusFlags6
 	bit BIT_DUNGEON_WARP, [hl]
 	pop hl
 	jr nz, .dungeonWarpAnimation
 	call PlayerSpinWhileMovingDown
 	ld a, SFX_TELEPORT_ENTER_2
-	call PlaySound
+	rst _PlaySound
 	call IsPlayerStandingOnWarpPadOrHole
 	ld a, b
 	and a
@@ -56,7 +56,7 @@ EnterMapAnim::
 	jr nz, .vanillaFlyAnimation
 	call LoadFlyingPikachuSpriteGraphics
 	ld a, SFX_FLY
-	call PlaySound
+	rst _PlaySound
 	ld hl, wFlyAnimUsingCoordList
 	xor a ; is using coord list
 	ld [hli], a ; wFlyAnimUsingCoordList
@@ -82,7 +82,7 @@ EnterMapAnim::
 ; back to normal
 	call LoadBirdSpriteGraphics
 	ld a, SFX_FLY
-	call PlaySound
+	rst _PlaySound
 	ld hl, wFlyAnimUsingCoordList
 	xor a ; is using coord list
 	ld [hli], a ; wFlyAnimUsingCoordList
@@ -162,7 +162,7 @@ _LeaveMapAnim::
 	jp nz, LeaveMapThroughHoleAnim
 .spinWhileMovingUp
 	ld a, SFX_TELEPORT_EXIT_1
-	call PlaySound
+	rst _PlaySound
 	ld hl, wPlayerSpinWhileMovingUpOrDownAnimDeltaY
 	ld a, -$10
 	ld [hli], a ; wPlayerSpinWhileMovingUpOrDownAnimDeltaY

@@ -28,7 +28,7 @@ AnimateHealingMachine:
 .partyLoop
 	call CopyHealingMachineOAM
 	ld a, SFX_HEALING_MACHINE
-	call PlaySound
+	rst _PlaySound
 	ld c, 30
 	rst _DelayFrames
 	dec b
@@ -43,7 +43,7 @@ AnimateHealingMachine:
 .next
 	ld a, MUSIC_PKMN_HEALED
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	ld d, $28
 	call FlashSprite8Times
 .waitLoop2

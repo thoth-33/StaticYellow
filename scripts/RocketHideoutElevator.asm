@@ -82,7 +82,7 @@ RocketHideoutElevatorText:
 	call RemoveItemFromInventory
 	SetEvent EVENT_USED_LIFT_KEY
     	ld a, SFX_SWITCH
-    	call PlaySound
+    	rst _PlaySound
     	call WaitForSoundToFinish
 	ld hl, .UnlockedElevatorText
 	rst _PrintText

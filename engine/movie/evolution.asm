@@ -13,7 +13,7 @@ EvolveMon:
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
 	ld a, SFX_TINK
-	call PlaySound
+	rst _PlaySound
 	call Delay3
 	xor a
 	ldh [hAutoBGTransferEnabled], a

@@ -184,7 +184,7 @@ OakSpeech:
 	ldh a, [hLoadedROMBank]
 	push af
 	ld a, SFX_SHRINK
-	call PlaySound
+	rst _PlaySound
 	pop af
 	call BankswitchCommon
 	ld c, 4

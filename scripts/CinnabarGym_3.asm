@@ -6,7 +6,7 @@ CinnabarGymPrintGymGuideText::
 .afterBeat
 	ld hl, .BeatBlaineText
 .done
-	call PrintText
+	rst _PrintText
 	ret
 
 .ChampInMakingText:
