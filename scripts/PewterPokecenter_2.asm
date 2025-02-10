@@ -57,7 +57,7 @@ PewterJigglypuff::
 	jr nz, .spinMovementLoop
 
 	ld c, 48
-	call DelayFrames
+	rst _DelayFrames
 	call PlayDefaultMusic
 	ld a, [wd472]
 	bit 7, a

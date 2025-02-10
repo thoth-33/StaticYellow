@@ -14,7 +14,7 @@ ApplyPikachuMovementData_::
 
 .done
 	call .SwapSpriteStateData
-	call DelayFrame
+	rst _DelayFrame
 	ret
 
 .SwapSpriteStateData:
@@ -103,8 +103,8 @@ ExecutePikachuMovementCommand:
 	call .JumpTable
 	call GetCoordsForPikachuShadow
 	call AnimatePikachuShadow
-	call DelayFrame
-	call DelayFrame
+	rst _DelayFrame
+	rst _DelayFrame
 	ld hl, wPikachuMovementFlags
 	bit 7, [hl]
 	jr z, .loop
