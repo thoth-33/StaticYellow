@@ -99,8 +99,6 @@ ItemDescriptionPointers:
 	text_end
 	text_far _CheatCandyDescription
 	text_end
-	text_far _UnusedItemDescription
-	text_end
 	text_far _BikeVoucherDescription
 	text_end
 	text_far _XAccuracyDescription
