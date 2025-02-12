@@ -72,9 +72,9 @@ WardensHouseWardenText:
 	text_far _WardensHouseWardenGaveTheGoldTeethText
 	sound_get_item_1
 
-;.PoppedInHisTeethText: ; unreferenced
-;	text_far _WardensHouseWardenTeethPoppedInHisTeethText
-;	text_end
+.PoppedInHisTeethText:
+  text_far _WardensHouseWardenTeethPoppedInHisTeethText
+  text_end
 
 .ThanksText:
 	text_far _WardensHouseWardenThanksText
