@@ -225,8 +225,9 @@ BillsPCDeposit:
 	rst _PrintText
 	jp BillsPCMenu
 .asm_215ad
+	call BillsPCBackupListIndex
 	call DisplayDepositWithdrawMenu
-	jp nc, BillsPCMenu
+	jp nc, .doneDepositDialogBox
 	callfar IsThisPartymonStarterPikachu_Party
 	jr nc, .asm_215c9
 	ld e, $1b
@@ -261,7 +262,22 @@ BillsPCDeposit:
 	ld [hl], "@"
 	ld hl, MonWasStoredText
 	rst _PrintText
-	jp BillsPCMenu
+;	jp BillsPCMenu
+.doneDepositDialogBox
+	call BillsPCRestoreListIndex
+	ld a, [wBoxCount]
+	cp MONS_PER_BOX
+	jp z, BillsPCMenu ; if no space left to deposit, exit the menu automatically
+	ld a, [wPartyCount]
+	dec a
+	jp z, BillsPCMenu ; if 1 pokemon left in party, exit the menu automatically
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl] ; turn off letter printing delay so we get instant text
+	ld hl, WhatText
+	rst _PrintText
+	; in case we displayed the status menu, need to reload these
+	call RedrawCurrentBoxPrompt
+	jp BillsPCDeposit
 
 SleepingPikachuText2:
 	text_far _SleepingPikachuText2
@@ -296,7 +312,7 @@ BillsPCWithdraw:
 	jr nz, .viewPkmn
 	call BillsPCBackupListIndex
 	call DisplayDepositWithdrawMenu
-	jp nc, BillsPCMenu
+	jr nc, .doneWithdrawDialogBox
 	ld a, [wWhichPokemon]
 	ld hl, wBoxMonNicks
 	call GetPartyMonName
@@ -318,7 +334,18 @@ BillsPCWithdraw:
 	call WaitForSoundToFinish
 	ld hl, MonIsTakenOutText
 	rst _PrintText
-	jp BillsPCMenu
+;	jp BillsPCMenu
+.doneWithdrawDialogBox
+	call BillsPCRestoreListIndex
+	ld a, [wBoxCount]
+	and a
+	jp z, BillsPCMenu ; if no pokemon left to withdraw, exit the menu automatically
+	ld a, [wPartyCount]
+	cp PARTY_LENGTH
+	jp z, BillsPCMenu ; if party is full (can't withdraw more), exit the menu automatically
+	ld hl, WhatText
+	call .redrawTextBoxAndCurrentBox
+	jp BillsPCWithdraw ; otherwise go back to the menu
 .redrawTextBoxAndCurrentBox
 	push hl
 	ld hl, wStatusFlags5
@@ -343,6 +370,7 @@ BillsPCRelease:
 	ld hl, wBoxCount
 	call DisplayMonListMenu
 	jp c, BillsPCMenu
+	call BillsPCBackupListIndex
 	callfar IsThisPartymonStarterPikachu_Box
 	jr c, .asm_216cb
 	ld hl, OnceReleasedText
@@ -350,7 +378,7 @@ BillsPCRelease:
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
-	jr nz, .loop
+	jr nz, .doneReleaseDialogBox
 	inc a
 	ld [wRemoveMonFromBox], a
 	call RemovePokemon
@@ -359,7 +387,13 @@ BillsPCRelease:
 	call PlayCry
 	ld hl, MonWasReleasedText
 	rst _PrintText
-	jp BillsPCMenu
+;	jp BillsPCMenu
+.doneReleaseDialogBox
+	call BillsPCRestoreListIndex
+	ld a, [wBoxCount]
+	and a
+	jp z, BillsPCMenu ; if no pokemon left to release, exit the menu automatically
+	jp .loop ; otherwise go back to the menu
 
 .asm_216cb
 	ld a, [wWhichPokemon]
@@ -467,7 +501,7 @@ DisplayDepositWithdrawMenu:
 	ld [hli], a ; wListScrollOffset
 	ld [hl], a ; wMenuWatchMovingOutOfBounds
 	ld [wPlayerMonNumber], a
-	ld [wPartyAndBillsPCSavedMenuItem], a
+;	ld [wPartyAndBillsPCSavedMenuItem], a
 .loop
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a
