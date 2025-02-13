@@ -138,14 +138,24 @@ OakSpeech:
 	farcall SendPlayerPal
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $00
+
 	ld a, [wPlayerGender]
 	and a
-	jr z, .NotGreen1
+
+	jr z, .ContinueWithOakIntro1
+	cp a, 2					; check gender: if a=2->gender=enby, jump to the yellow subroutine, otherwise continue below
+	jp z, .LoadYellowPicFront1
 	farcall SendGreenPal
 	ld de, GreenPicFront
 	lb bc, BANK(GreenPicFront), $00
-.NotGreen1:
+	jr .ContinueWithOakIntro1
+.LoadYellowPicFront1
+	farcall SendYellowPal
+	ld de, YellowPicFront
+	lb bc, BANK(YellowPicFront), $00
+.ContinueWithOakIntro1:	
 	call IntroDisplayPicCenteredOrUpperRight
+
 	call MovePicLeft
 	ld hl, IntroducePlayerText
 	rst _PrintText
@@ -166,14 +176,25 @@ OakSpeech:
 	farcall SendPlayerPal
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $00
-	ld a, [wPlayerGender]
-	and a
-	jr z, .NotGreen2
+;	call IntroDisplayPicCenteredOrUpperRight
+
+	ld a, [wPlayerGender] ; check gender
+ 	and a      ; check gender -> if male, jump to vanilla code
+	jr z, .ContinueWithOakIntro2		; previously "NotGreen2"
+	cp a, 2
+	jp z, .LoadYellowPicFront2
 	farcall SendGreenPal
-	ld de, GreenPicFront
-	lb bc, Bank(GreenPicFront), $00
-.NotGreen2:
+  	ld de, GreenPicFront
+  	lb bc, BANK(GreenPicFront), $00
+	jr .ContinueWithOakIntro2
+.LoadYellowPicFront2
+	farcall SendYellowPal
+	ld de, YellowPicFront
+	lb bc, BANK(YellowPicFront), $00
+.ContinueWithOakIntro2:					; previously "NotGreen2"
+	
 	call IntroDisplayPicCenteredOrUpperRight
+
 	call GBFadeInFromWhite
 	ld a, [wStatusFlags3]
 	and a ; ???
@@ -193,17 +214,24 @@ OakSpeech:
 	ld de, RedSprite
 	ld b, BANK(RedSprite)
 	ld c, $0C
-	ld a, [wPlayerGender]
-	and a
-	jr z, .NotGreen3
+	ld a, [wPlayerGender] ; check gender
+	and a      ; check gender -> if male, jump to vanilla code
+	jr z, .ContinueWithOakIntro3		; previously "NotGreen2"
+	cp a, 2
+	jp z, .LoadYellowPicFront3
 	ld de, GreenSprite
 	lb bc, BANK(GreenSprite), $0C
-.NotGreen3:
+	jr .ContinueWithOakIntro3
+.LoadYellowPicFront3
+	ld de, YellowSprite
+	lb bc, BANK(YellowSprite), $0C
+.ContinueWithOakIntro3:					; previously "NotGreen2"
 	ld hl, vSprites
 	call CopyVideoData
 	ld de, ShrinkPic1
 	lb bc, BANK(ShrinkPic1), $00
 	call IntroDisplayPicCenteredOrUpperRight
+
 	ld c, 4
 	rst _DelayFrames
 	ld de, ShrinkPic2
@@ -372,18 +400,34 @@ DisplayYesNoNormalHardChoice::
 ; displays boy/girl choice
 BoyGirlChoice::
 	call SaveScreenTilesToBuffer1
-	call InitBoyGirlTextBoxParameters
-	jr DisplayBoyGirlChoice
+	jr DisplayBoyGirlNoChoice
 
-InitBoyGirlTextBoxParameters::
-   ld a, $1 ; loads the value for the unused North/West choice, that was changed to say Boy/Girl
-	ld [wTwoOptionMenuID], a
-	coord hl, 6, 5 
-	ld bc, $607
-	ret
-	
-DisplayBoyGirlChoice::
-	  ld a, $14
-	  ld [wTextBoxID], a
-	  call DisplayTextBoxID
-	  jp LoadScreenTilesFromBuffer1
+DisplayBoyGirlNoChoice::
+	ld a, BOY_GIRL_NO
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	ld hl, wTopMenuItemY
+	ld a, 7
+	ld [hli], a ; top menu item Y
+	ld a, 14
+	ld [hli], a ; top menu item X
+	xor a
+	ld [hli], a ; current menu item ID
+	inc hl
+	ld a, $2
+	ld [hli], a ; wMaxMenuItem
+	ld a, B_BUTTON | A_BUTTON
+	ld [hli], a ; wMenuWatchedKeys
+	xor a
+	ld [hl], a ; wLastMenuItem
+	call HandleMenuInput
+	bit BIT_B_BUTTON, a
+	jr nz, .defaultOption ; if B was pressed, assign enby
+; A was pressed
+	call PlaceUnfilledArrowMenuCursor
+	ld a, [wCurrentMenuItem]
+	jp LoadScreenTilesFromBuffer1
+.defaultOption
+	ld a, $02
+	ld [wCurrentMenuItem], a
+	jp LoadScreenTilesFromBuffer1

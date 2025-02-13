@@ -335,8 +335,13 @@ GetPalID:
  	ld a, [wPlayerGender]
   	and a
   	jr z, .cont
+	cp a, 2
+	jr z, .Enby
   	ld a, PAL_GREEN
   	ret
+.Enby
+	ld a, PAL_MEWMON
+	ret
 .cont
 	ld a, [hl]
 	ret
@@ -351,14 +356,16 @@ DeterminePaletteIDBack:
 	ld a, PAL_OAKB
 	ret z
 	ld b, PAL_HERO
-	ld a, [wPlayerGender]
-	and a
-	jr z, .male
-	ld b, PAL_GREEN
-.male
-	ld a, b
-	ret
-
+ 	ld a, [wPlayerGender]
+ 	and a
+ 	jr z, .loadPal
+	ld b, PAL_GREEN 
+ 	cp a, 1
+ 	jr z, .loadPal
+ 	ld b, PAL_YELLOWMON
+.loadPal
+ 	ld a, b
+ 	ret
 
 YellowIntroPaletteAction::
 	ld a, e
@@ -1210,6 +1217,10 @@ SendRivalPal:
 
 SendGreenPal:
 	ld a, PAL_GREEN
+	jr SendCustomPacket
+
+SendYellowPal:
+	ld a, PAL_YELLOWMON
 	jr SendCustomPacket
 
 SendCustomPacket:

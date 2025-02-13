@@ -547,12 +547,20 @@ FishingAnim:
 	ld hl, wMovementFlags
 	set BIT_LEDGE_OR_FISHING, [hl]
 	ld hl, vNPCSprites
-	ld a, [wPlayerGender] ; added gender check
-	and a      ; added gender check
+
+	ld a, [wPlayerGender]	; load gender
+	and a					; check if gender=male
 	jr z, .BoySpriteLoad
+	cp a, 2		; check if enby
+	jr z, .EnbySpriteLoad
 	ld de, GreenSprite
 	ld hl, vNPCSprites
 	ld bc, (BANK(GreenSprite) << 8) + $0c
+	jr .KeepLoadingSpriteStuff
+.EnbySpriteLoad
+	ld de, YellowSprite
+	ld hl, vNPCSprites
+	ld bc, (BANK(YellowSprite) << 8) + $0c
 	jr .KeepLoadingSpriteStuff
 .BoySpriteLoad
 	ld de, RedSprite
@@ -560,12 +568,18 @@ FishingAnim:
 	lb bc, BANK(RedSprite), $c
 .KeepLoadingSpriteStuff
 	call CopyVideoData
-	ld a, [wPlayerGender] ; added gender check
-	and a      ; added gender check
+	ld a, [wPlayerGender]	; load gender
+	and a      				; check if gender=male
 	jr z, .BoyTiles ; skip loading Green's stuff if you're Red
+	cp a, 2
+	jr z, .EnbyTiles
 	ld a, $4
 	ld hl, GreenFishingTiles
 	jr .ContinueRoutine ; go back to main routine after loading Green's stuff
+.EnbyTiles
+	ld a, $4
+	ld hl, YellowFishingTiles
+	jr .ContinueRoutine ; go back to main routine after loading Yellow's stuff
 .BoyTiles ; alternately, load Red's stuff
 	ld a, $4
 	ld hl, RedFishingTiles
@@ -677,6 +691,12 @@ GreenFishingTiles:
 	fishing_gfx GreenFishingTilesBack,  2, $06
 	fishing_gfx GreenFishingTilesSide,  2, $0a
 	fishing_gfx RedFishingRodTiles,     2, $fd
+
+YellowFishingTiles:
+	fishing_gfx YellowFishingTilesFront, 2, $02
+	fishing_gfx YellowFishingTilesBack,  2, $06
+	fishing_gfx YellowFishingTilesSide,  2, $0a
+	fishing_gfx RedFishingRodTiles,      2, $fd
 
 _HandleMidJump::
 	ld a, [wPlayerJumpingYScreenCoordsIndex]

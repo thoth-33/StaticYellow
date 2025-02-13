@@ -2327,6 +2327,7 @@ wMaxDaycareLevel:: db
 wPlayerGender::
 	; $00 = boy
 	; $01 = girl
+	; $02 = enby
 		ds 1
 
 wSafariType:: db

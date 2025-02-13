@@ -1846,11 +1846,17 @@ LoadWalkingPlayerSpriteGraphics::
 	ld [wd473], a
 	ld b, BANK(RedSprite)
 	ld de, RedSprite
-	ld a, [wPlayerGender]
-	and a
-	jr z, .AreGuy1
+	ld a, [wPlayerGender] ; from Vortiene
+	and a			; check if boy
+	jr z, .ContinueLoadSprites1
+	cp a, 2			; check if enby
+	jr z, .AreEnby1
 	ld de, GreenSprite
-.AreGuy1
+	jr .ContinueLoadSprites1
+.AreEnby1
+	ld de, YellowSprite
+.ContinueLoadSprites1
+	ld hl, vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadRunningPlayerSpriteGraphics::
@@ -1861,9 +1867,15 @@ LoadRunningPlayerSpriteGraphics::
 	ld de, RedRunSprite
 	ld a, [wPlayerGender]
 	and a
-	jr z, .AreGuy1
+	jr z, .ContinueLoadSprites1
+	cp a, 2
+	jr z, .AreEnby1
 	ld de, GreenRunSprite
-.AreGuy1
+	jr .ContinueLoadSprites1
+.AreEnby1
+	ld de, YellowRunSprite
+.ContinueLoadSprites1
+	ld hl, vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadSurfingPlayerSpriteGraphics2::
@@ -1890,9 +1902,15 @@ LoadSurfingPlayerSpriteGraphics::
 	ld de, RedSurfSprite
 	ld a, [wPlayerGender]
 	and a
-	jr z, .AreGuy1
+	jr z, .ContinueLoadSprites1
+	cp a, 2
+	jr z, .AreEnby1
 	ld de, GreenSurfSprite
-.AreGuy1
+	jr .ContinueLoadSprites1
+.AreEnby1
+	ld de, YellowSurfSprite
+.ContinueLoadSprites1
+	ld hl, vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadBikePlayerSpriteGraphics::
@@ -1900,8 +1918,15 @@ LoadBikePlayerSpriteGraphics::
 	ld de, RedBikeSprite
 	ld a, [wPlayerGender]
 	and a
-	jr z, LoadPlayerSpriteGraphicsCommon
+	jr z, .ContinueLoadSprites2
+	cp a, 2			; check if enby
+	jr z, .AreEnby2
 	ld de, GreenBikeSprite
+	jr .ContinueLoadSprites2
+.AreEnby2
+	ld de, YellowBikeSprite
+.ContinueLoadSprites2
+	ld hl, vNPCSprites
 
 LoadPlayerSpriteGraphicsCommon::
 	ld hl, vNPCSprites

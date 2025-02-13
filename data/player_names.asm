@@ -1,6 +1,6 @@
 DefaultNamesPlayer:
 	db   "NEW NAME"
-	next "YELLOW"
+	next "RED"
 	next "ASH"
 	next "JACK"
 	next "JIM"
@@ -13,6 +13,14 @@ DefaultNamesGirl:
     	next "LEAF"
     	next "BRI"
    	db   "@"
+
+DefaultNamesEnby:
+	db   "NEW NAME"
+	next "YELLOW"
+	next "DAMON"
+	next "BANE"
+	next "DOUG"
+	db   "@"
 
 DefaultNamesRival:
 	db   "NEW NAME"

@@ -6625,20 +6625,26 @@ LoadPlayerBackPic:
 	ld de, ProfOakPicBack
 	cp BATTLE_TYPE_PIKACHU ; is it the pikachu battle at the beginning of the game?
 	jr z, .next
+
 	ld a, [wPlayerGender]
 	and a
 	jr z, .RedBack
+	cp a, 2			; check if enby
+	jr z, .YellowBack
 	ld de, GreenPicBack
-	ld a, BANK(GreenPicBack)
-	jr .GreenSpriteLoaded
+	jr .next
+.YellowBack
+	ld de, YellowPicBack
+	jr .next
 .RedBack
 	ld de, RedPicBack
 .next
 	ld a, BANK(RedPicBack)
-.GreenSpriteLoaded
-	ASSERT BANK(GreenPicBack) == BANK(OldManPicBack) ; These two ASSERTs make sure to cover
-	ASSERT BANK(RedPicBack) == BANK(OldManPicBack)   ; both sprite cases
+	ASSERT BANK(RedPicBack) == BANK(OldManPicBack)
+	ASSERT BANK(GreenPicBack) == BANK(OldManPicBack)
+	ASSERT BANK(YellowPicBack) == BANK(OldManPicBack)
 	ASSERT BANK(RedPicBack) == BANK(ProfOakPicBack)
+
 	call UncompressSpriteFromDE
 	call LoadBackSpriteUnzoomed
 	ld hl, wShadowOAM

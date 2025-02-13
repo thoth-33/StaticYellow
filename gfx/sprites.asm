@@ -40,6 +40,10 @@ GreenBikeSprite::        INCBIN "gfx/sprites/green_bike.2bpp"
 GreenSprite::            INCBIN "gfx/sprites/green.2bpp"
 GreenRunSprite::         INCBIN "gfx/sprites/green_run.2bpp"
 GreenSurfSprite::        INCBIN "gfx/sprites/green_surf.2bpp"
+YellowBikeSprite::       INCBIN "gfx/sprites/yellow_bike.2bpp"
+YellowSprite::           INCBIN "gfx/sprites/yellow.2bpp"
+YellowRunSprite::        INCBIN "gfx/sprites/yellow_run.2bpp"
+YellowSurfSprite::       INCBIN "gfx/sprites/yellow_surf.2bpp"
 BlueSprite::             INCBIN "gfx/sprites/blue.2bpp"
 OakSprite::              INCBIN "gfx/sprites/oak.2bpp"
 YoungsterSprite::        INCBIN "gfx/sprites/youngster.2bpp"
@@ -68,15 +72,6 @@ ChannelerSprite::        INCBIN "gfx/sprites/channeler.2bpp"
 SilphWorkerFSprite::     INCBIN "gfx/sprites/silph_worker_f.2bpp"
 MiddleAgedWomanSprite::  INCBIN "gfx/sprites/middle_aged_woman.2bpp"
 BrunetteGirlSprite::     INCBIN "gfx/sprites/brunette_girl.2bpp"
-;LanceSprite::            INCBIN "gfx/sprites/lance.2bpp" ; Moved to NPC Sprites 6
-;MomSprite::              INCBIN "gfx/sprites/mom.2bpp" ; Moved to NPC Sprites 3
-BaldingGuySprite::       INCBIN "gfx/sprites/balding_guy.2bpp"
-LittleBoySprite::        INCBIN "gfx/sprites/little_boy.2bpp"
-GameboyKidSprite::       INCBIN "gfx/sprites/gameboy_kid.2bpp"
-;FairySprite::            INCBIN "gfx/sprites/fairy.2bpp" ; Moved to NPC Sprites 6
-AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
-BrunoSprite::            INCBIN "gfx/sprites/bruno.2bpp"
-;LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp" ; Moved to NPC Sprites 4
 SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
 
 
@@ -153,8 +148,13 @@ FlareonSprite::         INCBIN "gfx/sprites/mons/flareon.2bpp"
 
 SECTION "NPC Sprites 6", ROMX
 
-LanceSprite::           INCBIN "gfx/sprites/lance.2bpp" ; Moved
-FairySprite::            INCBIN "gfx/sprites/fairy.2bpp" ; Moved
+LanceSprite::            INCBIN "gfx/sprites/lance.2bpp" ; Moved from NPC Sprites 2
+BaldingGuySprite::       INCBIN "gfx/sprites/balding_guy.2bpp"
+LittleBoySprite::        INCBIN "gfx/sprites/little_boy.2bpp"
+GameboyKidSprite::       INCBIN "gfx/sprites/gameboy_kid.2bpp"
+FairySprite::            INCBIN "gfx/sprites/fairy.2bpp" ; Moved from NPC Sprites 2
+AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
+BrunoSprite::            INCBIN "gfx/sprites/bruno.2bpp"
 FlyingPikachuSprite::   INCBIN "gfx/sprites/flyingpikachu.2bpp" ; Flying Pikachu Sprite
 
 

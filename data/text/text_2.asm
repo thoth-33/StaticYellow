@@ -1326,6 +1326,6 @@ _DifficultyText::
 ;	done
 
 _BoyGirlText::
-    text "Play as a boy, or"
-    line "as a girl?"
+    text "Play as Red, Green"
+    line "or Yellow?"
     done

@@ -197,15 +197,21 @@ HoFMonInfoText:
 	next "TYPE2/@"
 
 HoFLoadPlayerPics:
-	ld a, [wPlayerGender] ; New gender check
-	and a      ; New gender check
-	jr nz, .GirlStuff1
-	ld de, RedPicFront
-	ld a, BANK(RedPicFront)
-	jr .Routine ; skip the girl stuff and go to main routine
-.GirlStuff1
+	ld a, [wPlayerGender] 	; load gender
+	and a      				; check if male
+	jr z, .BoyStuff1
+	cp a, 2					; check if enby
+	jr z, .EnbyStuff1
 	ld de, GreenPicFront
 	ld a, BANK(GreenPicFront)
+	jr .Routine ; skip the enby and boy stuff and go to main routine1
+.EnbyStuff1
+	ld de, YellowPicFront
+	ld a, BANK(YellowPicFront)
+	jr .Routine ; skip the boy stuff and go to main routine1
+.BoyStuff1
+	ld de, RedPicFront
+	ld a, BANK(RedPicFront)
 .Routine ; resume original routine
 	call UncompressSpriteFromDE
 	ld a, $0
@@ -217,16 +223,23 @@ HoFLoadPlayerPics:
 	call CloseSRAM
 	ld de, vFrontPic
 	call InterlaceMergeSpriteBuffers
-	ld a, [wPlayerGender] ; new gender check
-	and a      ; new gender check
-	jr nz, .GirlStuff2
-	ld de, RedPicBack
-	ld a, BANK(RedPicBack)
-	jr .routine2 ; skip the girl stuff and continue original routine if guy
-.GirlStuff2
+
+	ld a, [wPlayerGender]	; load gender
+	and a					; check if male
+	jr z, .BoyStuff2
+	cp a, 2					; check if enby
+	jr z, .EnbyStuff2
 	ld de, GreenPicBack
 	ld a, BANK(GreenPicBack)
-.routine2 ; original routine
+	jr .Routine2 ; skip the enby and boy stuff and go to the main routine2
+.EnbyStuff2
+	ld de, YellowPicBack
+	ld a, BANK(YellowPicBack)
+	jr .Routine2 ; skip the boy stuff and go to the main routine2
+.BoyStuff2
+	ld de, RedPicBack
+	ld a, BANK(RedPicBack)
+.Routine2 ; original routine
 	call UncompressSpriteFromDE
 	xor a
 	ld [wTrainerClass], a
