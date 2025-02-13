@@ -495,7 +495,7 @@ Printer_PlayPrinterMusic:
 	ld [wAudioROMBank], a
 	ld a, MUSIC_GB_PRINTER
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	ret
 
 Printer_PlayMapMusic:

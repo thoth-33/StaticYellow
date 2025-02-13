@@ -63,7 +63,7 @@ HandleMenuInputPokemonSelectionDuplicate: ; unreferenced
 	jr z, .skipPlayingSound
 .AButtonOrBButtonPressed
 	ld a, SFX_PRESS_AB
-	call PlaySound ; play sound
+	rst _PlaySound ; play sound
 .skipPlayingSound
 	pop af
 	ldh [hDownArrowBlinkCount2], a

@@ -18,14 +18,14 @@ RedsHouse1FMomHealScript:
 	predef HealParty
 	ld a, MUSIC_PKMN_HEALED
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 .next
 	ld a, [wChannelSoundIDs]
 	cp MUSIC_PKMN_HEALED
 	jr z, .next
 	ld a, [wMapMusicSoundID]
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	call GBFadeInFromWhite
 	ld hl, RedsHouse1FMomLookingGreatText
 	rst _PrintText

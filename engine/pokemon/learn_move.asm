@@ -360,7 +360,7 @@ OneTwoAndText:
 	ld [wAudioSavedROMBank], a
 	call WaitForSoundToFinish
 	ld a, SFX_SWAP
-	call PlaySound
+	rst _PlaySound
 	call WaitForSoundToFinish
 	pop af
 	ld [wAudioROMBank], a

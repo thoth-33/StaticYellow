@@ -717,7 +717,7 @@ Func_f848d:
 	xor a
 	ld [wChannelSoundIDs + CHAN8], a
 	ld a, SFX_SURFING_JUMP
-	call PlaySound
+	rst _PlaySound
 	ret
 
 .asm_f84d2
@@ -753,7 +753,7 @@ SurfingMinigame_ScoreCurrentWave:
 	xor a
 	ld [wChannelSoundIDs + CHAN8], a
 	ld a, SFX_SURFING_CRASH
-	call PlaySound
+	rst _PlaySound
 	ret
 
 Func_f8516:
@@ -915,7 +915,7 @@ SurfingMinigame_DPadAction:
 	add hl, bc
 	ld [hl], a
 	ld a, SFX_SURFING_FLIP
-	call PlaySound
+	rst _PlaySound
 	ret
 
 SurfingMinigame_TileInteraction:
@@ -1012,7 +1012,7 @@ SurfingMinigame_TileInteraction:
 	xor a
 	ld [wChannelSoundIDs + CHAN8], a
 	ld a, SFX_SURFING_LAND
-	call PlaySound
+	rst _PlaySound
 	and a
 	ret
 
@@ -1560,7 +1560,7 @@ SurfingMinigame_AddRemainingHPToTotal:
 	dec c
 	jr nz, .loop
 	ld a, SFX_PRESS_AB
-	call PlaySound
+	rst _PlaySound
 	and a
 	ret
 
@@ -1622,7 +1622,7 @@ SurfingMinigame_AddRadnessToTotal:
 	dec c
 	jr nz, .loop
 	ld a, SFX_PRESS_AB
-	call PlaySound
+	rst _PlaySound
 	and a
 	ret
 
@@ -1717,7 +1717,7 @@ DidPlayerGetAHighScore:
 	ldpikacry e, PikachuCry34
 	call SurfingMinigame_PlayPikaCryIfSurfingPikaInParty
 	ld a, SFX_GET_ITEM2_4_2
-	call PlaySound
+	rst _PlaySound
 	scf
 	ret
 

@@ -797,7 +797,7 @@ PikaPicAnimCommand_thunderbolt:
 	ld [wAudioROMBank], a
 	ld [wAudioSavedROMBank], a
 	call .LoadAudio
-	call PlaySound
+	rst _PlaySound
 	call .FlashScreen
 	call WaitForSoundToFinish
 	pop af
