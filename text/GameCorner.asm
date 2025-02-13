@@ -39,7 +39,7 @@ _GameCornerClerkDoYouNeedSomeGameCoins2Text::
 	line "coins at a more"
 	cont "realistic price?"
 
-	para "¥10,000 for 500"
+	para "¥10,000 for 800"
 	line "coins is what I"
 	cont "can offer you"
 	cont "today."
