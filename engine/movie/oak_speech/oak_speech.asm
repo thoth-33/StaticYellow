@@ -192,7 +192,6 @@ OakSpeech:
 	ld de, YellowPicFront
 	lb bc, BANK(YellowPicFront), $00
 .ContinueWithOakIntro2:					; previously "NotGreen2"
-	
 	call IntroDisplayPicCenteredOrUpperRight
 
 	call GBFadeInFromWhite

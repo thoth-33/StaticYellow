@@ -523,7 +523,7 @@ StartMenu_TrainerInfo::
 DrawTrainerInfo:
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $01
-	predef DisplayPicCenteredOrUpperRight
+;	predef DisplayPicCenteredOrUpperRight
 
 	ld a, [wPlayerGender]
 	and a
