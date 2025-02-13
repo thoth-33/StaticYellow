@@ -222,6 +222,11 @@ _DepositHowManyText::
 	text "How many?"
 	done
 
+_ViewModeText::
+	text "BOX viewer"
+	line "mode active."
+	done
+
 _ItemWasStoredText::
 	text_ram wNameBuffer
 	text " was"

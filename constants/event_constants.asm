@@ -739,6 +739,7 @@
 
 ; arbitrary flags
 	const_next $8D0
+	const FLAG_VIEW_PC_PKMN
 	const FLAG_SKIP_MULTI_CHOICE_LOADGBPAL
 
 ; Indigo Plateau events

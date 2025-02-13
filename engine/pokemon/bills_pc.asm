@@ -111,6 +111,7 @@ BillsPC_::
 BillsPCMenu:
 	ld a, [wParentMenuItem]
 	ld [wCurrentMenuItem], a
+	ResetEvent FLAG_VIEW_PC_PKMN
 	callfar LoadBillsPCExtraTiles
 	call LoadScreenTilesFromBuffer2DisableBGTransfer
 	hlcoord 0, 12
@@ -132,7 +133,7 @@ BillsPCMenu:
 	inc hl
 	ld a, 5
 	ld [hli], a ; wMaxMenuItem
-	ld a, A_BUTTON | B_BUTTON
+	ld a, A_BUTTON | B_BUTTON | SELECT
 	ld [hli], a ; wMenuWatchedKeys
 	xor a
 	ld [hli], a ; wLastMenuItem
@@ -146,9 +147,19 @@ BillsPCMenu:
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
 	call Delay3
+.handleMenuInput
 	ld b, SET_PAL_OVERWORLD
 	call RunPaletteCommand
 	call HandleMenuInput
+	bit BIT_SELECT, a
+	jr z, .notSelect
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .handleMenuInput
+	ld [wParentMenuItem], a
+	SetEvent FLAG_VIEW_PC_PKMN
+	jp BillsPCWithdraw
+.notSelect
 	bit BIT_B_BUTTON, a
 	jp nz, ExitBillsPC
 	call PlaceUnfilledArrowMenuCursor
@@ -264,16 +275,26 @@ BillsPCWithdraw:
 	rst _PrintText
 	jp BillsPCMenu
 .boxNotEmpty
+	CheckEvent FLAG_VIEW_PC_PKMN
+	jr nz, .viewStart
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH
 	jr nz, .partyNotFull
+	ld hl, wStatusFlags5
+	res BIT_NO_TEXT_DELAY, [hl] ; turn on letter printing delay so we don't get instant text
 	ld hl, CantTakeMonText
 	rst _PrintText
 	jp BillsPCMenu
+.viewStart
+	ld hl, ViewMode
+	call .redrawTextBoxAndCurrentBox
 .partyNotFull
 	ld hl, wBoxCount
 	call DisplayMonListMenu
 	jp c, BillsPCMenu
+	CheckEvent FLAG_VIEW_PC_PKMN
+	jr nz, .viewPkmn
+	call BillsPCBackupListIndex
 	call DisplayDepositWithdrawMenu
 	jp nc, BillsPCMenu
 	ld a, [wWhichPokemon]
@@ -298,6 +319,18 @@ BillsPCWithdraw:
 	ld hl, MonIsTakenOutText
 	rst _PrintText
 	jp BillsPCMenu
+.redrawTextBoxAndCurrentBox
+	push hl
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl] ; turn off letter printing delay so we get instant text
+	pop hl
+	rst _PrintText
+	jp RedrawCurrentBoxPrompt
+.viewPkmn
+	call DisplayDepositWithdrawMenu.viewStats
+	ld hl, ViewMode
+	call .redrawTextBoxAndCurrentBox
+	jp BillsPCWithdraw
 
 BillsPCRelease:
 	ld a, [wBoxCount]
@@ -464,6 +497,8 @@ DisplayDepositWithdrawMenu:
 	call ReloadTilesetTilePatterns
 	call RunDefaultPaletteCommand
 	call LoadGBPal
+	CheckEvent FLAG_VIEW_PC_PKMN
+	jr nz, .exit
 	jr .loop
 
 DepositPCText:  db "DEPOSIT@"
@@ -478,6 +513,10 @@ SwitchOnText:
 
 WhatText:
 	text_far _WhatText
+	text_end
+
+ViewMode:
+	text_far _ViewModeText
 	text_end
 
 DepositWhichMonText:
@@ -570,3 +609,20 @@ JustAMomentText::
 
 OpenBillsPCText::
 	script_bills_pc
+
+BillsPCBackupListIndex:
+	ld a, [wListScrollOffset]
+	ld [wSavedListScrollOffset], a
+	ret
+
+BillsPCRestoreListIndex:
+	ld a, [wSavedListScrollOffset]
+	ld [wListScrollOffset], a
+	ld a, [wPartyAndBillsPCSavedMenuItem]
+	ld [wCurrentMenuItem], a
+	ret
+
+RedrawCurrentBoxPrompt:
+	callfar LoadBillsPCExtraTiles ; in the case of displaying pokemon status menu, this needs to be reloaded
+	decoord 13, 13
+	jpfar DrawCurrentBoxPrompt ; redraw current box prompt since it probably changed
