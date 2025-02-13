@@ -247,7 +247,7 @@ GameCornerClerkText:
 	ldh [hCoins], a
 	ld a, $00            
 	ldh [hCoins + 2], a     
-	ld a, $05           
+	ld a, $08           
 	ldh [hCoins + 1], a  
 	ld de, wPlayerCoins + 1
 	ld hl, hCoins + 1
