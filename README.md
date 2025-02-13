@@ -4,7 +4,7 @@ My love of hacks and hacking came from Playing Red++ and Blue Kaizo.
 Small binary edits to disassembly have come a long way and I am greatful I found those 2 hacks many moons ago!
 
 Features:  
-- Now you can Play Gen1 as a girl!  
+- Now you can Play Gen1 as either Red, Green, or Yellow.  
 - All 151 Pokémons can be caught or evolved without trading. MEW IS OBTAINABLE  
 - GEN 2 Sprites and Battle Graphics  
 - Can Surrender in Battle by clicking RUN  
@@ -92,9 +92,10 @@ CREDITS: THE MOST IMPORTANT PART OF THIS
 - Engezertorung- A lot of help with color, sprite and graphics. Very helpful and patient. Please try his Pokered-gbc French and English updated game.
 -Melody- For the rest of Pokedex code that makes it run and look clean. You also assisted with the LearnSet moves and Bugs. Thanks for the help with Celebrations too.
 -Devianart- For all the female sprites for the game
--FrenchOrange- for all the running and surfing sprites added to the game
+-FrenchOrange- for all the running and surfing sprites added to the game/ yellow sprites
+-Rosie- for the Nurse Joy, Jenny, Yellow back picture.
 -PokeFanMarcel- For the code for the running sprites to work and the code to make the EXP ALL a key item that can turn on or off
--RainbowMetalPigeon/ExtremeYellow- Space code for Bank 1E, Surrender in battle option, and Pikachu Flying Animation. AND FOR CREATING THE HARDEST GEN 1 YELLOW HACK EVER. BUT I LOVE PLAYING IT
+-RainbowMetalPigeon/ExtremeYellow- Space code for Bank 1E, Surrender in battle option, and Pikachu Flying Animation. Also for 3rd character/gender tutorial AND FOR CREATING THE HARDEST GEN 1 YELLOW HACK EVER. BUT I LOVE PLAYING IT
 -RainbowDevs/Pokemon Brown- Another awesome Gen 1 hack. Some Pokemon Sprites were taken from Brown and added into this game.
 - BYRAX- FOR THE BOXART FOR ALL THE GBC/GBA GAMES. ALSO TESTING THE GAME MULTIPLE TIMES AS WELL.
 - JA2398- Tester
