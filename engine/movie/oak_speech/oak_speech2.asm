@@ -67,7 +67,6 @@ ChoosePlayerName:
 	farcall SendYellowPal
 	ld de, YellowPicFront
 	ld b, BANK(YellowPicFront)
-	call IntroDisplayPicCenteredOrUpperRight
 .ContinueWithRoutine
 	call IntroDisplayPicCenteredOrUpperRight
 .done
