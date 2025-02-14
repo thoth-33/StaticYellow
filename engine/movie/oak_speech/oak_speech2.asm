@@ -65,6 +65,7 @@ ChoosePlayerName:
 	jr .ContinueWithRoutine
 .LoadYellowPicFront
 	farcall SendYellowPal
+	call Delay3
 	ld de, YellowPicFront
 	ld b, BANK(YellowPicFront)
 .ContinueWithRoutine
