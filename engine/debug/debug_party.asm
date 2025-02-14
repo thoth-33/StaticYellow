@@ -92,6 +92,10 @@ IF DEF(_DEBUG)
 	ld a, STARTER_PIKACHU
 	ld [hl], a ; hl = wPlayerStarter
 
+	; Select gender: 0 Red, 1 Green, 2 Yellow
+	ld a, 2
+	ld [wPlayerGender], a
+
 	; Give max money.
 	ld hl, wPlayerMoney
 	ld a, $99
