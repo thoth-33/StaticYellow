@@ -276,12 +276,34 @@ PalletTownOakComeWithMe:
 	text_end
 
 PalletTownGirlText:
-	text_far _PalletTownGirlText
-	sound_get_key_item
 	text_asm
+	ld hl, .Text
+	rst _PrintText
 	lb bc, CHEAT_CANDY, 1
 	call GiveItem
+	jr nc, .bag_full
+	ld hl, .ReceivedCheatCandyText
+	rst _PrintText
+	jr .done
+.bag_full
+	ld hl, .NoRoomText
+	rst _PrintText
+	jr .done
+.done
 	rst TextScriptEnd
+
+.Text:
+	text_far _PalletTownGirlText
+	text_end
+
+.ReceivedCheatCandyText:
+	text_far _PalletTownGirlReceivedCheatCandyText
+	sound_get_key_item
+	text_end
+
+.NoRoomText:
+	text_far _PalletTownGirlNoRoomText
+	text_end
 
 PalletTownFisherText:
 	text_far _PalletTownFisherText
