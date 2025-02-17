@@ -136,6 +136,7 @@ SECTION "Text 5", ROMX
 INCLUDE "data/text/text_5.asm"
 
 INCLUDE "text/RedsHouse1F.asm"
+INCLUDE "text/RedsHouse2F.asm"
 INCLUDE "text/BluesHouse.asm"
 INCLUDE "text/OaksLab.asm"
 INCLUDE "text/pokedex_ratings.asm"
