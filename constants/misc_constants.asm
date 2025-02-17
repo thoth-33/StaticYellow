@@ -12,3 +12,9 @@ DEF TRUE  EQU 1
 DEF SAFARI_TYPE_CLASSIC EQU 0
 DEF SAFARI_TYPE_FREE_ROAM EQU 1
 ;;;;;;;;;;
+
+	const_def
+	const WALKING ; 0
+	const BIKING  ; 1
+	const SURFING ; 2
+;;;;;;;;;;
