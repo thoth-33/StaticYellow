@@ -113,7 +113,7 @@ _SentToBoxText::
 	cont "BOX @"
 	text_ram wStringBuffer
 	text " on PC!"
-	done
+	prompt
 
 _BoxIsFullText::
 	text "There's no more"
@@ -126,13 +126,3 @@ _BoxIsFullText::
 	para "Change the BOX at"
 	line "a #MON CENTER!"
 	done
-
-_BoxIsFullReminderText::
-	text "The #MON BOX"
-	line "is now full."
-	cont "It won't hold"
-	cont "more #MON."
-
-	para "Change the BOX at"
-	line "a #MON CENTER!"
-	prompt

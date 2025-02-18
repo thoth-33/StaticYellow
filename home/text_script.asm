@@ -213,3 +213,7 @@ DisplayRepelWoreOffText::
 DisplayPikachuEmotion::
 	callfar TalkToPikachu
 	jp CloseTextDisplay
+
+DisplayTextPromptButton::
+	ld hl, TextScriptPromptButton
+	jp TextCommandProcessor
