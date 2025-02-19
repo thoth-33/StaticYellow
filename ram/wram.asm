@@ -391,7 +391,9 @@ wPlayerMonNumber:: db
 ; the address of the menu cursor's current location within wTileMap
 wMenuCursorLocation:: dw
 
-	ds 2
+wMaxDaycareLevel:: db	
+
+	ds 1
 
 ; how many times should HandleMenuInput poll the joypad state before it returns?
 wMenuJoypadPollCount:: db
@@ -972,7 +974,9 @@ wBadgeNameTile:: db
 ; badge is owned) to be drawn on the trainer screen
 ; the byte after the list gets read when shifting back one byte
 wBadgeOrFaceTiles:: ds NUM_BADGES + 1
-	ds 1
+
+wTempFlag:: db
+
 ; temporary list created when displaying the badges on the trainer screen
 ; one byte for each badge; 0 = not obtained, 1 = obtained
 wTempObtainedBadgesBooleans:: ds NUM_BADGES
@@ -2319,14 +2323,11 @@ wNumBagItems:: db
 ; item, quantity
 wBagItems:: ds BAG_ITEM_CAPACITY * 2 + 1
 
-wTempFlag:: db
 
 wDifficulty::
 	; $00 = normal
 	; $01 = hard
 		ds 1
-
-wMaxDaycareLevel:: db	
 
 wPlayerGender::
 	; $00 = boy
@@ -2334,9 +2335,7 @@ wPlayerGender::
 	; $02 = enby
 		ds 1
 
-wSafariType:: db
-
-	ds 20
+	ds 23
 ENDU
 
 wObtainedHiddenItemsFlags:: flag_array MAX_HIDDEN_ITEMS
@@ -2348,7 +2347,9 @@ wObtainedHiddenCoinsFlags:: flag_array MAX_HIDDEN_COINS
 ; $02 = surfing
 wWalkBikeSurfState:: db
 
-	ds 10
+wSafariType:: db
+
+	ds 9
 
 wTownVisitedFlag:: flag_array NUM_CITY_MAPS
 
