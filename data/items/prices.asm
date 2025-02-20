@@ -81,8 +81,8 @@ ItemPrices::
 	bcd3 9800  ; PP_UP
 	bcd3 2000  ; ETHER
 	bcd3 3500  ; MAX_ETHER
-	bcd3 3000  ; ELIXER
-	bcd3 4500  ; MAX_ELIXER
+	bcd3 4000  ; ELIXER
+	bcd3 5500  ; MAX_ELIXER
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F
