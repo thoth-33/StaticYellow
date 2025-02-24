@@ -117,6 +117,10 @@ _PartyMenuSwapMonText::
 	line "where?"
 	done
 
+_PartyMenuEmptyText::
+	text " "
+	done
+
 _PotionText::
 	text_ram wNameBuffer
 	text_start
