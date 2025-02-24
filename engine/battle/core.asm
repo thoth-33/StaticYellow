@@ -1452,6 +1452,10 @@ EnemySendOutFirstMon:
 	ld a, [wOptions]
 	bit BIT_BATTLE_SHIFT, a
 	jr nz, .next4
+;;;;;;;;;; PureRGBnote: ADDED: if you have no pokemon left (others are fainted), don't ask if the player wants to switch
+	callfar CheckCanForceSwitch
+	jr z, .next4
+;;;;;;;;;;
 	ld hl, TrainerAboutToUseText
 	rst _PrintText
 	hlcoord 0, 7
@@ -7112,6 +7116,35 @@ EmptyPartyMenuRedraw::
 	call RedrawPartyMenu 
 	xor a ; NORMAL_PARTY_MENU
 	ld [wPartyMenuTypeOrMessageID], a
+	ret
+
+CheckCanForceSwitch::
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPartyCount]
+	ld hl, wPartyMon1HP
+	ld bc, wPartyMon2 - wPartyMon1 - 1
+	jr z, CheckCanForceSwitchEnemy.playerTurn
+CheckCanForceSwitchEnemy::
+	ld a, [wEnemyPartyCount]
+	ld hl, wEnemyMon1HP
+	ld bc, wEnemyMon2 - wEnemyMon1 - 1
+.playerTurn
+	ld e, a
+	ld d, a
+.partyMonsLoop
+	xor a
+	or [hl]
+	inc hl
+	or [hl]
+	jr nz, .skipDec
+	dec d
+.skipDec
+	add hl, bc
+	dec e
+	jr nz, .partyMonsLoop
+	ld a, d
+	dec a ; don't count current pokemon
 	ret
 
 WannaSurrenderText:
