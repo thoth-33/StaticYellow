@@ -4,6 +4,7 @@ My love of hacks and hacking came from Playing Red++ and Blue Kaizo.
 Small binary edits to disassembly have come a long way and I am greatful I found those 2 hacks many moons ago!
 
 Features:  
+- Second Branch: Gen 1 Graphics/Sprites
 - Now you can Play Gen1 as either Red, Green, or Yellow.  
 - All 151 Pokémons can be caught or evolved without trading. MEW IS OBTAINABLE  
 - GEN 2 Sprites and Battle Graphics  
