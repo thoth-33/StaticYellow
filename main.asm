@@ -179,12 +179,6 @@ SECTION "Battle Core", ROMX
 INCLUDE "engine/battle/core.asm"
 INCLUDE "engine/battle/effects.asm"
 
-LoadBackSpriteUnzoomed:
-	ld a, $66
-	ld de, vBackPic
-	push de
-	jp LoadUncompressedBackSprite
-
 PrintEXPBarAt1711:
 	coord de, 17, 11
 PrintEXPBar:
@@ -713,11 +707,6 @@ MewtwoPicFront::      INCBIN "gfx/pokemon/front/mewtwo.pic"
 MewtwoPicBack::       INCBIN "gfx/pokemon/back/mewtwob.pic"
 MewPicFront::         INCBIN "gfx/pokemon/front/mew.pic"
 MewPicBack::          INCBIN "gfx/pokemon/back/mewb.pic"
-
-
-SECTION "bank42", ROMX, BANK[$42]
-
-INCLUDE "data/sgb/sgb_palettes.asm"
 
 
 SECTION "Engine Spillover", ROMX

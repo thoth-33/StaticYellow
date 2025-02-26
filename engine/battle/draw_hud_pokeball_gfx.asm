@@ -17,8 +17,7 @@ LoadPartyPokeballGfx:
 	jp CopyVideoData
 
 SetupOwnPartyPokeballs:
-	ld hl, PlayerHUDTilesBeforeStart
-	call PlaceHUDTilesBeforeStart
+	call PlacePlayerHUDTiles
 	ld hl, wPartyMon1
 	ld de, wPartyCount
 	call SetupPokeballs
@@ -123,7 +122,6 @@ WritePokeballOAMData:
 
 PlacePlayerHUDTiles:
 	ld hl, PlayerBattleHUDGraphicsTiles
-PlaceHUDTilesBeforeStart:
 	ld de, wHUDGraphicsTiles
 	ld bc, $3
 	rst _CopyData
@@ -147,34 +145,9 @@ PlaceEnemyHUDTiles:
 	ld hl, EnemyBattleHUDGraphicsTiles
 	ld de, wHUDGraphicsTiles
 	ld bc, $3
-	rst _CopyData
-
-	; place the 'already owned' pokeball tile
-	; if the player owns the wild pokemon
-	ld a, [wIsInBattle]
-	dec a
-	jr  nz, .notWildBattle
-	push hl
-	ld a, [wEnemyMonSpecies2]
-	ld [wPokedexNum], a
-	callfar IndexToPokedex
-	ld a, [wPokedexNum]
-	dec a
-	ld c, a
-	ld b, $2
-	ld hl, wPokedexOwned
-	predef FlagActionPredef
-	ld a, c
-	and a
-	jr z, .notOwned
-	hlcoord 1, 1
-	ld [hl], $E9
-.notOwned
-	pop hl
-.notWildBattle
+	call CopyData
 	hlcoord 1, 2
 	ld de, $1
-	ld a, $72
 	jr PlaceHUDTiles
 
 EnemyBattleHUDGraphicsTiles:
@@ -184,7 +157,7 @@ EnemyBattleHUDGraphicsTiles:
 	db $78 ; lower-right triangle tile of the HUD
 
 PlaceHUDTiles:
-	ld [hl], a
+	ld [hl], $73
 	ld bc, SCREEN_WIDTH
 	add hl, bc
 	ld a, [wHUDGraphicsTiles + 1] ; leftmost tile

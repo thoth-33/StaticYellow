@@ -49,7 +49,6 @@ ChoosePlayerName:
 	cp "@"
 	jr z, .customName
 	call ClearScreen
-	farcall SendPlayerPal
 	call Delay3
 	ld de, RedPicFront
 	ld b, BANK(RedPicFront)
@@ -58,13 +57,11 @@ ChoosePlayerName:
 	jr z, .ContinueWithRoutine
 	cp a, $02
 	jr z, .LoadYellowPicFront
-	farcall SendGreenPal
 	call Delay3
 	ld de, GreenPicFront
 	ld b, BANK(GreenPicFront)
 	jr .ContinueWithRoutine
 .LoadYellowPicFront
-	farcall SendYellowPal
 	call Delay3
 	ld de, YellowPicFront
 	ld b, BANK(YellowPicFront)
@@ -113,7 +110,6 @@ ChooseRivalName:
 	cp "@"
 	jr z, .customName
 	call ClearScreen
-	farcall SendRivalPal
 	call Delay3
 	ld de, Rival1Pic
 	ld b, BANK(Rival1Pic)

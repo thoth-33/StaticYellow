@@ -1959,6 +1959,7 @@ DrawPlayerHUDAndHPBar:
 	ld [hl], $73
 	ld de, wBattleMonNick
 	hlcoord 10, 7
+	call CenterMonName
 	call PlaceString
 	call PrintEXPBarAt1711
 	ld hl, wBattleMonSpecies
@@ -2016,11 +2017,28 @@ DrawEnemyHUDAndHPBar:
 	lb bc, 4, 12
 	call ClearScreenArea
 	callfar PlaceEnemyHUDTiles
+	push hl
+	ld a, [wEnemyMonSpecies2]
+	ld [wPokedexNum], a
+	callfar IndexToPokedex
+	ld a, [wPokedexNum]
+	dec a
+	ld c, a
+	ld b, FLAG_TEST
+	ld hl, wPokedexOwned
+	predef FlagActionPredef
+	ld a, c
+	and a
+	jr z, .notOwned
+	hlcoord 1, 1
+	ld [hl], $E9 ; replace this with your Poké Ball icon or other character
+.notOwned
+	pop hl
 	ld de, wEnemyMonNick
 	hlcoord 1, 0
 	call CenterMonName
 	call PlaceString
-	hlcoord 6, 1
+	hlcoord 4, 1
 	push hl
 	inc hl
 	ld de, wEnemyMonStatus
@@ -6658,7 +6676,7 @@ LoadPlayerBackPic:
 	ASSERT BANK(RedPicBack) == BANK(ProfOakPicBack)
 
 	call UncompressSpriteFromDE
-	call LoadBackSpriteUnzoomed
+	predef ScaleSpriteByTwo
 	ld hl, wShadowOAM
 	xor a
 	ldh [hOAMTile], a ; initial tile number
@@ -6692,6 +6710,8 @@ LoadPlayerBackPic:
 	ld e, a
 	dec b
 	jr nz, .loop
+	ld de, vBackPic
+	call InterlaceMergeSpriteBuffers
 	ld a, $0
 	call OpenSRAM
 	ld hl, vSprites

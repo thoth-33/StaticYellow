@@ -114,7 +114,6 @@ OakSpeech:
 	ld [wPlayerGender], a ; store player's gender. 00 for boy, 01 for girl
 	call ClearScreen ; clear the screen before resuming normal intro
 
-	farcall SendOakPal
 	ld de, ProfOakPic
 	lb bc, BANK(ProfOakPic), $00
 	call IntroDisplayPicCenteredOrUpperRight
@@ -123,7 +122,6 @@ OakSpeech:
 	rst _PrintText
 	call GBFadeOutToWhite
 	call ClearScreen
-	farcall SendPikaPal
 	ld a, STARTER_PIKACHU
 	ld [wCurSpecies], a
 	ld [wCurPartySpecies], a
@@ -135,7 +133,6 @@ OakSpeech:
 	rst _PrintText
 	call GBFadeOutToWhite
 	call ClearScreen
-	farcall SendPlayerPal
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $00
 
@@ -145,12 +142,10 @@ OakSpeech:
 	jr z, .ContinueWithOakIntro1
 	cp a, 2					; check gender: if a=2->gender=enby, jump to the yellow subroutine, otherwise continue below
 	jp z, .LoadYellowPicFront1
-	farcall SendGreenPal
 	ld de, GreenPicFront
 	lb bc, BANK(GreenPicFront), $00
 	jr .ContinueWithOakIntro1
 .LoadYellowPicFront1
-	farcall SendYellowPal
 	ld de, YellowPicFront
 	lb bc, BANK(YellowPicFront), $00
 .ContinueWithOakIntro1:	
@@ -161,7 +156,6 @@ OakSpeech:
 	rst _PrintText
 	call ChoosePlayerName
 	call GBFadeOutToWhite
-	farcall SendRivalPal
 	call ClearScreen
 	ld de, Rival1Pic
 	lb bc, BANK(Rival1Pic), $00
@@ -173,7 +167,6 @@ OakSpeech:
 .skipSpeech
 	call GBFadeOutToWhite
 	call ClearScreen
-	farcall SendPlayerPal
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $00
 ;	call IntroDisplayPicCenteredOrUpperRight
@@ -183,12 +176,10 @@ OakSpeech:
 	jr z, .ContinueWithOakIntro2		; previously "NotGreen2"
 	cp a, 2
 	jp z, .LoadYellowPicFront2
-	farcall SendGreenPal
   	ld de, GreenPicFront
   	lb bc, BANK(GreenPicFront), $00
 	jr .ContinueWithOakIntro2
 .LoadYellowPicFront2
-	farcall SendYellowPal
 	ld de, YellowPicFront
 	lb bc, BANK(YellowPicFront), $00
 .ContinueWithOakIntro2:					; previously "NotGreen2"

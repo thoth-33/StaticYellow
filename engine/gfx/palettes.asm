@@ -39,10 +39,10 @@ SetPal_Battle:
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes
 .asm_71ef9
-	call DeterminePaletteIDBack
+	call DeterminePaletteID
 	ld b, a
 	ld hl, wEnemyMonSpecies2
-	call DeterminePaletteIDFront
+	call DeterminePaletteID
 	ld c, a
 	ld hl, wPalPacket + 1
 	ld a, [wPlayerHPBarColor]
@@ -311,61 +311,23 @@ BadgeBlkDataLengths:
 	db 6     ; Volcano Badge
 	db 6     ; Earth Badge
 
-DeterminePaletteIDFront:
+DeterminePaletteID:
 	ld a, [hl]
 DeterminePaletteIDOutOfBattle:
 	ld [wPokedexNum], a
 	and a ; is the mon index 0?
-	ld a, [wTrainerClass]
-	ld hl, TrainerPalettes
-	jr z, GetPalID ; if so, this is a trainer
-GetMonPalID:
+	jr z, .skipDexNumConversion
 	push bc
 	predef IndexToPokedex
 	pop bc
 	ld a, [wPokedexNum]
-	ld hl, MonsterPalettes
-GetPalID:
+.skipDexNumConversion
 	ld e, a
 	ld d, 0
+	ld hl, MonsterPalettes ; not just for Pokemon, Trainers use it too
 	add hl, de
-	ld a, PAL_HERO
- 	cp [hl]
-	jr nz, .cont
- 	ld a, [wPlayerGender]
-  	and a
-  	jr z, .cont
-	cp a, 2
-	jr z, .Enby
-  	ld a, PAL_GREEN
-  	ret
-.Enby
-	ld a, PAL_MEWMON
-	ret
-.cont
 	ld a, [hl]
 	ret
-
-DeterminePaletteIDBack:
-	ld a, [hl]
-	ld [wPokedexNum], a
-	and a
-	jp nz, GetMonPalID
-	ld a, [wBattleType]
-	cp BATTLE_TYPE_PIKACHU
-	ld a, PAL_OAKB
-	ret z
-	ld b, PAL_HERO
- 	ld a, [wPlayerGender]
- 	and a
- 	jr z, .loadPal
-	ld b, PAL_GREEN 
- 	cp a, 1
- 	jr z, .loadPal
- 	ld b, PAL_YELLOWMON
-.loadPal
- 	ld a, b
- 	ret
 
 YellowIntroPaletteAction::
 	ld a, e
@@ -627,7 +589,7 @@ LoadSGB:
 	di
 	call PrepareSuperNintendoVRAMTransfer
 	ei
-	ld a, 2
+	ld a, 1
 	ld [wCopyingSGBTileData], a
 	ld de, ChrTrnPacket
 	ld hl, SGBBorderGraphics
@@ -637,7 +599,7 @@ LoadSGB:
 	ld de, PctTrnPacket
 	ld hl, BorderPalettes
 	call CopyGfxToSuperNintendoVRAM
-	ld a, 1
+	xor a
 	ld [wCopyingSGBTileData], a
 	ld de, PalTrnPacket
 	ld hl, SuperPalettes
@@ -740,14 +702,7 @@ CopyGfxToSuperNintendoVRAM:
 	ld a, [wCopyingSGBTileData]
 	and a
 	jr z, .notCopyingTileData
-	dec a
-	jr z, .copyPalTable
 	call CopySGBBorderTiles
-	jr .next
-.copyPalTable
-	ld a,BANK(SuperPalettes)
-	ld bc,$1000
-	call FarCopyData
 	jr .next
 .notCopyingTileData
 	ld bc, $1000
@@ -903,12 +858,9 @@ DMGPalToGBCPal::
 		ld b, a
 		and %11
 		call .GetColorAddress
-		ld a, BANK(SuperPalettes)
-		call GetFarByte
-		inc hl
+		ld a, [hli]
 		ld [wGBCPal + color_index * 2], a
-		ld a, BANK(SuperPalettes)
-		call GetFarByte
+		ld a, [hl]
 		ld [wGBCPal + color_index * 2 + 1], a
 
 		IF color_index < NUM_PAL_COLORS - 1
@@ -1193,35 +1145,14 @@ INCLUDE "data/sgb/sgb_packets.asm"
 
 INCLUDE "data/pokemon/palettes.asm"
 
+INCLUDE "data/sgb/sgb_palettes.asm"
+
 INCLUDE "data/sgb/sgb_border.asm"
 
 SendPokeballPal:
 	ld a, PAL_REDBAR
 	jr SendCustomPacket
 
-SendOakPal:
-	ld a, PAL_OAK
-	jr SendCustomPacket
-
-SendPikaPal:
-	ld a, PAL_PIKACHU
-	jr SendCustomPacket
-
-SendPlayerPal:
-	ld a, PAL_HERO
-	jr SendCustomPacket
-
-SendRivalPal:
-	ld a, PAL_GARY1
-	jr SendCustomPacket
-
-SendGreenPal:
-	ld a, PAL_GREEN
-	jr SendCustomPacket
-
-SendYellowPal:
-	ld a, PAL_YELLOWMON
-	jr SendCustomPacket
 
 SendCustomPacket:
 	ld [wWholeScreenPaletteMonSpecies], a

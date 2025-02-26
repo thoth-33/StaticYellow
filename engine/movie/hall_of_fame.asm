@@ -240,13 +240,12 @@ HoFLoadPlayerPics:
 	ld de, RedPicBack
 	ld a, BANK(RedPicBack)
 .Routine2 ; original routine
-	call UncompressSpriteFromDE
-	xor a
-	ld [wTrainerClass], a
-	ld a, $66
+	call UncompressSpriteFromDE ; end of new gender stuff
+
+	predef ScaleSpriteByTwo
 	ld de, vBackPic
-	push de
-	jp LoadUncompressedBackSprite
+	call InterlaceMergeSpriteBuffers
+	ld c, $1
 
 HoFLoadMonPlayerPicTileIDs:
 ; c = base tile ID

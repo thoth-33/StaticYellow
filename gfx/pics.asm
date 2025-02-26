@@ -302,6 +302,9 @@ ChannelerPic::     INCBIN "gfx/trainers/channeler.pic"
 AgathaPic::        INCBIN "gfx/trainers/agatha.pic"
 LancePic::         INCBIN "gfx/trainers/lance.pic"
 JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
+
+SECTION "Pics 8", ROMX
+
 JaninePic::        INCBIN "gfx/trainers/janine.pic"
 JoyPic::           INCBIN "gfx/trainers/joy.pic"
 JennyPic::         INCBIN "gfx/trainers/jenny.pic"
