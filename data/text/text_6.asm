@@ -1,7 +1,7 @@
 TeachingHMsText::
 	text "Once a #MON"
 	line "learns an HM, the"
-	cont "technique can't"
+	cont "technique can"
 	cont "be replaced."
 
 	para "Better think care-"
