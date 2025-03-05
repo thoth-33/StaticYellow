@@ -1459,7 +1459,7 @@ SurfingMinigame_DrawResultsScreen:
 	ld hl, .BeachTilemap
 	decoord 0, 6
 	ld bc, .BeachTilemapEnd - .BeachTilemap
-	call CopyData
+	rst _CopyData
 	call .PlaceTextbox
 	ld hl, wShadowOAMSprite05XCoord
 	ld bc, 9 * 4
@@ -1527,7 +1527,7 @@ SurfingMinigame_PrintTextHiScore:
 	ld hl, .Hi_Score
 	decoord 6, 8
 	ld bc, $9
-	call CopyData
+	rst _CopyData
 	ret
 
 .Hi_Score:
@@ -1537,7 +1537,7 @@ SurfingMinigame_WriteHPLeft:
 	ld hl, .HP_Left
 	decoord 2, 2
 	ld bc, $7
-	call CopyData
+	rst _CopyData
 	call SurfingMinigame_BCDPrintHPLeft
 	ret
 
@@ -1590,7 +1590,7 @@ SurfingMinigame_WriteRadness:
 	ld hl, .Radness
 	decoord 2, 4
 	ld bc, $7
-	call CopyData
+	rst _CopyData
 	call SurfingMinigame_BCDPrintRadness
 	ret
 
@@ -1682,7 +1682,7 @@ SurfingMinigame_WriteTotal:
 	ld hl, .Total
 	decoord 2, 6
 	ld bc, $5
-	call CopyData
+	rst _CopyData
 	call SurfingMinigame_BCDPrintRadness
 	call SurfingMinigame_BCDPrintTotalScore
 	ret
@@ -2402,7 +2402,7 @@ DrawSurfingPikachuMinigameIntroBackground:
 	ld hl, Tilemap_f90bc
 	decoord 0, 6
 	ld bc, 12 * SCREEN_WIDTH
-	call CopyData
+	rst _CopyData
 	ld de, Tilemap_f91c8
 	hlcoord 4, 0
 	lb bc, 6, 12
@@ -2413,11 +2413,11 @@ DrawSurfingPikachuMinigameIntroBackground:
 	ld hl, Tilemap_f91ac
 	decoord 3, 7
 	ld bc, 15
-	call CopyData
+	rst _CopyData
 	ld hl, Tilemap_f91bb
 	decoord 4, 9
 	ld bc, 13
-	call CopyData
+	rst _CopyData
 	ret
 
 .CopyBox:
