@@ -1424,7 +1424,7 @@ Func_ff12c:
 	jr Func_ff1b3
 Func_ff1ad:
 	ld hl, Text_ff1b4
-	call PrintText
+	rst _PrintText
 Func_ff1b3:
 	ret
 
@@ -1438,13 +1438,13 @@ Func_ff1b9:
 	ld a, 2
 	ld [wCurEnemyLevel], a
 	ld hl, Text_ff290
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
 	jp nz, Func_ff286
 	ld hl, Text_ff28f
-	call PrintText
+	rst _PrintText
 	callfar EmptyAllSRAMBoxes
 	ld hl, wBoxCount
 	xor a

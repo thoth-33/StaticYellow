@@ -1,6 +1,6 @@
 SSAnne2FRoomsPrintGentleman5Text::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -9,7 +9,7 @@ SSAnne2FRoomsPrintGentleman5Text::
 
 SSAnne2FRoomsPrintLittleBoyText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -18,7 +18,7 @@ SSAnne2FRoomsPrintLittleBoyText::
 
 SSAnne2FRoomsPrintBrunetteGirlText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -27,7 +27,7 @@ SSAnne2FRoomsPrintBrunetteGirlText::
 
 SSAnne2FRoomsPrintBeautyText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text

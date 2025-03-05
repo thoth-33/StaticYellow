@@ -178,7 +178,7 @@ Func_f531b::
 
 Func_f5476::
 	ld hl, ColosseumIneligibleText
-	call PrintText
+	rst _PrintText
 asm_f547c::
 	jp Func_f531b
 
@@ -409,73 +409,73 @@ PetitCup::
 
 NotThreeMonsInParty::
 	ld hl, Colosseum3MonsText
-	call PrintText
+	rst _PrintText
 	ld a, $1
 	ret
 
 MewInParty::
 	ld hl, ColosseumMewText
-	call PrintText
+	rst _PrintText
 	ld a, $2
 	ret
 
 DuplicateSpecies::
 	ld hl, ColosseumDifferentMonsText
-	call PrintText
+	rst _PrintText
 	ld a, $3
 	ret
 
 LevelAbove55::
 	ld hl, ColosseumMaxL55Text
-	call PrintText
+	rst _PrintText
 	ld a, $4
 	ret
 
 LevelUnder50::
 	ld hl, ColosseumMinL50Text
-	call PrintText
+	rst _PrintText
 	ld a, $5
 	ret
 
 CombinedLevelsGreaterThan155::
 	ld hl, ColosseumTotalL155Text
-	call PrintText
+	rst _PrintText
 	ld a, $6
 	ret
 
 LevelAbove30::
 	ld hl, ColosseumMaxL30Text
-	call PrintText
+	rst _PrintText
 	ld a, $7
 	ret
 
 LevelUnder25::
 	ld hl, ColosseumMinL25Text
-	call PrintText
+	rst _PrintText
 	ld a, $8
 	ret
 
 CombinedLevelsAbove80::
 	ld hl, ColosseumTotalL80Text
-	call PrintText
+	rst _PrintText
 	ld a, $9
 	ret
 
 LevelAbove20::
 	ld hl, ColosseumMaxL20Text
-	call PrintText
+	rst _PrintText
 	ld a, $a
 	ret
 
 LevelUnder15::
 	ld hl, ColosseumMinL15Text
-	call PrintText
+	rst _PrintText
 	ld a, $b
 	ret
 
 CombinedLevelsAbove50::
 	ld hl, ColosseumTotalL50Text
-	call PrintText
+	rst _PrintText
 	ld a, $c
 	ret
 
@@ -486,7 +486,7 @@ asm_f5689::
 	ld [wNamedObjectIndex], a
 	call GetMonName
 	ld hl, ColosseumHeightText
-	call PrintText
+	rst _PrintText
 	ld a, $d
 	ret
 
@@ -497,7 +497,7 @@ asm_f569b::
 	ld [wNamedObjectIndex], a
 	call GetMonName
 	ld hl, ColosseumWeightText
-	call PrintText
+	rst _PrintText
 	ld a, $e
 	ret
 
@@ -506,7 +506,7 @@ asm_f56ad::
 	ld [wNamedObjectIndex], a
 	call GetMonName
 	ld hl, ColosseumEvolvedText
-	call PrintText
+	rst _PrintText
 	ld a, $f
 	ret
 
@@ -638,10 +638,10 @@ LinkMenu:
 	ld hl, wStatusFlags4
 	set BIT_LINK_CONNECTED, [hl]
 	ld hl, TextTerminator_f5a16
-	call PrintText
+	rst _PrintText
 	call SaveScreenTilesToBuffer1
 	ld hl, ColosseumWhereToText
-	call PrintText
+	rst _PrintText
 	hlcoord 5, 3
 	lb bc, 8, 13
 	call TextBoxBorder
@@ -777,7 +777,7 @@ LinkMenu:
 .next
 	ld [wCableClubDestinationMap], a
 	ld hl, ColosseumPleaseWaitText
-	call PrintText
+	rst _PrintText
 	ld c, 50
 	rst _DelayFrames
 	ld hl, wStatusFlags6
@@ -801,7 +801,7 @@ LinkMenu:
 	callfar CloseLinkConnection
 	ld hl, ColosseumCanceledText
 	vc_hook Wireless_net_stop
-	call PrintText
+	rst _PrintText
 	ld hl, wStatusFlags4
 	res BIT_LINK_CONNECTED, [hl]
 	vc_hook Wireless_net_end
@@ -865,7 +865,7 @@ LinkMenu:
 
 .asm_f59cd
 	ld hl, ColosseumVersionText
-	call PrintText
+	rst _PrintText
 	jp .choseCancel
 
 .asm_f59d6

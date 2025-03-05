@@ -118,7 +118,7 @@ _InitBattleCommon:
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	ld hl, .emptyString
-	call PrintText
+	rst _PrintText
 	call SaveScreenTilesToBuffer1
 	call ClearScreen
 	ld a, $98

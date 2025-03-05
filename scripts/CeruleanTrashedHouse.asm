@@ -15,7 +15,7 @@ CeruleanTrashedHouseFishingGuruText:
 	and b
 	jr z, .no_dig_tm
 	ld hl, .WhatsLostIsLostText
-	call PrintText
+	rst _PrintText
 	jr .done
 .no_dig_tm
 	ld hl, .TheyStoleATMText

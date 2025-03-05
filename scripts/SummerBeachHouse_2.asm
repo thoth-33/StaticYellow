@@ -19,7 +19,7 @@ Func_f23d0:
 	jr nz, .asm_f2406
 	ld hl, Text_f240c
 .asm_f2406
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 Text_f240c:

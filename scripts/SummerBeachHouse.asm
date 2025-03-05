@@ -23,7 +23,7 @@ ENDC
 	vc_patch_end
 	jr nz, .next
 	ld hl, .SurfinDudeText4
-	call PrintText
+	rst _PrintText
 	jr .done
 .next
 	ld hl, wd492
@@ -35,7 +35,7 @@ ENDC
 .next2
 	ld hl, .SurfinDudeText3
 .next3
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -48,7 +48,7 @@ ENDC
 	jr .done
 .asm_f226b
 	ld hl, .SurfinDudeText2
-	call PrintText
+	rst _PrintText
 .done
 	rst TextScriptEnd
 
@@ -68,7 +68,7 @@ ENDC
 SummerBeachHousePikachuText:
 	text_asm
 	ld hl, .SummerBeachHousePikachuText
-	call PrintText
+	rst _PrintText
 	ld a, PIKACHU
 	call PlayCry
 	call WaitForSoundToFinish
@@ -86,7 +86,7 @@ SummerBeachHousePoster1Text:
 	jr z, .next
 	ld hl, .SummerBeachHousePoster1Text1
 .next
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .SummerBeachHousePoster1Text1
@@ -104,7 +104,7 @@ SummerBeachHousePoster2Text:
 	jr z, .next
 	ld hl, .SummerBeachHousePoster2Text1
 .next
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .SummerBeachHousePoster2Text1
@@ -122,7 +122,7 @@ SummerBeachHousePoster3Text:
 	jr z, .next
 	ld hl, .SummerBeachHousePoster3Text1
 .next
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .SummerBeachHousePoster3Text1
@@ -153,7 +153,7 @@ ENDC
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 .next2
 	ld hl, .SummerBeachHousePrinterText2
-	call PrintText
+	rst _PrintText
 	ld a, [wd492]
 	bit 1, a
 	jr z, .asm_f236f
@@ -161,7 +161,7 @@ ENDC
 	ld a, 1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, .SummerBeachHousePrinterText3
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -186,7 +186,7 @@ ENDC
 	jr .asm_f236f
 .asm_f2369
 	ld hl, .SummerBeachHousePrinterText1
-	call PrintText
+	rst _PrintText
 .asm_f236f
 	rst TextScriptEnd
 

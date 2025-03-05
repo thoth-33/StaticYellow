@@ -93,7 +93,7 @@ Route18Gate1FGuardText:
 	call Route16Gate1FIsBicycleInBagScript
 	jr z, .no_bike
 	ld hl, .CyclingRoadUphillText
-	call PrintText
+	rst _PrintText
 	jr .text_script_end
 .no_bike
 	ld hl, .YouNeedABicycleText

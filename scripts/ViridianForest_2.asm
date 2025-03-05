@@ -36,7 +36,7 @@ ViridianForestPrintTrainerTips3Text::
 
 ViridianForestPrintTrainerTips4Text::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -45,7 +45,7 @@ ViridianForestPrintTrainerTips4Text::
 
 ViridianForestPrintLeavingSignText:
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
