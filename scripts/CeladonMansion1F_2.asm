@@ -2,15 +2,15 @@ CeladonMansion1FPrintGrannyText::
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, CeladonMansion1Text_f1e96
-	call PrintText
+	rst _PrintText
 	callfar IsStarterPikachuInOurParty
 	ret nc
 	ld hl, CeladonMansionText_f1e9c
-	call PrintText
+	rst _PrintText
 	ld a, $0
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	call Func_f1ea2
-	call PrintText
+	rst _PrintText
 	ret
 
 CeladonMansion1Text_f1e96:

@@ -829,7 +829,7 @@ OaksLabOak1Text:
 	jp .done
 .completed
 	ld hl, CompletedDexText
-	call PrintText
+	rst _PrintText
 	call GBFadeOutToBlack
 	ld a, HS_OAKS_LAB_OAK_1
 	ld [wMissableObjectIndex], a

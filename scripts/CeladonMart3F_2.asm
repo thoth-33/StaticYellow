@@ -2,7 +2,7 @@ CeladonMart3FPrintClerkText::
 	CheckEvent EVENT_GOT_TM18
 	jr nz, .got_item
 	ld hl, .TM18PreReceiveText
-	call PrintText
+	rst _PrintText
 	lb bc, TM_COUNTER, 1
 	call GiveItem
 	jr nc, .bag_full
@@ -15,7 +15,7 @@ CeladonMart3FPrintClerkText::
 .got_item
 	ld hl, .TM18ExplanationText
 .done
-	call PrintText
+	rst _PrintText
 	ret
 
 .TM18PreReceiveText:

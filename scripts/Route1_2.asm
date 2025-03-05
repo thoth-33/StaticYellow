@@ -2,7 +2,7 @@ Route1PrintYoungster1Text::
 	CheckAndSetEvent EVENT_GOT_POTION_SAMPLE
 	jr nz, .got_item
 	ld hl, .MartSampleText
-	call PrintText
+	rst _PrintText
 	lb bc, POTION, 1
 	call GiveItem
 	jr nc, .bag_full
@@ -14,7 +14,7 @@ Route1PrintYoungster1Text::
 .got_item
 	ld hl, .AlsoGotPokeballsText
 .done
-	call PrintText
+	rst _PrintText
 	ret
 
 .MartSampleText:
@@ -36,7 +36,7 @@ Route1PrintYoungster1Text::
 
 Route1PrintYoungster2Text::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -45,7 +45,7 @@ Route1PrintYoungster2Text::
 
 Route1PrintSignText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text

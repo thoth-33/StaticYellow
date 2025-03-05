@@ -4,7 +4,7 @@ FarPrintText::
 	push af
 	ld a, b
 	call BankswitchCommon
-	call PrintText
+	rst _PrintText
 	pop af
 	call BankswitchCommon
 	ret

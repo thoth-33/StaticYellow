@@ -1,6 +1,6 @@
 PokecenterChanseyText::
 	ld hl, NurseChanseyText
-	call PrintText
+	rst _PrintText
 	ld a, CHANSEY
 	call PlayCry
 	call WaitForSoundToFinish

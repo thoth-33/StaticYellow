@@ -289,7 +289,7 @@ HandlePartyMenuInput::
 .asm_128f
 	pop af
 	ld hl, PartyMenuText_12cc
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wMenuItemToSwap], a
 	pop af

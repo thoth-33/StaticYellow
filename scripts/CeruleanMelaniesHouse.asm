@@ -16,12 +16,12 @@ CeruleanMelanieHouseMelanieText:
 	CheckEvent EVENT_GOT_BULBASAUR_IN_CERULEAN
 	jr nz, .asm_1cfbf
 	ld hl, CeruleanHouse1Text_1cfc8
-	call PrintText
+	rst _PrintText
 	ld a, [wPikachuHappiness]
 	cp 147
 	jr c, .asm_1cfb3
 	ld hl, CeruleanHouse1Text_1cfce
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -43,7 +43,7 @@ CeruleanMelanieHouseMelanieText:
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, CeruleanHouse1Text_1cfd3
-	call PrintText
+	rst _PrintText
 	ld a, HS_CERULEAN_BULBASAUR
 	ld [wMissableObjectIndex], a
 	predef HideObject
@@ -53,12 +53,12 @@ CeruleanMelanieHouseMelanieText:
 
 .asm_1cfb6
 	ld hl, CeruleanHouse1Text_1cfdf
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 .asm_1cfbf
 	ld hl, CeruleanHouse1Text_1cfd9
-	call PrintText
+	rst _PrintText
 	rst TextScriptEnd
 
 CeruleanHouse1Text_1cfc8:

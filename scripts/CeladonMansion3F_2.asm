@@ -1,6 +1,6 @@
 CeladonMansion3FPrintGameProgramPCText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -9,7 +9,7 @@ CeladonMansion3FPrintGameProgramPCText::
 
 CeladonMansion3FPrintPlayingGamePCText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -18,7 +18,7 @@ CeladonMansion3FPrintPlayingGamePCText::
 
 CeladonMansion3FPrintGameScriptPCText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text
@@ -27,7 +27,7 @@ CeladonMansion3FPrintGameScriptPCText::
 
 CeladonMansion3FPrintDevRoomSignText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text

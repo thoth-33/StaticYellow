@@ -67,7 +67,7 @@ Route1SignText:
 Route1OakText:
 	text_asm
 	ld hl, OakBeforeBattleText
-	call PrintText
+	rst _PrintText
 
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]

@@ -75,7 +75,7 @@ StarterPikachuEmotionCommand_text:
 	ld h, a
 	inc de
 	push de
-	call PrintText
+	rst _PrintText
 	pop de
 	ret
 
@@ -181,7 +181,7 @@ IF DEF(_DEBUG)
 	call Pikachu_LoadCurrentMapViewUpdateSpritesAndDelay3
 	call LoadFontTilePatterns
 	ld hl, ExpressionText
-	call PrintText
+	rst _PrintText
 	call Pikachu_LoadCurrentMapViewUpdateSpritesAndDelay3
 	pop de
 	ret

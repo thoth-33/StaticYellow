@@ -1,19 +1,19 @@
 BillsHousePrintBillPokemonText::
 	ld hl, .ImNotAPokemonText
-	call PrintText
+	rst _PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .answered_no
 .use_machine
 	ld hl, .UseSeparationSystemText
-	call PrintText
+	rst _PrintText
 	ld a, SCRIPT_BILLSHOUSE_SCRIPT2
 	ld [wBillsHouseCurScript], a
 	ret
 .answered_no
 	ld hl, .NoYouGottaHelpText
-	call PrintText
+	rst _PrintText
 	jr .use_machine
 
 .ImNotAPokemonText:
@@ -32,12 +32,12 @@ BillsHousePrintBillSSTicketText::
 	CheckEvent EVENT_GOT_SS_TICKET
 	jr nz, .got_ss_ticket
 	ld hl, .ThankYouText
-	call PrintText
+	rst _PrintText
 	lb bc, S_S_TICKET, 1
 	call GiveItem
 	jr nc, .bag_full
 	ld hl, .SSTicketReceivedText
-	call PrintText
+	rst _PrintText
 	SetEvent EVENT_GOT_SS_TICKET
 	ld a, HS_CERULEAN_GUARD_1
 	ld [wMissableObjectIndex], a
@@ -47,11 +47,11 @@ BillsHousePrintBillSSTicketText::
 	predef HideObject
 .got_ss_ticket
 	ld hl, .WhyDontYouGoInsteadOfMeText
-	call PrintText
+	rst _PrintText
 	ret
 .bag_full
 	ld hl, .SSTicketNoRoomText
-	call PrintText
+	rst _PrintText
 	ret
 
 .ThankYouText:
@@ -74,7 +74,7 @@ BillsHousePrintBillSSTicketText::
 
 BillsHousePrintBillCheckOutMyRarePokemonText::
 	ld hl, .text
-	call PrintText
+	rst _PrintText
 	ret
 
 .text

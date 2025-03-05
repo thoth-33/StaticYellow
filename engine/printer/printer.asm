@@ -312,7 +312,7 @@ PrintPCBox::
 
 Func_e8df4:
 	ld hl, String_e8e1f
-	call PrintText
+	rst _PrintText
 	ret
 
 Func_e8dfb:

@@ -67,7 +67,7 @@ VermilionCityPrintOfficerJennyText::
 	jr .done
 .refused
 	ld hl, JennyRefusedText
-	call PrintText
+	rst _PrintText
 	jr .done
 .squirtleText
 	ld hl, OfficerJennyText5

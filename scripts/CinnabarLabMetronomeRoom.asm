@@ -24,7 +24,7 @@ CinnabarLabMetronomeRoomScientist1Text:
 	jr .done
 .bag_full
 	ld hl, .TM35NoRoomText
-	call PrintText
+	rst _PrintText
 	jr .done
 .got_item
 	ld hl, .TM35ExplanationText

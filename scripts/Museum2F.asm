@@ -34,7 +34,7 @@ Museum2FHikerText:
 	bit 7, a
 	jr nz, .asm_5c1f6
 	ld hl, Museum2FText_5c20e
-	call PrintText
+	rst _PrintText
 	jr .asm_5c20b
 
 .asm_5c1f6
@@ -42,12 +42,12 @@ Museum2FHikerText:
 	cp 101
 	jr c, .asm_5c205
 	ld hl, Museum2FText_5c218
-	call PrintText
+	rst _PrintText
 	jr .asm_5c20b
 
 .asm_5c205
 	ld hl, Museum2FText_5c213
-	call PrintText
+	rst _PrintText
 .asm_5c20b
 	rst TextScriptEnd
 
