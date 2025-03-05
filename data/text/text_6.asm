@@ -4,9 +4,8 @@ TeachingHMsText::
 	cont "technique can"
 	cont "be replaced."
 
-	para "Better think care-"
-	line "fully before you"
-	cont "teach HM moves."
+	para "HM moves are"
+	line "great!"
 	done
 
 _ExpAllActivatedText:: 
