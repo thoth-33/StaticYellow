@@ -474,7 +474,7 @@ Printer_CopyTileMapFromPrinterTileBuffer:
 	hlcoord 0, 0, wPrinterTileBuffer
 	decoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
-	call CopyData
+	rst _CopyData
 	ret
 
 Printer_ResetJoypadHRAM:
