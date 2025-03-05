@@ -28,6 +28,7 @@ SnorlaxSprite::          INCBIN "gfx/sprites/snorlax.2bpp"
 OldAmberSprite::         INCBIN "gfx/sprites/old_amber.2bpp"
 GamblerAsleepSprite::    INCBIN "gfx/sprites/gambler_asleep.2bpp"
 QuestionMarkSprite::     INCBIN "gfx/sprites/question_mark.2bpp"
+MomSprite::              INCBIN "gfx/sprites/mom.2bpp"
 
 
 SECTION "NPC Sprites 2", ROMX
@@ -88,7 +89,6 @@ ChanseySprite::          INCBIN "gfx/sprites/chansey.2bpp"
 SurfingPikachuSprite::   INCBIN "gfx/sprites/surfing_pikachu.2bpp"
 JessieSprite::           INCBIN "gfx/sprites/jessie.2bpp"
 JamesSprite::            INCBIN "gfx/sprites/james.2bpp"
-MomSprite::              INCBIN "gfx/sprites/mom.2bpp"
 
 
 SECTION "NPC Sprites 4", ROMX
