@@ -4,10 +4,6 @@ ScientistSprite::        INCBIN "gfx/sprites/scientist.2bpp"
 RockerSprite::           INCBIN "gfx/sprites/rocker.2bpp"
 SwimmerSprite::          INCBIN "gfx/sprites/swimmer.2bpp"
 SafariZoneWorkerSprite:: INCBIN "gfx/sprites/safari_zone_worker.2bpp"
-GymGuideSprite::         INCBIN "gfx/sprites/gym_guide.2bpp"
-GrampsSprite::           INCBIN "gfx/sprites/gramps.2bpp"
-ClerkSprite::            INCBIN "gfx/sprites/clerk.2bpp"
-FishingGuruSprite::      INCBIN "gfx/sprites/fishing_guru.2bpp"
 GrannySprite::           INCBIN "gfx/sprites/granny.2bpp"
 NurseSprite::            INCBIN "gfx/sprites/nurse.2bpp"
 LinkReceptionistSprite:: INCBIN "gfx/sprites/link_receptionist.2bpp"
@@ -156,6 +152,10 @@ FairySprite::            INCBIN "gfx/sprites/fairy.2bpp" ; Moved from NPC Sprite
 AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
 BrunoSprite::            INCBIN "gfx/sprites/bruno.2bpp"
 FlyingPikachuSprite::   INCBIN "gfx/sprites/flyingpikachu.2bpp" ; Flying Pikachu Sprite
+GymGuideSprite::         INCBIN "gfx/sprites/gym_guide.2bpp" ; Moved from NPC Sprites 1
+GrampsSprite::           INCBIN "gfx/sprites/gramps.2bpp" ; Moved from NPC Sprites 1
+ClerkSprite::            INCBIN "gfx/sprites/clerk.2bpp" ; Moved from NPC Sprites 1
+FishingGuruSprite::      INCBIN "gfx/sprites/fishing_guru.2bpp" ; Moved from NPC Sprites 1
 
 
 SECTION "Mon Icons 1", ROMX
