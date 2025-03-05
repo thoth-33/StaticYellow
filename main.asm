@@ -471,9 +471,9 @@ INCLUDE "engine/events/hidden_objects/blues_room.asm"
 INCLUDE "engine/events/hidden_objects/pokecenter_pc.asm"
 
 
-SECTION "Version Graphics", ROMX
+;SECTION "Version Graphics", ROMX
 
-INCLUDE "gfx/version.asm"
+;INCLUDE "gfx/version.asm"
 
 
 SECTION "bank1C", ROMX
