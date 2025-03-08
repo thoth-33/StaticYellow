@@ -1,4 +1,6 @@
 PlayerPC::
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld a, ITEM_NAME
 	ld [wNameListType], a
 	call SaveScreenTilesToBuffer1
@@ -46,6 +48,8 @@ PlayerPCMenu:
 	ld [hli], a ; wListScrollOffset
 	ld [hl], a ; wMenuWatchMovingOutOfBounds
 	ld [wPlayerMonNumber], a
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, WhatDoYouWantText
 	rst _PrintText
 	call HandleMenuInput
@@ -89,10 +93,14 @@ PlayerPCDeposit:
 	ld a, [wNumBagItems]
 	and a
 	jr nz, .loop
+	ld hl, wStatusFlags5
+	res BIT_NO_TEXT_DELAY, [hl]
 	ld hl, NothingToDepositText
 	rst _PrintText
 	jp PlayerPCMenu
 .loop
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, WhatToDepositText
 	rst _PrintText
 	ld hl, wNumBagItems
@@ -150,10 +158,14 @@ PlayerPCWithdraw:
 	ld a, [wNumBoxItems]
 	and a
 	jr nz, .loop
+	ld hl, wStatusFlags5
+	res BIT_NO_TEXT_DELAY, [hl]
 	ld hl, NothingStoredText
 	rst _PrintText
 	jp PlayerPCMenu
 .loop
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, WhatToWithdrawText
 	rst _PrintText
 	ld hl, wNumBoxItems
@@ -204,10 +216,14 @@ PlayerPCToss:
 	ld a, [wNumBoxItems]
 	and a
 	jr nz, .loop
+	ld hl, wStatusFlags5
+	res BIT_NO_TEXT_DELAY, [hl]
 	ld hl, NothingStoredText
 	rst _PrintText
 	jp PlayerPCMenu
 .loop
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, WhatToTossText
 	rst _PrintText
 	ld hl, wNumBoxItems
