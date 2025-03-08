@@ -210,6 +210,8 @@ BillsPCDeposit:
 	ld a, [wBoxCount]
 	cp MONS_PER_BOX
 	jr nz, .boxNotFull
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, BoxFullText
 	rst _PrintText
 	jp BillsPCMenu
@@ -287,6 +289,8 @@ BillsPCWithdraw:
 	ld a, [wBoxCount]
 	and a
 	jr nz, .boxNotEmpty
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, NoMonText
 	rst _PrintText
 	jp BillsPCMenu
@@ -363,16 +367,24 @@ BillsPCRelease:
 	ld a, [wBoxCount]
 	and a
 	jr nz, .loop
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, NoMonText
 	rst _PrintText
 	jp BillsPCMenu
 .loop
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
+	ld hl, ReleaseWhichMonText
+	rst _PrintText
 	ld hl, wBoxCount
 	call DisplayMonListMenu
 	jp c, BillsPCMenu
 	call BillsPCBackupListIndex
 	callfar IsThisPartymonStarterPikachu_Box
 	jr c, .asm_216cb
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, OnceReleasedText
 	rst _PrintText
 	call YesNoChoice
