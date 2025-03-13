@@ -162,7 +162,7 @@ CeladonGymErikaText:
 	call Delay3
 	ld a, OPP_ERIKA
 	ld [wCurOpponent], a
-	ld a, 2
+	ld a, 4
 	ld [wTrainerNo], a
 	ld a, $4 ; new script
 	ld [wCeladonGymCurScript], a
