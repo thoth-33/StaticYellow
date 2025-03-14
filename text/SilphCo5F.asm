@@ -108,3 +108,4 @@ _SilphCo5FPokemonReport3Text::
 
 	para "but it's not"
 	line "true."
+	done
