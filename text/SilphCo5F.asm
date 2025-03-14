@@ -101,7 +101,10 @@ _SilphCo5FPokemonReport3Text::
 	text "It's a #MON"
 	line "REPORT!"
 
-	para "4 #MON evolve"
-	line "only when traded"
-	cont "by link-cable."
-	done
+	para "They say some"
+	line "#MON evolve"
+	cont "only when traded"
+	cont "by link-cable,"
+
+	para "but it's not"
+	line "true."
