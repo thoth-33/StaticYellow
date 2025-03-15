@@ -471,9 +471,14 @@ INCLUDE "engine/events/hidden_objects/blues_room.asm"
 INCLUDE "engine/events/hidden_objects/pokecenter_pc.asm"
 
 
-;SECTION "Version Graphics", ROMX
+;SECTION "Version Graphics", ROMX ;;; Removed
 
-;INCLUDE "gfx/version.asm"
+;INCLUDE "gfx/version.asm" ;;; Removed
+
+
+SECTION "Slot Graphics", ROMX
+
+INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; moved from bank 1E
 
 
 SECTION "bank1C", ROMX
