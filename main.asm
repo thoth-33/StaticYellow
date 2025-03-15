@@ -476,11 +476,6 @@ INCLUDE "engine/events/hidden_objects/pokecenter_pc.asm"
 ;INCLUDE "gfx/version.asm" ;;; Removed
 
 
-SECTION "Slot Graphics", ROMX
-
-INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; moved from bank 1E
-
-
 SECTION "bank1C", ROMX
 
 INCLUDE "engine/movie/splash.asm"
@@ -731,6 +726,7 @@ INCLUDE "engine/overworld/use_another_repel.asm"
 INCLUDE "engine/menus/item_descriptions.asm"
 INCLUDE "engine/overworld/field_moves.asm"
 INCLUDE "engine/menus/change_box_menu.asm"
+INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; moved from bank 1E
 INCLUDE "engine/overworld/select_button_functionality.asm"
 
 

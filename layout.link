@@ -128,7 +128,6 @@ ROMX $19
 	"Tilesets 1"
 ROMX $1A
 ;	"Version Graphics" ; Removed
-	"Slot Graphics" ;; Added
 	"Tilesets 2"
 ROMX $1B
 	"Tilesets 3"
