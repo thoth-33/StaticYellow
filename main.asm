@@ -715,6 +715,7 @@ INCLUDE "engine/overworld/use_another_repel.asm"
 INCLUDE "engine/menus/item_descriptions.asm"
 INCLUDE "engine/overworld/field_moves.asm"
 INCLUDE "engine/menus/change_box_menu.asm"
+INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; moved from bank 1
 INCLUDE "engine/overworld/select_button_functionality.asm"
 
 

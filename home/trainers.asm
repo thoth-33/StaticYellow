@@ -90,6 +90,9 @@ TalkToTrainer::
 	call ReadTrainerHeaderInfo     ; read flag's bit
 	ld a, $2
 	call ReadTrainerHeaderInfo     ; read flag's byte ptr
+	ld a, [wPartyCount]
+	and a
+	jr z, .SeNaoTemMonAfterBattleText
 	ld a, [wTrainerHeaderFlagBit]
 	ld c, a
 	ld b, FLAG_TEST
@@ -97,6 +100,7 @@ TalkToTrainer::
 	ld a, c
 	and a
 	jr z, .trainerNotYetFought     ; test trainer's flag
+.SeNaoTemMonAfterBattleText
 	ld a, $6
 	call ReadTrainerHeaderInfo     ; print after battle text
 	rst _PrintText
@@ -129,13 +133,16 @@ IF DEF(_DEBUG)
 	call DebugPressedOrHeldB
 	jr nz, .trainerNotEngaging
 ENDC
+	ld a, [wPartyCount]
+	and a
+	jp z, .trainerNotEngaging
 	call CheckForEngagingTrainers
 	ld a, [wSpriteIndex]
 	cp $ff
 	jr nz, .trainerEngaging
-IF DEF(_DEBUG)
+;IF DEF(_DEBUG)
 .trainerNotEngaging
-ENDC
+;ENDC
 	xor a
 	ld [wSpriteIndex], a
 	ld [wTrainerHeaderFlagBit], a
