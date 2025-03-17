@@ -65,7 +65,7 @@ TextPredefs::
 	add_tx_pre NewBicycleText                       ; 3B
 	add_tx_pre IndigoPlateauStatues                 ; 3C
 	add_tx_pre VermilionGymTrashSuccessText1        ; 3D
-	add_tx_pre VermilionGymTrashSuccessText2        ; 3E XXX unused
+;	add_tx_pre VermilionGymTrashSuccessText2        ; 3E XXX unused
 	add_tx_pre VermilionGymTrashSuccessText3        ; 3F
 	add_tx_pre VermilionGymTrashFailText            ; 40
 	add_tx_pre TownMapText                          ; 41
