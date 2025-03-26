@@ -720,7 +720,7 @@ DoSpecialEffectByAnimationId:
 INCLUDE "data/battle_anims/special_effects.asm"
 
 DoBallTossSpecialEffects:
-	ld a, [wCurItem]
+	ld a, [wCurPartySpecies]
 	cp 3
 	jr nc, .skipFlashingEffect
 	ld a, [wSubAnimCounter]
