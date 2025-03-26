@@ -559,13 +559,14 @@ AnimationShakeScreenHorizontallySlow:
 	ret
 
 SetAnimationPalette:
+	ld b, $e4
 	ld a, [wOnSGB]
 	and a
-	ld a, $e4
+;	ld a, $e4
 	jr z, .notSGB
-	ld a, $f0
-	ld [wAnimPalette], a
-	ld b, $e4
+;	ld a, $f0
+;	ld [wAnimPalette], a
+;	ld b, $e4
 	ld a, [wAnimationID]
 	cp TRADE_BALL_DROP_ANIM
 	jr c, .next
@@ -581,6 +582,7 @@ SetAnimationPalette:
 	ldh [rOBP1], a
 	call UpdateGBCPal_OBP0
 	call UpdateGBCPal_OBP1
+	predef SetAttackAnimPal
 	ret
 .notSGB
 	ld a, $e4
@@ -719,13 +721,17 @@ INCLUDE "data/battle_anims/special_effects.asm"
 
 DoBallTossSpecialEffects:
 	ld a, [wCurItem]
-	cp ULTRA_BALL + 1 ; is it a Master Ball or Ultra Ball?
+	cp 3
 	jr nc, .skipFlashingEffect
+	ld a, [wSubAnimCounter]
+	cp 1
+	jr z, .skipFlashingEffect
 .flashingEffect ; do a flashing effect if it's Master Ball or Ultra Ball
 	ldh a, [rOBP0]
 	xor %00111100 ; complement colors 1 and 2
 	ldh [rOBP0], a
-	call UpdateGBCPal_OBP0
+;	call UpdateGBCPal_OBP0
+	predef SetAttackAnimPal
 .skipFlashingEffect
 	ld a, [wSubAnimCounter]
 	cp 11 ; is it the beginning of the subanimation?
@@ -742,12 +748,14 @@ DoBallTossSpecialEffects:
 	ret nz
 ; if the enemy pokemon is the Ghost Marowak, make it dodge during the last 3 frames
 	ld a, [wSubAnimCounter]
-	cp 3
-	jr z, .moveGhostMarowakLeft
-	cp 2
-	jr z, .moveGhostMarowakLeft
-	cp 1
-	ret nz
+;	cp 3
+;	jr z, .moveGhostMarowakLeft
+;	cp 2
+;	jr z, .moveGhostMarowakLeft
+;	cp 1
+;	ret nz
+	cp 4
+	ret nc
 .moveGhostMarowakLeft
 	hlcoord 17, 0
 	ld de, 20
@@ -766,7 +774,7 @@ DoBallTossSpecialEffects:
 	ret
 .isTrainerBattle ; if it's a trainer battle, shorten the animation by one frame
 	ld a, [wSubAnimCounter]
-	cp 3
+	cp 2
 	ret nz
 	dec a
 	ld [wSubAnimCounter], a
