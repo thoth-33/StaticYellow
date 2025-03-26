@@ -158,7 +158,6 @@ ROMX $21
 	"Pikachu Cries 1"
 ROMX $22
 	"Pikachu Cries 2"
-	"NPC Sprites 3"
 ROMX $23
 	"Pikachu Cries 3"
 ROMX $24
@@ -231,7 +230,7 @@ ROMX $3E
 	"Surfing Minigame"
 ROMX $3F
 	"Overworld Pikachu"
-	"Mon Icons 2"
+	"NPC Sprites 3"
 WRAM0
 	"Audio RAM"
 	org $c100
