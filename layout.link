@@ -158,12 +158,15 @@ ROMX $21
 	"Pikachu Cries 1"
 ROMX $22
 	"Pikachu Cries 2"
+	"NPC Sprites 3"
 ROMX $23
 	"Pikachu Cries 3"
 ROMX $24
 	"Pikachu Cries 4"
+	"NPC Sprites 4"
 ROMX $25
 	"Pikachu Cries 5"
+	"Text 9"
 ROMX $26
 	"Text 1"
 ROMX $27
@@ -211,7 +214,6 @@ ROMX $3A
 	"bank3A"
 	"Engine Spillover" ; Added Can Be Removed For Space
 ROMX $3B
-	"NPC Sprites 4"
 	"NPC Sprites 5"
 ROMX $3C
 	"Pikachu PCM"
@@ -229,7 +231,7 @@ ROMX $3E
 	"Surfing Minigame"
 ROMX $3F
 	"Overworld Pikachu"
-	"NPC Sprites 3"
+	"Mon Icons 2"
 WRAM0
 	"Audio RAM"
 	org $c100
