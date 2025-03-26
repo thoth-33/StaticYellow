@@ -164,23 +164,23 @@ _FuchsiaGymJanineAfterBattleText::
 	cont "Father and you!"
 	done
 
-;_FuchsiaGymRocker3BattleText::
-;	text "Let's see you"
-;	line "beat my special"
-;	cont "techniques!"
-;	done
+_FuchsiaGymRocker7BattleText::
+	text "Let's see you"
+	line "beat my special"
+	cont "techniques!"
+	done
 
-;_FuchsiaGymRocker3EndBattleText::
-;	text "You"
-;	line "had me fooled!"
-;	prompt
+_FuchsiaGymRocker7EndBattleText::
+	text "You"
+	line "had me fooled!"
+	prompt
 
-;_FuchsiaGymRocker3AfterBattleText::
-;	text "I like poison and"
-;	line "sleep techniques,"
-;	cont "as they linger"
-;	cont "after battle!"
-;	done
+_FuchsiaGymRocker7AfterBattleText::
+	text "I like poison and"
+	line "sleep techniques,"
+	cont "as they linger"
+	cont "after battle!"
+	done
 
 _FuchsiaGymRocker4BattleText::
 	text "Stop right there!"
