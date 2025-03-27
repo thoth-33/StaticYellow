@@ -44,8 +44,7 @@ SleepEffect:
 	and $7
 	jr z, .notAlreadySleeping ; can't affect a mon that is already asleep
 	ld hl, AlreadyAsleepText
-	rst _PrintText
-	ret
+	jp PrintText
 .notAlreadySleeping
 	ld a, b
 	and a
@@ -159,12 +158,10 @@ PoisonEffect:
 	jr z, .regularPoisonEffect
 	ld a, b
 	call PlayBattleAnimation2
-	rst _PrintText
-	ret
+	jp PrintText
 .regularPoisonEffect
 	call PlayCurrentMoveAnimation2
-	rst _PrintText
-	ret
+	jp PrintText
 .noEffect
 	ld a, [de]
 	cp POISON_EFFECT
@@ -745,8 +742,8 @@ CantLowerAnymore:
 	cp ATTACK_DOWN_SIDE_EFFECT
 	ret nc
 	ld hl, NothingHappenedText
-	rst _PrintText
-	ret
+	jp PrintText
+	
 
 MoveMissed:
 	ld a, [de]
@@ -1086,8 +1083,8 @@ ChargeEffect:
 	ld a, [de]
 	ld [wChargeMoveNum], a
 	ld hl, ChargeMoveEffectText
-	rst _PrintText
-	ret
+	jp PrintText
+	
 
 ChargeMoveEffectText:
 	text_far _ChargeMoveEffectText
@@ -1420,8 +1417,7 @@ DisableEffect:
 	ld [hl], a
 	call GetMoveName
 	ld hl, MoveWasDisabledText
-	rst _PrintText
-	ret
+	jp PrintText
 .moveMissedPopHL
 	pop hl
 .moveMissed
@@ -1455,7 +1451,7 @@ NothingHappenedText:
 
 PrintNoEffectText:
 	ld hl, NoEffectText
-	rst _PrintText
+	jp PrintText
 	ret
 
 NoEffectText:
@@ -1477,7 +1473,7 @@ ButItFailedText:
 
 PrintDidntAffectText:
 	ld hl, DidntAffectText
-	rst _PrintText
+	jp PrintText
 	ret
 
 DidntAffectText:
