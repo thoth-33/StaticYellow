@@ -24,8 +24,8 @@ PlayDefaultMusicCommon::
 	jr z, .walking
 	cp $2
 	jr z, .surfing
-	call CheckForNoBikingMusicMap
-	jr c, .walking
+; call CheckForNoBikingMusicMap
+; jr c, .walking
 	ld a, MUSIC_BIKE_RIDING
 	jr .next
 
