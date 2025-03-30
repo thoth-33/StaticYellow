@@ -1459,7 +1459,7 @@ EnemySendOutFirstMon:
 	bit BIT_BATTLE_SHIFT, a
 	jr nz, .next4
 ;;;;;;;;;; PureRGBnote: ADDED: if you have no pokemon left (others are fainted), don't ask if the player wants to switch
-	callfar CheckCanForceSwitch
+	call CheckCanForceSwitch
 	jr z, .next4
 ;;;;;;;;;;
 	ld hl, TrainerAboutToUseText
@@ -7124,14 +7124,15 @@ EmptyPartyMenuRedraw::
 	ld [wPartyMenuTypeOrMessageID], a
 	ret
 
-CheckCanForceSwitch::
+CheckCanForceSwitch:
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, [wPartyCount]
 	ld hl, wPartyMon1HP
 	ld bc, wPartyMon2 - wPartyMon1 - 1
 	jr z, CheckCanForceSwitchEnemy.playerTurn
-CheckCanForceSwitchEnemy::
+
+CheckCanForceSwitchEnemy:
 	ld a, [wEnemyPartyCount]
 	ld hl, wEnemyMon1HP
 	ld bc, wEnemyMon2 - wEnemyMon1 - 1
