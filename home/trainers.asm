@@ -347,6 +347,10 @@ EngageMapTrainer::
 	jp PlayTrainerMusic
 
 PrintEndBattleText::
+	ld a, [wSurrenderedFromTrainerBattle]
+	and a 
+	ret nz
+; back to vanilla
 	push hl
 	ld hl, wStatusFlags3
 	bit BIT_PRINT_END_BATTLE_TEXT, [hl]
