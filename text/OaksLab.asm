@@ -273,7 +273,7 @@ _OaksLabRivalIPickedTheWrongPokemonText::
 	prompt
 
 _OaksLabRivalAmIGreatOrWhatText::
-	text "<RIVAL>: Yeah! Am"
+	text "Yeah! Am"
 	line "I great or what?"
 	prompt
 
