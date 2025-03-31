@@ -5,12 +5,12 @@ _Route22Rival1DefeatedText::
 	prompt
 
 _Route22Rival1VictoryText::
-	text "<RIVAL>: What?"
-	line "Why do I have 2"
+	text "What?"
+	line "Why do I have 3"
 	cont "#MON?"
 
 	para "You should catch"
-	cont "some more too!"
+	line "some more too!"
 	prompt
 
 _Route22Rival2DefeatedText::
