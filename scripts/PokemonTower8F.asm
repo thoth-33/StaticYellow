@@ -17,7 +17,7 @@ PokemonTower8FSetDefaultScript:
 PokemonTower8F_ScriptPointers:
 	def_script_pointers
 	dw_const CheckFightingMapTrainers,              SCRIPT_POKEMONTOWER8F_DEFAULT
-	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_POKEMONTOWER7F_START_BATTLE
+	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_POKEMONTOWER8F_START_BATTLE
 	dw_const PokemonTower8FEndBattleScript,         SCRIPT_POKEMONTOWER8F_END_BATTLE
 	dw_const PokemonTower8FHideNPCScript,           SCRIPT_POKEMONTOWER8F_HIDE_NPC
 
