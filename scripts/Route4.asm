@@ -17,6 +17,7 @@ Route4_TextPointers:
 	def_text_pointers
 	dw_const Route4CooltrainerF1Text, TEXT_ROUTE4_COOLTRAINER_F1
 	dw_const Route4CooltrainerF2Text, TEXT_ROUTE4_COOLTRAINER_F2
+	dw_const Route4Youngster1Text,    TEXT_ROUTE4_YOUNGSTER
 	dw_const PickUpItemText,          TEXT_ROUTE4_TM_WHIRLWIND
 	dw_const PokeCenterSignText,      TEXT_ROUTE4_POKECENTER_SIGN
 	dw_const Route4MtMoonSignText,    TEXT_ROUTE4_MT_MOON_SIGN
@@ -26,6 +27,8 @@ Route4TrainerHeaders:
 	def_trainers 2
 Route4TrainerHeader0:
 	trainer EVENT_BEAT_ROUTE_4_TRAINER_0, 3, Route4CooltrainerF2BattleText, Route4CooltrainerF2EndBattleText, Route4CooltrainerF2AfterBattleText
+Route4TrainerHeader1:
+	trainer EVENT_BEAT_ROUTE_4_TRAINER_1, 3, Route4Youngster1BattleText, Route4Youngster1EndBattleText, Route4Youngster1AfterBattleText	
 	db -1 ; end
 
 Route4CooltrainerF1Text:
@@ -48,6 +51,24 @@ Route4CooltrainerF2EndBattleText:
 
 Route4CooltrainerF2AfterBattleText:
 	text_far _Route4CooltrainerF2AfterBattleText
+	text_end
+
+Route4Youngster1Text:
+	text_asm
+	ld hl, Route4TrainerHeader1
+	call TalkToTrainer
+	rst TextScriptEnd
+
+Route4Youngster1BattleText:
+	text_far _Route4Youngster1BattleText
+	text_end
+
+Route4Youngster1EndBattleText:
+	text_far _Route4Youngster1EndBattleText
+	text_end
+
+Route4Youngster1AfterBattleText:
+	text_far _Route4Youngster1AfterBattleText
 	text_end
 
 Route4MtMoonSignText:

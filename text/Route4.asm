@@ -23,6 +23,21 @@ _Route4CooltrainerF2AfterBattleText::
 	line "them all."
 	done
 
+_Route4Youngster1BattleText::
+	text "Who's that walking"
+    	line "with those good"
+    	cont "looking #MON?"
+    	done
+
+_Route4Youngster1EndBattleText::
+	 text "Out"
+   	 line "like a light!"
+   	 prompt
+
+_Route4Youngster1AfterBattleText::
+	 text "Keep walking!"
+    	 done
+
 _Route4MtMoonSignText::
 	text "MT.MOON"
 	line "Tunnel Entrance"
