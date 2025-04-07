@@ -3642,7 +3642,7 @@ IsGhostBattle:
 	ld a, [wCurMap]
 	cp POKEMON_TOWER_1F
 	jr c, .next
-	cp POKEMON_TOWER_7F + 1
+	cp POKEMON_TOWER_8F + 1
 	jr nc, .next
 	ld b, SILPH_SCOPE
 	call IsItemInBag

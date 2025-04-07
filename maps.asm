@@ -1028,6 +1028,11 @@ INCLUDE "scripts/PokemonTower7F.asm"
 INCLUDE "data/maps/objects/PokemonTower7F.asm"
 PokemonTower7F_Blocks: INCBIN "maps/PokemonTower7F.blk"
 
+INCLUDE "data/maps/headers/PokemonTower8F.asm"
+INCLUDE "scripts/PokemonTower8F.asm"
+INCLUDE "data/maps/objects/PokemonTower8F.asm"
+PokemonTower8F_Blocks: INCBIN "maps/PokemonTower8F.blk"
+
 
 SECTION "Maps 18", ROMX
 
