@@ -129,6 +129,8 @@ RocketHideoutB3F_TextPointers:
 	def_text_pointers
 	dw_const RocketHideoutB3FRocket1Text, TEXT_ROCKETHIDEOUTB3F_ROCKET1
 	dw_const RocketHideoutB3FRocket2Text, TEXT_ROCKETHIDEOUTB3F_ROCKET2
+	dw_const RocketHideoutB3FRocket4Text, TEXT_ROCKETHIDEOUTB3F_ROCKET3
+	dw_const RocketHideoutB3FRocket3Text, TEXT_ROCKETHIDEOUTB3F_ROCKET4
 	dw_const PickUpItemText,              TEXT_ROCKETHIDEOUTB3F_TM_DOUBLE_EDGE
 	dw_const PickUpItemText,              TEXT_ROCKETHIDEOUTB3F_RARE_CANDY
 
@@ -138,6 +140,10 @@ RocketHideout3TrainerHeader0:
 	trainer EVENT_BEAT_ROCKET_HIDEOUT_3_TRAINER_0, 2, RocketHideoutB3FRocket1BattleText, RocketHideoutB3FRocket1EndBattleText, RocketHideoutB3FRocket1AfterBattleText
 RocketHideout3TrainerHeader1:
 	trainer EVENT_BEAT_ROCKET_HIDEOUT_3_TRAINER_1, 4, RocketHideoutB3FRocket2BattleText, RocketHideoutB3FRocket2EndBattleText, RocketHideoutB3FRocket2AfterBattleText
+RocketHideout3TrainerHeader2:
+	trainer EVENT_BEAT_ROCKET_HIDEOUT_3_TRAINER_2, 2, RocketHideoutB3FRocket3BattleText, RocketHideoutB3FRocket3EndBattleText, RocketHideoutB3FRocket3AfterBattleText
+RocketHideout3TrainerHeader3:
+	trainer EVENT_BEAT_ROCKET_HIDEOUT_3_TRAINER_3, 2, RocketHideoutB3FRocket4BattleText, RocketHideoutB3FRocket4EndBattleText, RocketHideoutB3FRocket4AfterBattleText
 	db -1 ; end
 
 RocketHideoutB3FRocket1Text:
@@ -174,4 +180,40 @@ RocketHideoutB3FRocket2EndBattleText:
 
 RocketHideoutB3FRocket2AfterBattleText:
 	text_far _RocketHide3AfterBattleText3
+	text_end
+
+RocketHideoutB3FRocket3Text:
+	text_asm
+	ld hl, RocketHideout3TrainerHeader2
+	call TalkToTrainer
+	rst TextScriptEnd
+
+RocketHideoutB3FRocket3BattleText:
+	text_far _RocketHideoutB3FRocket3BattleText
+	text_end
+
+RocketHideoutB3FRocket3EndBattleText:
+	text_far _RocketHideoutB3FRocket3EndBattleText
+	text_end
+
+RocketHideoutB3FRocket3AfterBattleText:
+	text_far _RocketHideoutB3FRocket3AfterBattleText
+	text_end
+
+RocketHideoutB3FRocket4Text:
+	text_asm
+	ld hl, RocketHideout3TrainerHeader3
+	call TalkToTrainer
+	rst TextScriptEnd
+
+RocketHideoutB3FRocket4BattleText:
+	text_far _RocketHideoutB3FRocket4BattleText
+	text_end
+
+RocketHideoutB3FRocket4EndBattleText:
+	text_far _RocketHideoutB3FRocket4EndBattleText
+	text_end
+
+RocketHideoutB3FRocket4AfterBattleText:
+	text_far _RocketHideoutB3FRocket4AfterBattleText
 	text_end

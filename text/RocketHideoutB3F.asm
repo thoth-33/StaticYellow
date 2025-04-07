@@ -33,3 +33,35 @@ _RocketHide3AfterBattleText3::
 	cont "LIFT KEY to run"
 	cont "the elevator!"
 	done
+
+_RocketHideoutB3FRocket3BattleText::
+	text "How can you not"
+	line "see the beauty of"
+	cont "our evil?"
+	done
+
+_RocketHideoutB3FRocket3EndBattleText::
+	text "Ayaya!"
+	prompt
+
+_RocketHideoutB3FRocket3AfterBattleText::
+	text "BOSS! I'm sorry I"
+	line "failed you!"
+	done
+
+_RocketHideoutB3FRocket4BattleText::
+	text "I know you! You"
+	line "ruined our plans"
+	cont "at MT.MOON!"
+	done
+
+_RocketHideoutB3FRocket4EndBattleText::
+	text "Burned"
+	line "again!"
+	prompt
+
+_RocketHideoutB3FRocket4AfterBattleText::
+	text "Do you have"
+	line "something against"
+	cont "TEAM ROCKET?"
+	done
