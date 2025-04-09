@@ -3,9 +3,11 @@ PrintBeginningBattleText:
 	dec a
 	jr nz, .trainerBattle
 	ld a, [wCurMap]
+	cp POKEMON_TOWER_8F
+	jr z, .pokemonTower2
 	cp POKEMON_TOWER_3F
 	jr c, .notPokemonTower
-	cp POKEMON_TOWER_8F + 1
+	cp POKEMON_TOWER_7F + 1
 	jr c, .pokemonTower
 .notPokemonTower
 	ld a, [wBattleType]
@@ -45,6 +47,18 @@ PrintBeginningBattleText:
 	rst _PrintText
 	jr .done
 .pokemonTower
+	ld b, SILPH_SCOPE
+	call IsItemInBag
+	ld a, [wEnemyMonSpecies2]
+	ld [wCurPartySpecies], a
+	cp RESTLESS_SOUL
+	jr z, .isMarowak
+	ld a, b
+	and a
+	jr z, .noSilphScope
+	callfar LoadEnemyMonData
+	jr .notPokemonTower
+.pokemonTower2
 	ld b, SILPH_SCOPE
 	call IsItemInBag
 	ld a, [wEnemyMonSpecies2]
