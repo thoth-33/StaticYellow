@@ -183,7 +183,6 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_7F_RIVAL             ; AB
 	const HS_SILPH_CO_7F_ITEM_1            ; AC
 	const HS_SILPH_CO_7F_ITEM_2            ; AD
-	const HS_SILPH_CO_7F_8                 ; AE XXX sprite doesn't exist
 	const HS_SILPH_CO_8F_1                 ; AF
 	const HS_SILPH_CO_8F_2                 ; B0
 	const HS_SILPH_CO_8F_3                 ; B1
