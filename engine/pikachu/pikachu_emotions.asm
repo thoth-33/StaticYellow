@@ -336,12 +336,13 @@ MapSpecificPikachuExpression:
 	callfar CheckPikachuFaintedOrStatused ; same bank
 	ldpikaemotion a, PikachuEmotion28
 	jr c, .play_emotion
-	ld a, [wCurMap]
-	cp POKEMON_TOWER_1F
-	jr c, .notInLavenderTower
-	cp POKEMON_TOWER_7F + 1
-	ldpikaemotion a, PikachuEmotion22
-	jr c, .play_emotion
+   	ld a, [wCurMap]
+   	cp POKEMON_TOWER_8F
+    	jr z, .emotion22
+    	cp POKEMON_TOWER_1F
+    	jr c, .notInLavenderTower
+    	cp POKEMON_TOWER_7F + 1
+    	jr c, .emotion22
 .notInLavenderTower
 	ld a, [wd49c]
 	and a
@@ -357,6 +358,9 @@ MapSpecificPikachuExpression:
 .mood_based_emotion
 	and a
 	ret
+
+.emotion22
+    ldpikaemotion a, PikachuEmotion22
 
 .play_emotion
 	scf
