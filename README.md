@@ -126,6 +126,7 @@ AS I SAID ABOVE THERE ARE MANY HACKS AND CREATORS OUT THERE: FOR GENERATION 1 PL
 
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
+USE RGBDS 7.0 or 8.0
 
 
 ## See also
@@ -133,7 +134,9 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 - [**Wiki**][wiki] (includes [tutorials][tutorials])
 - [**Symbols**][symbols]
 
-You can find us on [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
+You can find Pret [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
+
+CREAMELDUDJAFAR'S DISCORD: https://discord.gg/3YQrCFzCNv
 
 For other pret projects, see [pret.github.io](https://pret.github.io/).
 
