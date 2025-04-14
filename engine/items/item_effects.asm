@@ -3246,6 +3246,7 @@ FindWildLocationsOfMon:
 	inc c
 	jr .loop
 .done
+	farcall CheckMapForFishingMon
 	ld a, $ff ; list terminator
 	ld [de], a
 	ret

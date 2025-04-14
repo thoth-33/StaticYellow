@@ -19,6 +19,7 @@ Features:
 - Move Relearner added in Cinnabar- Kris  
 - Move Deleter added in Vermillion (undeletable HMs) – Kris
 - Updated Pokeball/Pokedex sprites
+- Fishing Rod Encounters Displayed in Pokedex
 - EXP Bar on Status Screen- Blue
 - Can’t deposit HMs- prevent softlock
 - Traded Pokemon in Game can now be renamed with Name Rater in Lavendar
