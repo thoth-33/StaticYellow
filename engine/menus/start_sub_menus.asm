@@ -478,10 +478,6 @@ StartMenu_TownMap::
 	call GBPalWhiteOut
 	call ClearScreen
 	call UpdateSprites
-	ldh a, [hTileAnimations]
-	push af
-	xor a
-	ldh [hTileAnimations], a
 	farcall ItemUseTownMap
 	call GBPalWhiteOut
 	call LoadFontTilePatterns
@@ -490,8 +486,7 @@ StartMenu_TownMap::
 	call ReloadMapData
 	farcall DrawStartMenu
 	call LoadGBPal
-	pop af
-	ldh [hTileAnimations], a
+	call UpdateSprites
 	jp RedisplayStartMenu_DoNotDrawStartMenu
 
 StartMenu_TrainerInfo::
