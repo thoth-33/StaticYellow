@@ -613,7 +613,20 @@ _IndigoPlateauHQText::
 
 _RedBedroomSNESText::
 	text "<PLAYER> is"
-	line "playing the N64!"
+	line "playing #MON"
+	cont "STADIUM on the"
+	cont "N64!"
+
+	para "...Okay!"
+	line "It's time to go!"
+	done
+
+_BlueBedroomSNESText::
+	text "<PLAYER> is"
+	line "playing #MON"
+	cont "BLUE VERSION on"
+	cont "the SNES Super"
+	cont "Game Boy!"
 
 	para "...Okay!"
 	line "It's time to go!"

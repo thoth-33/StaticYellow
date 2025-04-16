@@ -45,7 +45,7 @@ HiddenObjectMaps:
 	dbw SAFFRON_GYM,                  SaffronGymHiddenObjects
 	dbw SAFFRON_POKECENTER,           SaffronPokecenterHiddenObjects
 	dbw REDS_HOUSE_2F,                RedsHouse2FHiddenObjects
-	dbw BLUES_HOUSE,                  BluesHouseHiddenObjects
+	dbw BLUES_HOUSE_1F,               BluesHouse1FHiddenObjects
 	dbw OAKS_LAB,                     OaksLabHiddenObjects
 	dbw VIRIDIAN_CITY,                ViridianCityHiddenObjects
 	dbw VIRIDIAN_POKECENTER,          ViridianPokecenterHiddenObjects
@@ -81,6 +81,7 @@ HiddenObjectMaps:
 	dbw CINNABAR_LAB_FOSSIL_ROOM,     CinnabarLab4HiddenObjects
 	dbw CINNABAR_POKECENTER,          CinnabarPokecenterHiddenObjects
 	dbw DAYCARE,                      DaycareHiddenObjects
+	dbw BLUES_HOUSE_2F,               BluesHouse2FHiddenObjects
 	db -1 ; end
 
 MACRO hidden_object
@@ -316,10 +317,10 @@ RedsHouse2FHiddenObjects:
 	hidden_object  3,  5, ANY_FACING, PrintRedSNESText
 	db -1 ; end
 
-BluesHouseHiddenObjects:
+BluesHouse1FHiddenObjects:
 	hidden_object  0,  1, SPRITE_FACING_UP, PrintBookcaseText
 	hidden_object  1,  1, SPRITE_FACING_UP, PrintBookcaseText
-	hidden_object  7,  1, SPRITE_FACING_UP, PrintBookcaseText
+;	hidden_object  7,  1, SPRITE_FACING_UP, PrintBookcaseText
 	db -1 ; end
 
 OaksLabHiddenObjects:
@@ -562,4 +563,9 @@ CinnabarPokecenterHiddenObjects:
 
 DaycareHiddenObjects:
 	hidden_object 4,   0, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1 ; end
+
+BluesHouse2FHiddenObjects:
+	hidden_object  0,  1, SPRITE_FACING_UP, OpenBluesPC
+	hidden_object  3,  5, ANY_FACING, PrintBlueSNESText
 	db -1 ; end

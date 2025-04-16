@@ -40,7 +40,7 @@ MapHeaderBanks::
 	db BANK(Route25_h)
 	db BANK(RedsHouse1F_h)
 	db BANK(RedsHouse2F_h)
-	db BANK(BluesHouse_h)
+	db BANK(BluesHouse1F_h)
 	db BANK(OaksLab_h)
 	db BANK(ViridianPokecenter_h)
 	db BANK(ViridianMart_h)
@@ -244,7 +244,7 @@ MapHeaderBanks::
 	db BANK(Colosseum_h)
 	db $11 ; UNUSED_MAP_F1
 	db $11 ; UNUSED_MAP_F2
-	db $11 ; UNUSED_MAP_F3
+	db BANK(BluesHouse2F_h)
 	db BANK(PokemonTower8F_h)
 	db BANK(LoreleisRoom_h)
 	db BANK(BrunosRoom_h)
