@@ -72,3 +72,5 @@ TextPredefs::
 	add_tx_pre BookOrSculptureText                  ; 42
 	add_tx_pre ElevatorText                         ; 43
 	add_tx_pre PokemonStuffText                     ; 44
+	add_tx_pre BlueBedroomPCText                    ; 45
+	add_tx_pre BlueBedroomSNESText                  ; 46
