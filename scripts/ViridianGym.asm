@@ -266,21 +266,20 @@ ViridianGymGiovanniText:
 
 ViridianGymJessieJamesText:
 	text_asm
-	ld hl, ViridianGymJessieJamesBeforeBattleText
-	rst _PrintText
-	ld hl, wStatusFlags3
-	set BIT_TALKED_TO_TRAINER, [hl]
-	set BIT_PRINT_END_BATTLE_TEXT, [hl]
-	
-	ld hl, ViridianGymJessieJamesLostText
-	ld de, ViridianGymJessieJamesWonText
-	call SaveEndBattleTextPointers
-
 	call StopAllMusic
 	ld c, BANK(Music_MeetJessieJames)
 	ld a, MUSIC_MEET_JESSIE_JAMES
 	call PlayMusic
 	call Delay3
+	ld hl, ViridianGymJessieJamesBeforeBattleText
+	rst _PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, ViridianGymJessieJamesLostText
+	ld de, ViridianGymJessieJamesWonText
+	call SaveEndBattleTextPointers
+	call StopAllMusic
 	ld a, OPP_ROCKET
 	ld [wCurOpponent], a
 	ld a, $2f
@@ -296,13 +295,10 @@ ViridianGymJessieJamesPostBattle:
 	cp $ff
 	jp z, ViridianGymResetScripts
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
-	ld [wJoyIgnore], a
-
-	
+	ld [wJoyIgnore], a	
 	ld a, TEXT_VIRIDIANGYM_JESSIE_JAMES_POST_BATTLE
 	ldh [hTextID], a
 	call DisplayTextID
-
 	xor a
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	call StopAllMusic
@@ -311,7 +307,6 @@ ViridianGymJessieJamesPostBattle:
 	call PlayMusic
 	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
-
 	call GBFadeOutToBlack
 	ld a, HS_VIRIDIAN_GYM_JESSIE
 	ld [wMissableObjectIndex], a
@@ -323,7 +318,6 @@ ViridianGymJessieJamesPostBattle:
 	call Delay3
 	call GBFadeInFromBlack
 	call PlayDefaultMusic
-
 	jp ViridianGymResetScripts
 
 

@@ -321,7 +321,7 @@ PokemonMansionB1F_TextPointers:
 	dw_const PokemonMansionB1FText14,        TEXT_POKEMONMANSIONB1F_TEXT14
 
 Mansion4TrainerHeaders:
-	def_trainers
+	def_trainers 3
 Mansion4TrainerHeader0:
 	trainer EVENT_BEAT_MANSION_4_TRAINER_0, 3, PokemonMansionB1FBurglarBattleText, PokemonMansionB1FBurglarEndBattleText, PokemonMansionB1FBurglarAfterBattleText
 Mansion4TrainerHeader1:
