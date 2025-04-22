@@ -1,3 +1,36 @@
+_ViridianGymJessieJamesBeforeBattleText::
+	text "JESSIE: Prepare"
+	line "for trouble!"
+
+	para "JAMES: Make it"
+	line "double!"
+
+	para "This is our last"
+	line "chance to prove"
+	cont "our strength to"
+	cont "the BOSS!"
+	done
+
+_ViridianGymJessieJamesLostText::
+	text "Oh no!"
+
+	para "Not again! We"
+	line "cannot show our"
+	cont "faces around here"
+	cont "anymore."
+	prompt
+
+_ViridianGymJessieJamesWonText::
+	text "We finally won!"
+	prompt
+
+_ViridianGymJessieJamesPostBattleText::
+	text "Looks like TEAM"
+	line "ROCKET's blasting"
+	cont "off for good!"
+	done
+
+
 _ViridianGymGiovanniPreBattleText::
 	text "Fwahahaha! This is"
 	line "my hideout!"

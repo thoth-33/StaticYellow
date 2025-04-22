@@ -40,7 +40,7 @@ IsFightingJessieJames::
 	cp $2a
 	ret c
 	ld de, JessieJamesPic
-	cp $2e
+	cp $2f
 	jr c, .dummy
 	ld de, JessieJamesPic ; possibly meant to add another pic
 .dummy

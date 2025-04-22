@@ -72,7 +72,7 @@ FuchsiaGymReceiveTM06:
 	set BIT_SOULBADGE, [hl]
 
 	; deactivate gym trainers
-	SetEventRange EVENT_BEAT_FUCHSIA_GYM_TRAINER_0, EVENT_BEAT_FUCHSIA_GYM_TRAINER_5
+	SetEventRange EVENT_BEAT_FUCHSIA_GYM_TRAINER_0, EVENT_BEAT_FUCHSIA_GYM_TRAINER_6
 
 	jp FuchsiaGymResetScripts
 
