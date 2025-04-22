@@ -23,19 +23,15 @@ _PokemonMansionJessieJamesText2::
 	done
 
 _PokemonMansionJessieJamesText3::
-	text "Oh no!"
-
-	para "Not again! We"
-	line "cannot show our"
-	cont "faces around here"
-	cont "anymore."
+	text "The"
+	line "twerp beat us"
+	cont "again!"
 	prompt
 
 _PokemonMansionJessieJamesText4::
 	text "Looks like TEAM"
 	line "ROCKET's blasting"
-	cont "off one last time"
-	cont "again!@"
+	cont "off again!@"
 	text_end
 
 _PokemonMansionB1FBurglarBattleText::

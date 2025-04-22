@@ -29,6 +29,7 @@ ViridianGym_ScriptPointers:
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_VIRIDIANGYM_START_BATTLE
 	dw_const EndTrainerBattle,                      SCRIPT_VIRIDIANGYM_END_BATTLE
 	dw_const ViridianGymGiovanniPostBattle,         SCRIPT_VIRIDIANGYM_GIOVANNI_POST_BATTLE
+	dw_const ViridianGymJessieJamesPostBattle,     	SCRIPT_VIRIDIANGYM_JESSIE_JAMES_POST_BATTLE
 	dw_const ViridianGymPlayerSpinningScript,       SCRIPT_VIRIDIANGYM_PLAYER_SPINNING
 
 ViridianGymDefaultScript:
@@ -179,10 +180,13 @@ ViridianGym_TextPointers:
 	dw_const ViridianGymRocker2Text,                TEXT_VIRIDIANGYM_ROCKER2
 	dw_const ViridianGymCooltrainerM3Text,          TEXT_VIRIDIANGYM_COOLTRAINER_M3
 	dw_const ViridianGymGymGuideText,               TEXT_VIRIDIANGYM_GYM_GUIDE
+	dw_const ViridianGymJessieJamesText,	        TEXT_VIRIDIANGYM_JESSIE
+	dw_const ViridianGymJessieJamesText,	        TEXT_VIRIDIANGYM_JAMES
 	dw_const PickUpItemText,                        TEXT_VIRIDIANGYM_REVIVE
 	dw_const ViridianGymGiovanniEarthBadgeInfoText, TEXT_VIRIDIANGYM_GIOVANNI_EARTH_BADGE_INFO
 	dw_const ViridianGymGiovanniReceivedTM27Text,   TEXT_VIRIDIANGYM_GIOVANNI_RECEIVED_TM27
 	dw_const ViridianGymGiovanniTM27NoRoomText,     TEXT_VIRIDIANGYM_GIOVANNI_TM27_NO_ROOM
+	dw_const ViridianGymJessieJamesPostBattleText,  TEXT_VIRIDIANGYM_JESSIE_JAMES_POST_BATTLE
 
 ViridianGymTrainerHeaders:
 	def_trainers 2
@@ -259,6 +263,69 @@ ViridianGymGiovanniText:
 	text_far _ViridianGymGiovanniPostBattleAdviceText
 	text_waitbutton
 	text_end
+
+ViridianGymJessieJamesText:
+	text_asm
+	ld hl, ViridianGymJessieJamesBeforeBattleText
+	rst _PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	
+	ld hl, ViridianGymJessieJamesLostText
+	ld de, ViridianGymJessieJamesWonText
+	call SaveEndBattleTextPointers
+
+	call StopAllMusic
+	ld c, BANK(Music_MeetJessieJames)
+	ld a, MUSIC_MEET_JESSIE_JAMES
+	call PlayMusic
+	call Delay3
+	ld a, OPP_ROCKET
+	ld [wCurOpponent], a
+	ld a, $2f
+	ld [wTrainerNo], a
+	ld a, SCRIPT_VIRIDIANGYM_JESSIE_JAMES_POST_BATTLE
+	ld [wViridianGymCurScript], a	;joenote - also set the value for current map script or you will have a bad time
+	jp .done
+.done
+	rst TextScriptEnd
+
+ViridianGymJessieJamesPostBattle:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ViridianGymResetScripts
+	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld [wJoyIgnore], a
+
+	
+	ld a, TEXT_VIRIDIANGYM_JESSIE_JAMES_POST_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+
+	xor a
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	call StopAllMusic
+	ld c, BANK(Music_MeetJessieJames)
+	ld a, MUSIC_MEET_JESSIE_JAMES
+	call PlayMusic
+	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld [wJoyIgnore], a
+
+	call GBFadeOutToBlack
+	ld a, HS_VIRIDIAN_GYM_JESSIE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_VIRIDIAN_GYM_JAMES
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	call PlayDefaultMusic
+
+	jp ViridianGymResetScripts
+
 
 ViridianGymGiovanniEarthBadgeInfoText:
 	text_far _ViridianGymGiovanniEarthBadgeInfoText
@@ -439,4 +506,20 @@ ViridianGymGuidePreBattleText:
 
 ViridianGymGuidePostBattleText:
 	text_far _ViridianGymGuidePostBattleText
+	text_end
+
+ViridianGymJessieJamesBeforeBattleText:
+	text_far _ViridianGymJessieJamesBeforeBattleText
+	text_end
+
+ViridianGymJessieJamesLostText:
+	text_far _ViridianGymJessieJamesLostText
+	text_end
+
+ViridianGymJessieJamesWonText:
+	text_far _ViridianGymJessieJamesWonText
+	text_end
+
+ViridianGymJessieJamesPostBattleText:
+	text_far _ViridianGymJessieJamesPostBattleText
 	text_end
