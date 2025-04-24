@@ -277,7 +277,7 @@ ViridianGymJessieJamesText:
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
 	ld hl, ViridianGymJessieJamesLostText
-	ld de, ViridianGymJessieJamesWonText
+	ld de, ViridianGymJessieJamesLostText
 	call SaveEndBattleTextPointers
 	call StopAllMusic
 	ld a, OPP_ROCKET
@@ -508,10 +508,6 @@ ViridianGymJessieJamesBeforeBattleText:
 
 ViridianGymJessieJamesLostText:
 	text_far _ViridianGymJessieJamesLostText
-	text_end
-
-ViridianGymJessieJamesWonText:
-	text_far _ViridianGymJessieJamesWonText
 	text_end
 
 ViridianGymJessieJamesPostBattleText:

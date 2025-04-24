@@ -20,16 +20,11 @@ _ViridianGymJessieJamesLostText::
 	cont "anymore."
 	prompt
 
-_ViridianGymJessieJamesWonText::
-	text "We finally won!"
-	prompt
-
 _ViridianGymJessieJamesPostBattleText::
 	text "Looks like TEAM"
 	line "ROCKET's blasting"
 	cont "off for good!"
 	done
-
 
 _ViridianGymGiovanniPreBattleText::
 	text "Fwahahaha! This is"
