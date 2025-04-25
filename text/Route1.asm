@@ -75,10 +75,6 @@ _OakDefeatedText::
 	cont "Champion!!"
 	prompt
 
-_OakWonText::
-	text "Keep training"
-	prompt
-
 _OakPostBattleText::
 	text "Well done,"
 	line "<PLAYER>!"
