@@ -14,6 +14,7 @@ Features:
 - Now you can take both fossils in MT. MOON!  
 - Teams have mixed Pokémon (no more 5 pidgey teams)  
 - IN-GAME MOVES/ EVOLUTIONS/ LEARNSET in POKEDEX  
+- MOVEDEX BUILT INTO POKEDEX
 - Infinite TM's (they are reusable like newer gens)  
 - Gym Leaders, Rival, Rockets and other trainers had a buff in level, moves and parties (some parties to match Anime/Lets go Pikachu/References)  
 - Move Relearner added in Cinnabar- Kris  
@@ -91,7 +92,7 @@ Features:
 CREDITS: THE MOST IMPORTANT PART OF THIS
 - PRET for disassembly of Pokeyellow
 - Dannye- Created Pokeyellow Gen 2 repo, Pokered-gbc repos and much much more. This game is based on his Pokeyellow Gen2. Dannye did all the sprites, EXP Bar work, answered a lot of questions and is someone I can consider a friend
-- Vortiene/PureRGB-  Another great person who has helped so many people in discord. His credit goes from Safari Zone options, Elevator times shorter, Overworld Sprites, SS Ticket and other key items being removed when used, Box Slot Space on Catching Pokemon, Lapras swimming in Fuchsia City, PC Box View Mode, SELECT for Bicycle and tons of Bugs fixes. Taught me about Unions, calling codes from other banks and RST VECTORS FOR SPACE…. PURERGB IS IN THE TOP 3 OF GEN 1 HACKS IN MY OPINON ALONG WITH RED++ AND SHIN POKERED FOR ALL THERE UPDATES AND FEATURES
+- Vortiene/PureRGB-  Another great person who has helped so many people in discord. His credit goes from Safari Zone options, Elevator times shorter, Overworld Sprites, SS Ticket and other key items being removed when used, Box Slot Space on Catching Pokemon, Lapras swimming in Fuchsia City, PC Box View Mode, SELECT for Bicycle, MOVEDEX and tons of Bugs fixes. Taught me about Unions, calling codes from other banks and RST VECTORS FOR SPACE…. PURERGB IS IN THE TOP 3 OF GEN 1 HACKS IN MY OPINON ALONG WITH RED++ AND SHIN POKERED FOR ALL THERE UPDATES AND FEATURES
 - CRz Shadows/The Smith Plays/Yellow Legacy- The reason I started disassembly. A lot of initial changes features came from there game. Moves in Pokedex, Running Shoes, Pikachu fixes, Gym Leader rematches, Mr Mime in house, eeveeolution next to trainer and post game mart clerk. Alot of Pokemon learnsets, level up moves were borrowed and used from Yellow Legacy, as well as some trainer ideas like Janine in Kogas Gym IN MY OPINON THE TWO BEST YELLOW HACKS ARE YELLOW LEGACY AND EXTREME YELLOW. THIS GAME WOULD NOT BE MADE WITHOUT THERES SO PLEASE TRY IT. Thanks for Crystal and Emerald Legacy too!!
 -JojoBear13/ShinPokeRed- Trainer AI code taken from game, as well as many many bug fixes. TRY SHINPOKERED. AS I STATED BEFORE ITS IN TOP 3 OF GEN 1 HACKS.
 -JustRegularLuna/Red++- My favorite Gen 1 hack. First one I ever played too. The main reason celebrations was made was to try to create magic like you did. Features from Red++ include Gender code, Sprite Palette help, Intro being changed, Oak Giving 5 pokeballs, updated pokeball and pokedex sprites.
