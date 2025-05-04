@@ -48,6 +48,7 @@ SuperPalettes:
 	RGB 31,29,31, 18,24,22, 21,14,09, 03,02,02 ; PAL_SAFARIBALL ; safari ball palette when throwing one in battle
 	RGB 31,29,31, 30,22,17, 16,14,19, 03,02,02 ; PAL_MEWMON2
 	RGB 31,29,31, 24,20,30, 11,20,30, 03,02,02 ; PAL_MEWMON3
+	RGB 31,31,30, 25,25,18, 16,16,14, 06,06,06 ; PAL_GRAYMON
 	assert_table_length NUM_SGB_PALS
 
 GBCBasePalettes:
@@ -100,4 +101,5 @@ GBCBasePalettes:
 	RGB 31,31,31, 17,31,11, 17,09,05, 03,03,03 ; PAL_SAFARIBALL ; safari ball palette when throwing one in battle
 	RGB 31,31,31, 31,17,11, 11,05,14, 03,03,03 ; PAL_MEWMON2
 	RGB 31,31,31, 22,13,30, 00,09,31, 03,03,03 ; PAL_MEWMON3
+	RGB 31,31,31, 20,23,10, 11,11,05, 03,03,03 ; PAL_GRAYMON
 	assert_table_length NUM_SGB_PALS
