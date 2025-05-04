@@ -601,7 +601,7 @@ LoadSGB:
 .onDMG
 	ret
 .onSGB
-	ld a, $1
+	ld a, $2
 	ld [wOnSGB], a
 	di
 	call PrepareSuperNintendoVRAMTransfer
@@ -611,7 +611,7 @@ LoadSGB:
 	ld de, ChrTrnPacket
 	ld hl, SGBBorderGraphics
 	call CopyGfxToSuperNintendoVRAM
-	xor a
+	ld a, 1
 	ld [wCopyingSGBTileData], a
 	ld de, PctTrnPacket
 	ld hl, BorderPalettes
@@ -719,7 +719,14 @@ CopyGfxToSuperNintendoVRAM:
 	ld a, [wCopyingSGBTileData]
 	and a
 	jr z, .notCopyingTileData
+	dec a
+	jr z, .copyPalTable
 	call CopySGBBorderTiles
+	jr .next
+.copyPalTable
+	ld a,BANK(SuperPalettes)
+	ld bc,$1000
+	call FarCopyData
 	jr .next
 .notCopyingTileData
 	ld bc, $1000
@@ -875,9 +882,12 @@ DMGPalToGBCPal::
 		ld b, a
 		and %11
 		call .GetColorAddress
-		ld a, [hli]
+		ld a, BANK(SuperPalettes)
+		call GetFarByte
+		inc hl
 		ld [wGBCPal + color_index * 2], a
-		ld a, [hl]
+		ld a, BANK(SuperPalettes)
+		call GetFarByte
 		ld [wGBCPal + color_index * 2 + 1], a
 
 		IF color_index < NUM_PAL_COLORS - 1
@@ -1161,8 +1171,6 @@ CopySGBBorderTiles:
 INCLUDE "data/sgb/sgb_packets.asm"
 
 INCLUDE "data/pokemon/palettes.asm"
-
-INCLUDE "data/sgb/sgb_palettes.asm"
 
 INCLUDE "data/sgb/sgb_border.asm"
 
