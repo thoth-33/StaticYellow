@@ -874,7 +874,7 @@ Text_fed12:
 	db   "けんしろう@" ; "KENSHIROU@"
 
 Text_fed18:
-	db   "テスト ファイト@" ; "FIGHT TEST@"
+	db   "テスト イト@" ; "FIGHT TEST@"
 
 Text_fed21:
 	db   "№．  なまえ    レべル@" ; "№．  NAME  LEVEL@"

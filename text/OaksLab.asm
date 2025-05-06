@@ -341,7 +341,7 @@ _OaksLabOakMyInventionPokedexText::
 	line "records data on"
 	cont "#MON and MOVES"
 	cont "you've seen, used"
-	cont "or caught!"
+	cont "and caught!"
 
 	para "It's a hi-tech"
 	line "encyclopedia!"

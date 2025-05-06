@@ -2041,7 +2041,7 @@ DrawEnemyHUDAndHPBar:
 	and a
 	jr z, .notOwned
 	hlcoord 1, 1
-	ld [hl], $E9 ; replace this with your Poké Ball icon or other character
+	ld [hl], $DF ; replace this with your Poké Ball icon or other character
 .notOwned
 	pop hl
 	ld de, wEnemyMonNick
