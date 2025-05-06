@@ -44,6 +44,8 @@ BluesHouseDaisySittingText:
 	ld hl, GotMapText
 	rst _PrintText
 	SetEvent EVENT_GOT_TOWN_MAP
+	ld hl, MapHelpText
+	rst _PrintText
 	jr .done
 
 .got_town_map
@@ -73,6 +75,10 @@ GotMapText:
 ;BluesHouseDaisyBagFullText:
 ;	text_far _BluesHouseDaisyBagFullText
 ;	text_end
+
+MapHelpText:
+	text_far _MapHelpText
+	text_end
 
 BluesHouseDaisyUseMapText:
 	text_far _BluesHouseDaisyUseMapText

@@ -135,9 +135,6 @@ SECTION "Text 5", ROMX
 
 INCLUDE "data/text/text_5.asm"
 
-INCLUDE "text/RedsHouse1F.asm"
-;INCLUDE "text/RedsHouse2F.asm"
-INCLUDE "text/BluesHouse1F.asm"
 INCLUDE "text/OaksLab.asm"
 INCLUDE "text/pokedex_ratings.asm"
 INCLUDE "text/ViridianPokecenter.asm"
@@ -263,7 +260,9 @@ SECTION "Text 9", ROMX
 INCLUDE "text/move_deleter.asm"
 INCLUDE "text/move_relearner.asm"
 INCLUDE "text/ChampionsRoom.asm"
+INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/RedsHouse2F.asm"
+INCLUDE "text/BluesHouse1F.asm"
 
 
 SECTION "Pokédex Text", ROMX
@@ -275,9 +274,11 @@ SECTION "Move Names", ROMX
 
 INCLUDE "data/moves/names.asm"
 
+
 SECTION "Item Descriptions", ROMX
 
 INCLUDE "data/text/item_descriptions.asm"
+
 
 SECTION "Movedex Text", ROMX
 
