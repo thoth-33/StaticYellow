@@ -168,7 +168,7 @@ PlaceEnemyHUDTiles:
 	and a
 	jr z, .notOwned
 	hlcoord 1, 1
-	ld [hl], $E9
+	ld [hl], $DF
 .notOwned
 	pop hl
 .notWildBattle
