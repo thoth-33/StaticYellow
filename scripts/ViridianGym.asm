@@ -279,7 +279,6 @@ ViridianGymJessieJamesText:
 	ld hl, ViridianGymJessieJamesLostText
 	ld de, ViridianGymJessieJamesLostText
 	call SaveEndBattleTextPointers
-	call StopAllMusic
 	ld a, OPP_ROCKET
 	ld [wCurOpponent], a
 	ld a, $2f
