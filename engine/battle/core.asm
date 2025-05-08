@@ -2028,6 +2028,9 @@ DrawEnemyHUDAndHPBar:
 	call ClearScreenArea
 	callfar PlaceEnemyHUDTiles
 	push hl
+	ld a, [wIsInBattle]
+	cp 2
+	jr z, .notOwned
 	ld a, [wEnemyMonSpecies2]
 	ld [wPokedexNum], a
 	callfar IndexToPokedex
