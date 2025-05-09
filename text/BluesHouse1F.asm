@@ -27,7 +27,7 @@ _MapHelpText::
 	cont "use the TOWN MAP."
 
 	para "It is also in the"
-	line "START MENU now."
+	line "START MENU."
 	done
 
 _BluesHouseDaisyBagFullText::
