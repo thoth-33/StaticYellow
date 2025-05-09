@@ -391,7 +391,9 @@ hLCDCPointer:: db
 
 hJoyInput:: db
 
-	ds 2
+hSkipOAMUpdates:: db
+
+	ds 1
 
 hDisableJoypadPolling:: db
 

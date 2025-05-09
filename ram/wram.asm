@@ -1753,7 +1753,9 @@ wSavedTileAnimations:: db
 
 wDamage:: dw
 
-	ds 2
+wDelayFrameBank:: db
+
+	ds 1
 
 wRepelRemainingSteps:: db
 
