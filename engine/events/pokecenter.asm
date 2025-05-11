@@ -10,6 +10,7 @@ DisplayPokemonCenterDialogue_::
 .regularCenter
 	call SaveScreenTilesToBuffer1 ; save screen
 	CheckEvent EVENT_FIRST_POKECENTER
+	jr nz, .skiptext1
 	ld hl, PokemonCenterWelcomeText
 	rst _PrintText
 	ld a, [wPartyCount]
