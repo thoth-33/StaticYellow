@@ -9,6 +9,7 @@ DisplayPokemonCenterDialogue_::
 	ret
 .regularCenter
 	call SaveScreenTilesToBuffer1 ; save screen
+	CheckEvent EVENT_FIRST_POKECENTER
 	ld hl, PokemonCenterWelcomeText
 	rst _PrintText
 	ld a, [wPartyCount]
@@ -27,6 +28,11 @@ DisplayPokemonCenterDialogue_::
 	ld a, [wCurrentMenuItem]
 	and a
 	jp nz, .declinedHealing ; if the player chose No
+	jp .skipHealingText
+.skiptext1
+	ld hl, ShallWeHealYourPokemonFastText
+	rst _PrintText
+.skipHealingText
 ;	call SetLastBlackoutMap
 	callfar IsStarterPikachuInOurParty
 	jr nc, .notHealingPlayerPikachu
@@ -37,8 +43,11 @@ DisplayPokemonCenterDialogue_::
 	call UpdateSprites
 	callfar PikachuWalksToNurseJoy ; todo
 .notHealingPlayerPikachu
+	CheckEvent EVENT_FIRST_POKECENTER
+	jr nz, .skiptext2
 	ld hl, NeedYourPokemonText
 	rst _PrintText
+.skiptext2
 	ld c, 64
 	rst _DelayFrames
 	call CheckPikachuFollowingPlayer
@@ -71,8 +80,11 @@ DisplayPokemonCenterDialogue_::
 .doNotReturnPikachu
 	lb bc, 1, 0
 	call Func_6ebb
+	CheckEvent EVENT_FIRST_POKECENTER
+	jr nz, .FightingFitShort
 	ld hl, PokemonFightingFitText
 	rst _PrintText
+.FightingFitShort
 	callfar IsStarterPikachuInOurParty
 	jr nc, .notInParty
 	lb bc, 15, 0
@@ -94,10 +106,15 @@ DisplayPokemonCenterDialogue_::
 	jr .done
 .declinedHealing
 	call LoadScreenTilesFromBuffer1 ; restore screen
+	jp .skipEventFirstPokecenter
 .done
+	SetEvent EVENT_FIRST_POKECENTER
+.skipEventFirstPokecenter
 	ld hl, PokemonCenterFarewellText
 	rst _PrintText
 	call UpdateSprites
+	ld a, PLAYER_DIR_DOWN
+	ld [wPlayerMovingDirection], a
 	ret
 
 .naotenho
@@ -142,6 +159,11 @@ ShallWeHealYourPokemonText:
 	text_far _ShallWeHealYourPokemonText
 	text_end
 
+ShallWeHealYourPokemonFastText:
+	text_far _ShallWeHealYourPokemonText
+	text_pause
+	text_end
+
 NeedYourPokemonText:
 	text_far _NeedYourPokemonText
 	text_end
@@ -151,7 +173,7 @@ PokemonFightingFitText:
 	text_end
 
 PokemonCenterFarewellText:
-	text_pause
+;	text_pause
 	text_far _PokemonCenterFarewellText
 	text_end
 
