@@ -33,26 +33,9 @@ _PalletTownGirlText::
 	text "I'm raising"
 	line "#MON too!"
 
-	para "However, it can"
-	line "be difficult to"
-	cont "train #MON!"
-
-	para "Here take this!"
-	line "It will help your"
-	cont "#MON level up"
-	cont "faster!"
-	prompt
-
-_PalletTownGirlReceivedCheatCandyText::
-	text "<PLAYER> got a"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
-	text_end
-
-_PalletTownGirlNoRoomText::
-	text "You have no"
-	line "room for this."
+	para "When they get"
+	line "strong, they can"
+	cont "protect me!"
 	done
 
 _PalletTownFisherText::
