@@ -11,6 +11,5 @@ _RedsHouse2FOptionsText::
 	para "If you need help"
 	line "leveling up your"
 	cont "#MON quicker,"
-	cont "talk to the girl"
-	cont "outside."
+	cont "check your PC."
 	done
