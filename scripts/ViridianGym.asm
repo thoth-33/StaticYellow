@@ -307,6 +307,7 @@ ViridianGymJessieJamesPostBattle:
 	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
 	call GBFadeOutToBlack
+	SetEvent EVENT_BEAT_VIRIDIAN_GYM_JESSIE_JAMES
 	ld a, HS_VIRIDIAN_GYM_JESSIE
 	ld [wMissableObjectIndex], a
 	predef HideObject
