@@ -47,7 +47,7 @@ LoadSpinnerArrowTiles::
 	pop af
 	dec a
 	jr nz, .loop
-	call DelayFrame ;Delay a frame because CopySpinnerTiles does not do this 
+	rst _DelayFrame ;Delay a frame because CopySpinnerTiles does not do this 
 	ret
 
 CopySpinnerTiles:
