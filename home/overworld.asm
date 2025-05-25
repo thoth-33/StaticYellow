@@ -530,15 +530,8 @@ WarpFound2::
 	ld [wUnusedLastMapWidth], a
 	ldh a, [hWarpDestinationMap]
 	ld [wCurMap], a
-	cp CERULEAN_CAVE_1F
-	jr z, .needsFlash
-	cp VICTORY_ROAD_1F
-	jr z, .needsFlash
-	cp VICTORY_ROAD_2F
-	jr z, .needsFlash
 	cp ROCK_TUNNEL_1F
 	jr nz, .notRockTunnel
-.needsFlash
 	ld a, $06
 	ld [wMapPalOffset], a
 	call GBFadeOutToBlack
