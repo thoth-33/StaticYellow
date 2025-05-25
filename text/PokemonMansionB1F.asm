@@ -31,7 +31,7 @@ _PokemonMansionJessieJamesText3::
 _PokemonMansionJessieJamesText4::
 	text "Looks like TEAM"
 	line "ROCKET's blasting"
-	cont "off again!@"
+	cont "away again!@"
 	text_end
 
 _PokemonMansionB1FBurglarBattleText::

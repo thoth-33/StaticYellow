@@ -738,8 +738,9 @@
 	const_skip 15
 	const EVENT_BEAT_MANSION_3_TRAINER_0
 	const EVENT_BEAT_MANSION_3_TRAINER_1
-	const_skip 11
+	const_skip 10
 	const EVENT_JESSIE_JAMES_MANSION
+	const_skip
 	const EVENT_BEAT_MANSION_4_JESSIE_JAMES
 	const EVENT_BEAT_MANSION_4_JESSIE_JAMES_ON_LEFT
 	const_skip 2
