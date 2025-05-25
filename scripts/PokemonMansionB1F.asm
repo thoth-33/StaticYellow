@@ -94,8 +94,8 @@ IF DEF(_DEBUG)
 ENDC
 	CheckEvent EVENT_BEAT_MANSION_4_JESSIE_JAMES
 	call z, PokemonMansionB1FScript_455a5
-	CheckEvent EVENT_BEAT_MANSION_4_TRAINER_1
-	call z, CheckFightingMapTrainers
+	CheckBothEventsSet EVENT_BEAT_MANSION_4_TRAINER_0, EVENT_BEAT_MANSION_4_TRAINER_1
+	jp nz, CheckFightingMapTrainers
 	ret
 
 PokemonMansionB1FScript_455a5:
