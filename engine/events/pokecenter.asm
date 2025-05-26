@@ -42,7 +42,7 @@ DisplayPokemonCenterDialogue_::
 	call LoadCurrentMapView
 	call Delay3
 	call UpdateSprites
-	callfar PikachuWalksToNurseJoy ; todo
+	callfar PikachuWalksToNurseJoy
 .notHealingPlayerPikachu
 	CheckEvent EVENT_FIRST_POKECENTER
 	jr nz, .skiptext2
