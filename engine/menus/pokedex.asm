@@ -102,14 +102,14 @@ HandlePokedexSideMenu:
 	jr z, .exitSideMenu
 	call PokedexToIndex
 	ld hl, wTopMenuItemY
-	ld a, 8
+	ld a, 7
 	ld [hli], a ; top menu item Y
 	ld a, 15
 	ld [hli], a ; top menu item X
 	xor a
 	ld [hli], a ; current menu item ID
 	inc hl
-	ld a, 4
+	ld a, 5
 	ld [hli], a ; max menu item ID
 	ld a, A_BUTTON | B_BUTTON
 	ld [hli], a ; menu watched keys (A button and B button)
@@ -131,9 +131,17 @@ HandlePokedexSideMenu:
 	jr z, .choseMove
 	dec a
 	jr z, .choseArea
-.choseQuit
 	dec a
-	jr z, .choseCry
+	vc_patch Forbid_printing_Pokedex
+IF DEF (_YELLOW_VC)
+	jr z, .handleMenuInput
+ELSE
+	jr z, .chosePrint
+ENDC
+	vc_patch_end
+	jr z, .chosePrint
+.choseQuit
+	ld b, 1
 .exitSideMenu
 	pop af
 	ld [wDexMaxSeenMon], a
@@ -157,9 +165,9 @@ HandlePokedexSideMenu:
 
 .buttonBPressed
 	push bc
-	hlcoord 15, 8
+	hlcoord 15, 7
 	ld de, 20
-	lb bc, " ", 9
+	lb bc, " ", 11
 	call DrawTileLine ; cover up the menu cursor in the side menu
 	pop bc
 	jr .exitSideMenu
@@ -194,11 +202,21 @@ HandlePokedexSideMenu:
 	ld b, 0
 	jr .exitSideMenu
 
-.choseCry
+.chosePrint
+	ldh a, [hTileAnimations]
+	push af
+	xor a
+	ldh [hTileAnimations], a
 	ld a, [wPokedexNum]
-	call GetCryData
-	rst _PlaySound
-	jp .handleMenuInput
+	ld [wCurPartySpecies], a
+	callfar PrintPokedexEntry
+	xor a
+	ldh [hAutoBGTransferEnabled], a
+	call ClearScreen
+	pop af
+	ldh [hTileAnimations], a
+	ld b, $3
+	jp .exitSideMenu
 
 ; handles the list of pokemon on the left of the pokedex screen
 ; sets carry flag if player presses A, unsets carry flag if player presses B
@@ -382,7 +400,7 @@ Pokedex_DrawInterface:
 	hlcoord 1, 1
 	ld de, PokedexContentsText
 	call PlaceString
-	hlcoord 16, 8
+	hlcoord 16, 7
 	ld de, PokedexMenuItemsText
 	call PlaceString
 ; find the highest pokedex number among the pokemon the player has seen
@@ -430,7 +448,8 @@ PokedexMenuItemsText:
 	next "STAT"
 	next "MOVE"
 	next "AREA"
-	next "CRY@"
+	next "PRNT"
+	next "QUIT@"
 
 Pokedex_PlacePokemonList:
 	xor a
