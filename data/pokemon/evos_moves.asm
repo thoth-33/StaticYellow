@@ -1277,6 +1277,7 @@ PikachuEvosMoves:
 	db 24, HEADBUTT
 	db 30, THUNDERBOLT
 	db 36, AGILITY
+  db 39, SLAM
 	db 41, THUNDER
 	db 50, LIGHT_SCREEN
 	db 0
@@ -1293,6 +1294,7 @@ RaichuEvosMoves:
 	db 24, HEADBUTT
 	db 30, THUNDERBOLT
 	db 36, AGILITY
+  db 39, SLAM
 	db 41, THUNDER
 	db 50, LIGHT_SCREEN
 	db 0
