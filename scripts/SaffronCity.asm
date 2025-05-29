@@ -17,7 +17,6 @@ SaffronCity_TextPointers:
 	dw_const SaffronCityPidgeotText,                  TEXT_SAFFRONCITY_PIDGEOT
 	dw_const SaffronCityRockerText,                   TEXT_SAFFRONCITY_ROCKER
 	dw_const SaffronCityRocket8Text,                  TEXT_SAFFRONCITY_ROCKET8
-	dw_const SaffronCityRocket9Text,                  TEXT_SAFFRONCITY_ROCKET9
 	dw_const SaffronCitySignText,                     TEXT_SAFFRONCITY_SIGN
 	dw_const SaffronCityFightingDojoSignText,         TEXT_SAFFRONCITY_FIGHTING_DOJO_SIGN
 	dw_const SaffronCityGymSignText,                  TEXT_SAFFRONCITY_GYM_SIGN
@@ -84,10 +83,6 @@ SaffronCityRockerText:
 
 SaffronCityRocket8Text:
 	text_far _SaffronCityRocket8Text
-	text_end
-
-SaffronCityRocket9Text:
-	text_far _SaffronCityRocket9Text
 	text_end
 
 SaffronCitySignText:
