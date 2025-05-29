@@ -82,14 +82,6 @@ _SaffronCityRocket8Text::
 	line "don't allow in!"
 	done
 
-_SaffronCityRocket9Text::
-	text "..."
-	line "Snore..."
-
-	para "Hah! He's taking"
-	line "a snooze!"
-	done
-
 _SaffronCitySignText::
 	text "SAFFRON CITY"
 	line "Shining, Golden"

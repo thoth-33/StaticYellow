@@ -13,7 +13,6 @@
 	const_export SAFFRONCITY_PIDGEOT
 	const_export SAFFRONCITY_ROCKER
 	const_export SAFFRONCITY_ROCKET8
-	const_export SAFFRONCITY_ROCKET9 ; removed in yellow, but still referenced in data/maps/hide_show_data.asm
 
 SaffronCity_Object:
 	db $f ; border block
