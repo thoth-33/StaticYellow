@@ -151,7 +151,6 @@ DEF SHOW EQU $15
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_3     ; 8A
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_4     ; 8B
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_5     ; 8C
-	const HS_SILPH_CO_2F_1                 ; 8D XXX never (de)activated?
 	const HS_SILPH_CO_2F_2                 ; 8E
 	const HS_SILPH_CO_2F_3                 ; 8F
 	const HS_SILPH_CO_2F_4                 ; 90
@@ -192,7 +191,6 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_9F_3                 ; B4
 	const HS_SILPH_CO_10F_1                ; B5
 	const HS_SILPH_CO_10F_2                ; B6
-	const HS_SILPH_CO_10F_3                ; B7 XXX never (de)activated?
 	const HS_SILPH_CO_10F_ITEM_1           ; B8
 	const HS_SILPH_CO_10F_ITEM_2           ; B9
 	const HS_SILPH_CO_10F_ITEM_3           ; BA
