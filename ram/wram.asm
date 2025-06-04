@@ -1995,7 +1995,7 @@ wOptions:: db
 
 wObtainedBadges:: flag_array NUM_BADGES
 
-	ds 1
+wUnusedObtainedBadges:: db
 
 wLetterPrintingDelayFlags:: db
 
