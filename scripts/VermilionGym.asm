@@ -1,10 +1,6 @@
 VermilionGym_Script:
 	ld hl, wCurrentMapScriptFlags
-	bit BIT_CUR_MAP_LOADED_1, [hl]
 	res BIT_CUR_MAP_LOADED_1, [hl]
-	push hl
-	call nz, .LoadNames
-	pop hl
 	bit BIT_CUR_MAP_LOADED_2, [hl]
 	res BIT_CUR_MAP_LOADED_2, [hl]
 	call nz, VermilionGymSetDoorTile
@@ -15,17 +11,6 @@ VermilionGym_Script:
 	call ExecuteCurMapScriptInTable
 	ld [wVermilionGymCurScript], a
 	ret
-
-.LoadNames:
-	ld hl, .CityName
-	ld de, .LeaderName
-	jp LoadGymLeaderAndCityName
-
-.CityName:
-	db "VERMILION CITY@"
-
-.LeaderName:
-	db "LT.SURGE@"
 
 VermilionGymSetDoorTile:
 	CheckEvent EVENT_2ND_LOCK_OPENED

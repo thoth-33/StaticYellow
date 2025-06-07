@@ -1268,11 +1268,7 @@ NEXTU
 wPartyHPBarAttributes:: ds PARTY_LENGTH
 ENDU
 
-wGymCityName:: ds 17
-
-wGymLeaderName:: ds NAME_LENGTH
-
-	ds 15
+	ds 43
 
 wStoredMovedexListIndex:: db
 
