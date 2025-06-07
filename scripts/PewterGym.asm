@@ -1,8 +1,4 @@
 PewterGym_Script:
-	ld hl, wCurrentMapScriptFlags
-	bit BIT_CUR_MAP_LOADED_2, [hl]
-	res BIT_CUR_MAP_LOADED_2, [hl]
-	call nz, .LoadNames
 	call EnableAutoTextBoxDrawing
 	ld hl, PewterGymTrainerHeaders
 	ld de, PewterGym_ScriptPointers
@@ -10,18 +6,6 @@ PewterGym_Script:
 	call ExecuteCurMapScriptInTable
 	ld [wPewterGymCurScript], a
 	ret
-
-.LoadNames:
-	ld hl, .CityName
-	ld de, .LeaderName
-	call LoadGymLeaderAndCityName
-	ret
-
-.CityName:
-	db "PEWTER CITY@"
-
-.LeaderName:
-	db "BROCK@"
 
 PewterGymResetScripts:
 	xor a

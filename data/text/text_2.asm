@@ -140,11 +140,11 @@ _DexRatingText::
 	done
 
 _GymStatueText1::
-	text_ram wGymCityName
+	text_ram wStringBuffer
 	text_start
 	line "#MON GYM"
 	cont "LEADER: @"
-	text_ram wGymLeaderName
+	text_ram wNameBuffer
 	text_start
 
 	para "WINNING TRAINERS:"
@@ -152,11 +152,11 @@ _GymStatueText1::
 	done
 
 _GymStatueText2::
-	text_ram wGymCityName
+	text_ram wStringBuffer
 	text_start
 	line "#MON GYM"
 	cont "LEADER: @"
-	text_ram wGymLeaderName
+	text_ram wNameBuffer
 	text_start
 
 	para "WINNING TRAINERS:"
