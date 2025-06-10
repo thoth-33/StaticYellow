@@ -601,22 +601,22 @@ LoadSGB:
 .onDMG
 	ret
 .onSGB
-	ld a, $2
+	ld a, $1
 	ld [wOnSGB], a
 	di
 	call PrepareSuperNintendoVRAMTransfer
 	ei
-	ld a, 1
+	ld a, 2
 	ld [wCopyingSGBTileData], a
 	ld de, ChrTrnPacket
 	ld hl, SGBBorderGraphics
 	call CopyGfxToSuperNintendoVRAM
-	ld a, 1
+	xor a
 	ld [wCopyingSGBTileData], a
 	ld de, PctTrnPacket
 	ld hl, BorderPalettes
 	call CopyGfxToSuperNintendoVRAM
-	xor a
+	ld a, 1
 	ld [wCopyingSGBTileData], a
 	ld de, PalTrnPacket
 	ld hl, SuperPalettes
