@@ -156,7 +156,7 @@ GymGuideSprite::         INCBIN "gfx/sprites/gym_guide.2bpp"
 GrampsSprite::           INCBIN "gfx/sprites/gramps.2bpp"
 ClerkSprite::            INCBIN "gfx/sprites/clerk.2bpp"
 FishingGuruSprite::      INCBIN "gfx/sprites/fishing_guru.2bpp"
-
+PokeBall2Sprite::        INCBIN "gfx/sprites/poke_ball2.2bpp"
 
 SECTION "Mon Icons 1", ROMX
 
