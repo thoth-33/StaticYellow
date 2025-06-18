@@ -81,11 +81,6 @@ Route22DefaultScript:
 	db -1 ; end
 
 Route22FirstRivalBattleScript:
-	ld a, ROUTE22_RIVAL1
-	ld [wEmotionBubbleSpriteIndex], a
-	xor a ; EXCLAMATION_BUBBLE
-	ld [wWhichEmotionBubble], a
-	predef EmotionBubble
 	ld a, [wWalkBikeSurfState]
 	and a
 	jr z, .walking
@@ -94,6 +89,11 @@ Route22FirstRivalBattleScript:
 	ld c, BANK(Music_MeetRival)
 	ld a, MUSIC_MEET_RIVAL
 	call PlayMusic
+	ld a, ROUTE22_RIVAL1
+	ld [wEmotionBubbleSpriteIndex], a
+	xor a ; EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
 	ld a, ROUTE22_RIVAL1
 	ldh [hSpriteIndex], a
 	call Route22MoveRivalRightScript
@@ -244,11 +244,6 @@ Route22Rival1ExitScript:
 	ret
 
 Route22SecondRivalBattleScript:
-	ld a, ROUTE22_RIVAL2
-	ld [wEmotionBubbleSpriteIndex], a
-	xor a ; EXCLAMATION_BUBBLE
-	ld [wWhichEmotionBubble], a
-	predef EmotionBubble
 	ld a, [wWalkBikeSurfState]
 	and a
 	jr z, .walking
@@ -256,6 +251,11 @@ Route22SecondRivalBattleScript:
 .walking
 	call StopAllMusic
 	farcall Music_RivalAlternateTempo
+	ld a, ROUTE22_RIVAL2
+	ld [wEmotionBubbleSpriteIndex], a
+	xor a ; EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
 	ld a, ROUTE22_RIVAL2
 	ldh [hSpriteIndex], a
 	call Route22MoveRivalRightScript
