@@ -442,12 +442,12 @@ PrinterDataPacket3:
 PrinterDataPacket4:
 	db  4, 0, $00, 0
 	dw 4
-PrinterDataPacket5: ; unused
-	db  8, 0, $00, 0
-	dw 8
-PrinterDataPacket6: ; unused
-	db 15, 0, $00, 0
-	dw 15
+;PrinterDataPacket5: ; unused
+;	db  8, 0, $00, 0
+;	dw 8
+;PrinterDataPacket6: ; unused
+;	db 15, 0, $00, 0
+;	dw 15
 
 PrinterSerial_::
 	ld a, [wPrinterOpcode]
