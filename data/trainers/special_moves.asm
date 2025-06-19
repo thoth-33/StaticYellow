@@ -599,6 +599,87 @@ SpecialTrainerMoves:
     	db 6, 3, BLIZZARD
     	db 6, 4, HYPER_BEAM
 	db 0
+	
+	db RIVAL3, 1 
+	db 1, 1, EARTHQUAKE
+        db 1, 2, SLASH
+	db 1, 3, SWORDS_DANCE
+        db 1, 4, DIG
+	db 2, 1, THUNDER_WAVE
+    	db 2, 2, RECOVER
+    	db 2, 3, PSYCHIC_M
+    	db 2, 4, TRI_ATTACK
+    	db 3, 1, PSYCHIC_M
+	db 3, 2, SELFDESTRUCT
+	db 3, 3, STUN_SPORE
+	db 3, 4, MEGA_DRAIN
+	db 4, 1, EXPLOSION
+	db 4, 2, BLIZZARD
+	db 4, 3, SPIKE_CANNON
+	db 4, 4, ICE_BEAM
+    	db 5, 1, PSYWAVE
+    	db 5, 2, SOLARBEAM
+    	db 5, 3, NIGHT_SHADE
+    	db 5, 4, FIRE_SPIN
+    	db 6, 1, THUNDER_WAVE
+    	db 6, 2, THUNDERBOLT
+    	db 6, 3, PIN_MISSILE
+    	db 6, 4, HEADBUTT
+	db 0
+
+	db RIVAL3, 2
+	db 1, 1, EARTHQUAKE
+        db 1, 2, SLASH
+	db 1, 3, SWORDS_DANCE
+        db 1, 4, DIG
+	db 2, 1, THUNDER_WAVE
+    	db 2, 2, RECOVER
+    	db 2, 3, PSYCHIC_M
+    	db 2, 4, TRI_ATTACK
+    	db 3, 1, PSYCHIC_M
+	db 3, 2, SELFDESTRUCT
+	db 3, 3, STUN_SPORE
+	db 3, 4, MEGA_DRAIN
+    	db 4, 1, THUNDER_WAVE
+    	db 4, 2, THUNDERBOLT
+    	db 4, 3, TRI_ATTACK
+    	db 4, 4, SWIFT
+	db 5, 1, EXPLOSION
+	db 5, 2, BLIZZARD
+	db 5, 3, SPIKE_CANNON
+	db 5, 4, ICE_BEAM
+    	db 6, 1, FIRE_BLAST
+    	db 6, 2, BODY_SLAM
+    	db 6, 3, FLAMETHROWER
+    	db 6, 4, DIG
+	db 0
+
+	db RIVAL3, 3
+	db 1, 1, EARTHQUAKE
+        db 1, 2, SLASH
+	db 1, 3, SWORDS_DANCE
+        db 1, 4, DIG
+	db 2, 1, THUNDER_WAVE
+    	db 2, 2, RECOVER
+    	db 2, 3, PSYCHIC_M
+    	db 2, 4, TRI_ATTACK
+    	db 3, 1, PSYCHIC_M
+	db 3, 2, SELFDESTRUCT
+	db 3, 3, STUN_SPORE
+	db 3, 4, MEGA_DRAIN
+	db 4, 1, PSYWAVE
+    	db 4, 2, SOLARBEAM
+    	db 4, 3, NIGHT_SHADE
+    	db 4, 4, FIRE_SPIN
+    	db 5, 1, THUNDER_WAVE
+    	db 5, 2, THUNDERBOLT
+    	db 5, 3, TRI_ATTACK
+    	db 5, 4, SWIFT
+    	db 6, 1, HYDRO_PUMP
+    	db 6, 2, BLIZZARD
+    	db 6, 3, SKULL_BASH
+    	db 6, 4, ACID_ARMOR
+	db 0
 
 	db RIVAL3, 4 
 	db 1, 1, THUNDER_WAVE
