@@ -48,5 +48,5 @@ TrainerNames::
 	li "AGATHA"
 	li "LANCE"
 	li "NURSE JOY"
-	li "OFF.JENNY"
+	li "OFC.JENNY"
 	assert_list_length NUM_TRAINERS
