@@ -278,7 +278,7 @@ _CinnabarGymText_6::
 	line "question."
 	done
 
-_CinnabarGymText_7::
-	text "Come on, answer"
-	line "the question!"
-	done
+;_CinnabarGymText_7::
+;	text "Come on, answer"
+;	line "the question!"
+;	done

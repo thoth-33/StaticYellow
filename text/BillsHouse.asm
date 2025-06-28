@@ -1,7 +1,7 @@
-_BillsHouseBillDontLeaveText::
-	text "Whoa, don't go"
-	line "anywhere, wait!"
-	done
+;_BillsHouseBillDontLeaveText::
+;	text "Whoa, don't go"
+;	line "anywhere, wait!"
+;	done
 
 _BillsHouseBillImNotAPokemonText::
 	text "Hiya! I'm a"
