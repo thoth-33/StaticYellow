@@ -287,4 +287,6 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_JENNY
 	const PAL_HERO          ; $EE
 	const PAL_GREEN         ; $EF
+	const PAL_BW	               ; $F0
+ 	const PAL_WHITE                ; $F1
 DEF NUM_SGB_PALS EQU const_value
