@@ -151,7 +151,7 @@ UpdateHPBar_AnimateHPBar:
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
 ;;;;;;;;;;
-	ld c, 2
+	ld c, 1
 	rst _DelayFrames
 	pop de
 	ld a, [wHPBarDelta] ; +1 or -1
