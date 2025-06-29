@@ -86,4 +86,6 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_MEWMON2
 	const PAL_MEWMON3
 	const PAL_GRAYMON
+	const PAL_BW	               
+ 	const PAL_WHITE               
 DEF NUM_SGB_PALS EQU const_value
