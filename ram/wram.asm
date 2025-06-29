@@ -391,9 +391,9 @@ wPlayerMonNumber:: db
 ; the address of the menu cursor's current location within wTileMap
 wMenuCursorLocation:: dw
 
-wMaxDaycareLevel:: db	
-
 wMaxLevel:: db
+
+	ds 1
 
 ; how many times should HandleMenuInput poll the joypad state before it returns?
 wMenuJoypadPollCount:: db

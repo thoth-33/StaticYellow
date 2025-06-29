@@ -76,9 +76,7 @@ OakSpeech:
 	call PrepareForSpecialWarp
 	xor a
 	ldh [hTileAnimations], a
-	ld a, [wStatusFlags6]
-	bit BIT_DEBUG_MODE, a
-	jp nz, .skipSpeech
+
 .MenuCursorLoop ; difficulty menu
 	ld hl, DifficultyText
   	rst _PrintText
@@ -106,6 +104,9 @@ OakSpeech:
 .doneLoop
    	call ClearScreen ; clear the screen before resuming normal intro
 
+	ld a, [wStatusFlags6]
+	bit BIT_DEBUG_MODE, a
+	jp nz, .skipSpeech
 	; Gender Menu
 	ld hl, BoyGirlText  ; added to the same file as the other oak text
 	rst _PrintText     ; show this text

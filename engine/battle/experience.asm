@@ -121,39 +121,11 @@ GainExperience:
 	ld a, [wDifficulty] ; Check if player is on hard mode
 	and a
 	jr z, .next1 ; no level caps if not on hard mode
-
-	ld a, [wGameStage] ; Check if player has beat the game
-	and a
-	ld d, 100
-	jr nz, .next1
-	call GetBadgesObtained
-	ld a, [wNumSetBits]
-	cp 8
-	ld d, 65 ; Flareon/Jolteon/Vaporeon's level
-	jr nc, .next1
-	cp 7
-	ld d, 53 ; Rhydon's level
-	jr nc, .next1
-	cp 6
-	ld d, 50 ; Arcanine's level
-	jr nc, .next1
-	cp 5
-	ld d, 48 ; Alakazam's level
-	jr nc, .next1
-        cp 4
-	ld d, 44 ; Weezing's level
-	jr nc, .next1
-	cp 3
-	ld d, 37 ; Villeplume's level
-	jr nc, .next1
-	cp 2
-        ld d, 28 ; Raichu's level
-	jr nc, .next1
-	cp 1
-	ld d, 22 ; Starmie's level
-	jr nc, .next1
-	ld d, 15 ; Onix's level
+	call GetLevelCap
+	ld a, [wMaxLevel]
+	ld d, a
 .next1
+
 	callfar CalcExperience ; get max exp
 ; compare max exp with current exp
 	ldh a, [hExperience]
@@ -523,9 +495,9 @@ GetBadgesObtained::
 
 ; returns the level cap in wMaxLevel
 GetLevelCap::	
-;	CheckEvent EVENT_PLAYER_IS_CHAMPION
-;	ld a, 100
-;	jr nz, .storeValue
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	ld a, 100
+	jr nz, .storeValue
 	call GetBadgesObtained
 	ld a, [wNumSetBits]
 	ld hl, BadgeLevelRestrictions
@@ -538,12 +510,12 @@ GetLevelCap::
 	ret
 
 BadgeLevelRestrictions:
-    db 14 ; Onix
-    db 21 ; Starmie
-    db 24 ; Raichu
-    db 29 ; Vileplume
-    db 43 ; Alakazam
-    db 43 ; Weezing
-    db 47 ; Arcanine
-    db 50 ; Rhydon
+    db 15 ; Onix
+    db 22 ; Starmie
+    db 28 ; Raichu
+    db 37 ; Vileplume
+    db 44 ; Alakazam
+    db 48 ; Weezing
+    db 50 ; Arcanine
+    db 53 ; Rhydon
     db 65 ; Champion's starter

@@ -133,6 +133,7 @@ HallOfFameOakCongratulationsScript:
 	ld a, HS_LANCESROOM_LANCE_REMATCH
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	SetEvent EVENT_PLAYER_IS_CHAMPION
 	ld a, SCRIPT_HALLOFFAME_RESET_EVENTS_AND_SAVE
 	ld [wHallOfFameCurScript], a
 	ret
