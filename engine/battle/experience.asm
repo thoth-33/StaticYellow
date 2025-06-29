@@ -511,19 +511,39 @@ IsCurrentMonBattleMon:
 	cp b
 	ret
 
-
-;function to count the set bits in wObtainedBadges
-; OUTPUT:
-; a = set bits in wObtainedBadges
+; function to count the set bits in wObtainedBadges
+; returns the number of badges in wNumSetBits
 GetBadgesObtained::
-	push hl
-	push bc
 	push de
 	ld hl, wObtainedBadges
 	ld b, $1
 	call CountSetBits
 	pop de
-	pop bc
-	pop hl
-	ld a, [wNumSetBits]
 	ret
+
+; returns the level cap in wMaxLevel
+GetLevelCap::	
+;	CheckEvent EVENT_PLAYER_IS_CHAMPION
+;	ld a, 100
+;	jr nz, .storeValue
+	call GetBadgesObtained
+	ld a, [wNumSetBits]
+	ld hl, BadgeLevelRestrictions
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+.storeValue
+	ld [wMaxLevel], a
+	ret
+
+BadgeLevelRestrictions:
+    db 14 ; Onix
+    db 21 ; Starmie
+    db 24 ; Raichu
+    db 29 ; Vileplume
+    db 43 ; Alakazam
+    db 43 ; Weezing
+    db 47 ; Arcanine
+    db 50 ; Rhydon
+    db 65 ; Champion's starter
